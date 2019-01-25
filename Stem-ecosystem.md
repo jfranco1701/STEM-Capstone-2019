@@ -1,28 +1,37 @@
 # STEM-ECOSYSTEM PROJECT BID
-### Names:
+**Names**:
 
 * Mounika Chowdary Addagada
+* Dakota (Cody) Kaup
 
-### Email addresses:
+**Email addresses**:
 
 * maddagada@unomaha.edu
+* dkaup@unomaha.edu
 
-### University: University of Nebraska-Omaha
+**University**: University of Nebraska-Omaha
 
-### Faculty Advisor: Dr.Matt Hale
-### Project: Stem-ecosystem
-### Project Agency(optional)
-### Technical Director/External Customer: Dr.Jenna Yentes
-## Reason for wanting this project:
+**Faculty Advisor**: Dr. Matt Hale
 
-## Project Scope:
+**Project Scope**: Stem-ecosystem
 
-## Qualification:
-(high level overview of team structure)
+**Project Agency(optional)**
+
+**Technical Director/External Customer**: Dr. Jenna Yentes
+
+**Reason for wanting this project**:
+
+**Project Scope**:
+
+**Qualifications**:
 
 •	(short bio and overview of qualifications for first team member)
 
-•	(short bio and overview of qualifications for second team member)
+* Dakota Kaup is an undergrad student majoring in Cybersecurity. He has 
+    interned at Berkshire Hathaway with a focus on system administration and 
+    Union Pacific focusing on Cybersecurity. He currently works as a Platform 
+    Reliability Engineer at Flywheel using software engineering ideas to solve 
+    operations-focused issues.
 
 •	(short bio and overview of qualifications for third team member)
 
