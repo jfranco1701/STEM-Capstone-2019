@@ -1,11 +1,18 @@
 # STEM-ECOSYSTEM PROJECT BID
-### Names
-### Email addresses
-### University
-### Faculty Advisor
-### Project
+### Names:
+
+* Mounika Chowdary Addagada
+
+### Email addresses:
+
+* maddagada@unomaha.edu
+
+### University: University of Nebraska-Omaha
+
+### Faculty Advisor: Dr.Matt Hale
+### Project: Stem-ecosystem
 ### Project Agency(optional)
-### Technical Director/External Customer
+### Technical Director/External Customer: Dr.Jenna Yentes
 ## Reason for wanting this project:
 
 ## Project Scope:
