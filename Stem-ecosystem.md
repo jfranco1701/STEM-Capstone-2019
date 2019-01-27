@@ -3,11 +3,13 @@
 
 * Mounika Chowdary Addagada
 * Dakota (Cody) Kaup
+* Joe Franco
 
 **Email addresses**:
 
 * maddagada@unomaha.edu
 * dkaup@unomaha.edu
+* jfranco@unomaha.edu
 
 **University**: University of Nebraska-Omaha
 
@@ -35,6 +37,8 @@ This web application is securely developed for the different users such as paren
 
 For this project, the initial thoughts we had are choosing a good framework that stands for the long term. Upon the qualification and knowledge of the team members, we decided to develop a secure Django framework on the backend which supports PostgreSQL database. Since we have the different type of users such as parents, teachers, counselors, and kids we are thinking of having different user interface based on the user. For example, to the kid’s user interface we are thinking of using animations to create interest for the kids in enrolling to the camps and community programs.
 
+Since this web application is being developed in a cybersecurity capstone course, security will be an important consideration in its design and implementation.  This will include features such as the validation and sanitation of input data and the use of session or token-based authentication.  Regulatory requirements will also be considered during its design.  One example would be ensuring student data is kept private as required by the Family Educational Rights and Privacy Act (FERPA).    
+
 **Qualifications**:
 
 * Mounika Chowdary Addagada is a Cybersecurity major attending the University of Nebraska at Omaha. She has intermediate knowledge of developing secure web application, along with an expertise in many other languages such as Django, Ember, Docker, SQL and intermediate level of experience with Angular JS. She also has the 3 year of working experience in a professional environment. She is interested in AWS Cloud and so now she is preparing for the AWS Cloud Practitioner certification.
@@ -45,6 +49,6 @@ For this project, the initial thoughts we had are choosing a good framework that
     Reliability Engineer at Flywheel using software engineering ideas to solve 
     operations-focused issues.
 
-•	(short bio and overview of qualifications for third team member)
+* Joe Franco is a Cybersecurity graduate student at the University of Nebraska at Omaha.  He also received a B.S. in Computer Science at UNO in 2014.  He has almost 25 years of experience working in information technology while with the City of Omaha Police Department.  He obtained a Senior Applications Analyst position in 2010 and works primarly as an analyst and web developer.  
 
 •	(short bio and overview of qualifications for fourth team member)
