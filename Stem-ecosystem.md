@@ -15,11 +15,19 @@
 
 **Project Scope**: Stem-ecosystem
 
-**Project Agency(optional)**
+**Project Agency(optional)**: Omaha STEM Ecosystem 
 
 **Technical Director/External Customer**: Dr. Jenna Yentes
 
-**Reason for wanting this project**:
+**Reason for wanting this project**: As individuals with an interest in STEM 
+    fields, we share a vision with Omaha STEM Ecosystem in wanting to see these
+    careers thrive. In order to capture that interest and get the greatest 
+    benefit, it needs to start early. Offering captivating projects and
+    community events can help foster young minds and grow their social circles.
+    This interaction should be as seemless as possible for both the students 
+    interested and the educators setting up these events. We believe this is an
+    opening to provide our expertise and time for the benefit of the greater 
+    good.
 
 **Project Scope**:
 
