@@ -21,15 +21,15 @@
 
 **Technical Director/External Customer**: Dr. Jenna Yentes
 
-**Reason for wanting this project**: As individuals with an interest in STEM 
+**Reason for wanting this project**: As students with an interest in STEM 
     fields, we share a vision with Omaha STEM Ecosystem in wanting to see these
     careers thrive. In order to capture that interest and get the greatest 
     benefit, it needs to start early. Offering captivating projects and
     community events can help foster young minds and grow their social circles.
     This interaction should be as seemless as possible for both the students 
     interested and the educators setting up these events. We believe this is an
-    opening to provide our expertise and time for the benefit of the greater 
-    good.
+    oppurtunity to share the skills we have learned while at UNO and return
+    the favor to UNO and the next generation of STEM students.
 
 **Project Scope**:
 
@@ -51,4 +51,4 @@ Since this web application is being developed in a cybersecurity capstone course
 
 * Joe Franco is a Cybersecurity graduate student at the University of Nebraska at Omaha.  He also received a B.S. in Computer Science at UNO in 2014.  He has almost 25 years of experience working in information technology while with the City of Omaha Police Department.  He obtained a Senior Applications Analyst position in 2010 and works primarly as an analyst and web developer.  
 
-•	(short bio and overview of qualifications for fourth team member)
+* Cory Keilig is a senior Undergraduate studying Cybersecurity and UNO's College of IS&T. His strengths include self-motivation, a willingness to lead, and an interest in developing strong working relationships. His creativity in Computer Science and Cybersecurity started in high school with a website project that helped spread awareness about high school activities. His technical experience working as a Software Development intern has given him technical experience and an understanding of system design solutions.
