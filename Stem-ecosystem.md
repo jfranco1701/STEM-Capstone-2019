@@ -4,12 +4,14 @@
 * Mounika Chowdary Addagada
 * Dakota (Cody) Kaup
 * Joe Franco
+* Cory Keilig
 
 **Email addresses**:
 
 * maddagada@unomaha.edu
 * dkaup@unomaha.edu
 * jfranco@unomaha.edu
+* ckeilig@unomaha.edu
 
 **University**: University of Nebraska-Omaha
 
@@ -23,21 +25,27 @@
 
 **Reason for wanting this project**: As students with an interest in STEM 
     fields, we share a vision with Omaha STEM Ecosystem in wanting to see these
-    careers thrive. In order to capture that interest and get the greatest 
-    benefit, it needs to start early. Offering captivating projects and
-    community events can help foster young minds and grow their social circles.
-    This interaction should be as seemless as possible for both the students 
-    interested and the educators setting up these events. We believe this is an
-    oppurtunity to share the skills we have learned while at UNO and return
-    the favor to UNO and the next generation of STEM students.
+    careers thrive. Offering captivating projects and community events can help 
+    foster young minds and grow their social circles. This interaction should 
+    be as seemless as possible for both the students and the event coordinators.
+    We believe this to be an oppurtunity to share the skills we have learned while 
+    at UNO and return the favor to UNO and the next generation of STEM students.
 
 **Project Scope**:
 
-This web application is securely developed for the different users such as parents, teachers, counselors and kids to figure out what camps and programs that are useful for the kids are happening in the community and also helps the parents, teachers, and counselors in figuring out what program or camp would be good for kids. Therefore, the initial plan is to implement different login and application features for each user.
+Our capstone team will produce a single web application for the use of the STEM Ecosystem (i.e. parents, teachers, counselors and students). 
+The goal of the application is to help families and educators match students with relevant STEM camps and programs in the Omaha community. 
+The final product will contain the following features which will hopefully spur interest in Omaha STEM and enable seamless interaction between educators and students and their families.
 
-For this project, the initial thoughts we had are choosing a good framework that stands for the long term. Upon the qualification and knowledge of the team members, we decided to develop a secure Django framework on the backend which supports PostgreSQL database. Since we have the different type of users such as parents, teachers, counselors, and kids we are thinking of having different user interface based on the user. For example, to the kid’s user interface we are thinking of using animations to create interest for the kids in enrolling to the camps and community programs.
+The initial plan is to model the application after the existing https://omahastem.com. The low barrier of entry to the existing site, (i.e. not having to log in right away) should be implemented, but with exclusive features upon logging in. A role-based security architecture will allow the administrators to control what each user-role (i.e. student, counselor, etc) has access to. The user's role may also determine what they see upon logging in. Using animations and modern web-design similar to the current site will create interest for the students in enrolling in the camps and programs.
 
-Since this web application is being developed in a cybersecurity capstone course, security will be an important consideration in its design and implementation.  This will include features such as the validation and sanitation of input data and the use of session or token-based authentication.  Regulatory requirements will also be considered during its design.  One example would be ensuring student data is kept private as required by the Family Educational Rights and Privacy Act (FERPA).    
+
+With regards to events, the application will include a modern search experience, advanced indexing and tagging, and event management. 
+Netflix-esque behavior such as auto-complete and smart suggestions will quickly guide the user to relevant content. Managing the tags will become an important piece in providing relevant results. Thirdly, the event maintenance tool will provide a utility for certain users to maintain different categories of events and record historical events. Event management will also need to fulfill the requirement of an approval process for event creation and event open-sourcing. Integration with other platforms such as Facebook and EventBrite is also possible.
+
+Lastly the application will provide some insight into its effectiveness by tracking user-metrics in some form, either with Google Analytics or some other tool. However, since this web application may be tracking user demographics, security will be an important consideration in its design and implementation.  This will include features such as the validation and sanitation of input data and the use of session or token-based authentication.  Regulatory requirements will also be considered during its design.  One example would be ensuring student data is kept private as required by the Family Educational Rights and Privacy Act (FERPA).    
+
+For this project to be successful in the long term, we will make technology decisions that are easily extendable and scalable. Upon the qualification and knowledge of the team members, we will develop the application with a modern and popular web framework called Django, using a popular database management system. 
 
 **Qualifications**:
 
