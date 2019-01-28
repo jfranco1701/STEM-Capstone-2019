@@ -23,13 +23,15 @@
 
 **Technical Director/External Customer**: Dr. Jenna Yentes
 
-**Reason for wanting this project**: As students with an interest in STEM 
-    fields, we share a vision with Omaha STEM Ecosystem in wanting to see these
-    careers thrive. Offering captivating projects and community events can help 
-    foster young minds and grow their social circles. This interaction should 
-    be as seemless as possible for both the students and the event coordinators.
-    We believe this to be an oppurtunity to share the skills we have learned while 
-    at UNO and return the favor to UNO and the next generation of STEM students.
+**Reason for wanting this project**: 
+
+As students with an interest in STEM fields, we share a vision with Omaha 
+STEM Ecosystem in wanting to see these careers thrive. Offering captivating 
+projects and community events can help foster young minds and grow their social
+circles. This interaction should be as seemless as possible for both the 
+students and the event coordinators. We believe this to be an oppurtunity to 
+share the skills we have learned while at UNO and return the favor to UNO and 
+the next generation of STEM students.
 
 **Project Scope**:
 
