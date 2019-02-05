@@ -20,7 +20,6 @@ What has been done in the literature and what is your technical plan?
 
 |Resource  | Dr. Hale needed? | Investigating Team member | Description |
 |-------------------|---------|---------------------------|-------------|
-|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
-|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
-|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Cloud-based hosting evironment| No | ?? | Hosting environment to be used for development and testing|
 |Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
