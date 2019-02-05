@@ -20,5 +20,7 @@ What has been done in the literature and what is your technical plan?
 
 |Resource  | Dr. Hale needed? | Investigating Team member | Description |
 |-------------------|---------|---------------------------|-------------|
-|Some resource| No | Bob | Some description  |
-|e.g. PLC unit | Yes | Gary | A programmable logic controller from Siemens for investigation.|
+|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
