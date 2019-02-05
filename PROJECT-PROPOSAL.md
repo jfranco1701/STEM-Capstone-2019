@@ -22,4 +22,4 @@ What has been done in the literature and what is your technical plan?
 |-------------------|---------|---------------------------|-------------|
 |Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
 |Cloud-based hosting evironment| No | ?? | Hosting environment to be used for development and testing|
-|Hardware for development| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|CSS framework | No | ?? | A CSS framework will be used to provide additional UI controls and site theming |
