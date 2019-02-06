@@ -17,3 +17,4 @@ What could go wrong in the project and why?
 What has been done in the literature and what is your technical plan?
 
 ## [Resources/Technology Needed](https://github.com/MLHale/CYBR4580-8950/blob/master/projects/milestone1.md#resources-needed)
+- What do you need to be successful?
