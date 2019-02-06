@@ -25,7 +25,7 @@ advancement of students in science, technology, engineering, and mathematics.
 
 
 
-## [Resources/Technology Needed](https://github.com/MLHale/CYBR4580-8950/blob/master/projects/milestone1.md#resources-needed)
+## Resources/Technology Needed
 
 |Resource  | Dr. Hale needed? | Investigating Team member | Description |
 |-------------------|---------|---------------------------|-------------|
