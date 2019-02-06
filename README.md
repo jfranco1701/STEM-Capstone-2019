@@ -22,7 +22,7 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ## Proposed Project Timeline
 
-![alt text](gant chart.png "Description goes here")
+![alt text](gant_chart.png "Description goes here")
 
 
 ## Resources/Technology Needed
