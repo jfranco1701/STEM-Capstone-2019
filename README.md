@@ -20,3 +20,10 @@ in. The end of this project will include a baseline for STEM Ecosystem to grow
 into the future with their users on a scalable platform to help continue the
 advancement of students in science, technology, engineering, and mathematics.
 
+Proposed Project Timeline
+
+When will you do it?
+
+    Define the tasks and expected time to completion
+    Create and submit a gantt chart
+
