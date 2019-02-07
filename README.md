@@ -20,7 +20,20 @@ in. The end of this project will include a baseline for STEM Ecosystem to grow
 into the future with their users on a scalable platform to help continue the
 advancement of students in science, technology, engineering, and mathematics.
 
+## Proposed Project Timeline
+
+![Gantt Chart](Gantt_Chart.png "")
+
+## Resources/Technology Needed
+
+|Resource  | Dr. Hale needed? | Investigating Team member | Description |
+|-------------------|---------|---------------------------|-------------|
+|Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Cloud-based hosting evironment| No | ?? | Hosting environment to be used for development and testing|
+|CSS framework | No | ?? | A CSS framework will be used to provide additional UI controls and site theming |
+
 ## [Project-oriented Risk List](https://github.com/MLHale/CYBR4580-8950/blob/master/projects/milestone1.md#risk-list)
+
 | Risk Name (value) | Impact | Likelihood | Description | Mitigation |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------|
 | Misunderstanding the project requirements (75) | 9 | 8 | When the requirements are not clearly understood by team. | Restrict requirements to be complete, testable, consistent, design free and unambiguous.  Use a formal platform to keep requirements and use-case diagrams. |
