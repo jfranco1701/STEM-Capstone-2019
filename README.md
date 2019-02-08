@@ -24,15 +24,8 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ![Gantt Chart](Gantt_Chart.png "")
 
-## Resources/Technology Needed
 
-|Resource  | Dr. Hale needed? | Investigating Team member | Description |
-|-------------------|---------|---------------------------|-------------|
-|Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
-|Cloud-based hosting evironment| No | ?? | Hosting environment to be used for development and testing|
-|CSS framework | No | ?? | A CSS framework will be used to provide additional UI controls and site theming |
-
-## [Project-oriented Risk List](https://github.com/MLHale/CYBR4580-8950/blob/master/projects/milestone1.md#risk-list)
+## Project-oriented Risk List
 
 | Risk Name (value) | Impact | Likelihood | Description | Mitigation |
 |-------------------------------------------------------|--------|------------|:---------------------------------------------------------------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -41,3 +34,10 @@ advancement of students in science, technology, engineering, and mathematics.
 | Inaccurate estimations (25) | 6 | 3 | Bad estimations to complete a task or project can destroy the project planning, schedule and credibility. For example, underestimating the easy tasks and over estimating the hard tasks. | Classify tasks or 'user-stories' with an estimated number of hours and update the value as work progresses. Tag certain tasks as such for team-member awareness. |
 | Team member availability (20) | 5 | 3 | Team effort is directly proportional to the application success. Team members must be able to meet and coordinate to discuss the project progress otherwise will slow down the progress. | Frequently share work and notes so another team member can pick-up a task. Break down sprints so that team-members can work in parallel even if one team-member does not complete as task. |
 
+## Resources/Technology Needed
+
+|Resource  | Dr. Hale needed? | Investigating Team member | Description |
+|-------------------|---------|---------------------------|-------------|
+|Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
+|Cloud-based hosting environment| No | Dakota (Cody) Kaup | Hosting environment to be used for development and testing|
+|CSS framework | No | ?? | A CSS framework will be used to provide additional UI controls and site theming |
