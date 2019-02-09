@@ -16,10 +16,20 @@ of the `STEM-CAPSTONE-2019` project and use:
 
     virtualenv --python=python3.7 .venv
 
+_Note_: I had issues on my Windows machine with the Python path so you may need to point the Python argument directly to your `python.exe` file. Just make sure you're using a version of Python 3.7! Here's what I did (my Python install is in C:\\):
+
+    virtualenv --python "C:\\Python\\python.exe" .venv
+
 This will create a new folder called `.venv` with all the necessary binary files
 for Python to function. However, we're still not done, we need to activate it.
 
+Unix Systems (MacOS/Linux)
+
     source .venv/bin/activate
+
+Windows Systems
+
+    .venv\Scripts\activate
 
 You should see an indicator in your shell with `(.venv)` if it worked! Now whenever
 we install Python packages, they'll be added to that environment. We can easily jump
@@ -56,6 +66,12 @@ Unix Systems (MacOS/Linux)
     echo 'export STEM_SECRET_KEY="SECRET KEY HERE"' >> ~/.zshrc
     source ~/.zshrc
 
+Windows Systems
+
+    setx STEM_SECRET_KEY "SECRET KEY HERE"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
+
 #### Generate a new secret key
 
 The easiest way I've found to generate a secret key for your dev environment is to
@@ -72,7 +88,11 @@ For this project, we'll be using PostgreSQL as a backend database. We'll want to
 
 #### Download and install
 
-You'll want to downlaod and install PostgreSQL onto your system through their [site](https://www.postgresql.org/download/).
+You'll want to downlaod and install PostgreSQL onto your system through their [site](https://www.postgresql.org/download/). Any version is fine as long as it's above 9.4.
+
+    Super User Password: Whatever you want
+    Port: Default (5432)
+    Locale: Default
 
 #### Create a new database
 
@@ -87,7 +107,7 @@ Now that we have a database created, we'll want to create some credentials to co
     create user stem_admin with encrypted password 'stemecosystem';
     grant all privileges on database stem_ecosystem to stem_admin;
 
-We made the password `stemecosystem` in development since it's a local environment but this will be different in production.
+_Note_: We made the password `stemecosystem` in development since it's a local environment but this will be different in production.
 
 #### Add PostgreSQL admin user to environment variable
 
@@ -102,6 +122,12 @@ Unix Systems (MacOS/Linux)
     # zsh
     echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.zshrc
     source ~/.zshrc
+
+Windows Systems
+
+    setx STEM_PSQL_PASSWORD "stemecosystem"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
 
 #### Populate the database
 
