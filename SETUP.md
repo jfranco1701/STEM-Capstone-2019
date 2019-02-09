@@ -65,3 +65,48 @@ run the following:
 
 Thankfully it's just a development environment so security isn't nearly as important so this
 should do the trick for us.
+
+### Postgres setup
+
+For this project, we'll be using PostgreSQL as a backend database. We'll want to have this setup in your development environment as well.
+
+#### Download and install
+
+You'll want to downlaod and install PostgreSQL onto your system through their [site](https://www.postgresql.org/download/).
+
+#### Create a new database
+
+Launch the PostgreSQL manager (I do it though the `psql` command in my terminal) and create the database by:
+
+    create database stem_ecosystem;
+
+#### Create database admin user
+
+Now that we have a database created, we'll want to create some credentials to connect with:
+
+    create user stem_admin with encrypted password 'stemecosystem';
+    grant all privileges on database stem_ecosystem to stem_admin;
+
+We made the password `stemecosystem` in development since it's a local environment but this will be different in production.
+
+#### Add PostgreSQL admin user to environment variable
+
+We'll be using an environment variable called `STEM_PSQL_PASSWORD` so we'll want to add that as well:
+
+Unix Systems (MacOS/Linux)
+
+    # bash
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.bashrc
+    source ~/.bashrc
+
+    # zsh
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.zshrc
+    source ~/.zshrc
+
+#### Populate the database
+
+If all the steps above worked, we can populate the database with our project tables! To do that we can use:
+
+    python manage.py migrate
+
+You should see Django do its thing and create the tables needed for the app.
