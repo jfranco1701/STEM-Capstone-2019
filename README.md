@@ -40,4 +40,4 @@ advancement of students in science, technology, engineering, and mathematics.
 |-------------------|---------|---------------------------|-------------|
 |Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
 |Cloud-based hosting environment| No | Dakota (Cody) Kaup | Hosting environment to be used for development and testing|
-|CSS framework | No | ?? | A CSS framework will be used to provide additional UI controls and site theming |
+|CSS framework | No | Joe | A CSS framework will be used to provide additional UI controls and site theming |
