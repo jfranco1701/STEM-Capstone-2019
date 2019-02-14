@@ -59,10 +59,15 @@ Django is 10+ year old framework that is used by companies such as Instagram and
 
 <u>Django Release History</u>
 
-![Django Release History](pics/Django Release History.PNG "")
+![Django Release History](pics/Django_Release_History.PNG "")
 
 AngularJS
 
 * Familiar, proven - developed by google.
 * Routing, open source UI components, CLI (command line)
 
+* Flexible framework with ability to include custom controls and animations
+
+![Stem Animation](pics/Cube_animation.gif)
+
+![Carousel demo](pics/Carousel_animation.gif)
