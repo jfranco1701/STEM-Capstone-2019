@@ -22,7 +22,7 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ## Proposed Project Timeline
 
-![Gantt Chart](Gantt_Chart.png "")
+![Gantt Chart](pics/Gantt_Chart.png "")
 
 
 ## Project-oriented Risk List
@@ -44,4 +44,25 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ## Project Metholodology
 
+#### Proven Methods 
+
+Wordpress 
+
+* Elegant UI out of the box, easily extendable, pluggable
+* Barrier to entry, frequent updates, complexities, not easy to test/troubleshoot, lock-in
+
+Django is 10+ year old framework that is used by companies such as Instagram and Eventbrite. Features such as:
+
+* Pre built templates
+* User management
+* REST framework
+
+<u>Django Release History</u>
+
+![Django Release History](pics/Django Release History.PNG "")
+
+AngularJS
+
+* Familiar, proven - developed by google.
+* Routing, open source UI components, CLI (command line)
 
