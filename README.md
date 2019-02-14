@@ -46,18 +46,23 @@ advancement of students in science, technology, engineering, and mathematics.
 
 #### Proven Methods 
 
-Wordpress 
+WordPress 
 
 * Elegant UI out of the box, easily extendable, pluggable
 * Barrier to entry, frequent updates, complexities, not easy to test/troubleshoot, lock-in
 
 Django is 10+ year old framework that is used by companies such as Instagram and Eventbrite. Features such as:
 
-* Pre built templates
-* User management
-* REST framework
+* Django provides many templates out of the box and open source CMS possibilities to meet the requirement of a minimal degree of content management. 
 
-<u>Django Release History</u>
+  * Administrators must be able to easily add new content and control its metadata. 
+  * Django templates provide uniform styling for forms and pages provided to different users. For example, a form to 'gauge the user's interest' should look and feel the same way as the form to add a new event.
+
+* Built-in user management to aid in the requirement of role-based access. 
+
+* The built-in REST framework will help the application meet the requirement of being easily accessible by external sites.
+
+  <u>Django Release History</u>
 
 ![Django Release History](pics/Django_Release_History.PNG "")
 
