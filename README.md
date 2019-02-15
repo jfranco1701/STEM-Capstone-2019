@@ -74,7 +74,7 @@ Angular
 |Resource  | Dr. Hale needed? | Investigating Team member | Description |
 |-------------------|---------|---------------------------|-------------|
 |Development hardware| No | All | Each member will require a computer capable of running the tools needed to develop the application |
-|Backend framework (Ember) | No | All | Ember framework will be used to develop secure backend |
+|Backend framework (Django) | No | All | Django framework will be used to develop secure backend |
 |Developing web application | Yes | All | Developing secure frontend and backend of the application |
 |Cloud-based hosting environment| No | Dakota (Cody) Kaup | Hosting environment to be used for development and testing |
 |CSS framework | No | Joe | A CSS framework will be used to provide additional UI controls and site theming |
