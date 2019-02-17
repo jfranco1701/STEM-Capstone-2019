@@ -15,16 +15,11 @@ class User(AbstractBaseUser):
     date_of_birth = models.DateField()
     email = models.EmailField(max_length=200)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES)
-<<<<<<< HEAD
 
     USERNAME_FIELD = "email"
-=======
     
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
-<<<<<<< HEAD
->>>>>>> ef701f8... Print user's first and last name when printed
-=======
 
     def role(self):
         return self.get_user_type_display()
@@ -34,4 +29,3 @@ class User(AbstractBaseUser):
 
     def is_student(self):
         return self.role() == "student"
->>>>>>> 3783b6e... Add basic checks for user permissions
