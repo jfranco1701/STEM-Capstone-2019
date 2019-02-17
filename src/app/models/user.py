@@ -15,5 +15,11 @@ class User(AbstractBaseUser):
     date_of_birth = models.DateField()
     email = models.EmailField(max_length=200)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES)
+<<<<<<< HEAD
 
     USERNAME_FIELD = "email"
+=======
+    
+    def __str__(self):
+        return "{} {}".format(self.first_name, self.last_name)
+>>>>>>> ef701f8... Print user's first and last name when printed
