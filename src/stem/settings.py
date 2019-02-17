@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Use our User model for authencation instead of the default
+# Replace built-in user model with our custom version
 AUTH_USER_MODEL = 'app.User'
 
 # Internationalization
