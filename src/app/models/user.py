@@ -2,11 +2,11 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 USER_TYPE_CHOICES = (
-    (1, 'student'),
-    (2, 'teacher'),
-    (3, 'parent'),
-    (4, 'counselor'),
-    (5, 'admin'),
+    (1, "student"),
+    (2, "teacher"),
+    (3, "parent"),
+    (4, "counselor"),
+    (5, "admin"),
 )
 
 class User(AbstractUser):
@@ -16,7 +16,7 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField(blank=True, null=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1)
-    student = models.BooleanField(default=True)
+    is_student = models.BooleanField(default=True)
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
