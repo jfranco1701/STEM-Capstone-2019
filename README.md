@@ -37,6 +37,15 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ## Project Metholodology
 
+#### Literature Review
+
+Faudziah Ahmad, Fauziah Baharom and Moath Husni have done research on current web application development and measurement practices that are implemented by many small software firms. Throughout this paper discuss the best practices and techniques must be applied during the development process. The results from this paper reveal how much awareness is lacking in developers in applying the best practices during different phases (requirements, quality, measurement, design, and testing) of application development. From the result, the author suggested implementing new web application methodology that ensures the quality of the web application product. [1]
+
+Xiaowei Li and Yuan Xue have surveyed on recent research results of the web application security outlined several security loopholes and lack of security in the evolving web application trends. In their research, they identified and described the unique security properties the secure web application must be preserved. In this paper, they clearly addressed the three main issues that are the reason for the security challenges we are facing, that requires security professionals to quickly react without leaving numerous web applications at huge risk. [2]
+
+Prof. B Nithya Ramesh, Aashay R Amballi and Vivekananda Mahanta have done research on reasons for choosing Django The Python Web Framework among other frameworks available for us. They described the specifications and features of Django, advantages, and disadvantages of Django. In their research, they identified the security concerns such as cross-site request forgery, SQL injection, cross-site scripting, and clickjacking can be taken away very efficiently with the Django framework. They summarized their results with the assurance of using Django framework for the next 10-15 years. [3]
+
+
 #### Proven Methods 
 
 WordPress 
@@ -78,3 +87,9 @@ Angular
 |Developing web application | Yes | All | Developing secure frontend and backend of the application |
 |Cloud-based hosting environment| No | Dakota (Cody) Kaup | Hosting environment to be used for development and testing |
 |CSS framework | No | Joe | A CSS framework will be used to provide additional UI controls and site theming |
+
+## References
+
+1. https://arxiv.org/pdf/1205.6162.pdf
+2. http://www.isis.vanderbilt.edu/sites/default/files/main_0.pdf
+3. http://www.researchpublish.com/journal/IJCSITR/Issue-2-April-2018-June-2018/15
