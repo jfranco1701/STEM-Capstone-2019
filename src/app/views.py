@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
-from rest_framework import serializers, viewsets
+from rest_framework import viewsets
+from .models.user import User
+from .models.event import Event
+from .serializers import UserSerializer, EventSerializer
 
 User = get_user_model()
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer

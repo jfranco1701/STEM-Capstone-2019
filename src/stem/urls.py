@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from rest_framework import routers
 
-from app.views import UserViewSet, UserSerializer
+from app.views import UserViewSet, EventViewSet
 
 # Rest framework router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'events', EventViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include(router.urls)),
 ]
