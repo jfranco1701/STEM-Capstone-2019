@@ -4,3 +4,5 @@ djangorestframework==3.9.1
 Markdown==3.0.1
 psycopg2-binary==2.7.7
 pytz==2018.9
+whitenoise==3.2.2
+django-spa==0.2.0
