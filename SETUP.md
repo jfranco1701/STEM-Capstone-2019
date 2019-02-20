@@ -142,7 +142,30 @@ Now that we have the tables, we can add some sample data with our custom [fixtur
     python manage.py loaddata initial_data
 	
 
-###Front-end Application
+### Front-end Application
 
-####Install NodeJS
+#### Install NodeJS
+
+Download and install [NodeJS](https://nodejs.org/en/).  Current LTS version may be used.
+
+#### Install VS Code
+
+Download and install [VS Code](https://code.visualstudio.com/) or another code editor.
+
+#### Building the application
+
+Change into the app directory STEM-Capstone-2019\src\frontend and run the following:
+
+    npm install
+    ng build --watch --outputPath=../static/
+
+This will install all application dependences and build the application.  The application will be placed in the Django static files folder.  The --watch parameter will send updated files to the static files folder as changes to the application are saved.  This will continue to run in a terminal window until CTRL-C is used to terminate it.
+
+#### Accessing the application from Django
+
+Start Django
+
+    python manage.py runserver 0.0.0.0:8000
+
+Access the application from the URL http://localhost:8000
 
