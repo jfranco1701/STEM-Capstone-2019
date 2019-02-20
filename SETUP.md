@@ -140,3 +140,9 @@ You should see Django do its thing and create the tables needed for the app.
 Now that we have the tables, we can add some sample data with our custom [fixtures](https://docs.djangoproject.com/en/2.1/howto/initial-data/)!
 
     python manage.py loaddata initial_data
+	
+
+###Front-end Application
+
+####Install NodeJS
+
