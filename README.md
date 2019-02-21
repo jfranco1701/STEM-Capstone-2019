@@ -37,7 +37,7 @@ advancement of students in science, technology, engineering, and mathematics.
 
 ## Project Metholodology
 
-#### Literature Review
+### Literature Review
 
 Faudziah Ahmad, Fauziah Baharom and Moath Husni have done research on current web application development and measurement practices that are implemented by many small software firms. Throughout this paper discuss the best practices and techniques must be applied during the development process. The results from this paper reveal how much awareness is lacking in developers in applying the best practices during different phases (requirements, quality, measurement, design, and testing) of application development. From the result, the author suggested implementing new web application methodology that ensures the quality of the web application product. [1]
 
@@ -45,8 +45,37 @@ Xiaowei Li and Yuan Xue have surveyed on recent research results of the web appl
 
 Prof. B Nithya Ramesh, Aashay R Amballi and Vivekananda Mahanta have done research on reasons for choosing Django The Python Web Framework among other frameworks available for us. They described the specifications and features of Django, advantages, and disadvantages of Django. In their research, they identified the security concerns such as cross-site request forgery, SQL injection, cross-site scripting, and clickjacking can be taken away very efficiently with the Django framework. They summarized their results with the assurance of using Django framework for the next 10-15 years. [3]
 
+### Technical Plan
 
-#### Proven Methods 
+The first goal of this project is to gather requirements from Omaha STEM Ecosystem to determine what they're looking for in a web application. A general idea has been established, but face-to-face contact would help us in determine what they're picturing for this project. Once we have a good idea for project requirements, we'll create workflow diagrams based on C4 models to show how users will interact with the application and how each piece will function. 
+
+Throughout the project, we'll be documenting the infrastructure and how each aspect of the application works. We knew from the start of this project that it will be passed off to a new owner after the semester ends. Therefore, documentation is key to success for the lifetime of the application. While documenting, we'll be building out the frontend and backend separately.
+
+The backend framework will be Django. It will handle all database actions (models based on C4 diagrams) and expose that data through a REST API. The frontend, based in the Angular framework, will be a single page application the user will interact with to host and attend events. 
+
+The overall steps for building this application is as follows:
+
+1. Gather requirements for the application
+2. Build a basic backend with `user` and `event` models
+3. Install Django REST Framework for API functionality
+4. Setup model serializers for API
+5. Expose `user` and `event` models through the API
+6. Build basic frontend Angular application
+7. Add user registration page
+8. Add user login page
+9. Add front page UI with a navigation bar for login/logout and setting up events
+10. Add events list to front page
+11. Setup permissions based on user roles
+12. Add page for adding new events
+13. Add page for viewing/editing current events
+14. Add event creation approval process
+15. Add ability for users to sign up to attend events
+16. Add tagging system for user interest and event types
+17. Improve look and feel of working application
+
+_Note_: The steps above are not the final list of things to accomplish. Things will surely arise and new steps will be added as we go along. The overall goal is to reach a useable product so the client has something working at the end of the semester. After we reach this point, newly added features are bonuses as they're considered stretch goals.
+
+### Proven Methods 
 
 WordPress 
 
