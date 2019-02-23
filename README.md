@@ -82,7 +82,7 @@ Security is also an important aspect of this project.  Confidentiality, integrit
 3. Failing securely
 4. Reducing the attack surface
 
-A well designed application goes a long way in providing security, but a poor implementation can result in bugs that can be exploited.  We will need to ensure that the code is free from errors and provides expected results.  To accomplish this, we will perform automated unit testing using tools such as Jasmine and Karma. '
+A well designed application goes a long way in providing security, but a poor implementation can result in bugs that can be exploited.  We will need to ensure that the code is free from errors and provides expected results.  To accomplish this, we will perform automated unit testing using tools such as Jasmine and Karma.
 
 ### Proven Methods 
 
