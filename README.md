@@ -75,6 +75,15 @@ The overall steps for building this application is as follows:
 
 _Note_: The steps above are not the final list of things to accomplish. Things will surely arise and new steps will be added as we go along. The overall goal is to reach a useable product so the client has something working at the end of the semester. After we reach this point, newly added features are bonuses as they're considered stretch goals.
 
+Security is also an important aspect of this project.  Confidentiality, integrity and availability must be maintained to ensure a secure application.  Well established security design principles will be used during the design phase of the project.  This would include principles such as:
+
+1. Principle of least privilege
+2. Establishing secure defaults
+3. Failing securely
+4. Reducing the attack surface
+
+A well designed application goes a long way in providing security, but a poor implementation can result in bugs that can be exploited.  We will need to ensure that the code is free from errors and provides expected results.  To accomplish this, we will perform automated unit testing using tools such as Jasmine and Karma. 
+
 ### Proven Methods 
 
 WordPress 
@@ -122,3 +131,4 @@ Angular
 1. https://arxiv.org/pdf/1205.6162.pdf
 2. http://www.isis.vanderbilt.edu/sites/default/files/main_0.pdf
 3. http://www.researchpublish.com/journal/IJCSITR/Issue-2-April-2018-June-2018/15
+4. https://www.owasp.org/index.php/Security_by_Design_Principles
