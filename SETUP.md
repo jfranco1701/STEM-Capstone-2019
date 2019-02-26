@@ -2,6 +2,8 @@
 
 ## Setting up your development environment
 
+_Note_: If you're using `docker-compose`, you can skip to [this section](#docker-compose-setup).
+
 ### Python virtual environment (virtualenv)
 
 For this project, we want to keep all packages separate from your personal
@@ -169,3 +171,35 @@ Start Django
     python manage.py runserver 0.0.0.0:8000
 
 Access the application from the URL http://localhost:8000
+
+### Docker Compose Setup
+
+#### Install docker-compose
+
+[Here](https://docs.docker.com/compose/install/) is a helpful link for installing `docker-compose`.
+
+#### Build and run
+
+Once you have docker-compose installed and running, you can build and run your development environment!
+
+```
+# If you want to follow the server output
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+# If you want to run the containers in the background
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+
+For this project, we layer the .yml files to make tweaks between development and production.
+
+#### Access application
+
+Once everything is up and running, you should be able to navigate to http://127.0.0.1:8000 to see the application!
+
+#### Shutdown containers
+
+To shutdown the project whenver you don't want them running, you can use:
+
+```
+docker-compose down
+```
