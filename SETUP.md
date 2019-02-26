@@ -104,8 +104,9 @@ Launch the PostgreSQL manager (I do it though the `psql` command in my terminal)
 
 Now that we have a database created, we'll want to create some credentials to connect with:
 
-    create user stem_admin with encrypted password 'stemecosystem';
-    grant all privileges on database stem_ecosystem to stem_admin;
+    CREATE USER stem_admin WITH ENCRYPTED PASSWORD 'stemecosystem';
+    GRANT ALL PRIVILEGES ON DATABASE stem_ecosystem TO stem_admin;
+    ALTER USER stem_admin CREATEDB; /* Add ability to create databases for Django testing */
 
 _Note_: We made the password `stemecosystem` in development since it's a local environment but this will be different in production.
 
@@ -168,4 +169,3 @@ Start Django
     python manage.py runserver 0.0.0.0:8000
 
 Access the application from the URL http://localhost:8000
-
