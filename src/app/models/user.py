@@ -30,6 +30,3 @@ class User(AbstractUser):
 
     def role(self):
         return self.get_user_type_display()
-
-    def is_student(self):
-        return self.student
