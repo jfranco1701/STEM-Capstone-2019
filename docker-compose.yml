@@ -3,20 +3,8 @@ version: '3'
 services:
   db:
     image: postgres
+    restart: always
     environment:
       - POSTGRES_DB=stem_ecosystem
       - POSTGRES_USER=stem_admin
       - POSTGRES_PASSWORD=${STEM_PSQL_PASSWORD}
-  web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - ./src:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    environment:
-      - STEM_SECRET_KEY=${STEM_SECRET_KEY}
-      - STEM_PSQL_PASSWORD=${STEM_PSQL_PASSWORD}
-      - DOCKER_SETUP_FLAG=TRUE
