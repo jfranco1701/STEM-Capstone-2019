@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Check to see if this was setup with Docker. If not, we'll want to use 
+# localhost address for the database host
+if 'DOCKER_SETUP_FLAG' in os.environ:
+    db_host = 'db'
+else:
+    db_host = '127.0.0.1'
 
 # Application definition
 
@@ -84,7 +90,7 @@ DATABASES = {
         'NAME': 'stem_ecosystem',
         'USER': 'stem_admin',
         'PASSWORD': os.environ['STEM_PSQL_PASSWORD'],
-        'HOST': '127.0.0.1',
+        'HOST': db_host,
         'PORT': '5432',
     }
 }
