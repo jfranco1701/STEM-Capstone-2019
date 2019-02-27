@@ -7,3 +7,6 @@
 # VS Code Files
 **/.vscode
 /.vs
+/src/env
+/src/.vs
+*.user
