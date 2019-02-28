@@ -86,8 +86,8 @@
     <Content Include="frontend\src\app\components\layout\header\header.component.scss" />
     <Content Include="frontend\src\app\components\layout\header\header.component.spec.ts" />
     <Content Include="frontend\src\app\components\layout\header\header.component.ts" />
-    <Content Include="frontend\src\app\layout\layout\layout.component.html" />
-    <Content Include="frontend\src\app\layout\layout\layout.component.scss" />
+    <Content Include="frontend\src\app\components\layout\layout.component.html" />
+    <Content Include="frontend\src\app\components\layout\layout.component.scss" />
     <Content Include="frontend\src\app\components\layout\layout.component.spec.ts" />
     <Content Include="frontend\src\app\components\layout\layout.component.ts" />
     <Content Include="frontend\src\app\components\login\login.component.html" />
@@ -152,10 +152,8 @@
     <Folder Include="frontend\src\app\components\home\" />
     <Folder Include="frontend\src\app\interfaces\" />
     <Folder Include="frontend\src\app\components\landing\" />
-    <Folder Include="frontend\src\app\layout\" />
     <Folder Include="frontend\src\app\components\layout\footer\" />
     <Folder Include="frontend\src\app\components\layout\header\" />
-    <Folder Include="frontend\src\app\layout\layout\" />
     <Folder Include="frontend\src\app\components\login\" />
     <Folder Include="frontend\src\app\services\" />
     <Folder Include="frontend\src\app\components\notfound\" />
