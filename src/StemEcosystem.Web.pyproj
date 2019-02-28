@@ -104,6 +104,7 @@
     <Content Include="frontend\src\app\components\register\register.component.ts" />
     <Content Include="frontend\src\app\services\register.service.spec.ts" />
     <Content Include="frontend\src\app\services\register.service.ts" />
+    <Content Include="frontend\src\stemlogo.jpg" />
     <Content Include="static\stemlogo.jpg" />
     <Content Include="frontend\src\assets\.gitkeep" />
     <Content Include="frontend\src\browserslist" />
