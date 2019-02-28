@@ -20,8 +20,26 @@
 
 <div class="container"
      fxLayout="column" fxLayoutAlign="center center">
-  <p>Welcome......</p>
-  <p>All sorts of stuff here.....</p>
   <p> Please Register....</p>
   <p><a routerLink="/register">Register</a></p>
+  <div fxFlex class="event" *ngFor="let event of events">
+    <mat-card-title>{{ event.name }}</mat-card-title>
+    <mat-card-content>
+      {{ event.date }}
+    </mat-card-content>
+    <mat-card class="example-card">
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{ event.event_type }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+  </div>
 </div>

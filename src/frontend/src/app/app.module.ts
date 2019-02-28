@@ -19,6 +19,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { EventComponent } from './event/event.component';
+import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatCheckboxModule,
     AppRoutingModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
