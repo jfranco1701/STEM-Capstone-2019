@@ -10,3 +10,4 @@
 /src/env
 /src/.vs
 *.user
+/src/obj/Debug
