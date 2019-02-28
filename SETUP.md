@@ -176,7 +176,41 @@ Access the application from the URL http://localhost:8000
 
 #### Install docker-compose
 
-[Here](https://docs.docker.com/compose/install/) is a helpful link for installing `docker-compose`.
+[Here](https://docs.docker.com/compose/install/) is a helpful link for installing `docker-compose` unless you're using a desktop install. In which case, `docker-compose` should already be available to you! You can check by running the following:
+
+```
+docker-compose --version
+```
+
+#### Setting up environment variables
+
+For this project, we're using environment variables to set secret keys and passwords so they're not hosted in our git repository. We need to setup the following:
+
+```
+STEM_SECRET_KEY - Used for the Django secret key in `settings.py`
+STEM_PSQL_PASSWORD - Used as the Postgres database administrator password
+```
+
+Unix Systems (MacOS/Linux)
+
+    # bash
+    echo 'export STEM_SECRET_KEY="<SECRET_KEY_HERE>"' >> ~/.bashrc
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.bashrc
+    source ~/.bashrc
+
+    # zsh
+    echo 'export STEM_SECRET_KEY="<SECRET_KEY_HERE>"' >> ~/.zshrc
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.zshrc
+    source ~/.zshrc
+
+Windows Systems
+
+    setx STEM_SECRET_KEY "<SECRET_KEY_HERE>"
+    setx STEM_PSQL_PASSWORD "stemecosystem"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
+
+If you need help setting up a secret key, you can refer to the [Generate a New Secret Key](#generate-a-new-secret-key) section.
 
 #### Build and run
 
