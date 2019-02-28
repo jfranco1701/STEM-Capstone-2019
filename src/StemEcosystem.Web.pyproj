@@ -66,6 +66,15 @@
     <Content Include="frontend\src\app\app.component.spec.ts" />
     <Content Include="frontend\src\app\app.component.ts" />
     <Content Include="frontend\src\app\app.module.ts" />
+    <Content Include="frontend\src\app\event\event.component.html" />
+    <Content Include="frontend\src\app\event\event.component.scss" />
+    <Content Include="frontend\src\app\event\event.component.spec.ts" />
+    <Content Include="frontend\src\app\event\event.component.ts" />
+    <Content Include="frontend\src\app\models\event.spec.ts" />
+    <Content Include="frontend\src\app\models\event.ts" />
+    <Content Include="frontend\src\app\models\mock-events.ts">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="frontend\src\app\services\event-service.service.spec.ts" />
     <Content Include="frontend\src\app\services\event-service.service.ts" />
     <Content Include="frontend\src\app\services\guards\auth-guard.service.ts" />
@@ -149,6 +158,8 @@
     <Folder Include="frontend\src\app\" />
     <Folder Include="frontend\src\app\components\" />
     <Folder Include="frontend\src\app\components\layout\" />
+    <Folder Include="frontend\src\app\event\" />
+    <Folder Include="frontend\src\app\models\" />
     <Folder Include="frontend\src\app\services\guards\" />
     <Folder Include="frontend\src\app\components\home\" />
     <Folder Include="frontend\src\app\interfaces\" />
