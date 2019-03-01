@@ -10,12 +10,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { NotfoundComponent } from './layout/notfound/notfound.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
+import { AdminComponent } from './admin/admin.component';
+import { NotauthorizedComponent } from './layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -28,9 +28,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     NotfoundComponent,
     LayoutComponent,
     HeaderComponent,
-    FooterComponent,
     LoginComponent,
-    LandingComponent
+    NotauthorizedComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
