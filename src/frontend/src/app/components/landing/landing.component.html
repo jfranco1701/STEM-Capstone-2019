@@ -14,14 +14,13 @@
     </div>
   </div>
   <div class="itemright" fxFlex>
+      <p><a routerLink="/register">Register</a></p>
     <button class="menubutton" mat-button routerLink="/login">Login</button>
   </div>
 </div>
 
 <div class="container"
-     fxLayout="column" fxLayoutAlign="center center">
-  <p> Please Register....</p>
-  <p><a routerLink="/register">Register</a></p>
+     fxLayout="row wrap" fxLayoutAlign="center center">
   <div fxFlex class="event" *ngFor="let event of events">
     <mat-card-title>{{ event.name }}</mat-card-title>
     <mat-card-content>
