@@ -14,8 +14,8 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField(blank=True, null=True)
-    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1)
-    is_student = models.BooleanField(default=True)
+    user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
+    is_student = models.BooleanField(default=False)
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
