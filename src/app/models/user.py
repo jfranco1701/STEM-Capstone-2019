@@ -28,4 +28,4 @@ class User(AbstractUser):
         return self.username
 
     def role(self):
-        return self.get_user_type_display()
+        return self.get_user_type_display().capitalize()

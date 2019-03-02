@@ -17,4 +17,4 @@ class Event(models.Model):
         return self.name
 
     def event_type(self):
-        return EVENT_TYPE_CHOICES[self.e_type - 1][1]
+        return EVENT_TYPE_CHOICES[self.e_type - 1][1].capitalize()
