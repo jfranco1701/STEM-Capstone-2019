@@ -5,7 +5,7 @@ from .models.event import Event
 
 class UserTestCase(TestCase):
     def setUp(self):
-        User.objects.create(email="student@dundermifflin.com", user_type=1)
+        User.objects.create(email="student@dundermifflin.com", user_type=1, is_student=1)
 
     def test_user_student_role(self):
         user = User.objects.get(email="student@dundermifflin.com")
@@ -30,7 +30,7 @@ class EventTestCase(TestCase):
         Event.objects.create(
             name="Office Party",
             date="2019-01-01",
-            event_type=1,
+            e_type=1,
             organizer=user
         )
 
