@@ -3,10 +3,9 @@ from django.db import models
 
 USER_TYPE_CHOICES = (
     (1, "student"),
-    (2, "teacher"),
-    (3, "parent"),
-    (4, "counselor"),
-    (5, "admin"),
+    (2, "parent"),
+    (3, "educator"),
+    (4, "admin"),
 )
 
 class User(AbstractUser):
