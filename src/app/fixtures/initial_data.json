@@ -322,7 +322,7 @@
             "first_name": "Stem",
             "last_name": "Ecosystem",
             "date_of_birth": "1990-01-01",
-            "user_type": 5,
+            "user_type": 4,
             "groups": [],
             "user_permissions": []
         }
@@ -342,7 +342,7 @@
             "first_name": "Michael",
             "last_name": "Scott",
             "date_of_birth": "1964-03-15",
-            "user_type": 2,
+            "user_type": 3,
             "groups": [],
             "user_permissions": []
         }
@@ -382,7 +382,7 @@
             "first_name": "Toby",
             "last_name": "Flenderson",
             "date_of_birth": "1971-11-14",
-            "user_type": 4,
+            "user_type": 3,
             "groups": [],
             "user_permissions": []
         }
@@ -402,7 +402,7 @@
             "first_name": "Dwight",
             "last_name": "Schrute",
             "date_of_birth": "1972-01-20",
-            "user_type": 5,
+            "user_type": 4,
             "groups": [],
             "user_permissions": []
         }
@@ -422,7 +422,7 @@
             "first_name": "Jim",
             "last_name": "Halpert",
             "date_of_birth": "1978-10-01",
-            "user_type": 3,
+            "user_type": 2,
             "groups": [],
             "user_permissions": []
         }
@@ -482,7 +482,7 @@
             "first_name": "Angela",
             "last_name": "Martin",
             "date_of_birth": "1970-04-22",
-            "user_type": 2,
+            "user_type": 3,
             "groups": [],
             "user_permissions": []
         }
@@ -502,7 +502,7 @@
             "first_name": "Stanley",
             "last_name": "Hudson",
             "date_of_birth": "1960-08-17",
-            "user_type": 4,
+            "user_type": 2,
             "groups": [],
             "user_permissions": []
         }
@@ -542,7 +542,7 @@
             "first_name": "Ryan",
             "last_name": "Howard",
             "date_of_birth": "1979-05-05",
-            "user_type": 2,
+            "user_type": 3,
             "groups": [],
             "user_permissions": []
         }
@@ -582,7 +582,7 @@
             "first_name": "Meredith",
             "last_name": "Palmer",
             "date_of_birth": "1959-05-12",
-            "user_type": 3,
+            "user_type": 2,
             "groups": [],
             "user_permissions": []
         }
@@ -622,7 +622,7 @@
             "first_name": "Phyllis",
             "last_name": "Vance",
             "date_of_birth": "1972-08-23",
-            "user_type": 2,
+            "user_type": 3,
             "groups": [],
             "user_permissions": []
         }
