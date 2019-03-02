@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=stem_ecosystem
+      - POSTGRES_USER=stem_admin
+      - POSTGRES_PASSWORD=${STEM_PSQL_PASSWORD}

@@ -2,6 +2,8 @@
 
 ## Setting up your development environment
 
+_Note_: If you're using `docker-compose`, you can skip to [this section](#docker-compose-setup).
+
 ### Python virtual environment (virtualenv)
 
 For this project, we want to keep all packages separate from your personal
@@ -169,3 +171,69 @@ Start Django
     python manage.py runserver 0.0.0.0:8000
 
 Access the application from the URL http://localhost:8000
+
+### Docker Compose Setup
+
+#### Install docker-compose
+
+[Here](https://docs.docker.com/compose/install/) is a helpful link for installing `docker-compose` unless you're using a desktop install. In which case, `docker-compose` should already be available to you! You can check by running the following:
+
+```
+docker-compose --version
+```
+
+#### Setting up environment variables
+
+For this project, we're using environment variables to set secret keys and passwords so they're not hosted in our git repository. We need to setup the following:
+
+```
+STEM_SECRET_KEY - Used for the Django secret key in `settings.py`
+STEM_PSQL_PASSWORD - Used as the Postgres database administrator password
+```
+
+Unix Systems (MacOS/Linux)
+
+    # bash
+    echo 'export STEM_SECRET_KEY="<SECRET_KEY_HERE>"' >> ~/.bashrc
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.bashrc
+    source ~/.bashrc
+
+    # zsh
+    echo 'export STEM_SECRET_KEY="<SECRET_KEY_HERE>"' >> ~/.zshrc
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.zshrc
+    source ~/.zshrc
+
+Windows Systems
+
+    setx STEM_SECRET_KEY "<SECRET_KEY_HERE>"
+    setx STEM_PSQL_PASSWORD "stemecosystem"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
+
+If you need help setting up a secret key, you can refer to the [Generate a New Secret Key](#generate-a-new-secret-key) section.
+
+#### Build and run
+
+Once you have docker-compose installed and running, you can build and run your development environment!
+
+```
+# If you want to follow the server output
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+# If you want to run the containers in the background
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+
+For this project, we layer the .yml files to make tweaks between development and production.
+
+#### Access application
+
+Once everything is up and running, you should be able to navigate to http://127.0.0.1:8000 to see the application!
+
+#### Shutdown containers
+
+To shutdown the project whenver you don't want them running, you can use:
+
+```
+docker-compose down
+```

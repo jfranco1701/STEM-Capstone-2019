@@ -1,3 +1,14 @@
-<p>
-Application Header -- Nav bar
-</p>
+<div fxLayout="row">
+  <div fxFlex="200px">STEM IMAGE</div>
+  <div fxFlex>NAV BAR</div>
+  <!-- Hide button if user is logged in  -->
+  <div fxFlex="100px">
+    <button [routerLink]="['/register']" routerLinkActive="router-link-active" mat-button>Register</button>
+  </div>
+  <!-- Hide button if user is logged in  -->
+  <div fxFlex="100px">
+    <button [routerLink]="['/login']" routerLinkActive="router-link-active" mat-button>
+      Login
+    </button>
+  </div>
+</div>
