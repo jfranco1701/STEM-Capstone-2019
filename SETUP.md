@@ -218,10 +218,10 @@ Once you have docker-compose installed and running, you can build and run your d
 
 ```
 # If you want to follow the server output
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+docker-compose up
 
 # If you want to run the containers in the background
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+docker-compose up -d
 ```
 
 For this project, we layer the .yml files to make tweaks between development and production.
