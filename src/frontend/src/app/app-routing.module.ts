@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NotfoundComponent } from './layout/notfound/notfound.component';
-import { LayoutComponent } from './layout/layout/layout.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { AuthGuardService } from './guards/auth-guard.service';
-import { NotauthorizedComponent } from './layout/notauthorized/notauthorized.component';
-import { AdminComponent } from './admin/admin.component';
+import { NotfoundComponent } from './components/layout/notfound/notfound.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
+import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
 

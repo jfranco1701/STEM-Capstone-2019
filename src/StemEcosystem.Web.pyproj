@@ -4,7 +4,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>StemEcosystem.Web</Name>
     <RootNamespace>StemEcosystem.Web</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>
+    </InterpreterId>
     <PythonRunWebServerCommandArguments>runserver %SERVER_PORT% $(CommandLineArguments)</PythonRunWebServerCommandArguments>
     <PythonDebugWebServerCommandArguments>runserver --noreload %SERVER_PORT% $(CommandLineArguments)</PythonDebugWebServerCommandArguments>
   </PropertyGroup>
@@ -37,21 +38,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env\">
-      <Id>env</Id>
-      <Version>3.6</Version>
-      <Description>env (Python 3.6 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="app\fixtures\initial_data.json" />
     <Content Include="app\README.md" />
     <Content Include="frontend\.editorconfig" />
-    <Content Include="frontend\.gitignore" />
+    <Content Include=".gitignore" />
     <Content Include="frontend\angular.json" />
     <Content Include="frontend\e2e\protractor.conf.js" />
     <Content Include="frontend\e2e\src\app.e2e-spec.ts" />
@@ -60,16 +50,28 @@
     <Content Include="frontend\package-lock.json" />
     <Content Include="frontend\package.json" />
     <Content Include="frontend\README.md" />
+    <Content Include="frontend\src\app\components\admin\admin.component.html" />
+    <Content Include="frontend\src\app\components\admin\admin.component.scss" />
+    <Content Include="frontend\src\app\components\admin\admin.component.spec.ts" />
+    <Content Include="frontend\src\app\components\admin\admin.component.ts" />
     <Content Include="frontend\src\app\app-routing.module.ts" />
     <Content Include="frontend\src\app\app.component.html" />
     <Content Include="frontend\src\app\app.component.scss" />
     <Content Include="frontend\src\app\app.component.spec.ts" />
     <Content Include="frontend\src\app\app.component.ts" />
     <Content Include="frontend\src\app\app.module.ts" />
-    <Content Include="frontend\src\app\event\event.component.html" />
-    <Content Include="frontend\src\app\event\event.component.scss" />
-    <Content Include="frontend\src\app\event\event.component.spec.ts" />
-    <Content Include="frontend\src\app\event\event.component.ts" />
+    <Content Include="frontend\src\app\components\event\event.component.html" />
+    <Content Include="frontend\src\app\components\event\event.component.scss" />
+    <Content Include="frontend\src\app\components\event\event.component.spec.ts" />
+    <Content Include="frontend\src\app\components\event\event.component.ts" />
+    <Content Include="frontend\src\app\components\layout\notauthorized\notauthorized.component.html" />
+    <Content Include="frontend\src\app\components\layout\notauthorized\notauthorized.component.scss" />
+    <Content Include="frontend\src\app\components\layout\notauthorized\notauthorized.component.spec.ts" />
+    <Content Include="frontend\src\app\components\layout\notauthorized\notauthorized.component.ts" />
+    <Content Include="frontend\src\app\components\layout\notfound\notfound.component.html" />
+    <Content Include="frontend\src\app\components\layout\notfound\notfound.component.scss" />
+    <Content Include="frontend\src\app\components\layout\notfound\notfound.component.spec.ts" />
+    <Content Include="frontend\src\app\components\layout\notfound\notfound.component.ts" />
     <Content Include="frontend\src\app\models\event.spec.ts" />
     <Content Include="frontend\src\app\models\event.ts" />
     <Content Include="frontend\src\app\models\mock-events.ts">
@@ -103,10 +105,6 @@
     <Content Include="frontend\src\app\components\login\login.component.scss" />
     <Content Include="frontend\src\app\components\login\login.component.spec.ts" />
     <Content Include="frontend\src\app\components\login\login.component.ts" />
-    <Content Include="frontend\src\app\components\notfound\notfound.component.html" />
-    <Content Include="frontend\src\app\components\notfound\notfound.component.scss" />
-    <Content Include="frontend\src\app\components\notfound\notfound.component.spec.ts" />
-    <Content Include="frontend\src\app\components\notfound\notfound.component.ts" />
     <Content Include="frontend\src\app\components\register\register.component.html" />
     <Content Include="frontend\src\app\components\register\register.component.scss" />
     <Content Include="frontend\src\app\components\register\register.component.spec.ts" />
@@ -114,6 +112,7 @@
     <Content Include="frontend\src\app\services\register.service.spec.ts" />
     <Content Include="frontend\src\app\services\register.service.ts" />
     <Content Include="frontend\src\stemlogo.jpg" />
+    <Content Include="requirements.txt" />
     <Content Include="static\stemlogo.jpg" />
     <Content Include="frontend\src\assets\.gitkeep" />
     <Content Include="frontend\src\browserslist" />
@@ -156,9 +155,12 @@
     <Folder Include="frontend\e2e\src\" />
     <Folder Include="frontend\src\" />
     <Folder Include="frontend\src\app\" />
+    <Folder Include="frontend\src\app\components\admin\" />
     <Folder Include="frontend\src\app\components\" />
     <Folder Include="frontend\src\app\components\layout\" />
-    <Folder Include="frontend\src\app\event\" />
+    <Folder Include="frontend\src\app\components\event\" />
+    <Folder Include="frontend\src\app\components\layout\notauthorized\" />
+    <Folder Include="frontend\src\app\components\layout\notfound\" />
     <Folder Include="frontend\src\app\models\" />
     <Folder Include="frontend\src\app\services\guards\" />
     <Folder Include="frontend\src\app\components\home\" />
@@ -168,7 +170,6 @@
     <Folder Include="frontend\src\app\components\layout\header\" />
     <Folder Include="frontend\src\app\components\login\" />
     <Folder Include="frontend\src\app\services\" />
-    <Folder Include="frontend\src\app\components\notfound\" />
     <Folder Include="frontend\src\app\components\register\" />
     <Folder Include="frontend\src\assets\" />
     <Folder Include="frontend\src\environments\" />

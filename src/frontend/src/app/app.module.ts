@@ -8,18 +8,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { NotfoundComponent } from './layout/notfound/notfound.component';
-import { LayoutComponent } from './layout/layout/layout.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { AdminComponent } from './admin/admin.component';
-import { NotauthorizedComponent } from './layout/notauthorized/notauthorized.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NotfoundComponent } from './components/layout/notfound/notfound.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { HeaderComponent } from './components/layout/header/header.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
+import { LoginComponent } from './components/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { EventComponent } from './event/event.component';
+import { EventComponent } from './components/event/event.component';
 import { MatCardModule } from '@angular/material/card'
 
 @NgModule({
@@ -33,6 +33,7 @@ import { MatCardModule } from '@angular/material/card'
     LoginComponent,
     NotauthorizedComponent,
     AdminComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

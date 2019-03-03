@@ -7,9 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EventComponent implements OnInit {
 
-  @Input() // <-----
+  @Input()
   name: string;
-  @Input() // <-----
+  @Input()
   date: string;
   @Input()
   event_type: string;
