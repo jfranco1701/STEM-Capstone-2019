@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['STEM_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Check to see if this was setup with Docker. If not, we'll want to use 
 # localhost address for the database host
