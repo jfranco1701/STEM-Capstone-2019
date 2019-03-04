@@ -230,6 +230,17 @@ For this project, we layer the .yml files to make tweaks between development and
 
 Once everything is up and running, you should be able to navigate to http://127.0.0.1:8000 to see the application!
 
+##### Windows-specific issues
+
+With Windows systems, you'll be running the containers in a virtual machine. So we'll need to get the IP address of that machine. I use [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) so I can use VirtualBox instead of Hyper-V. Therefore, I use the following to get the IP address:
+
+```
+# "box" is my Docker virtual machine name, yours may be different
+docker-machine env box
+```
+
+In the output of that command should include `DOCKER_HOST` which contains an IP address. Put that address in your browser and it should pull up the app (http://<DOCKER_HOST_ADDRESS>:8000)!
+
 #### Shutdown containers
 
 To shutdown the project whenver you don't want them running, you can use:
