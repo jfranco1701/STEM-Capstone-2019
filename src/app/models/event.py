@@ -1,5 +1,5 @@
 from django.db import models
-from .user import User
+from app.models.user import User
 
 EVENT_TYPE_CHOICES = (
     (1, "community"),

@@ -1,7 +1,7 @@
 from django.db.utils import IntegrityError
 from django.test import TestCase
-from .models.user import User
-from .models.event import Event
+from app.models.user import User
+from app.models.event import Event
 
 class UserTestCase(TestCase):
     def setUp(self):
