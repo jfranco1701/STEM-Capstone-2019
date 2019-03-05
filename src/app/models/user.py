@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from .organization import Organization
+from app.models.organization import Organization
 
 USER_TYPE_CHOICES = (
     (1, "student"),
