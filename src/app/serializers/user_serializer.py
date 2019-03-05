@@ -1,5 +1,4 @@
-from .models.user import User
-from .models.event import Event
+from app.models.user import User
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,17 +11,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "last_name",
             "date_of_birth",
             "user_type",
-            "url",
-        )
-
-class EventSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Event
-        fields = (
-            "name",
-            "date",
-            "event_type",
-            "organizer",
-            "attendees",
             "url",
         )
