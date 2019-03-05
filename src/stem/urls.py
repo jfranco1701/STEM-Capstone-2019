@@ -18,7 +18,9 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from rest_framework import routers
 
-from app.views import UserViewSet, EventViewSet
+from app.controllers.event_controller import EventViewSet
+from app.controllers.user_controller import UserViewSet
+
 
 # Rest framework router
 router = routers.DefaultRouter()
