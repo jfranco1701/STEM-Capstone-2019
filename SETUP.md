@@ -100,7 +100,7 @@ You'll want to downlaod and install PostgreSQL onto your system through their [s
 
 Launch the PostgreSQL manager (I do it though the `psql` command in my terminal) and create the database by:
 
-    create database stem_ecosystem;
+    CREATE database stem_ecosystem;
 
 #### Create database admin user
 
