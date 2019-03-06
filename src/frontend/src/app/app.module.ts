@@ -16,9 +16,11 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './components/login/login.component';
+import { EventComponent } from './components/event/event.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     LoginComponent,
     NotauthorizedComponent,
     AdminComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
-    AppRoutingModule,
+    MatCardModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
