@@ -6,8 +6,7 @@
 
 # VS Code Files
 **/.vscode
-/.vs
+**/.vs
 /src/env
-/src/.vs
 *.user
 /src/obj/Debug
