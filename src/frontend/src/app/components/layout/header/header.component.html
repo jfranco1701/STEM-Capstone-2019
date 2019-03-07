@@ -5,11 +5,11 @@
        fxLayoutGap="0px"
        fxFill>
     <div class="itemleft" fxFlex>
-      <a href="home"><img src="assets/stemlogo.jpg" /></a>
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active"><img src="assets/stemlogo.jpg" /></a>
     </div>
     <div fxFlex="row">
       <div class="container" fxLayout="row wrap">
-        <a class="navbutton" mat-stroked-button href="home">Home</a>
+        <a class="navbutton" mat-stroked-button [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
         <a class="navbutton" mat-stroked-button>About Us</a>
         <a class="navbutton" mat-stroked-button>Partners</a>
         <a class="navbutton" mat-stroked-button>Calendar</a>
