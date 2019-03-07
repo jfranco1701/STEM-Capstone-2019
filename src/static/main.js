@@ -621,7 +621,7 @@ module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center cente
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  margin-top: 25px; }\n\n.submit {\n  text-align: right;\n  margin-top: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxNb3VuaWthIEFkZGFnYWRhXFxEb2N1bWVudHNcXFNURU0tQ2Fwc3RvbmUtMjAxOVxcc3JjXFxmcm9udGVuZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsZ0JBQWUsRUFBQTs7QUFHakI7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWUsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5jb250YWluZXIge1xyXG4gIG1hcmdpbi10b3A6MjVweDtcclxufVxyXG5cclxuLnN1Ym1pdCB7XHJcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgbWFyZ2luLXRvcDoyMHB4O1xyXG59XHJcbiJdfQ== */"
+module.exports = ".container {\n  margin-top: 25px; }\n\n.login {\n  text-align: right;\n  margin-top: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxNb3VuaWthIEFkZGFnYWRhXFxEb2N1bWVudHNcXFNURU0tQ2Fwc3RvbmUtMjAxOVxcc3JjXFxmcm9udGVuZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsZ0JBQWUsRUFBQTs7QUFHakI7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWUsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5jb250YWluZXIge1xyXG4gIG1hcmdpbi10b3A6MjVweDtcclxufVxyXG5cclxuLmxvZ2luIHtcclxuICB0ZXh0LWFsaWduOiByaWdodDtcclxuICBtYXJnaW4tdG9wOjIwcHg7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
