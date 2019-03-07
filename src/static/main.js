@@ -223,6 +223,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
 /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm5/input.es5.js");
 /* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/esm5/checkbox.es5.js");
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+
+
 
 
 
@@ -267,6 +271,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material_input__WEBPACK_IMPORTED_MODULE_17__["MatInputModule"],
                 _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_18__["MatCheckboxModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_19__["MatToolbarModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_20__["MatCardModule"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -604,7 +610,7 @@ var NotfoundComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n\r\n\r\n<style>\r\nbody {font-family: Arial, Helvetica, sans-serif;}\r\n\r\n/* Full-width input fields */\r\ninput[type=text], input[type=password] {\r\n  width: 30%;\r\n  padding: 12px 20px;\r\n  margin: 8px 0;\r\n  display: inline-block;\r\n  border: 1px solid #ccc;\r\n  box-sizing: border-box; \r\n  align-content: center; \r\n}\r\n\r\n/* Set a style for all buttons */\r\nbutton {\r\n  background-color: #4CAF50;\r\n  color: white;\r\n  padding: 14px 20px;\r\n  margin: 8px 0;\r\n  border: none;\r\n  cursor: pointer;\r\n  width: 40%;\r\n}\r\n\r\nbutton:hover {\r\n  opacity: 0.8;\r\n}\r\n\r\n.container {\r\n  align-content: center;\r\n  margin-left: 300px;\r\n  padding: 16px;\r\n}\r\n\r\nspan.psw {\r\n  float: right;\r\n  padding-top: 16px;\r\n}\r\n\r\n/* The Modal (background) */\r\n.modal {\r\n  display: none; /* Hidden by default */\r\n  position: fixed; /* Stay in place */\r\n  z-index: 1; /* Sit on top */\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%; /* Full width */\r\n  height: 100%; /* Full height */\r\n  overflow: auto; /* Enable scroll if needed */\r\n  background-color: rgb(0,0,0); /* Fallback color */\r\n  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\r\n  padding-top: 60px;\r\n}\r\n\r\n/* Modal Content/Box */\r\n.modal-content {\r\n  background-color: #fefefe;\r\n  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */\r\n  border: 1px solid #888;\r\n  width: 80%; /* Could be more or less, depending on screen size */\r\n}\r\n\r\n\r\n/* Add Zoom Animation */\r\n.animate {\r\n  -webkit-animation: animatezoom 0.6s;\r\n  animation: animatezoom 0.6s\r\n}\r\n\r\n@-webkit-keyframes animatezoom {\r\n  from {-webkit-transform: scale(0)} \r\n  to {-webkit-transform: scale(1)}\r\n}\r\n  \r\n@keyframes animatezoom {\r\n  from {transform: scale(0)} \r\n  to {transform: scale(1)}\r\n}\r\n\r\n/* Change styles for span and cancel button on extra small screens */\r\n@media screen and (max-width: 300px) {\r\n  span.psw {\r\n     display: block;\r\n     float: none;\r\n  }\r\n  }\r\n</style>\r\n\r\n</head>\r\n<body>\r\n\r\n\r\n<div class=\"container\">\r\n  <label for=\"uname\"><b>Username  </b></label>\r\n  <input type=\"text\" placeholder=\"Enter Username\" name=\"uname\" required><br>\r\n\r\n  <label for=\"psw\"><b>Password  </b></label>\r\n  <input type=\"password\" placeholder=\"Enter Password\" name=\"psw\" required><br>\r\n    \r\n  <button type=\"submit\">Login</button><br>\r\n  <label>\r\n    <input type=\"checkbox\" unchecked=\"checked\" name=\"remember\"> Remember me <br>\r\n  </label>\r\n  <span class=\"\"><a href=\"#\">Forgot password?</a></span>\r\n</div>\r\n\r\n</body>\r\n</html>"
+module.exports = "<div class=\"container\" fxLayout fxLayoutAlign=\"center center\">\r\n  <div fxFlex=\"500px\">\r\n    <div>\r\n      <h3>Please enter your email and password to continue</h3><br>\r\n    </div>\r\n    <form novalidate (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginForm\">\r\n      \r\n      <div\r\n          formGroupName=\"userGroup\"\r\n          novalidate\r\n          fxLayout=\"column\"\r\n          fxLayoutAlign=\"center stretch\"\r\n          fxLayoutGap=\"10px\"\r\n        >\r\n        <mat-form-field>\r\n        <input matInput placeholder=\"Email Address\" formControlName=\"email\" />\r\n        <mat-error *ngIf=\"loginForm.get('userGroup').get('email').invalid\">\r\n          {{ getErrorMessage('userGroup', 'email') }}\r\n        </mat-error>\r\n        </mat-form-field>\r\n      </div>\r\n        <div\r\n        formGroupName=\"passwordGroup\"\r\n        novalidate\r\n        fxLayout=\"column\"\r\n        fxLayoutAlign=\"center stretch\"\r\n        fxLayoutGap=\"10px\"\r\n      >\r\n        <mat-form-field>\r\n          <input matInput type=\"password\" placeholder=\"Password\" formControlName=\"password\" />\r\n          <mat-error *ngIf=\"loginForm.get('passwordGroup').get('password').invalid\">\r\n            {{ getErrorMessage('passwordGroup', 'password') }}\r\n          </mat-error>\r\n        </mat-form-field>\r\n        </div>\r\n        <div class=\"submit\">\r\n          <button type=\"submit\" mat-button >Login</button>\r\n      </div>\r\n      </form>\r\n      </div>\r\n</div>"
 
 /***/ }),
 
@@ -615,7 +621,7 @@ module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n<meta name=\"viewport\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  margin-top: 25px; }\n\n.login {\n  text-align: right;\n  margin-top: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxNb3VuaWthIEFkZGFnYWRhXFxEb2N1bWVudHNcXFNURU0tQ2Fwc3RvbmUtMjAxOVxcc3JjXFxmcm9udGVuZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQWUsRUFBQTs7QUFHakI7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWUsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgICBtYXJnaW4tdG9wOjI1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5sb2dpbiB7XHJcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcclxuICAgIG1hcmdpbi10b3A6MjBweDtcclxuICB9XHJcbiAgIl19 */"
+module.exports = ".container {\n  margin-top: 25px; }\n\n.submit {\n  text-align: right;\n  margin-top: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vQzpcXFVzZXJzXFxNb3VuaWthIEFkZGFnYWRhXFxEb2N1bWVudHNcXFNURU0tQ2Fwc3RvbmUtMjAxOVxcc3JjXFxmcm9udGVuZC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsZ0JBQWUsRUFBQTs7QUFHakI7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWUsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbi5jb250YWluZXIge1xyXG4gIG1hcmdpbi10b3A6MjVweDtcclxufVxyXG5cclxuLnN1Ym1pdCB7XHJcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgbWFyZ2luLXRvcDoyMHB4O1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -631,12 +637,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
 
 
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(fb) {
+        this.fb = fb;
+        this.errors = [];
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.loginForm = this.fb.group({
+            userGroup: this.fb.group({
+                email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(200)]]
+            }),
+            passwordGroup: this.fb.group({
+                password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(8), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]]
+            })
+        });
+    };
+    LoginComponent.prototype.onSubmit = function () {
+        this.login(this.loginForm.get('userGroup').get('email').value, this.loginForm.get('passwordGroup').get('password').value);
+    };
+    LoginComponent.prototype.login = function (emailAddress, password) {
+        console.log('login: ' + emailAddress + ', ' + password);
+        // Call login service here
+    };
+    LoginComponent.prototype.getErrorMessage = function (groupName, controlName) {
+        return this.loginForm.get(groupName).get(controlName).hasError('required') ? 'You must enter a value' :
+            this.loginForm.get(groupName).get(controlName).hasError('email') ? 'Not a valid email' :
+                this.loginForm.get(groupName).get(controlName).hasError('notEqual') ? 'Passwords do not match' :
+                    this.loginForm.get(groupName).get(controlName).hasError('minlength') ? 'Too short' :
+                        this.loginForm.get(groupName).get(controlName).hasError('maxlength') ? 'Too long' :
+                            '';
     };
     LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -644,7 +677,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]])
     ], LoginComponent);
     return LoginComponent;
 }());
