@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+<div class="container" fxLayout fxLayoutAlign="center center">
+  <div fxFlex="500px">
+    <div>
+      <h3>Please enter your email and password to continue</h3><br>
+    </div>
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      
+      <div
+          formGroupName="userGroup"
+          novalidate
+          fxLayout="column"
+          fxLayoutAlign="center stretch"
+          fxLayoutGap="10px"
+        >
+        <mat-form-field>
+        <input matInput placeholder="Email Address" formControlName="email" />
+        <mat-error *ngIf="loginForm.get('userGroup').get('email').invalid">
+          {{ getErrorMessage('userGroup', 'email') }}
+        </mat-error>
+        </mat-form-field>
+      </div>
+        <div
+        formGroupName="passwordGroup"
+        novalidate
+        fxLayout="column"
+        fxLayoutAlign="center stretch"
+        fxLayoutGap="10px"
+      >
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" />
+          <mat-error *ngIf="loginForm.get('passwordGroup').get('password').invalid">
+            {{ getErrorMessage('passwordGroup', 'password') }}
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="login">
+          <button type="login" mat-button >Login</button>
+      </div>
+      </form>
+      </div>
+</div>
