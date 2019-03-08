@@ -18,12 +18,16 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from rest_framework import routers
 
-from app.views import UserViewSet, EventViewSet
+from app.controllers.event_controller import EventViewSet
+from app.controllers.user_controller import UserViewSet
+from app.controllers.organization_controller import OrganizationViewSet
+
 
 # Rest framework router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'events', EventViewSet)
+router.register(r'organizations', OrganizationViewSet)
 
 urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),

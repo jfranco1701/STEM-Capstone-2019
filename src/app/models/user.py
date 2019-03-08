@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from app.models.organization import Organization
 
 USER_TYPE_CHOICES = (
     (1, "student"),
@@ -14,6 +15,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField(blank=True, null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
 

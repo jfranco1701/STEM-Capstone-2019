@@ -1,0 +1,34 @@
+<div fxLayout="row" class="header">
+  <div class="container, nav"
+       fxLayout="row"
+       fxLayoutAlign="center center"
+       fxLayoutGap="0px"
+       fxFill>
+    <div class="itemleft" fxFlex>
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active"><img src="assets/stemlogo.jpg" /></a>
+    </div>
+    <div fxFlex="row">
+      <div class="container" fxLayout="row wrap">
+        <a class="navbutton" mat-stroked-button [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
+        <a class="navbutton" mat-stroked-button>About Us</a>
+        <a class="navbutton" mat-stroked-button>Partners</a>
+        <a class="navbutton" mat-stroked-button>Calendar</a>
+        <a class="navbutton" mat-stroked-button>Get Involved</a>
+        <a class="navbutton" mat-stroked-button>Etc</a>
+      </div>
+    </div>
+    <div fxLayout="row">
+      <!-- Hide button if user is logged in  -->
+      <div fxFlex>
+        <button class="navbutton" [routerLink]="['/register']" routerLinkActive="router-link-active" mat-stroked-button>Register</button>
+      </div>
+      <!-- Hide button if user is logged in  -->
+      <div fxFlex>
+        <button class="navbutton" [routerLink]="['/login']" routerLinkActive="router-link-active" mat-stroked-button>
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
