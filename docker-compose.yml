@@ -9,8 +9,10 @@ services:
       - POSTGRES_USER=stem_admin
       - POSTGRES_PASSWORD=${STEM_PSQL_PASSWORD}
 
-  web:
-    build: .
+  django:
+    build: 
+      context: .
+      dockerfile: ./docker/django/Dockerfile
     restart: always
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata initial_data && python manage.py runserver 0.0.0.0:8000"
     volumes:
@@ -23,3 +25,15 @@ services:
       - STEM_SECRET_KEY=${STEM_SECRET_KEY}
       - STEM_PSQL_PASSWORD=${STEM_PSQL_PASSWORD}
       - DOCKER_SETUP_FLAG=TRUE
+
+  angular:
+    build:
+      context: ./src/frontend
+      dockerfile: ../../docker/angular/Dockerfile
+    restart: always
+    command: bash -c "cd /app/frontend && ng build --watch --outputPath=/app/static/"
+    volumes:
+      - ./src:/app
+      - node_modules
+    depends_on:
+      - django
