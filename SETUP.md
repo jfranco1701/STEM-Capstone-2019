@@ -230,6 +230,15 @@ For this project, we layer the .yml files to make tweaks between development and
 
 Once everything is up and running, you should be able to navigate to http://127.0.0.1:8000 to see the application!
 
+##### Default superadmin
+
+The default superadmin account uses the following credentials:
+
+```
+Username: root
+Password: stemecosystem
+```
+
 ##### Windows-specific issues
 
 With Windows systems, you'll be running the containers in a virtual machine. So we'll need to get the IP address of that machine. I use [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) so I can use VirtualBox instead of Hyper-V. Therefore, I use the following to get the IP address:
