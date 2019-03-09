@@ -1,0 +1,16 @@
+FROM node:8.11
+
+RUN mkdir /frontend
+WORKDIR /frontend
+
+# ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+# ENV PATH=$PATH:/home/node/.npm-global/bin
+
+COPY package.json /frontend
+
+# Install dependencies
+## Globally install angular/cli and node-sass
+RUN npm -g config set user root
+RUN npm install -g @angular/cli@7.3.1
+RUN npm install -g node-sass
+RUN npm install
