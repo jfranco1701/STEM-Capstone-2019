@@ -1,15 +1,10 @@
 import { Event } from '../models/event';
 
 export const EVENTS: Event[] = [
-  { name: 'Camp 1', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Program 2', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 3', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 4', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 5', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 6', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 7', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 8', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 9', date: '08/21/2019', event_type: 'K12/Retreat/Field Trip', organizer: 'Name and/or phone number' },
-  { name: 'Activity 10', date: '08/21/2019', event_type : 'K12/Retreat/Field Trip', organizer : 'Name and/or phone number' }
+  { name: 'Office Party', date: '2019-07-11', e_type: 'Community', organizer: 2, attendees: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] },
+  { name: 'Fundraiser', date: '2019-05-30', e_type: 'Community', organizer: 9, attendees: [3, 6, 7, 8, 13, 16] },
+  { name: 'Fun Run', date: '2019-07-25', e_type: 'Community', organizer: 2, attendees: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] },
+  { name: 'Paper Airplane Design', date: '2019-08-30', e_type: 'Camp', organizer: 5, attendees: [2, 3, 4, 6, 7, 8, 10, 13, 16] },
+  { name: 'Pam\'s Painting', date: '2019-12-11', e_type: 'Camp', organizer: 3, attendees: [2, 6, 7, 13] },
+  { name: 'Pretzel Day', date: '2019-09-10', e_type: 'Camp', organizer: 10, attendees: [2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16] },
 ];
-
