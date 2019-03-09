@@ -10,6 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "first_name",
             "last_name",
             "date_of_birth",
+            "organization",
             "user_type",
             "url",
         )
