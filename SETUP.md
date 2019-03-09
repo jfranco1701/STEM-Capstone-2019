@@ -237,6 +237,15 @@ The frontend serves all frontend assets through `ng serve` and polls file change
 
 The backend will be used for anything Django related. At this time, this consists of `/admin` and `/api` paths.
 
+##### Default superadmin
+
+The default superadmin account uses the following credentials:
+
+```
+Username: root
+Password: stemecosystem
+```
+
 ##### Windows-specific issues
 
 With Windows systems, you'll be running the containers in a virtual machine. So we'll need to get the IP address of that machine. I use [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) so I can use VirtualBox instead of Hyper-V. Therefore, I use the following to get the IP address:
