@@ -2,6 +2,7 @@ export class Event {
 
   name: string;
   date: string;
-  event_type: string;
-  organizer: string;
+  e_type: string;
+  organizer: number;
+  attendees: number[];
 }
