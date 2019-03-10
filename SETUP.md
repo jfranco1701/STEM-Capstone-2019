@@ -224,11 +224,18 @@ docker-compose up
 docker-compose up -d
 ```
 
-For this project, we layer the .yml files to make tweaks between development and production.
-
 #### Access application
 
-Once everything is up and running, you should be able to navigate to http://127.0.0.1:8000 to see the application!
+Once everything is up and running (which takes some time for Angular to compile), you should be able to navigate to either the frontend or backend endpoint to see the application!
+
+```
+Frontend: http://127.0.0.1:4200
+Backend: http://127.0.0.1:8000
+```
+
+The frontend serves all frontend assets through `ng serve` and polls file changes every 2 seconds. Therefore, you can update anything on the frontend and your browser should automatically refresh after Angular is finished recompiling the changes.
+
+The backend will be used for anything Django related. At this time, this consists of `/admin` and `/api` paths.
 
 ##### Windows-specific issues
 
@@ -239,7 +246,7 @@ With Windows systems, you'll be running the containers in a virtual machine. So 
 docker-machine env box
 ```
 
-In the output of that command should include `DOCKER_HOST` which contains an IP address. Put that address in your browser and it should pull up the app (http://<DOCKER_HOST_ADDRESS>:8000)!
+In the output of that command should include `DOCKER_HOST` which contains an IP address. Put that address in your browser and it should pull up the app (http://<DOCKER_HOST_ADDRESS>:8000 or http://<DOCKER_HOST_ADDRESS>:4200)!
 
 #### Shutdown containers
 
