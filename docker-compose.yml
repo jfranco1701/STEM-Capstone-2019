@@ -11,9 +11,10 @@ services:
 
   django:
     build: 
-      context: .
-      dockerfile: ./docker/django/Dockerfile
+      context: ./src
+      dockerfile: ./Dockerfile
     restart: always
+    working_dir: /app
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata initial_data && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./src:/app
@@ -29,11 +30,13 @@ services:
   angular:
     build:
       context: ./src/frontend
-      dockerfile: ../../docker/angular/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
-    command: bash -c "cd /app/frontend && ng build --watch --outputPath=/app/static/"
+    working_dir: /app/frontend
+    command: bash -c "ng serve --poll=2000 --host 0.0.0.0"
     volumes:
       - ./src:/app
-      - node_modules
-    depends_on:
-      - django
+      - /app/frontend/node_modules
+      - /home/node/.npm-global
+    ports:
+      - "4200:4200"
