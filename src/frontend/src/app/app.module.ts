@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -10,9 +9,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -61,6 +58,18 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, metaReducers } from './reducers';
+import { ResourceDefinition, NgrxJsonApiModule } from 'ngrx-json-api';
+import { UsersComponent } from './components/users/users.component';
+
+
+
+const resourceDefinitions: Array<ResourceDefinition> = [
+  { type: 'User', collectionPath: 'users' }
+];
 
 @NgModule({
   declarations: [
@@ -74,7 +83,8 @@ import {
     NotauthorizedComponent,
     AdminComponent,
     EventComponent,
-    RegistertermsComponent
+    RegistertermsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -124,6 +134,13 @@ import {
     MatTooltipModule,
     MatTreeModule,
     ScrollingModule,
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { }),
+    EffectsModule.forRoot([]),
+    NgrxJsonApiModule.configure({
+      apiUrl: 'http://localhost:8000/api/v1',
+      resourceDefinitions
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
