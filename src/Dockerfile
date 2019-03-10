@@ -10,5 +10,5 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-# Copy source files
-COPY src/ /app/
+# Copy app code for caching benefits
+COPY . /app/
