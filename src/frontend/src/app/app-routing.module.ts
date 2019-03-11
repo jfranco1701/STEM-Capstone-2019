@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuardService } from './services/guards/auth-guard.service';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'notauthorized', component: NotauthorizedComponent},
       { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
+      { path: 'users', component: UsersComponent},
     ]},
 { path: '**', component: NotfoundComponent },
 ];
