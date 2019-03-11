@@ -13,45 +13,36 @@ import { Observable } from 'rxjs';
 })
 export class UsersComponent implements OnInit {
   public queryResults: Observable<QueryResult>;
+  results: any;
+  resource: any;
+
 
   constructor(private ngrxJsonApiService: NgrxJsonApiService) { }
 
   ngOnInit() {
-        // a zone represents an independent json-api instance
-        const zone = this.ngrxJsonApiService.getZone(NGRX_JSON_API_DEFAULT_ZONE);
+    this.results = [];
+    this.resource = [];
+  }
 
-        // // add query to store to trigger request from server
-        // const query: Query = {
-        //   queryId: 'myQuery',
-        //   type: 'projects',
-        //   // id: '12' => add to query single item
-        //   params: {
-        //     fields: ['name'],
-        //     include: ['tasks'],
-        //     page: {
-        //       offset: 20,
-        //       limit: 10
-        //     },
-        //     // SortingParam[]
-        //     sorting: [
-        //       { api: 'name', direction: Direction.ASC }
-        //     ],
-        //     // FilteringParam[]
-        //     filtering: [
-        //       { path: 'name', operator: 'EQ', value: 'John' }
-        //     ]
-        //   }
-        // };
+  getUsers() {
+       // a zone represents an independent json-api instance
+       const zone = this.ngrxJsonApiService.getZone(NGRX_JSON_API_DEFAULT_ZONE);
 
-        // zone.putQuery({
-        //   query,
-        //   fromServer: true // you may also query locally from contents in the store, e.g. new resource
-        // });
+       const query: Query = {
+         type: 'users',
+         queryId: 'myQuery',
+       };
 
-        // // select observable to query result holding the loading state and (future) results
-        // const denormalise = false;
+       zone.putQuery({
+         query,
+         fromServer: true // you may also query locally from contents in the store, e.g. new resource
+       });
 
-        // this.queryResults = this.ngrxJsonApiService.selectManyResults(query.queryId, denormalise);
-      }
+       // select observable to query result holding the loading state and (future) results
+       const denormalise = true;
+       this.queryResults = this.ngrxJsonApiService.selectManyResults(query.queryId, denormalise);
+
+       this.queryResults.subscribe(it => this.results = it);
+  }
 }
 
