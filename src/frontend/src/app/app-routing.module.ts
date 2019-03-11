@@ -9,6 +9,7 @@ import { AuthGuardService } from './services/guards/auth-guard.service';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UsersComponent } from './components/users/users.component';
+import { EventAddComponent } from './components/event-add/event-add.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'notauthorized', component: NotauthorizedComponent},
       { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
       { path: 'users', component: UsersComponent},
+      { path: 'event/create', component: EventAddComponent},
     ]},
 { path: '**', component: NotfoundComponent },
 ];
