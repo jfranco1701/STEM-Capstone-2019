@@ -139,15 +139,6 @@ STATICFILES_STORAGE = 'spa.storage.SPAStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # API
-#REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-   # 'DEFAULT_PERMISSION_CLASSES': [
-    #    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    #]
-#}
-
-
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
