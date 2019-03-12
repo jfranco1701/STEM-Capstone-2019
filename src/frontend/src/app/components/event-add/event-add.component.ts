@@ -11,6 +11,7 @@ export class EventAddComponent implements OnInit {
 
   eventForm: FormGroup;
   public errors: any = [];
+  event_types = ['Community', 'Camp'];
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
