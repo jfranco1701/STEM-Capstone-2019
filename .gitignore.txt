@@ -1,0 +1,12 @@
+# Python Files
+**/.venv
+**/*.DS_Store
+**/*.pyc
+**/__pycache__
+
+# VS Code Files
+**/.vscode
+/.vs
+
+# Node static files
+/src/static

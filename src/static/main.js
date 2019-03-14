@@ -1202,7 +1202,7 @@ var UserService = /** @class */ (function () {
     // Uses http.post() to get an auth token from djangorestframework-jwt endpoint
     UserService.prototype.login = function (user) {
         var _this = this;
-        this.http.post('/api-token-auth/', JSON.stringify(user), this.httpOptions).subscribe(function (data) {
+        this.http.post('/api/token/auth/', JSON.stringify(user), this.httpOptions).subscribe(function (data) {
             console.log('login success', data);
             _this.updateData(data['token']);
         }, function (err) {
@@ -1215,7 +1215,7 @@ var UserService = /** @class */ (function () {
      */
     UserService.prototype.refreshToken = function () {
         var _this = this;
-        this.http.post('/api-token-refresh/', JSON.stringify({ token: this.token }), this.httpOptions).subscribe(function (data) {
+        this.http.post('/api/token/refresh/', JSON.stringify({ token: this.token }), this.httpOptions).subscribe(function (data) {
             console.log('refresh success', data);
             _this.updateData(data['token']);
         }, function (err) {

@@ -35,6 +35,6 @@ urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path(r'api-token-auth/', obtain_jwt_token),
-    path(r'api-token-refresh/', refresh_jwt_token),
+    path('api/token/auth', obtain_jwt_token),
+    path('api/token/refresh/', refresh_jwt_token),
 ]
