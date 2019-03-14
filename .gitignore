@@ -7,4 +7,6 @@
 # VS Code Files
 **/.vscode
 /.vs
-node_modules
+
+# Node static files
+/src/static
