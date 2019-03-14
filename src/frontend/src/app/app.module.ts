@@ -64,6 +64,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './reducers';
 import { ResourceDefinition, NgrxJsonApiModule } from 'ngrx-json-api';
 import { UsersComponent } from './components/users/users.component';
+import { FormsModule } from '@angular/forms';    // add this
+import { UserService } from './services/user.service';    // add this
 
 
 
@@ -92,6 +94,8 @@ const resourceDefinitions: Array<ResourceDefinition> = [
     ReactiveFormsModule,
     FlexLayoutModule,
     AppRoutingModule,
+
+    FormsModule,
 
     A11yModule,
     CdkStepperModule,

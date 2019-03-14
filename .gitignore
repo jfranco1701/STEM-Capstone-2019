@@ -7,3 +7,4 @@
 # VS Code Files
 **/.vscode
 /.vs
+node_modules
