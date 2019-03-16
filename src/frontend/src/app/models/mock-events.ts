@@ -1,4 +1,4 @@
-import { Event } from '../models/event';
+import { Event } from './event';
 
 export const EVENTS: Event[] = [
   { name: 'Office Party', date: '2019-07-11', e_type: 'Community', organizer: 2, attendees: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16] },
