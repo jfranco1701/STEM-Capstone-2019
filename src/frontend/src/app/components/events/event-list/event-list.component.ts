@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-event',
-  templateUrl: './event.component.html',
-  styleUrls: ['./event.component.scss']
+  selector: 'app-event-list',
+  templateUrl: './event-list.component.html',
+  styleUrls: ['./event-list.component.scss']
 })
-export class EventComponent implements OnInit {
+export class EventListComponent implements OnInit {
 
   @Input()
   name: string;
@@ -13,6 +13,7 @@ export class EventComponent implements OnInit {
   date: string;
   @Input()
   event_type: string;
+
   constructor() { }
 
   ngOnInit() {

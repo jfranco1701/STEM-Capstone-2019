@@ -19,7 +19,6 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './components/login/login.component';
-import { EventComponent } from './components/event/event.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
 import {
   MatAutocompleteModule,
@@ -64,9 +63,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers, metaReducers } from './reducers';
 import { ResourceDefinition, NgrxJsonApiModule } from 'ngrx-json-api';
 import { UsersComponent } from './components/users/users.component';
-import { EventAddComponent } from './components/event-add/event-add.component';
-
-
+import { EventModule } from './components/events/event.module';
+import { EventRoutingModule } from './components/events/event-routing.module';
 
 const resourceDefinitions: Array<ResourceDefinition> = [
   { type: 'User', collectionPath: 'users' }
@@ -83,18 +81,16 @@ const resourceDefinitions: Array<ResourceDefinition> = [
     LoginComponent,
     NotauthorizedComponent,
     AdminComponent,
-    EventComponent,
     RegistertermsComponent,
     UsersComponent,
-    EventAddComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    EventRoutingModule,
     AppRoutingModule,
-
     A11yModule,
     CdkStepperModule,
     CdkTableModule,
@@ -143,6 +139,7 @@ const resourceDefinitions: Array<ResourceDefinition> = [
       apiUrl: 'http://localhost:8000/api/v1',
       resourceDefinitions
     }),
+    EventModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
