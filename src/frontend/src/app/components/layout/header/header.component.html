@@ -18,6 +18,10 @@
       </div>
     </div>
     <div fxLayout="row">
+      <!-- Only show button if user is logged in and has rights to create events  -->
+      <div fxFlex>
+        <button class="navbutton" [routerLink]="['/events/add']" routerLinkActive="router-link-active" mat-stroked-button>New Event</button>
+      </div>
       <!-- Hide button if user is logged in  -->
       <div fxFlex>
         <button class="navbutton" [routerLink]="['/register']" routerLinkActive="router-link-active" mat-stroked-button>Register</button>
