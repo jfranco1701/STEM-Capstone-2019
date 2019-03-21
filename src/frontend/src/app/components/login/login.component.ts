@@ -37,8 +37,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(emailAddress: string, password: string) {
-    console.log('login: ' + emailAddress + ', ' + password );
-    this._userService.login({'username': emailAddress, 'password': password});
+    console.log('login: ' + emailAddress + ', ' + password + JSON.stringify({'username': emailAddress, 'password': password}));
+    
+    this._userService.login( JSON.stringify( {username: emailAddress, password: password}));
   
     // Call login service here
   }

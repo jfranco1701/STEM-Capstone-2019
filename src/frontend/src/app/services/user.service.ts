@@ -37,7 +37,8 @@ export class UserService {
  
    // Uses http.post() to get an auth token from djangorestframework-jwt endpoint
    public login(user) {
-     this.http.post('/api/token/auth/', JSON.stringify(user), this.httpOptions).subscribe(
+     //console.log('login success', JSON.stringify(user));
+     this.http.post('/api/token/auth', '{"data":{"type": "ObtainJSONWebToken","attributes": {"username": "'+ user.username +'","password":"'+ user.password+'"}}}', this.httpOptions).subscribe(
        data => {
          console.log('login success', data);
          this.updateData(data['token']);
