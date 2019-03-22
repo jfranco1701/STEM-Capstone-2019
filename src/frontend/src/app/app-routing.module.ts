@@ -5,7 +5,7 @@ import { LayoutComponent } from './components/layout/layout/layout.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AuthGuardService } from './services/guards/auth-guard.service';
+import { AuthGuard} from './services/guards/auth-guard.service';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UsersComponent } from './components/users/users.component';
@@ -20,8 +20,7 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent},
       { path: 'home', component: HomeComponent },
       { path: 'notauthorized', component: NotauthorizedComponent},
-      { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
-      { path: 'users', component: UsersComponent},
+      { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
     ]},
 { path: '**', component: NotfoundComponent },
 ];
