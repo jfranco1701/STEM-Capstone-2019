@@ -58,17 +58,9 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { reducers, metaReducers } from './reducers';
-import { ResourceDefinition, NgrxJsonApiModule } from 'ngrx-json-api';
 import { UsersComponent } from './components/users/users.component';
 import { EventModule } from './components/events/event.module';
 import { EventRoutingModule } from './components/events/event-routing.module';
-
-const resourceDefinitions: Array<ResourceDefinition> = [
-  { type: 'User', collectionPath: 'users' }
-];
 
 @NgModule({
   declarations: [
@@ -133,12 +125,6 @@ const resourceDefinitions: Array<ResourceDefinition> = [
     MatTreeModule,
     ScrollingModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, { }),
-    EffectsModule.forRoot([]),
-    NgrxJsonApiModule.configure({
-      apiUrl: 'http://localhost:8000/api/v1',
-      resourceDefinitions
-    }),
     EventModule,
   ],
   providers: [],

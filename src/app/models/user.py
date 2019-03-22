@@ -19,8 +19,8 @@ class User(AbstractUser):
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
 
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["email"]
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
     
     def __str__(self):
         if self.first_name and self.last_name:
