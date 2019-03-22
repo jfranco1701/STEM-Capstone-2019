@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +12,11 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   public errors: any = [];
+  user: User;
 
-  constructor(
-    private fb: FormBuilder,
-    ){}
-   
+  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
-
     this.loginForm = this.fb.group({
       userGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]]
@@ -29,16 +28,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.login(
-      this.loginForm.get('userGroup').get('email').value,
-      this.loginForm.get('passwordGroup').get('password').value
+    console.log(
+      'login: ' +
+        this.loginForm.get('userGroup').get('email').value +
+        ', ' +
+        this.loginForm.get('passwordGroup').get('password').value
     );
-  }
-
-  login(emailAddress: string, password: string) {
-    console.log('login: ' + emailAddress + ', ' + password );
-
-    // Call login service here
+    this.authenticationService.login(
+      this.loginForm.get('userGroup').get('email').value,
+      this.loginForm.get('passwordGroup').get('password').value)
+      .subscribe(user => this.user = user);
   }
 
   getErrorMessage(groupName: string, controlName: string) {
