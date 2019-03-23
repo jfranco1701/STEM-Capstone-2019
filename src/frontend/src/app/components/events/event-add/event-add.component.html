@@ -23,11 +23,16 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
-            <mat-select matSelect placeholder = "Event Type" formControlName="e_type">
+            <mat-select matSelect placeholder="Event Type" formControlName="e_type">
               <mat-option *ngFor="let type of event_types" [value]="type">{{type}}</mat-option>
             </mat-select>
           </mat-form-field>
+
+          <ckeditor formControlName="description" [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+
         </div>
+
+
         <div style="text-align: center; margin-top:20px; margin-bottom:20px;">
           <button type="submit" mat-raised-button>Create Event</button>
         </div>
@@ -49,4 +54,5 @@
       <a href="mailto:info@omahastem.com">info@omahastem.com</a>
     </div>
   </div>
+
 </div>

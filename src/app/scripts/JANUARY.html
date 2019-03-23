@@ -1,483 +1,1051 @@
-<html lang="en-US"><!--<![endif]--><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<!--[if IE 9]>
-<meta http-equiv="X-UA-Compatible" content="IE=9" />
-<![endif]-->
-<link rel="pingback" href="https://omahastem.com/xmlrpc.php">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<title>Calendar</title>
-<link rel="dns-prefetch" href="//maps.googleapis.com">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//s.w.org">
-<link rel="alternate" type="application/rss+xml" title=" » Feed" href="https://omahastem.com/feed/">
-<link rel="alternate" type="application/rss+xml" title=" » Comments Feed" href="https://omahastem.com/comments/feed/">
-<!-- This site uses the Google Analytics by MonsterInsights plugin v7.4.2 - Using Analytics tracking - https://www.monsterinsights.com/ -->
-<script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" data-cfasync="false">
-	var mi_version         = '7.4.2';
-	var mi_track_user      = true;
-	var mi_no_track_reason = '';
-	
-	var disableStr = 'ga-disable-UA-97778033-1';
-
-	/* Function to detect opted out users */
-	function __gaTrackerIsOptedOut() {
-		return document.cookie.indexOf(disableStr + '=true') > -1;
-	}
-
-	/* Disable tracking if the opt-out cookie exists. */
-	if ( __gaTrackerIsOptedOut() ) {
-		window[disableStr] = true;
-	}
-
-	/* Opt-out function */
-	function __gaTrackerOptout() {
-	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-	  window[disableStr] = true;
-	}
-	
-	if ( mi_track_user ) {
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
-
-		__gaTracker('create', 'UA-97778033-1', 'auto');
-		__gaTracker('set', 'forceSSL', true);
-		__gaTracker('require', 'linkid', 'linkid.js');
-		__gaTracker('send','pageview');
-	} else {
-		console.log( "" );
-		(function() {
-			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
-			var noopfn = function() {
-				return null;
-			};
-			var noopnullfn = function() {
-				return null;
-			};
-			var Tracker = function() {
-				return null;
-			};
-			var p = Tracker.prototype;
-			p.get = noopfn;
-			p.set = noopfn;
-			p.send = noopfn;
-			var __gaTracker = function() {
-				var len = arguments.length;
-				if ( len === 0 ) {
-					return;
-				}
-				var f = arguments[len-1];
-				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
-					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
-					return;
-				}
-				try {
-					f.hitCallback();
-				} catch (ex) {
-
-				}
-			};
-			__gaTracker.create = function() {
-				return new Tracker();
-			};
-			__gaTracker.getByName = noopnullfn;
-			__gaTracker.getAll = function() {
-				return [];
-			};
-			__gaTracker.remove = noopfn;
-			window['__gaTracker'] = __gaTracker;
-					})();
-		}
-</script>
-<!-- / Google Analytics by MonsterInsights -->
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/omahastem.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
-			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script><script src="https://omahastem.com/wp-includes/js/wp-emoji-release.min.js?ver=5.1.1" type="text/javascript" defer=""></script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-	<link rel="stylesheet" id="wp-block-library-css" href="https://omahastem.com/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1" type="text/css" media="all">
-<link rel="stylesheet" id="contact-form-7-css" href="https://omahastem.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1" type="text/css" media="all">
-<link rel="stylesheet" id="ecwd-popup-style-css" href="https://omahastem.com/wp-content/plugins/event-calendar-wd/css/ecwd_popup.css?ver=1.1.26_58b714d28dc43" type="text/css" media="all">
-<link rel="stylesheet" id="ecwd_font-awesome-css" href="https://omahastem.com/wp-content/plugins/event-calendar-wd/css/font-awesome/font-awesome.css?ver=1.1.26_58b714d28dc43" type="text/css" media="all">
-<link rel="stylesheet" id="ecwd-public-css" href="https://omahastem.com/wp-content/plugins/event-calendar-wd/css/style.css?ver=1.1.26_58b714d28dc43" type="text/css" media="all">
-<link rel="stylesheet" id="incart-style-css" href="https://omahastem.com/wp-content/themes/incart-lite/style.css?ver=5.1.1" type="text/css" media="all">
-<link rel="stylesheet" id="incart-animation-stylesheet-css" href="https://omahastem.com/wp-content/themes/incart-lite/css/skt-animation.css?ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="prettyPhoto-css" href="https://omahastem.com/wp-content/themes/incart-lite/css/prettyPhoto.css?ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="font-awesome-css" href="https://omahastem.com/wp-content/themes/incart-lite/css/font-awesome.css?ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="superfish-css" href="https://omahastem.com/wp-content/themes/incart-lite/css/superfish.css?ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="bootstrap-responsive-css" href="https://omahastem.com/wp-content/themes/incart-lite/css/bootstrap-responsive.css?ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="google-Fonts-Roboto-css" href="//fonts.googleapis.com/css?family=Roboto%3A400%2C300%2C400italic%2C500%2C700&amp;ver=1.0.7" type="text/css" media="all">
-<link rel="stylesheet" id="google-Fonts-Lato-css" href="//fonts.googleapis.com/css?family=Lato%3A400%2C700&amp;ver=1.0.7" type="text/css" media="all">
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/jquery.js?ver=1.12.4"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places&amp;key=AIzaSyD8kGBi3CI0Qr2JGROtX1eL_FTX4gCipbE&amp;ver=1.1.26_58b714d28dc43"></script>
-<script type="text/javascript">
-/* <![CDATA[ */
-var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,exe,js,pdf,ppt,tgz,zip,xls","inbound_paths":"[]","home_url":"https:\/\/omahastem.com","hash_tracking":"false"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=7.4.2"></script>
-<link rel="https://api.w.org/" href="https://omahastem.com/wp-json/">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://omahastem.com/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://omahastem.com/wp-includes/wlwmanifest.xml"> 
-<link rel="canonical" href="https://omahastem.com/calendar/">
-<link rel="shortlink" href="https://omahastem.com/?p=78">
-<link rel="alternate" type="application/json+oembed" href="https://omahastem.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fomahastem.com%2Fcalendar%2F">
-<link rel="alternate" type="text/xml+oembed" href="https://omahastem.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fomahastem.com%2Fcalendar%2F&amp;format=xml">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<link rel="shortcut icon" type="image/x-icon" href="http://omahastem.wpengine.com/wp-content/uploads/2017/01/STEM_facebook_profile-picture.jpg">
-<style type="text/css">
-
-	/***************** THEME *****************/
-	
-	.flex-control-paging li a.flex-active,.skt_price_table .price_table_inner ul li.table_title{background: #000000; }
-	.sticky-post {color : #000000;border-color:rgba(0,0,0,.7)}
-	#footer,.skt_price_table .price_table_inner .price_button a { border-color: #000000; }
-	.social li a:hover,.skt-iconbox.iconbox-top:hover .iconboxhover{background: #000000;}
-	.social li a:hover:before{color:#fff; }
-	.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover,a#backtop,.slider-link a:hover,#respond input[type="submit"]:hover,.skt-ctabox div.skt-ctabox-button a:hover,#portfolio-division-box a.readmore:hover,.project-item .icon-image,.project-item:hover,.filter li .selected,.filter a:hover,.widget_tag_cloud a:hover,.widget_product_tag_cloud a:hover, .continue a:hover,blockquote,.skt-quote,#incart-paginate .incart-current,#incart-paginate a:hover,.postformat-gallerydirection-nav li a:hover,#wp-calendar,.comments-template .reply a:hover,#content .contact-left form input[type="submit"]:hover,.service-icon:hover,.skt-parallax-button:hover,.sktmenu-toggle,.skt_price_table .price_table_inner .price_button a:hover, .mid-box:hover .iconbox-icon i,#content .skt-service-page div.one_third:hover .service-icon,#content div.one_half .skt-service-page:hover .service-icon  {background-color: #000000; }
-	.skt-ctabox div.skt-ctabox-button a,#portfolio-division-box .readmore,.teammember,.continue a,.comments-template .reply a,#respond input[type="submit"],.slider-link a,.ske_tab_v ul.ske_tabs li.active,.ske_tab_h ul.ske_tabs li.active,#content .contact-left form input[type="submit"],.filter a,.service-icon,.skt-parallax-button,#incart-paginate a:hover,#incart-paginate .incart-current,#content .contact-left form textarea:focus,#content .contact-left form input[type="text"]:focus, #content .contact-left form input[type="email"]:focus, #content .contact-left form input[type="url"]:focus, #content .contact-left form input[type="tel"]:focus, #content .contact-left form input[type="number"]:focus, #content .contact-left form input[type="range"]:focus, #content .contact-left form input[type="date"]:focus, #content .contact-left form input[type="file"]:focus,form input[type="text"]:focus,form input[type="email"]:focus, form input[type="url"]:focus,form input[type="tel"]:focus, form input[type="number"]:focus,form input[type="range"]:focus, form input[type="date"]:focus,form input[type="file"]:focus,form textarea:focus,form input[type="submit"],a{border-color:#000000;} 	
-	.clients-items li a:hover{border-bottom-color:#000000;}
-	a,.ske-footer-container ul li:hover:before,.ske-footer-container ul li:hover > a,.ske_widget ul ul li:hover:before,.ske_widget ul ul li:hover,.ske_widget ul ul li:hover a,.title a ,.skepost-meta a:hover,.post-tags a:hover,.entry-title a:hover ,.continue a,.readmore a:hover,#Site-map .sitemap-rows ul li a:hover ,.childpages li a,#Site-map .sitemap-rows .title,.ske_widget a,.ske_widget a:hover,#Site-map .sitemap-rows ul li:hover,.mid-box:hover .iconbox-icon i,#footer .third_wrapper a:hover,.ske-title,#content .contact-left form input[type="submit"],.filter a,service-icon i,.service-icon i,span.team_name,#respond input[type="submit"],.reply a, a.comment-edit-link,.iconbox-icon i,.skt_price_table .price_in_table .value,form input[type="submit"],.head-phone a:hover,a{color: #000000;text-decoration: none;}
-	.single #content .title,#content .post-heading,.childpages li ,.fullwidth-heading,.comment-meta a:hover,#respond .required, #wp-calendar tbody a{color: #000000;} 
-	#skenav a{color:;}
-	#skenav ul ul li a:hover,.mid-box:hover .iconbox-icon i{background-color: #000000;color:#fff;}
-	*::-moz-selection{background: #000000;color:#fff;}
-	::selection {background: #000000;color:#fff;}
-	#full-twitter-box,.progress_bar {background: none repeat scroll 0 0 #000000;}
-	#skenav ul li.current_page_item > a,
-	#skenav ul li.current-menu-ancestor > a,
-	#skenav ul li.current-menu-item > a,
-	#skenav ul li.current-menu-parent > a ,.skt-front-subs-widget input[type="submit"]{ background-color:#000000;color:#fff;}
-	.iconbox-icon i { border-color: #000000;  }
-	#searchform input[type="submit"],#sidebar #searchform input[type="submit"]{ background: none repeat scroll 0 0 #000000;  }
-	.ske-footer-container ul li {}
-	.col-one .box .title, .col-two .box .title, .col-three .box .title, .col-four .box .title {color: #000000 !important;  }
-		
-	#full-division-box { background-image: url("http://omahastem.com/wp-content/uploads/2018/08/footer-1.jpg"); }
-	
-	@keyframes team_ttb{25%{box-shadow:0 0 0 5px rgba(0,0,0,.4)} 100%{box-shadow:0 0 0 5px #000000}}
-	@-webkit-keyframes team_ttb{25%{box-shadow:0 0 0 5px rgba(0,0,0,.4)} 100%{box-shadow:0 0 0 5px #000000}}
-	@-moz-keyframes team_ttb{25%{box-shadow:0 0 0 5px rgba(0,0,0,.4)} 100%{box-shadow:0 0 0 5px #000000}}
-	@-o-keyframes team_ttb{25%{box-shadow:0 0 0 5px rgba(0,0,0,.4)} 100%{box-shadow:0 0 0 5px #000000}}
-	
-	#skenav li a:hover,#skenav .sfHover,#skenav ul ul li { background-color:#333333;color: #FFFFFF;}
-	#skenav .sfHover a { color: #FFFFFF;}
-	#skenav .ske-menu #menu-secondary-menu li a:hover, #skenav .ske-menu #menu-secondary-menu .current-menu-item a{color: #71C1F2;  }
-	.footer-seperator{background-color: rgba(0,0,0,.2);}
-	#skenav .ske-menu #menu-secondary-menu li .sub-menu li {margin: 0;}
-
-
-			#map_canvas #map,#map_canvas{height:px;}
-	.teammember {border-bottom-color : rgba(0,0,0,.4);}
- 	
-	.bread-title-holder h1.title,.cont_nav_inner span,.bread-title-holder .cont_nav_inner p{
-		color: ;
-	}
-	
-	/***************** WOOCOMMERCE-STYLE *****************/
-	
-		
-	.woocommerce form .form-row input.input-text:focus, .woocommerce form .form-row textarea:focus, .woocommerce-page form .form-row input.input-text:focus, .woocommerce-page form .form-row textarea:focus,select:focus{ border-color: #000000; } 	
-	.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price,
-	.woocommerce #content div.product p.price, .woocommerce #content div.product span.price, .woocommerce div.product p.price, .woocommerce div.product span.price, .woocommerce-page #content div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page div.product span.price {color: ;}
-	.woocommerce .products .star-rating, .woocommerce-page .products .star-rating,
-	.woocommerce .woocommerce-product-rating .star-rating, .woocommerce-page .woocommerce-product-rating .star-rating,.woocommerce .star-rating, .woocommerce-page .star-rating,.woocommerce-page p.stars a:hover{color: ;}
-	.woocommerce div.product .woocommerce-tabs ul.tabs li.active, .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active, .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active{border-top-color: #000000;}	
-	.woocommerce ul.products li.product a:hover, .woocommerce-page ul.products li.product a:hover,
-	.woocommerce #content div.product .product_title, .woocommerce div.product .product_title, .woocommerce-page #content div.product .product_title, .woocommerce-page div.product .product_title {color: #000000;}
-	.woocommerce span.onsale, .woocommerce-page span.onsale{background: #000000;}
-	.woocommerce #content input.button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce-page #content input.button, .woocommerce-page #respond input#submit, .woocommerce-page a.button, .woocommerce-page button.button, .woocommerce-page input.button,
-	.woocommerce div.product form.cart .button, .woocommerce #content div.product form.cart .button, .woocommerce-page div.product form.cart .button, .woocommerce-page #content div.product form.cart .button,.woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page a.button.alt, .woocommerce-page button.button.alt, .woocommerce-page input.button.alt, .woocommerce-page #respond input#submit.alt, .woocommerce-page #content input.button.alt  	{ color: #000000;border-color: #000000;}
-	.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover,
-	.woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #content input.button.alt:hover, 
-	.woocommerce #content nav.woocommerce-pagination ul li a:focus, .woocommerce #content nav.woocommerce-pagination ul li a:hover, .woocommerce #content nav.woocommerce-pagination ul li span.current, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce-page #content nav.woocommerce-pagination ul li a:focus, .woocommerce-page #content nav.woocommerce-pagination ul li a:hover, .woocommerce-page #content nav.woocommerce-pagination ul li span.current, .woocommerce-page nav.woocommerce-pagination ul li a:focus, .woocommerce-page nav.woocommerce-pagination ul li a:hover, .woocommerce-page nav.woocommerce-pagination ul li span.current,.woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #content input.button.alt:hover,form input[type="submit"]:hover {background: #000000!important;color:#fff !important;text-shadow:inherit;}
-	.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover, .woocommerce #content nav.woocommerce-pagination ul li a:focus, .woocommerce #content nav.woocommerce-pagination ul li a:hover, .woocommerce #content nav.woocommerce-pagination ul li span.current, .woocommerce nav.woocommerce-pagination ul li a:focus, .woocommerce nav.woocommerce-pagination ul li a:hover, .woocommerce nav.woocommerce-pagination ul li span.current, .woocommerce-page #content nav.woocommerce-pagination ul li a:focus, .woocommerce-page #content nav.woocommerce-pagination ul li a:hover, .woocommerce-page #content nav.woocommerce-pagination ul li span.current, .woocommerce-page nav.woocommerce-pagination ul li a:focus, .woocommerce-page nav.woocommerce-pagination ul li a:hover, .woocommerce-page nav.woocommerce-pagination ul li span.current{border-color: #000000;}
-
-	@media only screen and (min-width : 310px) and (max-width : 499px) {
-    .woocommerce ul.products li.product, .woocommerce-page ul.products li.product, .woocommerce-page[class*=columns-] ul.products li.product, .woocommerce[class*=columns-] ul.products li.product{
-	    width:100%;
-        }
-     }
-	
-	#header.skehead-headernav.skehead-headernav-shrink {background: #fff;
-			
-
-	@media only screen and (max-width : 1025px) {
-		#menu-main {
-			display:none;
-		}
-        
-		#header .container {
-			width:97%;
-		}
-	}
-</style>
-
-<script type="text/javascript">
-jQuery(document).ready(function(){
-'use strict';
-	jQuery('#menu-main').sktmobilemenu({'fwidth':1025});
-});
-</script> 
-	
-<link id="ecwd-calendar-main-css" rel="stylesheet" type="text/css" href="https://omahastem.com/wp-content/plugins/event-calendar-wd/css/calendar.css?ver=1"><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/36/6/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/36/6/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttps%3A%2F%2Fomahastem.com%2Fcalendar%2F&amp;4sAIzaSyD8kGBi3CI0Qr2JGROtX1eL_FTX4gCipbE&amp;callback=_xdc_._ueku99&amp;key=AIzaSyD8kGBi3CI0Qr2JGROtX1eL_FTX4gCipbE&amp;token=8098"></script></head>
-<body class="page-template-default page page-id-78 ecwd-theme-incart-lite">
-	<div id="wrapper" class="skepage">
-	 
-		<div id="header-top" class="clearfix">
-		<div class="container">      
-			<div class="row-fluid"> 
-				<div class="span5">
-					<!-- Social Links Section -->
-					<div class="social_icon">
-						<ul class="clearfix">
-							<li class="fb-icon"><a target="_blank" href="https://www.facebook.com/OmahaSTEM/"><span class="fa fa-facebook" title="Facebook"></span></a></li>																																																																																			</ul>
-					</div>
-					<!-- Social Links Section -->
-				</div>
-				<div class="span3">
-					<!-- Top Contact Info -->
-					<div class="topbar_info">
-						<i class="fa fa-phone"></i><span class="head-phone"><a href="tel:(402) 738-2077">(402) 738-2077</a></span>					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-			<div id="header" class="skehead-headernav clearfix" style="top: 0px;">
-			<div class="glow">
-				<div id="skehead">
-					<div class="container">      
-						<div class="row-fluid">      
-							<!-- #logo -->
-							<div id="logo" class="span4">
-																<!-- #description -->
-								<div id="site-title" class="logo_desp">
-									<a href="https://omahastem.com/" title=""></a> 
-									<div id="site-description"></div>
-								</div>
-								<!-- #description -->
-															</div>
-							<!-- #logo -->
-							
-							<!-- .top-nav-menu --> 
-							<div class="top-nav-menu span8"> 
-								<div class="top-nav-menu ">
-									<div id="skenav" class="ske-menu" style="position: relative;"><div class="sktmenu-toggle" id="responsive-nav-button"></div><ul id="menu-main" class="menu skt-mob-menu" style="display: none;"><li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="http://omahastem.wpengine.com">Home</a></li>
-<li id="menu-item-1304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1304"><a href="https://omahastem.com/about-us/">About Us</a></li>
-<li id="menu-item-1306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1306"><a href="https://omahastem.com/our-work/">Our Work</a></li>
-<li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="https://omahastem.com/partners/">Partners</a></li>
-<li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-55 has_child"><span class="this_child"></span><a href="https://omahastem.com/announcements/" class="">Resources</a>
-<ul class="sub-menu" style="">
-	<li id="menu-item-1052" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1052"><a href="https://omahastem.com/category/events/">Events</a></li>
-	<li id="menu-item-1053" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1053 has_child"><span class="this_child"></span><a href="https://omahastem.com/category/resources/" class="">Resources</a>
-	<ul class="sub-menu" style="">
-		<li id="menu-item-1103" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1103"><a href="https://omahastem.com/tag/education/">Education</a></li>
-		<li id="menu-item-1107" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1107"><a href="https://omahastem.com/tag/business/">Business</a></li>
-		<li id="menu-item-1110" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1110"><a href="https://omahastem.com/tag/families/">Families</a></li>
-		<li id="menu-item-1109" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1109"><a href="https://omahastem.com/tag/policy/">Policy</a></li>
-		<li id="menu-item-1196" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1196"><a href="https://omahastem.com/tag/research/">Research</a></li>
-	</ul>
-</li>
-	<li id="menu-item-1054" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1054 has_child"><span class="this_child"></span><a href="https://omahastem.com/category/headlines/" class="">Headlines</a>
-	<ul class="sub-menu" style="">
-		<li id="menu-item-1104" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1104"><a href="https://omahastem.com/tag/national/">National</a></li>
-		<li id="menu-item-1105" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1105"><a href="https://omahastem.com/tag/local/">Local</a></li>
-		<li id="menu-item-1106" class="menu-item menu-item-type-taxonomy menu-item-object-post_tag menu-item-1106"><a href="https://omahastem.com/tag/omahastemecosystem-news/">Omaha STEM Ecosystem News</a></li>
-	</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"><a href="https://omahastem.com/get-involved/">Get Involved</a></li>
-<li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-78 current_page_item menu-item-81"><a href="https://omahastem.com/calendar/" aria-current="page">Calendar</a></li>
-</ul></div>								</div>
-							</div>
-							<!-- .top-nav-menu --> 
-						</div>
-					</div>
-				</div>
-				<!-- #skehead -->
-			</div>
-			<!-- glow --> 
-		</div>
-		
-								
-		<div class="header-clone" style="height: 0px;"></div>
-<!-- #header -->
-<!-- header image section -->
-    <div id="main" class="clearfix">
-
-<div class="main-wrapper-item"> 
-		
-		<div class="bread-title-holder">
-			<div class="bread-title-bg-image full-bg-breadimage-fixed"></div>
-			<div class="container">
-				<div class="row-fluid">
-					<div class="container_inner clearfix">
-						<h1 class="title">Calendar</h1>
-						<section class="cont_nav"><div class="cont_nav_inner"><p><a href="https://omahastem.com/">Home</a>&nbsp;<span class="skt-breadcrumbs-separator"> / </span>&nbsp;<span>Calendar</span></p></div></section>					</div>
-				</div>
-			</div>
-		</div>		
-
-	<div class="page-content default-pagetemp">
-		<div class="container post-wrap">
-			<div class="row-fluid">
-				<div id="content" class="span8">
-					<div class="post" id="post-78">
-						<div class="skepost">
-							<input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><div class="ecwd_79 ecwd_theme_calendar calendar_full_content calendar_main"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><input type="hidden" class="show_event_hover_info"><div class="ecwd-page-full ecwd_calendar" style="max-width: 100%; width: 100%; float: none;"><div data-id="79" data-type="page" class="ecwd-page-79"><div class="calendar-head ecwd_calendar_prev_next"><div class="previous"><a href="?date=2018-12&amp;t=full" rel="noindex, nofollow"><span>&lt;</span><span class="month-name"> December </span></a></div><div class="current-month"><a href="?date=2018-1-1&amp;t=full" rel="noindex, nofollow">&lt;</a>&nbsp;2019&nbsp;<a href="?date=2020-1-1&amp;t=full" rel="noindex, nofollow">&gt;</a><div>January</div></div><div class="next"><a href="?date=2019-2-15&amp;t=full" rel="noindex, nofollow"><span class="month-name"> February </span><span>&gt;</span></a></div><input type="hidden" class="ecwd_current_link" value="?date=2019-1-1&amp;t=full"></div> <div class="ecwd_calendar_view_tabs cal_tabs_blue"><div class="filter-container" style="width: 240px;">                        <div class="filter-arrow-left">«</div>                        <div class="filter-arrow-right" style="display: none;">»</div></div><div class="ecwd-search">                        <input class="ecwd-search" name="search" type="text" value=""><button class="btn btn-default ecwd-search-submit"><span class="glyphicon glyphicon-search"></span><i class="fa fa-search"></i></button>                </div></div><table class="ecwd_calendar_container full cal_blue" cellpadding="0" cellspacing="0" border="0">                <tbody><tr></tr><tr><th class="normal-day-heading week-start" data-date=""><div class="day-number">Sun</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Mon</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Tue</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Wed</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Thu</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Fri</div></th><th class="normal-day-heading" data-date=""><div class="day-number">Sat</div></th></tr><tr><td class="day-without-date week-start no-events" data-date=""><div class="day-number">December</div></td><td class="day-without-date no-events" data-date=""><div class="day-number">December</div></td><td class="day-with-date has-events" data-date="2019-1-1"><div class="day-number">1</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #d99694; " class=" 0"><a href="http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/" target="_blank"><span itemprop="name">Aim for the Stars Science and Math Camps Registration Opening</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#d99694"></span><p></p><h5 style="color:#d99694" itemprop="name"><a href="http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/" target="_blank" style="color: #d99694 " itemprop="url">Aim for the Stars Science and Math Camps Registration Opening</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-01T00:00"> All day</span></div><div class="ecwd-date"><span class="metainfo"> January 1, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-01T00:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://www.plcschools.org//cms/lib/NE01912173/Centricity/Domain/776/4%20-%20Dec.%20Ads/Aim%20for%20the%20stars.png"><p></p><p><a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU&amp;url=https%3A%2F%2Fwww.plcschools.org%2FPage%2F1800&amp;psig=AOvVaw0sF0u74cWsUBZeJm_p1pcp&amp;ust=1544649042709392" target="_blank" rel="noopener" data-cthref="/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU&amp;url=https%3A%2F%2Fwww.plcschools.org%2FPage%2F1800&amp;psig=AOvVaw0sF0u74cWsUBZeJm_p1pcp&amp;ust=1544649042709392" data-ctbtn="2" data-noload="" data-ved="2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU"> </a></p><p>Registration for the UNO Aim For the Stars begins this week!</p><p>Omaha STEM Ecosystems would like to inform the Omaha community of an exciting opportunity for children in grades from 3rd to 10th grade (entering 4th grade and entering 10th grade). Registration for these camps opens up the first week of January for 1 week (Mon.-Fri.) camps that are offered through June 3rd to August 2nd (no camps during the week of July 1-5). The University of Nebraska at Omaha Physics Department welcomes you to Aim for the Stars Science and Math Camps! There is a 1:8 adult to camper ratio at Aim for the Stars. Our staff members are chosen based on their rapport with children, knowledge of the subject matter and love of learning. Your child will learn so much and enjoy every moment of Aim for the Stars Science and Math Camp. There are also a variety of camps you can register your child for during any of the camp weeks. These range anywhere from 3-D printing, Science Fiction, and Engineering focused camps!<br>To learn more about this exciting venture, as well as, where to register go to: aimforthestars.unomaha.edu<br>These camps vary in price so go to the Aim for the Stars page at the unomaha.edu website link posted above to find specific prices for the camp you decide to register for more details. These camps are each 1 week long (5 days only)<br>Most camps are scheduled to begin each weekday at 8:30 a.m.-3:30 p.m with options of before and after care with an additional cost of 10-30 dollars for either or both.</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date has-events" data-date="2019-1-2"><div class="day-number">2</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/" target="_blank"><span itemprop="name">Fontenelle Forest: Winter Break Camps</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#c6d9f0"></span><p></p><h5 style="color:#c6d9f0" itemprop="name"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-02T09:00"> 9:00 am-3:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 2, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-02T15:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a></span></div><p><span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg"><p></p><p>Join us this winter to experience Fontenelle Forest on and off trails.</p><p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p><p>– Dress for the weather<br>– Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p><p>Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong></p><p>Pick the date and age range that works best for you, or sign up for multiple camps!<br>Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br><strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong></p><p>Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a></p><p>&nbsp;</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date has-events" data-date="2019-1-3"><div class="day-number">3</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/" target="_blank"><span itemprop="name">Fontenelle Forest: Winter Break Camps</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#c6d9f0"></span><p></p><h5 style="color:#c6d9f0" itemprop="name"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-03T09:00"> 9:00 am-3:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 3, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-03T15:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a></span></div><p><span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg"><p></p><p>Join us this winter to experience Fontenelle Forest on and off trails.</p><p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p><p>– Dress for the weather<br>– Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p><p>Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong></p><p>Pick the date and age range that works best for you, or sign up for multiple camps!<br>Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br><strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong></p><p>Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a></p><p>&nbsp;</p><p>&nbsp;</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date has-events" data-date="2019-1-4"><div class="day-number">4</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/" target="_blank"><span itemprop="name">Fontenelle Forest: Winter Break Camps</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#c6d9f0"></span><p></p><h5 style="color:#c6d9f0" itemprop="name"><a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-04T09:00"> 9:00 am-3:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 4, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-04T15:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a></span></div><p><span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg"><p></p><p>Join us this winter to experience Fontenelle Forest on and off trails.</p><p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p><p>– Dress for the weather<br>– Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p><p>Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong></p><p>Pick the date and age range that works best for you, or sign up for multiple camps!<br>Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br><strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong></p><p>Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a></p><p>&nbsp;</p><p>&nbsp;</p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1"><a href="http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/" target="_blank"><span itemprop="name">“What’s Up-Decemeber Skies: UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“What’s Up-Decemeber Skies: UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-04T18:30"> 6:30 pm-7:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 4, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-04T19:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://www.unomaha.edu/college-of-arts-and-sciences/physics/_files/images/whats-up.jpg"><p></p><p>UNO would like to invite you to a planetarium show involving a discussion and a star simulated presentation of the seasonal constellations present in our skies.</p><p>“What’s Up” programs feature seasonal constellations, mythology and star patterns that are visible during the current season. Discussion includes our Sun, Moon, and other planets. Additional topics include active spacecraft operating within our solar system.</p><p>The event is priced at $4/person at the door. Doors open about 20 min. prior to the show.&nbsp; Open parking for the weekend starts at 5 pm on Fridays at the Durham Science Center at UNO. See our website for information.</p><p>The first show will be at 6:30 on Friday the 4th of January and will last approximately 1 hour, though there will be a <b>a second showing&nbsp;at 8:00 p.m. as well&nbsp;</b></p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date weekend has-events" data-date="2019-1-5"><div class="day-number">5</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0"><a href="http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/" target="_blank"><span itemprop="name">“What’s Up-December Skies” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“What’s Up-December Skies” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-05T18:30"> 6:30 pm-7:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 5, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-05T19:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://www.unomaha.edu/news/2017/planetarium-f.jpg"><p></p><p>UNO would like to invite you to a planetarium show involving a discussion and a star simulated presentation of the seasonal constellations present in our skies.</p><p>“What’s Up” programs feature seasonal constellations, mythology and star patterns that are visible during the current season. Discussion includes our Sun, Moon, and other planets. Additional topics include active spacecraft operating within our solar system.</p><p>The event is priced at $4/person at the door. Doors open about 20 min. prior to the show.&nbsp; Open parking for the weekend starts at 5 pm on Fridays at the Durham Science Center at UNO. See our website for information.</p><p>The first show will be at 6:30 on Saturday the 5th of January and will last approximately 1 hour, though there will be a <b>a second showing&nbsp;at 8:00 p.m. as well&nbsp;</b></p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td></tr><tr><td class="day-with-date weekend week-start no-events" data-date="2019-1-6"><div class="day-number">6</div></td><td class="day-with-date no-events" data-date="2019-1-7"><div class="day-number">7</div></td><td class="day-with-date no-events" data-date="2019-1-8"><div class="day-number">8</div></td><td class="day-with-date no-events" data-date="2019-1-9"><div class="day-number">9</div></td><td class="day-with-date no-events" data-date="2019-1-10"><div class="day-number">10</div></td><td class="day-with-date has-events" data-date="2019-1-11"><div class="day-number">11</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0"><a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/" target="_blank"><span itemprop="name">“Two Small Pieces of Glass” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Two Small Pieces of Glass” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-11T17:30"> 5:30 pm-6:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 11, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-11T18:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://www.byui.edu/images/planetarium/Shows/Glass_thumb.png"><p></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. at UNO campus. This event takes place on Friday January 11th at 5:30 p.m. and lasts about 1 hour.</p><p>Two Small Pieces of Glass: The Amazing Telescope full-dome show follows two students as they interact with a female astronomer at a local star party.<br>Along the way, the students learn the history of the telescope from Galileo’s modifications to a child’s spyglass — using two small pieces of glass — to the launch of the NASA/ESA Hubble Space Telescope and the future of astronomy. Aiming to engage and appeal to audiences of all ages, the show explores the wonder and discovery made by astronomers throughout the last 400 years.</p><p>Trailer: <a href="https://youtu.be/HUe1nX3MDPM">https://youtu.be/HUe1nX3MDPM</a></p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1"><a href="http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/" target="_blank"><span itemprop="name">“Hot and Energetic Universe” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Hot and Energetic Universe” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-11T19:00"> 7:00 pm-8:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 11, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-11T20:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://www.kalamazoomuseum.org/planetarium/schoolshows/images/large_images/HAEU%20575%20x%20375.jpg"><p></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 11th at 7:00 p.m. and lasts about 1 hour.</p><p>“The Hot and Energetic Universe” presents the fascinating world of high energy astrophysics.&nbsp;High energy astrophysics plays a key role in understanding the universe, as these radiations reveal the processes in the hot and violent universe.&nbsp;High energy astrophysics probes hot gas in clusters of galaxies, which are the most massive objects in the universe.&nbsp;It also probes hot gas accreting around super-massive black holes in the centers of galaxies.&nbsp;Finally, high energy radiation provides important information about our own galaxy, neutron stars, supernova remnants and stars like our Sun which emit copious amounts of high-energy radiation.&nbsp;Come and learn about your hot and energetic universe!</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date weekend has-events" data-date="2019-1-12"><div class="day-number">12</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #4f81bd; " class=" 0"><a href="http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/" target="_blank"><span itemprop="name">Upcoming Educator Workshop: Backyard Wilderness</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#4f81bd"></span><p></p><h5 style="color:#4f81bd" itemprop="name"><a href="http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/" target="_blank" style="color: #4f81bd " itemprop="url">Upcoming Educator Workshop: Backyard Wilderness</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-12T09:00"> 9:00 am-3:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 12, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T15:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/omahas-henry-doorly-zoo-and-aquarium/">Omaha’s Henry Doorly Zoo and Aquarium</a></span></div><p><span class="ecwd_hidden" itemprop="name">3701 S 10th St, Omaha, NE 68108, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>3701 S 10th St, Omaha, NE 68108, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://www.omahazoo.com/assets/2140/backyard_wilderness_3d.jpg"><p></p><p><strong> </strong></p><p>View our newest Lozier Giant Screen Theater® movie, Backyard Wildeness, showing through the spring.&nbsp; During this interactive workshop, we will delve into lessons developed around the main themes of the movie: ecosystems and adaptations.&nbsp; This workshop is open to all educators (formal and informal), but is geared towards those that work with students in <strong>grades 3-8.</strong></p><p><strong>About the Movie</strong><br>Spanning a seasonal year around a suburban home, Backyard Wilderness 3D displays unique wildlife imagery and behavior, all captured by cameras mounted inside dens, nests and moving along forest floors and pond bottoms. We follow Katie, a young girl, and her family, who are absorbed by an array of electronic devices. At first, oblivious to the natural world just outside their home. Katie gradually discovers the intricate secrets that nature has hidden so close to her front door and we experience the joy she finds in her interactions with this newly discovered world. <strong>Admission is 20$ and includes movie and lunch</strong></p><p>Click the link here to learn more or to register for an Omaha Zoo educator workshop</p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1"><a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/" target="_blank"><span itemprop="name">“Two Small Pieces of Glass” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Two Small Pieces of Glass” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-12T17:30"> 5:30 pm-6:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 12, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T18:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://www.byui.edu/images/planetarium/Shows/Glass_thumb.png"><p></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 12th at 5:30 p.m. and lasts about 1 hour. <strong>There is also a showing at 4:00 p.m.</strong></p><p>Two Small Pieces of Glass: The Amazing Telescope full-dome show follows two students as they interact with a female astronomer at a local star party.<br>Along the way, the students learn the history of the telescope from Galileo’s modifications to a child’s spyglass — using two small pieces of glass — to the launch of the NASA/ESA Hubble Space Telescope and the future of astronomy. Aiming to engage and appeal to audiences of all ages, the show explores the wonder and discovery made by astronomers throughout the last 400 years.</p><p>Trailer: <a href="https://youtu.be/HUe1nX3MDPM">https://youtu.be/HUe1nX3MDPM</a></p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 2"><a href="http://omahastem.com/event/hot-and-energetic-universe/" target="_blank"><span itemprop="name">“Hot and Energetic Universe” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/hot-and-energetic-universe/" target="_blank" style="color: #0eed21 " itemprop="url">“Hot and Energetic Universe” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-12T19:00"> 7:00 pm-8:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 12, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T20:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/hot-and-energetic-universe/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://www.kalamazoomuseum.org/planetarium/schoolshows/images/large_images/HAEU%20575%20x%20375.jpg"><p></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 12th at 7:00 p.m. and lasts about 1 hour.</p><p>“The Hot and Energetic Universe” presents the fascinating world of high energy astrophysics.&nbsp;High energy astrophysics plays a key role in understanding the universe, as these radiations reveal the processes in the hot and violent universe.&nbsp;High energy astrophysics probes hot gas in clusters of galaxies, which are the most massive objects in the universe.&nbsp;It also probes hot gas accreting around super-massive black holes in the centers of galaxies.&nbsp;Finally, high energy radiation provides important information about our own galaxy, neutron stars, supernova remnants and stars like our Sun which emit copious amounts of high-energy radiation.&nbsp;Come and learn about your hot and energetic universe!</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td></tr><tr><td class="day-with-date weekend week-start no-events" data-date="2019-1-13"><div class="day-number">13</div></td><td class="day-with-date no-events" data-date="2019-1-14"><div class="day-number">14</div></td><td class="day-with-date no-events" data-date="2019-1-15"><div class="day-number">15</div></td><td class="day-with-date no-events" data-date="2019-1-16"><div class="day-number">16</div></td><td class="day-with-date no-events" data-date="2019-1-17"><div class="day-number">17</div></td><td class="day-with-date has-events" data-date="2019-1-18"><div class="day-number">18</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0"><a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/" target="_blank"><span itemprop="name">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-18T17:30"> 5:30 pm-6:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 18, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-18T18:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://vignette.wikia.nocookie.net/memoryalpha/images/3/38/Star_Trek_Orion_Rendezvous_logo.jpg/revision/latest?cb=20160214194557&amp;path-prefix=en"><p></p><p><a class="irc_mil i3597" tabindex="0" href="http://memory-alpha.wikia.com/wiki/Star_Trek:_Orion_Rendezvous" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwi3g8uEycXfAhUJHqwKHeFCBjYQjRx6BAgBEAU"> </a></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 18th at 5:30 p.m. and lasts about 1 hour.</p><p>Star Trek: Orion Rendezvous takes you on a voyage into both known and unknown territories of space with the crew of the deep-space science vessel Antares. Orion Rendezvous begins after a mysterious wormhole of apparently alien and artificial origin has been appearing and disappearing near Neptune. The audience is a shipload of Starfleet cadets aboard the Antares, which is assigned to follow the wormhole’s subway-like path to numerous astonishing — and very real — places in our part of the galaxy.</p><p>*Star Trek: Orion Rendezvous was a traveling Star Trek planetarium show, produced as part of the Star Trek: Federation Science exhibition by the Oregon Museum of Science and Industry in 1992. The production work was done in cooperation with Paramount Studios, with the approval of Gene Roddenberry, and original design concepts sanctioned by Mike Okuda.</p><p>The audience takes the role of cadets assigned to the science vessel Antares, as an unstable wormhole near Neptune sends them to a number of real astronomical phenomena, including Betelgeuse, Castor (in Gemini) and the Crab and Orion nebulae.</p><p>In July 1993, the show landed as the “Star Trek sky show”, at the Hayden Planetarium in New York City’s American Museum of Natural History, where it was combined with the Star Trek Smithsonian Exhibit, which had traveled over from its hugely successful National Air and Space Museum, Washington DC, venue. Both were closed on 6 March 1994</p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1"><a href="http://omahastem.com/event/black-holes-uno-planetarium-show/" target="_blank"><span itemprop="name">“Black Holes” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/black-holes-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Black Holes” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-18T19:00"> 7:00 pm-8:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 18, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-18T20:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/black-holes-uno-planetarium-show/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://fulldome-festival.de/wp-content/uploads/2017/05/black_holes_ad_rasterized.jpg"><p></p><p><a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU&amp;url=http%3A%2F%2Ffulldome-festival.de%2F2017-film-reviews%2Fblack-holes%2F&amp;psig=AOvVaw3kQHtvystGuFr9I6uDfGdh&amp;ust=1546191648366423" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU"> </a></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 18th at 7:00 p.m. and lasts about 1 hour.</p><p>“Black Holes”: Few mysteries in the universe have the power and awe of the black hole. Only now are we on the verge of understanding their true nature. Narrated by John de Lancie (known for his role as “Q” in Star Trek TV series) “Black Holes” takes you on a journey through one of the most mystifying, awe-inspiring phenomena in the universe: a Black Hole. Where do they come from? Where do they go? How do we find them? Is there one on Earth’s horizon? What are supermassive black holes? What is “spaghettification”?!</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date weekend has-events" data-date="2019-1-19"><div class="day-number">19</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0"><a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/" target="_blank"><span itemprop="name">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-19T17:30"> 5:30 pm-6:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 19, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-19T18:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="https://vignette.wikia.nocookie.net/memoryalpha/images/3/38/Star_Trek_Orion_Rendezvous_logo.jpg/revision/latest?cb=20160214194557&amp;path-prefix=en"><p></p><p><a class="irc_mil i3597" tabindex="0" href="http://memory-alpha.wikia.com/wiki/Star_Trek:_Orion_Rendezvous" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwi3g8uEycXfAhUJHqwKHeFCBjYQjRx6BAgBEAU"> </a></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 19th at 5:30 p.m. and lasts about 1 hour.&nbsp;<strong>There will also be a showing at 4:00 p.m.</strong></p><p>Star Trek: Orion Rendezvous takes you on a voyage into both known and unknown territories of space with the crew of the deep-space science vessel Antares. Orion Rendezvous begins after a mysterious wormhole of apparently alien and artificial origin has been appearing and disappearing near Neptune. The audience is a shipload of Starfleet cadets aboard the Antares, which is assigned to follow the wormhole’s subway-like path to numerous astonishing — and very real — places in our part of the galaxy.</p><p>*Star Trek: Orion Rendezvous was a traveling Star Trek planetarium show, produced as part of the Star Trek: Federation Science exhibition by the Oregon Museum of Science and Industry in 1992. The production work was done in cooperation with Paramount Studios, with the approval of Gene Roddenberry, and original design concepts sanctioned by Mike Okuda.</p><p>The audience takes the role of cadets assigned to the science vessel Antares, as an unstable wormhole near Neptune sends them to a number of real astronomical phenomena, including Betelgeuse, Castor (in Gemini) and the Crab and Orion nebulae.</p><p>In July 1993, the show landed as the “Star Trek sky show”, at the Hayden Planetarium in New York City’s American Museum of Natural History, where it was combined with the Star Trek Smithsonian Exhibit, which had traveled over from its hugely successful National Air and Space Museum, Washington DC, venue. Both were closed on 6 March 1994</p></div></div><div class="ecwd-event-arrow-right"></div></div></li><li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1"><a href="http://omahastem.com/event/black-holes-uno-planetarium-show-2/" target="_blank"><span itemprop="name">“Black Holes” UNO Planetarium Show</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel" style="background:#0eed21"></span><p></p><h5 style="color:#0eed21" itemprop="name"><a href="http://omahastem.com/event/black-holes-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Black Holes” UNO Planetarium Show</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-19T19:00"> 7:00 pm-8:00 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 19, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-19T20:00"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a></span></div><p><span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6601 University Dr N, Omaha, NE 68182, USA</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/black-holes-uno-planetarium-show-2/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://fulldome-festival.de/wp-content/uploads/2017/05/black_holes_ad_rasterized.jpg"><p></p><p><a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU&amp;url=http%3A%2F%2Ffulldome-festival.de%2F2017-film-reviews%2Fblack-holes%2F&amp;psig=AOvVaw3kQHtvystGuFr9I6uDfGdh&amp;ust=1546191648366423" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU"> </a></p><p>UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 19th at 7:00 p.m. and lasts about 1 hour.</p><p>“Black Holes”: Few mysteries in the universe have the power and awe of the black hole. Only now are we on the verge of understanding their true nature. Narrated by John de Lancie (known for his role as “Q” in Star Trek TV series) “Black Holes” takes you on a journey through one of the most mystifying, awe-inspiring phenomena in the universe: a Black Hole. Where do they come from? Where do they go? How do we find them? Is there one on Earth’s horizon? What are supermassive black holes? What is “spaghettification”?!</p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td></tr><tr><td class="day-with-date weekend week-start no-events" data-date="2019-1-20"><div class="day-number">20</div></td><td class="day-with-date no-events" data-date="2019-1-21"><div class="day-number">21</div></td><td class="day-with-date no-events" data-date="2019-1-22"><div class="day-number">22</div></td><td class="day-with-date no-events" data-date="2019-1-23"><div class="day-number">23</div></td><td class="day-with-date no-events" data-date="2019-1-24"><div class="day-number">24</div></td><td class="day-with-date no-events" data-date="2019-1-25"><div class="day-number">25</div></td><td class="day-with-date weekend no-events" data-date="2019-1-26"><div class="day-number">26</div></td></tr><tr><td class="day-with-date weekend week-start no-events" data-date="2019-1-27"><div class="day-number">27</div></td><td class="day-with-date has-events" data-date="2019-1-28"><div class="day-number">28</div><ul class="events"><li itemscope="" itemtype="http://schema.org/Event" style="" class=" 0"><a href="http://omahastem.com/event/math-with-an-artist/" target="_blank"><span itemprop="name">Math With An Artist</span></a><div class="event-details-container"><div class="ecwd-event-arrow"></div><div class="event-details"><div class="event-details-title"> <span class="event-metalabel"></span><p></p><h5 itemprop="name"><a href="http://omahastem.com/event/math-with-an-artist/" target="_blank" itemprop="url">Math With An Artist</a></h5><p></p></div><div class="ecwd-time"><span class="metainfo" itemprop="startDate" content="2019-01-28T16:30"> 4:30 pm-6:30 pm</span></div><div class="ecwd-date"><span class="metainfo"> January 28, 2019</span><span class="ecwd_hidden" itemprop="endDate" content="2019-01-28T18:30"></span></div><div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place"><div class="ecwd-venue"><span itemprop="name"><a href="http://omahastem.com/venue/barabara-weitz-community-engagement-center-at-uno/">Barabara Weitz Community Engagement Center at UNO</a></span></div><p><span class="ecwd_hidden" itemprop="name">6400 University Drive South Room 127, Omaha, NE 68182</span></p><div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><span>6400 University Drive South Room 127, Omaha, NE 68182</span></div></div><p><span class="hidden" itemprop="url">http://omahastem.com/event/math-with-an-artist/</span></p><div class="ecwd-detalis" itemprop="description"><img itemprop="image" src="http://discovermagazine.com/~/media/Images/Issues/2014/April/Math%20art%20gallery/math-cover.jpg?mw=738"><p></p><p><a class="irc_mil i3597" tabindex="0" href="http://discovermagazine.com/galleries/2014/april/math-art" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwj5seDxtPrfAhUDD60KHRv7AsIQjRx6BAgBEAU"> </a></p><p>UNO Math department, WhyArts, and Omaha Stem Ecosystems invites friends and colleagues of the UNO STEM Ecosystem to an interactive workshop that focuses on how to integrate math into art projects. We will be making kaleidocycles with artist and educator Mike Giron.&nbsp;Limited seating, so reserve now!&nbsp; Feel free to pass on to a friend or colleague!</p><p>Tickets are 5 dollars each. To reserve seating you can go to this link to purchase tickets and to receive more information regarding the event:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__www.eventbrite.com_e_math-2Dwith-2Dan-2Dartist-2Dtickets-2D54009632264&amp;d=DwMFAg&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=jsEgDqsi2Z9C3p8phWAJoP_WeKzmlph7PJc6e7S3ruc&amp;s=mbI-ogqYmUT53hUWOn98PgQvjTiPFy1FFPAlAR7PIXU&amp;e=" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://urldefense.proofpoint.com/v2/url?u%3Dhttps-3A__www.eventbrite.com_e_math-2Dwith-2Dan-2Dartist-2Dtickets-2D54009632264%26d%3DDwMFAg%26c%3DCu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo%26r%3DAz9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo%26m%3DjsEgDqsi2Z9C3p8phWAJoP_WeKzmlph7PJc6e7S3ruc%26s%3DmbI-ogqYmUT53hUWOn98PgQvjTiPFy1FFPAlAR7PIXU%26e%3D&amp;source=gmail&amp;ust=1547780463593000&amp;usg=AFQjCNHZY7IU3gfwApvb2HR8mZNIwr52Xg">https://www.eventbrite.com/e/<wbr>math-with-an-artist-tickets-<wbr>54009632264</a></p></div></div><div class="ecwd-event-arrow-right"></div></div></li></ul></td><td class="day-with-date no-events" data-date="2019-1-29"><div class="day-number">29</div></td><td class="day-with-date no-events" data-date="2019-1-30"><div class="day-number">30</div></td><td class="day-with-date no-events" data-date="2019-1-31"><div class="day-number">31</div></td><td class="day-without-date no-events" data-date=""><div class="day-number">February</div></td><td class="day-without-date no-events" data-date=""><div class="day-number">February</div></td></tr></tbody></table></div><div class="ecwd-events-day-details"></div><input type="hidden" class="ecwd_displays" value="full"><input type="hidden" class="event_search" value="yes"><input type="hidden" class="ecwd_page_items" value="5"><input type="hidden" class="ecwd_date" value="2019-1"><div class="ecwd_loader" style="display: none;"></div><div class="single_event_popup"></div></div><script id="ecwd_script_handler" type="text/javascript">if(typeof ecwd_js_init_call=="object"){ecwd_js_init_call = new ecwd_js_init();}</script><script id="ecwd_script_handler" type="text/javascript">if(typeof ecwd_js_init_call=="object"){ecwd_js_init_call = new ecwd_js_init();}</script></div><script id="ecwd_script_handler" type="text/javascript">if(typeof ecwd_js_init_call=="object"){ecwd_js_init_call = new ecwd_js_init();}</script>
-<h3><strong><span style="color: #c6d9f0;">Pre-K/Elementary<br>
-</span></strong><strong><span style="color: #f2dcdb;">Middle School<br>
-</span></strong><strong><span style="color: #d99694;">High School<br>
-</span></strong><strong><span style="color: #ffc000;">Post-Secondary<br>
-</span></strong><strong><span style="color: #c3d69b;"><span style="color: #0eed21;">Families</span><br>
-</span></strong><strong><span style="color: #9bbb59;">Professional Development</span></strong><br>
-<strong><span style="color: #4f81bd;">Teachers</span></strong></h3>
-<hr>
-<p>To request your event be added to the OmahaSTEM Ecosystem Calendar, please complete the form below and attach any pictures or logo needed for posting.</p>
-<div role="form" class="wpcf7" id="wpcf7-f4-p78-o1" lang="en-US" dir="ltr">
-<div class="screen-reader-response"></div>
-<form action="/calendar/#wpcf7-f4-p78-o1" method="post" class="wpcf7-form" novalidate="novalidate">
-<div style="display: none;">
-<input type="hidden" name="_wpcf7" value="4">
-<input type="hidden" name="_wpcf7_version" value="5.1.1">
-<input type="hidden" name="_wpcf7_locale" value="en_US">
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f4-p78-o1">
-<input type="hidden" name="_wpcf7_container_post" value="78">
-<input type="hidden" name="g-recaptcha-response" value="">
-</div>
-<p><label> Your Name (required)<br>
-    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span> </label></p>
-<p><label> Contact Email (required)<br>
-    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span> </label></p>
-<p><label> Event Title<br>
-    <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
-<p><label> Message - Include Date, Time, Location, Audience and a Brief Description<br>
-    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label></p>
-<p><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span></p>
-<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
-															
-						</div>
-					<!-- skepost --> 
-					</div>
-					<!-- post -->
-
-																<div class="clearfix"></div>
-
-						<div class="comments-template">
-							
-
-<!-- You can start editing here. -->
-
-<div id="commentsbox">
-	</div>						</div>
-				</div>
-				<!-- content -->
-
-				<!-- Sidebar -->
-				<div id="sidebar" class="span3">
-					
-<div id="sidebar_2" class="ske_widget">
-	<ul class="skeside">
-		<li id="media_image-2" class="ske-container widget_media_image"><a href="http://omahastem.org"><img width="300" height="216" src="https://omahastem.com/wp-content/uploads/2018/06/OSE-Logo-for-Website--300x216.jpg" class="image wp-image-1005  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;"></a></li><li id="text-2" class="ske-container widget_text"><h3 class="ske-title">Find Us</h3>			<div class="textwidget"><p><strong>Address</strong><br>3701 South 10th Street<br>Omaha, NE 68107</p>
-
-<a href="mailto:info@omahastem.com">info@omahastem.com</a></div>
-		</li><li id="search-3" class="ske-container widget_search"><h3 class="ske-title">Search</h3><form method="get" id="searchform" action="https://omahastem.com/">
-	<div class="searchleft">
-		<input type="text" value="" placeholder="Search" name="s" id="searchbox" class="searchinput">
-	</div>
-    <div class="searchright">
-    	<input type="submit" class="submitbutton" value="Search">
-    </div>
-    <div class="clearfix"></div>
-</form>
-
-</li>	</ul>
-</div>
-<!-- #sidebar_2 .ske_widget -->				</div>
-				<div class="clearfix"></div>
-				<!-- Sidebar --> 
-			</div>
-		</div>
-	</div>
-</div>
-	<div class="clearfix"></div>
-</div>
-<!-- #main --> 
-
-<!-- #footer -->
-<div id="footer" class="skt-section">
-	<div class="container">
-		<div class="row-fluid">
-			<div class="second_wrapper">
-								<div class="clearfix"></div>
-			</div><!-- second_wrapper -->
-		</div>
-	</div>
-
-	<div class="third_wrapper">
-		<div class="container">
-			<div class="row-fluid">
-								<div class="copyright span6"> </div>
-				<div class="owner span6 alpha">
-				Incart lite Theme by <a href="https://sketchthemes.com"><strong>SketchThemes</strong></a></div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div><!-- third_wrapper --> 
-</div>
-<!-- #footer -->
-
-</div>
-<!-- #wrapper -->
-	<a href="JavaScript:void(0);" title="Back To Top" id="backtop" style="display: inline;"></a>
-	<link rel="stylesheet" id="ecwd-calendar-main-calendar-css" href="https://omahastem.com/wp-content/plugins/event-calendar-wd/includes/../css/calendar.css?ver=1" type="text/css" media="all">
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/custom.js?ver=1.0"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/comment-reply.min.js?ver=5.1.1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/plugins/event-calendar-wd/js/gmap/gmap3.js?ver=1.1.26_58b714d28dc43"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/plugins/event-calendar-wd/js/ecwd_popup.js?ver=1.1.26_58b714d28dc43"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/jquery/ui/draggable.min.js?ver=1.11.4"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/imagesloaded.min.js?ver=3.2.0"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/masonry.min.js?ver=3.3.2"></script>
-<script type="text/javascript">
-/* <![CDATA[ */
-var ecwd = {"ajaxurl":"https:\/\/omahastem.com\/wp-admin\/admin-ajax.php","ajaxnonce":"dac62e4823","loadingText":"Loading...","event_popup_title_text":"Event Details","plugin_url":"https:\/\/omahastem.com\/wp-content\/plugins\/event-calendar-wd","gmap_key":"AIzaSyD8kGBi3CI0Qr2JGROtX1eL_FTX4gCipbE","gmap_style":""};
-var ecwd = {"ajaxurl":"https:\/\/omahastem.com\/wp-admin\/admin-ajax.php","ajaxnonce":"dac62e4823","loadingText":"Loading...","plugin_url":"https:\/\/omahastem.com\/wp-content\/plugins\/event-calendar-wd","gmap_key":"AIzaSyD8kGBi3CI0Qr2JGROtX1eL_FTX4gCipbE","gmap_style":""};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/plugins/event-calendar-wd/js/scripts.js?ver=1.1.26_58b714d28dc43"></script>
-<script type="text/javascript">
-/* <![CDATA[ */
-var wpcf7 = {"apiSettings":{"root":"https:\/\/omahastem.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/jquery.prettyPhoto.js?ver=1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/hoverIntent.min.js?ver=1.8.1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/superfish.js?ver=1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/cbpAnimatedHeader.js?ver=1"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/jquery.easing.1.3.js?ver=1.0"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-content/themes/incart-lite/js/waypoints.js?ver=1.0"></script>
-<script type="text/javascript" src="https://omahastem.com/wp-includes/js/wp-embed.min.js?ver=5.1.1"></script>
-	
-
-</body></html>
+﻿<table class="ecwd_calendar_container full cal_blue" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th class="normal-day-heading week-start" data-date="">
+        <div class="day-number">Sun</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Mon</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Tue</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Wed</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Thu</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Fri</div>
+      </th>
+      <th class="normal-day-heading" data-date="">
+        <div class="day-number">Sat</div>
+      </th>
+    </tr>
+    <tr>
+      <td class="day-without-date week-start no-events" data-date="">
+        <div class="day-number">December</div>
+      </td>
+      <td class="day-without-date no-events" data-date="">
+        <div class="day-number">December</div>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-1">
+        <div class="day-number">1</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #d99694; " class=" 0">
+            <a href="http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/" target="_blank">
+              <span itemprop="name">Aim for the Stars Science and Math Camps Registration Opening</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#d99694"></span>
+                  <p></p>
+                  <h5 style="color:#d99694" itemprop="name">
+                    <a href="http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/" target="_blank" style="color: #d99694 " itemprop="url">Aim for the Stars Science and Math Camps Registration Opening</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-01T00:00"> All day</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 1, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-01T00:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/aim-for-the-stars-science-and-math-camps-registration-opening/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://www.plcschools.org//cms/lib/NE01912173/Centricity/Domain/776/4%20-%20Dec.%20Ads/Aim%20for%20the%20stars.png">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU&amp;url=https%3A%2F%2Fwww.plcschools.org%2FPage%2F1800&amp;psig=AOvVaw0sF0u74cWsUBZeJm_p1pcp&amp;ust=1544649042709392" target="_blank" rel="noopener" data-cthref="/url?sa=i&amp;rct=j&amp;q=&amp;esrc=s&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU&amp;url=https%3A%2F%2Fwww.plcschools.org%2FPage%2F1800&amp;psig=AOvVaw0sF0u74cWsUBZeJm_p1pcp&amp;ust=1544649042709392" data-ctbtn="2" data-noload="" data-ved="2ahUKEwi-qKaq2JjfAhUC8YMKHaoWBDkQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>Registration for the UNO Aim For the Stars begins this week!</p>
+                    <p>
+                      Omaha STEM Ecosystems would like to inform the Omaha community of an exciting opportunity for children in grades from 3rd to 10th grade (entering 4th grade and entering 10th grade). Registration for these camps opens up the first week of January for 1 week (Mon.-Fri.) camps that are offered through June 3rd to August 2nd (no camps during the week of July 1-5). The University of Nebraska at Omaha Physics Department welcomes you to Aim for the Stars Science and Math Camps! There is a 1:8 adult to camper ratio at Aim for the Stars. Our staff members are chosen based on their rapport with children, knowledge of the subject matter and love of learning. Your child will learn so much and enjoy every moment of Aim for the Stars Science and Math Camp. There are also a variety of camps you can register your child for during any of the camp weeks. These range anywhere from 3-D printing, Science Fiction, and Engineering focused camps!<br>
+                        To learn more about this exciting venture, as well as, where to register go to: aimforthestars.unomaha.edu<br>
+                          These camps vary in price so go to the Aim for the Stars page at the unomaha.edu website link posted above to find specific prices for the camp you decide to register for more details. These camps are each 1 week long (5 days only)<br>Most camps are scheduled to begin each weekday at 8:30 a.m.-3:30 p.m with options of before and after care with an additional cost of 10-30 dollars for either or both.</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-2">
+        <div class="day-number">2</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0">
+            <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/" target="_blank">
+              <span itemprop="name">Fontenelle Forest: Winter Break Camps</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#c6d9f0"></span>
+                  <p></p>
+                  <h5 style="color:#c6d9f0" itemprop="name">
+                    <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-02T09:00"> 9:00 am-3:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 2, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-02T15:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-3/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg">
+                    <p></p>
+                    <p>Join us this winter to experience Fontenelle Forest on and off trails.</p>
+                    <p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p>
+                    <p>
+                      – Dress for the weather<br>
+                        – Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p>
+                    <p>
+                      Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong>
+                    </p>
+                    <p>
+                      Pick the date and age range that works best for you, or sign up for multiple camps!<br>
+                        Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br>
+                          <strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong>
+                        </p>
+                    <p>
+                      Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a>
+                    </p>
+                    <p>&nbsp;</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-3">
+        <div class="day-number">3</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0">
+            <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/" target="_blank">
+              <span itemprop="name">Fontenelle Forest: Winter Break Camps</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#c6d9f0"></span>
+                  <p></p>
+                  <h5 style="color:#c6d9f0" itemprop="name">
+                    <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-03T09:00"> 9:00 am-3:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 3, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-03T15:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-4/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg">
+                    <p></p>
+                    <p>Join us this winter to experience Fontenelle Forest on and off trails.</p>
+                    <p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p>
+                    <p>
+                      – Dress for the weather<br>
+                        – Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p>
+                    <p>
+                      Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong>
+                    </p>
+                    <p>
+                      Pick the date and age range that works best for you, or sign up for multiple camps!<br>
+                        Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br>
+                          <strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong>
+                        </p>
+                    <p>
+                      Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a>
+                    </p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-4">
+        <div class="day-number">4</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #c6d9f0; " class=" 0">
+            <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/" target="_blank">
+              <span itemprop="name">Fontenelle Forest: Winter Break Camps</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#c6d9f0"></span>
+                  <p></p>
+                  <h5 style="color:#c6d9f0" itemprop="name">
+                    <a href="http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/" target="_blank" style="color: #c6d9f0 " itemprop="url">Fontenelle Forest: Winter Break Camps</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-04T09:00"> 9:00 am-3:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 4, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-04T15:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/fontenelle-forest/">Fontenelle Forest</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>1111 Bellevue Blvd N, Bellevue, NE 68005, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/fontenelle-forest-winter-break-camps-5/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://fontenelleforest.org/wp-content/uploads/2018/10/Winter-Break-camp-flyer.jpg">
+                    <p></p>
+                    <p>Join us this winter to experience Fontenelle Forest on and off trails.</p>
+                    <p>During camp, we’ll be outdoors hiking, exploring, discovering, and inside playing games, making crafts, and so much more.</p>
+                    <p>
+                      – Dress for the weather<br>
+                        – Please make sure your camper bring a hearty lunch, we will provide a nutritious snack<br>– Be ready to have some fun!</p>
+                    <p>
+                      Registration is open. Camp runs from <strong>9 a.m to 3 p.m</strong>., with drop-off beginning at 8:30am. The camp is <strong>45$ for members and 50$ for non-members</strong>
+                    </p>
+                    <p>
+                      Pick the date and age range that works best for you, or sign up for multiple camps!<br>
+                        Dec. 27, Dec. 28, Jan. 2, Jan. 3, and Jan. 4<br>
+                          <strong>Campers aged 6 to 8 and 9 to 12.&nbsp;</strong>
+                        </p>
+                    <p>
+                      Registration can be found here:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=">https://urldefense.proofpoint.com/v2/url?u=https-3A__fontenelleforest.org_winter-2Dbreak-2Dcamps-2Dreturn-2Dto-2Dfontenelle-2Dforest_&amp;d=DwIGaQ&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=YyLXd6ovBMAnKcX-V0yzGTkveJe_Ht7tlcIAdCo2NLQ&amp;s=-Gt2xT0QLmUrIGsPo3rYUOooJGUYsTVqEPLzqNYDLAI&amp;e=</a>
+                    </p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1">
+            <a href="http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“What’s Up-Decemeber Skies: UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“What’s Up-Decemeber Skies: UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-04T18:30"> 6:30 pm-7:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 4, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-04T19:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/whats-up-decemeber-skies-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://www.unomaha.edu/college-of-arts-and-sciences/physics/_files/images/whats-up.jpg">
+                    <p></p>
+                    <p>UNO would like to invite you to a planetarium show involving a discussion and a star simulated presentation of the seasonal constellations present in our skies.</p>
+                    <p>“What’s Up” programs feature seasonal constellations, mythology and star patterns that are visible during the current season. Discussion includes our Sun, Moon, and other planets. Additional topics include active spacecraft operating within our solar system.</p>
+                    <p>The event is priced at $4/person at the door. Doors open about 20 min. prior to the show.&nbsp; Open parking for the weekend starts at 5 pm on Fridays at the Durham Science Center at UNO. See our website for information.</p>
+                    <p>
+                      The first show will be at 6:30 on Friday the 4th of January and will last approximately 1 hour, though there will be a <b>a second showing&nbsp;at 8:00 p.m. as well&nbsp;</b>
+                    </p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date weekend has-events" data-date="2019-1-5">
+        <div class="day-number">5</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0">
+            <a href="http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“What’s Up-December Skies” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“What’s Up-December Skies” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-05T18:30"> 6:30 pm-7:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 5, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-05T19:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/whats-up-december-skies-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://www.unomaha.edu/news/2017/planetarium-f.jpg">
+                    <p></p>
+                    <p>UNO would like to invite you to a planetarium show involving a discussion and a star simulated presentation of the seasonal constellations present in our skies.</p>
+                    <p>“What’s Up” programs feature seasonal constellations, mythology and star patterns that are visible during the current season. Discussion includes our Sun, Moon, and other planets. Additional topics include active spacecraft operating within our solar system.</p>
+                    <p>The event is priced at $4/person at the door. Doors open about 20 min. prior to the show.&nbsp; Open parking for the weekend starts at 5 pm on Fridays at the Durham Science Center at UNO. See our website for information.</p>
+                    <p>
+                      The first show will be at 6:30 on Saturday the 5th of January and will last approximately 1 hour, though there will be a <b>a second showing&nbsp;at 8:00 p.m. as well&nbsp;</b>
+                    </p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="day-with-date weekend week-start no-events" data-date="2019-1-6">
+        <div class="day-number">6</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-7">
+        <div class="day-number">7</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-8">
+        <div class="day-number">8</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-9">
+        <div class="day-number">9</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-10">
+        <div class="day-number">10</div>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-11">
+        <div class="day-number">11</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0">
+            <a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“Two Small Pieces of Glass” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Two Small Pieces of Glass” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-11T17:30"> 5:30 pm-6:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 11, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-11T18:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://www.byui.edu/images/planetarium/Shows/Glass_thumb.png">
+                    <p></p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. at UNO campus. This event takes place on Friday January 11th at 5:30 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>
+                      Two Small Pieces of Glass: The Amazing Telescope full-dome show follows two students as they interact with a female astronomer at a local star party.<br>Along the way, the students learn the history of the telescope from Galileo’s modifications to a child’s spyglass — using two small pieces of glass — to the launch of the NASA/ESA Hubble Space Telescope and the future of astronomy. Aiming to engage and appeal to audiences of all ages, the show explores the wonder and discovery made by astronomers throughout the last 400 years.</p>
+                    <p>
+                      Trailer: <a href="https://youtu.be/HUe1nX3MDPM">https://youtu.be/HUe1nX3MDPM</a>
+                    </p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1">
+            <a href="http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“Hot and Energetic Universe” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Hot and Energetic Universe” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-11T19:00"> 7:00 pm-8:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 11, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-11T20:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/hot-and-energetic-universe-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://www.kalamazoomuseum.org/planetarium/schoolshows/images/large_images/HAEU%20575%20x%20375.jpg">
+                    <p></p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 11th at 7:00 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>“The Hot and Energetic Universe” presents the fascinating world of high energy astrophysics.&nbsp;High energy astrophysics plays a key role in understanding the universe, as these radiations reveal the processes in the hot and violent universe.&nbsp;High energy astrophysics probes hot gas in clusters of galaxies, which are the most massive objects in the universe.&nbsp;It also probes hot gas accreting around super-massive black holes in the centers of galaxies.&nbsp;Finally, high energy radiation provides important information about our own galaxy, neutron stars, supernova remnants and stars like our Sun which emit copious amounts of high-energy radiation.&nbsp;Come and learn about your hot and energetic universe!</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date weekend has-events" data-date="2019-1-12">
+        <div class="day-number">12</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #4f81bd; " class=" 0">
+            <a href="http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/" target="_blank">
+              <span itemprop="name">Upcoming Educator Workshop: Backyard Wilderness</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#4f81bd"></span>
+                  <p></p>
+                  <h5 style="color:#4f81bd" itemprop="name">
+                    <a href="http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/" target="_blank" style="color: #4f81bd " itemprop="url">Upcoming Educator Workshop: Backyard Wilderness</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-12T09:00"> 9:00 am-3:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 12, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T15:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/omahas-henry-doorly-zoo-and-aquarium/">Omaha’s Henry Doorly Zoo and Aquarium</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">3701 S 10th St, Omaha, NE 68108, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>3701 S 10th St, Omaha, NE 68108, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/upcoming-educator-workshop-backyard-wilderness/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://www.omahazoo.com/assets/2140/backyard_wilderness_3d.jpg">
+                    <p></p>
+                    <p>
+                      <strong> </strong>
+                    </p>
+                    <p>
+                      View our newest Lozier Giant Screen Theater® movie, Backyard Wildeness, showing through the spring.&nbsp; During this interactive workshop, we will delve into lessons developed around the main themes of the movie: ecosystems and adaptations.&nbsp; This workshop is open to all educators (formal and informal), but is geared towards those that work with students in <strong>grades 3-8.</strong>
+                    </p>
+                    <p>
+                      <strong>About the Movie</strong>
+                      <br>
+                        Spanning a seasonal year around a suburban home, Backyard Wilderness 3D displays unique wildlife imagery and behavior, all captured by cameras mounted inside dens, nests and moving along forest floors and pond bottoms. We follow Katie, a young girl, and her family, who are absorbed by an array of electronic devices. At first, oblivious to the natural world just outside their home. Katie gradually discovers the intricate secrets that nature has hidden so close to her front door and we experience the joy she finds in her interactions with this newly discovered world. <strong>Admission is 20$ and includes movie and lunch</strong>
+                      </p>
+                    <p>Click the link here to learn more or to register for an Omaha Zoo educator workshop</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1">
+            <a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/" target="_blank">
+              <span itemprop="name">“Two Small Pieces of Glass” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Two Small Pieces of Glass” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-12T17:30"> 5:30 pm-6:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 12, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T18:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/two-small-pieces-of-glass-uno-planetarium-show-2/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://www.byui.edu/images/planetarium/Shows/Glass_thumb.png">
+                    <p></p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 12th at 5:30 p.m. and lasts about 1 hour. <strong>There is also a showing at 4:00 p.m.</strong>
+                    </p>
+                    <p>
+                      Two Small Pieces of Glass: The Amazing Telescope full-dome show follows two students as they interact with a female astronomer at a local star party.<br>Along the way, the students learn the history of the telescope from Galileo’s modifications to a child’s spyglass — using two small pieces of glass — to the launch of the NASA/ESA Hubble Space Telescope and the future of astronomy. Aiming to engage and appeal to audiences of all ages, the show explores the wonder and discovery made by astronomers throughout the last 400 years.</p>
+                    <p>
+                      Trailer: <a href="https://youtu.be/HUe1nX3MDPM">https://youtu.be/HUe1nX3MDPM</a>
+                    </p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 2">
+            <a href="http://omahastem.com/event/hot-and-energetic-universe/" target="_blank">
+              <span itemprop="name">“Hot and Energetic Universe” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/hot-and-energetic-universe/" target="_blank" style="color: #0eed21 " itemprop="url">“Hot and Energetic Universe” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-12T19:00"> 7:00 pm-8:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 12, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-12T20:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/hot-and-energetic-universe/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://www.kalamazoomuseum.org/planetarium/schoolshows/images/large_images/HAEU%20575%20x%20375.jpg">
+                    <p></p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 12th at 7:00 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>“The Hot and Energetic Universe” presents the fascinating world of high energy astrophysics.&nbsp;High energy astrophysics plays a key role in understanding the universe, as these radiations reveal the processes in the hot and violent universe.&nbsp;High energy astrophysics probes hot gas in clusters of galaxies, which are the most massive objects in the universe.&nbsp;It also probes hot gas accreting around super-massive black holes in the centers of galaxies.&nbsp;Finally, high energy radiation provides important information about our own galaxy, neutron stars, supernova remnants and stars like our Sun which emit copious amounts of high-energy radiation.&nbsp;Come and learn about your hot and energetic universe!</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="day-with-date weekend week-start no-events" data-date="2019-1-13">
+        <div class="day-number">13</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-14">
+        <div class="day-number">14</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-15">
+        <div class="day-number">15</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-16">
+        <div class="day-number">16</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-17">
+        <div class="day-number">17</div>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-18">
+        <div class="day-number">18</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0">
+            <a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-18T17:30"> 5:30 pm-6:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 18, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-18T18:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://vignette.wikia.nocookie.net/memoryalpha/images/3/38/Star_Trek_Orion_Rendezvous_logo.jpg/revision/latest?cb=20160214194557&amp;path-prefix=en">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="http://memory-alpha.wikia.com/wiki/Star_Trek:_Orion_Rendezvous" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwi3g8uEycXfAhUJHqwKHeFCBjYQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 18th at 5:30 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>Star Trek: Orion Rendezvous takes you on a voyage into both known and unknown territories of space with the crew of the deep-space science vessel Antares. Orion Rendezvous begins after a mysterious wormhole of apparently alien and artificial origin has been appearing and disappearing near Neptune. The audience is a shipload of Starfleet cadets aboard the Antares, which is assigned to follow the wormhole’s subway-like path to numerous astonishing — and very real — places in our part of the galaxy.</p>
+                    <p>*Star Trek: Orion Rendezvous was a traveling Star Trek planetarium show, produced as part of the Star Trek: Federation Science exhibition by the Oregon Museum of Science and Industry in 1992. The production work was done in cooperation with Paramount Studios, with the approval of Gene Roddenberry, and original design concepts sanctioned by Mike Okuda.</p>
+                    <p>The audience takes the role of cadets assigned to the science vessel Antares, as an unstable wormhole near Neptune sends them to a number of real astronomical phenomena, including Betelgeuse, Castor (in Gemini) and the Crab and Orion nebulae.</p>
+                    <p>In July 1993, the show landed as the “Star Trek sky show”, at the Hayden Planetarium in New York City’s American Museum of Natural History, where it was combined with the Star Trek Smithsonian Exhibit, which had traveled over from its hugely successful National Air and Space Museum, Washington DC, venue. Both were closed on 6 March 1994</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1">
+            <a href="http://omahastem.com/event/black-holes-uno-planetarium-show/" target="_blank">
+              <span itemprop="name">“Black Holes” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/black-holes-uno-planetarium-show/" target="_blank" style="color: #0eed21 " itemprop="url">“Black Holes” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-18T19:00"> 7:00 pm-8:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 18, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-18T20:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-center/">UNO Durham Science Center</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/black-holes-uno-planetarium-show/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://fulldome-festival.de/wp-content/uploads/2017/05/black_holes_ad_rasterized.jpg">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU&amp;url=http%3A%2F%2Ffulldome-festival.de%2F2017-film-reviews%2Fblack-holes%2F&amp;psig=AOvVaw3kQHtvystGuFr9I6uDfGdh&amp;ust=1546191648366423" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided past 5 p.m. on UNO campus. This event takes place on Friday January 18th at 7:00 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>“Black Holes”: Few mysteries in the universe have the power and awe of the black hole. Only now are we on the verge of understanding their true nature. Narrated by John de Lancie (known for his role as “Q” in Star Trek TV series) “Black Holes” takes you on a journey through one of the most mystifying, awe-inspiring phenomena in the universe: a Black Hole. Where do they come from? Where do they go? How do we find them? Is there one on Earth’s horizon? What are supermassive black holes? What is “spaghettification”?!</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date weekend has-events" data-date="2019-1-19">
+        <div class="day-number">19</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 0">
+            <a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/" target="_blank">
+              <span itemprop="name">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Star Trek: Orion Rendezvous” classic 1993 UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-19T17:30"> 5:30 pm-6:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 19, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-19T18:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/star-trek-orion-rendezvous-classic-1993-uno-planetarium-show-2/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="https://vignette.wikia.nocookie.net/memoryalpha/images/3/38/Star_Trek_Orion_Rendezvous_logo.jpg/revision/latest?cb=20160214194557&amp;path-prefix=en">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="http://memory-alpha.wikia.com/wiki/Star_Trek:_Orion_Rendezvous" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwi3g8uEycXfAhUJHqwKHeFCBjYQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 19th at 5:30 p.m. and lasts about 1 hour.&nbsp;<strong>There will also be a showing at 4:00 p.m.</strong>
+                    </p>
+                    <p>Star Trek: Orion Rendezvous takes you on a voyage into both known and unknown territories of space with the crew of the deep-space science vessel Antares. Orion Rendezvous begins after a mysterious wormhole of apparently alien and artificial origin has been appearing and disappearing near Neptune. The audience is a shipload of Starfleet cadets aboard the Antares, which is assigned to follow the wormhole’s subway-like path to numerous astonishing — and very real — places in our part of the galaxy.</p>
+                    <p>*Star Trek: Orion Rendezvous was a traveling Star Trek planetarium show, produced as part of the Star Trek: Federation Science exhibition by the Oregon Museum of Science and Industry in 1992. The production work was done in cooperation with Paramount Studios, with the approval of Gene Roddenberry, and original design concepts sanctioned by Mike Okuda.</p>
+                    <p>The audience takes the role of cadets assigned to the science vessel Antares, as an unstable wormhole near Neptune sends them to a number of real astronomical phenomena, including Betelgeuse, Castor (in Gemini) and the Crab and Orion nebulae.</p>
+                    <p>In July 1993, the show landed as the “Star Trek sky show”, at the Hayden Planetarium in New York City’s American Museum of Natural History, where it was combined with the Star Trek Smithsonian Exhibit, which had traveled over from its hugely successful National Air and Space Museum, Washington DC, venue. Both were closed on 6 March 1994</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+          <li itemscope="" itemtype="http://schema.org/Event" style="background-color: #0eed21; " class=" 1">
+            <a href="http://omahastem.com/event/black-holes-uno-planetarium-show-2/" target="_blank">
+              <span itemprop="name">“Black Holes” UNO Planetarium Show</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel" style="background:#0eed21"></span>
+                  <p></p>
+                  <h5 style="color:#0eed21" itemprop="name">
+                    <a href="http://omahastem.com/event/black-holes-uno-planetarium-show-2/" target="_blank" style="color: #0eed21 " itemprop="url">“Black Holes” UNO Planetarium Show</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-19T19:00"> 7:00 pm-8:00 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 19, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-19T20:00"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/uno-durham-science-building/">UNO Durham Science Building</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6601 University Dr N, Omaha, NE 68182, USA</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/black-holes-uno-planetarium-show-2/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://fulldome-festival.de/wp-content/uploads/2017/05/black_holes_ad_rasterized.jpg">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;ved=2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU&amp;url=http%3A%2F%2Ffulldome-festival.de%2F2017-film-reviews%2Fblack-holes%2F&amp;psig=AOvVaw3kQHtvystGuFr9I6uDfGdh&amp;ust=1546191648366423" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwjfnOuay8XfAhUHXa0KHXjRA0gQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>
+                      UNO invites you to a fun and engaging panoramic movie experience at the Mallory Kountze Planetarium located in the Durham Science Building at UNO. A movie will be played in the planetarium which will be projected around the dome for an interesting and unique movie experience. Afterward, there will be a follow-up star talk using a simulated star projection of the night sky. Admission for this event is<strong> 4$ per person</strong> sold at the door. Doors open 20 minutes prior to the event. Free parking is provided during the weekends on UNO campus. This event takes place on Saturday January 19th at 7:00 p.m. and lasts about 1 hour.
+                    </p>
+                    <p>“Black Holes”: Few mysteries in the universe have the power and awe of the black hole. Only now are we on the verge of understanding their true nature. Narrated by John de Lancie (known for his role as “Q” in Star Trek TV series) “Black Holes” takes you on a journey through one of the most mystifying, awe-inspiring phenomena in the universe: a Black Hole. Where do they come from? Where do they go? How do we find them? Is there one on Earth’s horizon? What are supermassive black holes? What is “spaghettification”?!</p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="day-with-date weekend week-start no-events" data-date="2019-1-20">
+        <div class="day-number">20</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-21">
+        <div class="day-number">21</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-22">
+        <div class="day-number">22</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-23">
+        <div class="day-number">23</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-24">
+        <div class="day-number">24</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-25">
+        <div class="day-number">25</div>
+      </td>
+      <td class="day-with-date weekend no-events" data-date="2019-1-26">
+        <div class="day-number">26</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="day-with-date weekend week-start no-events" data-date="2019-1-27">
+        <div class="day-number">27</div>
+      </td>
+      <td class="day-with-date has-events" data-date="2019-1-28">
+        <div class="day-number">28</div>
+        <ul class="events">
+          <li itemscope="" itemtype="http://schema.org/Event" style="" class=" 0">
+            <a href="http://omahastem.com/event/math-with-an-artist/" target="_blank">
+              <span itemprop="name">Math With An Artist</span>
+            </a>
+            <div class="event-details-container">
+              <div class="ecwd-event-arrow"></div>
+              <div class="event-details">
+                <div class="event-details-title">
+                  <span class="event-metalabel"></span>
+                  <p></p>
+                  <h5 itemprop="name">
+                    <a href="http://omahastem.com/event/math-with-an-artist/" target="_blank" itemprop="url">Math With An Artist</a>
+                  </h5>
+                  <p></p>
+                </div>
+                <div class="ecwd-time">
+                  <span class="metainfo" itemprop="startDate" content="2019-01-28T16:30"> 4:30 pm-6:30 pm</span>
+                </div>
+                <div class="ecwd-date">
+                  <span class="metainfo"> January 28, 2019</span>
+                  <span class="ecwd_hidden" itemprop="endDate" content="2019-01-28T18:30"></span>
+                </div>
+                <div class="event-venue" itemprop="location" itemscope="" itemtype="http://schema.org/Place">
+                  <div class="ecwd-venue">
+                    <span itemprop="name">
+                      <a href="http://omahastem.com/venue/barabara-weitz-community-engagement-center-at-uno/">Barabara Weitz Community Engagement Center at UNO</a>
+                    </span>
+                  </div>
+                  <p>
+                    <span class="ecwd_hidden" itemprop="name">6400 University Drive South Room 127, Omaha, NE 68182</span>
+                  </p>
+                  <div class="ecwd-location" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                    <span>6400 University Drive South Room 127, Omaha, NE 68182</span>
+                  </div>
+                </div>
+                <p>
+                  <span class="hidden" itemprop="url">http://omahastem.com/event/math-with-an-artist/</span>
+                </p>
+                <div class="ecwd-detalis" itemprop="description">
+                  <img itemprop="image" src="http://discovermagazine.com/~/media/Images/Issues/2014/April/Math%20art%20gallery/math-cover.jpg?mw=738">
+                    <p></p>
+                    <p>
+                      <a class="irc_mil i3597" tabindex="0" href="http://discovermagazine.com/galleries/2014/april/math-art" target="_blank" rel="noopener" data-noload="" data-ved="2ahUKEwj5seDxtPrfAhUDD60KHRv7AsIQjRx6BAgBEAU"> </a>
+                    </p>
+                    <p>UNO Math department, WhyArts, and Omaha Stem Ecosystems invites friends and colleagues of the UNO STEM Ecosystem to an interactive workshop that focuses on how to integrate math into art projects. We will be making kaleidocycles with artist and educator Mike Giron.&nbsp;Limited seating, so reserve now!&nbsp; Feel free to pass on to a friend or colleague!</p>
+                    <p>
+                      Tickets are 5 dollars each. To reserve seating you can go to this link to purchase tickets and to receive more information regarding the event:&nbsp;<a href="https://urldefense.proofpoint.com/v2/url?u=https-3A__www.eventbrite.com_e_math-2Dwith-2Dan-2Dartist-2Dtickets-2D54009632264&amp;d=DwMFAg&amp;c=Cu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo&amp;r=Az9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo&amp;m=jsEgDqsi2Z9C3p8phWAJoP_WeKzmlph7PJc6e7S3ruc&amp;s=mbI-ogqYmUT53hUWOn98PgQvjTiPFy1FFPAlAR7PIXU&amp;e=" target="_blank" rel="noopener" data-saferedirecturl="https://www.google.com/url?q=https://urldefense.proofpoint.com/v2/url?u%3Dhttps-3A__www.eventbrite.com_e_math-2Dwith-2Dan-2Dartist-2Dtickets-2D54009632264%26d%3DDwMFAg%26c%3DCu5g146wZdoqVuKpTNsYHeFX_rg6kWhlkLF8Eft-wwo%26r%3DAz9X0ajmjvCHkIWHPetsoF2gE9AafwJZFwD6kAw7wUo%26m%3DjsEgDqsi2Z9C3p8phWAJoP_WeKzmlph7PJc6e7S3ruc%26s%3DmbI-ogqYmUT53hUWOn98PgQvjTiPFy1FFPAlAR7PIXU%26e%3D&amp;source=gmail&amp;ust=1547780463593000&amp;usg=AFQjCNHZY7IU3gfwApvb2HR8mZNIwr52Xg">
+                        https://www.eventbrite.com/e/<wbr>
+                          math-with-an-artist-tickets-<wbr>54009632264</a>
+                    </p>
+                  </div>
+              </div>
+              <div class="ecwd-event-arrow-right"></div>
+            </div>
+          </li>
+        </ul>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-29">
+        <div class="day-number">29</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-30">
+        <div class="day-number">30</div>
+      </td>
+      <td class="day-with-date no-events" data-date="2019-1-31">
+        <div class="day-number">31</div>
+      </td>
+      <td class="day-without-date no-events" data-date="">
+        <div class="day-number">February</div>
+      </td>
+      <td class="day-without-date no-events" data-date="">
+        <div class="day-number">February</div>
+      </td>
+    </tr>
+  </tbody>
+</table>

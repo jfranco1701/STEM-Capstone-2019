@@ -5,4 +5,5 @@ export class Event {
   e_type: string;
   organizer: number;
   attendees: number[];
+  description: string;
 }

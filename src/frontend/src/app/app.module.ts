@@ -20,6 +20,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -139,8 +141,10 @@ const resourceDefinitions: Array<ResourceDefinition> = [
       apiUrl: 'http://localhost:8000/api/v1',
       resourceDefinitions
     }),
-    EventModule,
+    CKEditorModule,
+    EventModule
   ],
+  exports: [CKEditorModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [

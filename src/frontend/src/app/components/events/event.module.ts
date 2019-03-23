@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventAddComponent } from './event-add/event-add.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -81,7 +82,9 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    CKEditorModule
+
   ],
   exports: [EventListComponent, EventAddComponent],
   declarations: [EventListComponent, EventAddComponent],
