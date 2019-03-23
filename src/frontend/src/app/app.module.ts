@@ -65,6 +65,8 @@ import { ResourceDefinition, NgrxJsonApiModule } from 'ngrx-json-api';
 import { UsersComponent } from './components/users/users.component';
 import { EventModule } from './components/events/event.module';
 import { EventRoutingModule } from './components/events/event-routing.module';
+import { FormsModule } from '@angular/forms';    
+import { UserService } from './services/user.service';
 
 const resourceDefinitions: Array<ResourceDefinition> = [
   { type: 'User', collectionPath: 'users' }
@@ -140,6 +142,7 @@ const resourceDefinitions: Array<ResourceDefinition> = [
       resourceDefinitions
     }),
     EventModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
