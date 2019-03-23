@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   public errors: any = [];
   user: User;
 
-  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService) {}
+  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,
+              private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -28,16 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(
-      'login: ' +
-        this.loginForm.get('userGroup').get('email').value +
-        ', ' +
-        this.loginForm.get('passwordGroup').get('password').value
-    );
     this.authenticationService.login(
       this.loginForm.get('userGroup').get('email').value,
       this.loginForm.get('passwordGroup').get('password').value)
-      .subscribe(user => this.user = user);
+      .subscribe(user => {
+        this.user = user;
+        this.router.navigate(['/home']);
+      });
   }
 
   getErrorMessage(groupName: string, controlName: string) {

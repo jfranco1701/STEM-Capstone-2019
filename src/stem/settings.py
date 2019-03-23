@@ -156,4 +156,5 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
 	'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 	'JWT_AUTH_COOKIE': None,
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'app.controllers.user_controller.jwt_response_payload_handler',
 }

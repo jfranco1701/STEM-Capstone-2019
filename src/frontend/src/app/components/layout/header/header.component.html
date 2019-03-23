@@ -1,38 +1,55 @@
-<div fxLayout="row" class="header">
-  <div class="container, nav"
-       fxLayout="row"
-       fxLayoutAlign="center center"
-       fxLayoutGap="0px"
-       fxFill>
-    <div class="itemleft" fxFlex>
-      <a [routerLink]="['/home']" routerLinkActive="router-link-active"><img src="assets/stemlogo.jpg" /></a>
-    </div>
-    <div fxFlex="row">
-      <div class="container" fxLayout="row wrap">
-        <a class="navbutton" mat-stroked-button [routerLink]="['/home']" routerLinkActive="router-link-active">Home</a>
-        <a class="navbutton" mat-stroked-button>About Us</a>
-        <a class="navbutton" mat-stroked-button>Partners</a>
-        <a class="navbutton" mat-stroked-button>Calendar</a>
-        <a class="navbutton" mat-stroked-button>Get Involved</a>
-        <a class="navbutton" mat-stroked-button>Etc</a>
+<div fxLayout="row" fxLayoutAlign="start center" class="header">
+  <span fxFlex="110px">
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+      <img height="50px" src="assets/stemlogo.jpg" />
+    </a>
+  </span>
+  <div fxFlex>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div fxFlex="60">
+        <a mat-button>Home</a>
+
+        <a mat-button>About Us</a>
+
+        <a mat-button>Partners</a>
+
+        <a mat-button>Calendar</a>
+
+        <a mat-button>Get Involved</a>
+
+        <a mat-button>Etc</a>
       </div>
-    </div>
-    <div fxLayout="row">
-      <!-- Only show button if user is logged in and has rights to create events  -->
-      <div fxFlex>
-        <button class="navbutton" [routerLink]="['/events/add']" routerLinkActive="router-link-active" mat-stroked-button>New Event</button>
-      </div>
-      <!-- Hide button if user is logged in  -->
-      <div fxFlex>
-        <button class="navbutton" [routerLink]="['/register']" routerLinkActive="router-link-active" mat-stroked-button>Register</button>
-      </div>
-      <!-- Hide button if user is logged in  -->
-      <div fxFlex>
-        <button class="navbutton" [routerLink]="['/login']" routerLinkActive="router-link-active" mat-stroked-button>
-          Login
-        </button>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end">
+        <ng-container fxFlex *ngIf="currentUser; then loggedIn; else loggedOut"> </ng-container>
+        <ng-template #loggedIn>
+          <div>
+            <span>
+              <a [routerLink]="['/events/add']" mat-button>Add Event</a>
+            </span>
+            <span style="width:200px;">
+              <mat-menu #appMenu="matMenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)="logout()">Logout</button>
+              </mat-menu>
+              <button mat-button [matMenuTriggerFor]="appMenu">
+                {{ currentUser.firstName }} {{ currentUser.lastName }}
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </button>
+            </span>
+          </div>
+        </ng-template>
+        <ng-template #loggedOut>
+          <div>
+            <span></span>
+            <span>
+              <a [routerLink]="['/register']" mat-button>Register</a>
+            </span>
+            <span>
+              <a [routerLink]="['/login']" mat-button>Logon</a>
+            </span>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
 </div>
-
