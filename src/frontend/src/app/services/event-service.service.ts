@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import { Event } from '../models/event';
-import { EVENTS } from '../models/mock-events';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
+  private eventApiUrl: string;
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.eventApiUrl = 'http://localhost:8000/api/v1/events';
+  }
 
-  getEvents(): Event[] {
-
-    return EVENTS;
-
+  getEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.eventApiUrl);
   }
 
 }
