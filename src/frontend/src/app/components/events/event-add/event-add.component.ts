@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
+import { EventService } from '../../../services/event-service.service';
 
 @Component({
   selector: 'app-event-add',
@@ -15,6 +16,7 @@ export class EventAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
+    private eventService: EventService
   ) {}
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class EventAddComponent implements OnInit {
     console.log('Create Event: ' + name + ', ' + date + ', ' + e_type);
 
     // Call event add service here
+    // this.eventService.addEvent(name, date, e_type);
   }
 
   // Get validation error message
