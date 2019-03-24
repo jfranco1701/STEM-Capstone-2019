@@ -3,8 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as CKFinder from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter'
+//import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import * as EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+import { UploadAdapter } from '../upload-adapter';
 
 @Component({
   selector: 'app-event-add',
@@ -17,7 +20,22 @@ export class EventAddComponent implements OnInit {
   public errors: any = [];
   event_types = ['Community', 'Camp'];
 
-  public Editor = ClassicEditor;
+  public Editor;
+  public Config = { 
+    toolbar: {
+      items: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "imageUpload", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo", "ckFinder"]
+    },
+    image: {
+      toolbar: ["imageStyle:full", "imageStyle:side", "|", "imageTextAlternative"]
+    },
+    table: {
+      contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
+    },
+    language: "en",
+    ckFinder : {
+      uploadUrl : "http://localhost:80/upload"
+    } 
+}
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
@@ -25,8 +43,10 @@ export class EventAddComponent implements OnInit {
 
   ngOnInit() {
     // Define the event creation form
-    console.log(this.Editor.defaultConfig.toolbar.items.push('ckFinder'));
-    console.log(this.Editor.builtinPlugins);
+    //console.log(this.Editor.defaultConfig.toolbar.items.push('ckFinder'));
+    //console.log(this.Editor.builtinPlugins.map(plugin => plugin.pluginName));
+    this.Editor = ClassicEditor;
+    console.log(ClassicEditor);
     this.eventForm = this.fb.group({
       eventGroup: this.fb.group({
         name: ['', [Validators.required]],
@@ -56,6 +76,13 @@ export class EventAddComponent implements OnInit {
   getErrorMessage(groupName: string, controlName: string) {
     return this.eventForm.get(groupName).get(controlName).hasError('required') ? 'You must enter a value' :
            '';
+  }
+
+  onReady(eventData) {
+    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+      console.log(btoa(loader.file));
+      return new UploadAdapter(loader);
+    };
   }
 }
 

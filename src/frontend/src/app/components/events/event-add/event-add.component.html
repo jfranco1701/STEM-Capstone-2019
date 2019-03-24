@@ -28,7 +28,7 @@
             </mat-select>
           </mat-form-field>
 
-          <ckeditor formControlName="description" [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+          <ckeditor formControlName="description" [editor]="Editor" [config]="Config"  (ready)="onReady($event)" data="<p>Hello, world!</p>"></ckeditor>
 
         </div>
 
