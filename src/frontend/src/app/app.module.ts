@@ -18,7 +18,9 @@ import { LayoutComponent } from './components/layout/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
+import { LogoutComponent } from './components/layout/logout/logout.component';
 import { LoginComponent } from './components/login/login.component';
+import { EventviewComponent } from './components/eventsview/eventview.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
 import {
   MatAutocompleteModule,
@@ -82,9 +84,11 @@ const resourceDefinitions: Array<ResourceDefinition> = [
     HeaderComponent,
     LoginComponent,
     NotauthorizedComponent,
+    LogoutComponent,
     AdminComponent,
     RegistertermsComponent,
     UsersComponent,
+    EventviewComponent
   ],
   imports: [
     BrowserModule,

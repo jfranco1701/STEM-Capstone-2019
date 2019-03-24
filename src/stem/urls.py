@@ -21,7 +21,10 @@ from rest_framework import routers
 from app.controllers.event_controller import EventViewSet
 from app.controllers.user_controller import UserViewSet
 from app.controllers.organization_controller import OrganizationViewSet
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, ObtainJSONWebToken
+from app.serializers.custom_serializer import (
+    CustomJWTSerializer
+)
 
 
 # Rest framework router
@@ -34,6 +37,6 @@ urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path(r'api/token/auth', obtain_jwt_token),
+    path(r'api/token/auth', ObtainJSONWebToken.as_view(serializer_class=CustomJWTSerializer)),
     path(r'api/token/refresh', refresh_jwt_token),
 ]

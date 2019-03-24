@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public showLogoutButton: boolean = false;
   constructor() { }
 
   ngOnInit() {
+    this.ShowloginLogout();
   }
 
+
+  private ShowloginLogout() {
+    if (localStorage.getItem('loggeduser') != null) {
+      this.showLogoutButton = true;
+    }
+  }
 }

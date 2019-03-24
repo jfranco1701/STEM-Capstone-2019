@@ -38,15 +38,9 @@ export class LoginComponent implements OnInit {
 
   login(emailAddress: string, password: string) {
     console.log('login: ' + emailAddress + ', ' + password );
-    if( this._userService.login({'username': emailAddress, 'password': password}) == 0)
-    {
-      window.location.href='/home';
-    }
-    else{
-      alert("Login Failed");
-    }
-  
-    // Call login service here
+
+    //calling login service
+    this._userService.login({'username': emailAddress, 'password': password});
   }
 
   getErrorMessage(groupName: string, controlName: string) {

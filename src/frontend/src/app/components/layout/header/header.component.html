@@ -27,9 +27,14 @@
         <button class="navbutton" [routerLink]="['/register']" routerLinkActive="router-link-active" mat-stroked-button>Register</button>
       </div>
       <!-- Hide button if user is logged in  -->
-      <div fxFlex>
+      <div fxFlex *ngIf="!showLogoutButton" id="login">
         <button class="navbutton" [routerLink]="['/login']" routerLinkActive="router-link-active" mat-stroked-button>
           Login
+        </button>
+      </div>
+      <div fxFlex  *ngIf="showLogoutButton" id="logout">
+        <button class="navbutton" [routerLink]="['/logout']" routerLinkActive="router-link-active" mat-stroked-button>
+          logout
         </button>
       </div>
     </div>
