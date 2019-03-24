@@ -3,8 +3,11 @@
     <div>
       <h3>Please enter your email and password to continue</h3><br>
     </div>
+
+    <div *ngIf="error" class="loginerror">{{error}}</div>
+
     <form novalidate (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-      
+
       <div
           formGroupName="userGroup"
           novalidate

@@ -1,0 +1,83 @@
+<div class="container" fxLayout="row" fxLayout.lt-md="column">
+  <div fxFlex>
+    <div fxLayout="column">
+      <div fxFlex class="header">
+        My Profile
+      </div>
+
+      <mat-divider fxFlex></mat-divider>
+
+      <div fxFlex fxLayout="row" class="parentinfo">
+        <div fxFlex="25">
+          <b>Personal Information</b>
+        </div>
+        <div fxFlex fxLayout="row">
+          <div fxFlex>
+              <table>
+                  <tr>
+                    <th>Name:</th>
+                    <td>John Doe</td>
+                  </tr>
+                  <tr>
+                    <th>Date of Birth:</th>
+                    <td>1/1/1980</td>
+                  </tr>
+                  <tr>
+                    <th>Phone:</th>
+                    <td>(402) 123-4567</td>
+                  </tr>
+                  <tr>
+                    <th>
+                      Email:
+                    </th>
+                    <td>
+                      email@email.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Address:</th>
+                    <td>sdfasdfasdfasdfs</td>
+                  </tr>
+                </table>
+          </div>
+          <div fxFlex="150px">
+            <div style="text-align:right">
+                <button mat-button color="primary" (click)="updateProfile()" >Update Personal Info</button>
+            </div>
+            <div style="margin-top:10px;text-align:right">
+                <button mat-button color="primary" (click)="updatePassword()">Change Password</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <mat-divider fxFlex></mat-divider>
+
+      <div fxFlex fxLayout="row" class="authchild">
+        <div fxFlex="25">
+          <b>Authorized Children</b>
+        </div>
+
+        <div fxFlex fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start center">
+          <mat-card fxFlex="150px" matTooltip="Update child profile" class="card" [routerLink]="['/profile']">
+            <mat-card-content style="text-align:center;">
+              <img style="height:100px;" src="../../../assets/images/persongeneric.png" />
+            </mat-card-content>
+            <mat-card-footer style="text-align:center;margin-bottom:2px;">
+              NAME HERE
+            </mat-card-footer>
+          </mat-card>
+
+          <button class="add-button" mat-raised-button matTooltip="Add child profile" [routerLink]="['/profile/childadd']">
+            <i class="fas fa-plus-circle fa-2x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex="30">
+    <app-contactus></app-contactus>
+  </div>
+</div>
