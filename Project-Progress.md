@@ -17,3 +17,11 @@ The team has almost finished the major chunk (Part 1) of the project. Over the e
 Since we finished building secure environments for backend and frontend, we currently very focused on implementing the major application functionalities and requirements that are discussed in the meeting with Omaha STEM Ecosystem. 
 
 Apart from building environments and implementing functionalities, team is very concerned about security and consistency in building web application which we are implementing in our work by following proper coding standards, naming conventions and removing unnecessary objects or line in the code. Since we have many coding standards we decided to be on same page and so we review the code consistency to maintain same standard before merged into the master branch.
+
+# Outcomes
+
+By the time of completion of Milestone 2, we acheive
+
+# Hinderances
+
+# Ongoing Risks
