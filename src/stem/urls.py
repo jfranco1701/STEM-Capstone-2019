@@ -21,16 +21,18 @@ from rest_framework import routers
 from app.controllers.event_controller import EventViewSet
 from app.controllers.user_controller import UserViewSet
 from app.controllers.organization_controller import OrganizationViewSet
-
+from app.controllers.media_controller import MediaConnector
+from django.conf.urls import url
 
 # Rest framework router
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'events', EventViewSet)
 router.register(r'organizations', OrganizationViewSet)
+router.register(r'mediaconnector', MediaConnector, base_name='mediaconnector' )
 
 urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
-    path('api/v1/', include(router.urls)),
+    path('api/v1/', include(router.urls))
 ]

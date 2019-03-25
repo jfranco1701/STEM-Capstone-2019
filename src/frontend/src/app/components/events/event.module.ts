@@ -40,7 +40,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,
+  MatTreeModule
 } from '@angular/material';
 
 @NgModule({
@@ -84,7 +84,6 @@ import {
     MatTooltipModule,
     MatTreeModule,
     CKEditorModule
-
   ],
   exports: [EventListComponent, EventAddComponent],
   declarations: [EventListComponent, EventAddComponent],

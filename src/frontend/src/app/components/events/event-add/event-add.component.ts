@@ -4,9 +4,7 @@ import { MatDialog } from '@angular/material';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import * as CKFinder from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter'
 //import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import * as EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import { UploadAdapter } from '../upload-adapter';
 
 @Component({
@@ -22,6 +20,9 @@ export class EventAddComponent implements OnInit {
 
   public Editor;
   public Config = { 
+    ckfinder: {
+      uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+      },
     toolbar: {
       items: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "imageUpload", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo", "ckFinder"]
     },
@@ -31,10 +32,7 @@ export class EventAddComponent implements OnInit {
     table: {
       contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"]
     },
-    language: "en",
-    ckFinder : {
-      uploadUrl : "http://localhost:80/upload"
-    } 
+    language: "en"
 }
 
   constructor(

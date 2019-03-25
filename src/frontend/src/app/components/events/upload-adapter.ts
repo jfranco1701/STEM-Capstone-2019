@@ -20,7 +20,6 @@ export class UploadAdapter {
           return { default: "data:image/png;base64," + image };
           resolve();
         }
-        myReader.readAsDataURL(file);
       });
       return imagePromise;
     }
