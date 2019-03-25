@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-@Injectable({ providedIn: 'root' })
-export class AuthGuardService implements CanActivate {
+import { AuthenticationService } from '../authentication.service';
 
-    constructor(private router: Router) { }
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+    constructor(
+        private router: Router,
+        private authenticationService: AuthenticationService
+    ) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        // if statement should be added here to determine if the user has the admin role.
-        // If so, true should be returned
+        const currentUser = this.authenticationService.currentUserValue;
+        if (currentUser) {
+            // logged in so return true
+            return true;
+        }
 
-        // not admin user so redirect to landing page with the return url
-        this.router.navigate(['/notauthorized']);
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
     }
 }
