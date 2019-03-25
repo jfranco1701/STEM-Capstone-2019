@@ -16,6 +16,10 @@ class EventViewSet(viewsets.ModelViewSet):
             self.permission_classes = [AllowAny,]
         return super(EventViewSet, self).get_permissions()
 
+    def perform_create(self, serializer):
+        print(self.request.user)
+        serializer.save(organizer=self.request.user)
+
     @action(detail=False, methods=['get'])
     def order(self, request, *args, **kwargs):
         events = Event.objects.filter(date__gte=date.today()).order_by('date')
