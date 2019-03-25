@@ -12,7 +12,7 @@ The second portion of the project (**Part 2**): Started to work on the functiona
 
 # Progress:
 
-The team has almost finished the major chunk (Part 1) of the project. Over the earlier weeks, they worked on completing every part to build backend based angular framework and frontend is based on Django REST framework and docker is used to run and deploy our web application using docker container. The ultimate major reason of choosing these environments is to build a secure web application.
+The team has almost finished the major chunk (Part 1) of the project. Over the earlier weeks, they worked on completing every part to build frontend based angular framework and backend is based on Django REST framework and docker is used to run and deploy our web application using docker container. The ultimate major reason of choosing these environments is to build a secure web application.
 
 Since we finished building secure environments for backend and frontend, we currently very focused on implementing the major application functionalities and requirements that are discussed in the meeting with Omaha STEM Ecosystem. 
 
@@ -20,7 +20,6 @@ Apart from building environments and implementing functionalities, team is very 
 
 # Outcomes
 
-By the time of completion of Milestone 2, we acheive
 
 # Hinderances
 
