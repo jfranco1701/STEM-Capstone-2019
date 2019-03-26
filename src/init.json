@@ -1,0 +1,38 @@
+{
+  "enabled": true,
+  "s": "",
+  "c": "",
+  "thumbs": [ "150x150", "300x300", "500x500" ],
+  "images": {
+    "max": "500x400",
+    "sizes": {
+      "small": "480x320",
+      "medium": "600x480",
+      "large": "800x600"
+    }
+  },
+  "uploadMaxSize": "425167",
+  "uploadCheckImages": true,
+  "resourceTypes": [
+    {
+      "name": "Files",
+      "url": "/ckfinder/userfiles/files",
+      "allowedExtensions": "7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,zip",
+      "deniedExtensions": "",
+      "hash": "8b787e3ea25b5079",
+      "hasChildren": false,
+      "acl": 1023,
+      "maxSize": 32768
+    },
+    {
+      "name": "Images",
+      "url": "/ckfinder/userfiles/images",
+      "allowedExtensions": "bmp,gif,jpeg,jpg,png",
+      "deniedExtensions": "",
+      "hash": "b8de0a3f3cb3cd1f",
+      "hasChildren": false,
+      "acl": 1023,
+      "maxSize": 65536
+    }
+  ]
+}

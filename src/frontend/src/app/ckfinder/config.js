@@ -10,5 +10,6 @@ var config = {};
 // Examples:
 // config.language = 'pl';
 // config.skin = 'jquery-mobile';
-
+config.connectorPath = '/api/mediaconnector';
+config.chooseFiles = true;
 CKFinder.define( config );

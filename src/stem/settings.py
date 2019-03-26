@@ -162,8 +162,8 @@ JWT_AUTH = {
 }
 
 CORS_ORIGIN_WHITELIST = (
-    'localhost:4200',
-    '127.0.0.1:4200'
+    'localhost:8000',
+    '127.0.0.1:8000'
 )
 
 

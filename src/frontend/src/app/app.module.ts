@@ -63,6 +63,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { EventModule } from './components/events/event.module';
 import { EventRoutingModule } from './components/events/event-routing.module';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -127,12 +129,6 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     MatTreeModule,
     ScrollingModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, { }),
-    EffectsModule.forRoot([]),
-    NgrxJsonApiModule.configure({
-      apiUrl: 'http://localhost:8000/api/v1',
-      resourceDefinitions
-    }),
     CKEditorModule,
     EventModule
   ],
