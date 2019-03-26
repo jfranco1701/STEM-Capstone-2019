@@ -28,20 +28,17 @@ Apart from building environments and implementing functionalities, team is very 
 
 # Diagrams
 
-## System Context Diagram
+### System Context Diagram
+![System Context Diagram](pics/System_Context_Diagram.png "")
+
+### Container Diagram
+![System Context Diagram](pics/Container_Diagram.png "")
+
+### Component Diagram
 
 
 
-## Container Diagram
-
-
-
-
-## Component Diagram
-
-
-
-## UML Activity Diagram
+### UML Activity Diagram
 
 
 
