@@ -24,3 +24,24 @@ Apart from building environments and implementing functionalities, team is very 
 # Hinderances
 
 # Ongoing Risks
+
+
+# Diagrams
+
+## System Context Diagram
+
+
+
+## Container Diagram
+
+
+
+
+## Component Diagram
+
+
+
+## UML Activity Diagram
+
+
+
