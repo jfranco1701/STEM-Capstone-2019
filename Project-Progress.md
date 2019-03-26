@@ -44,3 +44,4 @@ Apart from building environments and implementing functionalities, team is very 
 ![UML Activity Diagram Registration](pics/UAD_Registration.png "")
 ![UML Activity Diagram Profile](pics/UAD_Profile1.png "")
 ![UML Activity Diagram Profile](pics/UAD_Profile2.png "")
+![UML Activity Diagram Events](pics/UAD_Event.png "")
