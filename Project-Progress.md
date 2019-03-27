@@ -43,7 +43,7 @@ By the time of completion of milestone 2 we accomplished the major tasks that re
 ![System Context Diagram](pics/Container_Diagram.png "")
 
 ### Component Diagram
-
+![Component Diagram](https://github.com/jfranco1701/STEM-Capstone-2019/blob/Component-level-diagram/pics/Component%20Level.jpg)
 
 
 ### UML Activity Diagram
