@@ -5,6 +5,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventAddComponent } from './event-add/event-add.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FileExplorerModule } from '../file-explorer/file-explorer.module'
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -83,7 +85,8 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    CKEditorModule
+    CKEditorModule,
+    FileExplorerModule
   ],
   exports: [EventListComponent, EventAddComponent],
   declarations: [EventListComponent, EventAddComponent],

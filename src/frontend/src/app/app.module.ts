@@ -20,7 +20,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import {
   MatAutocompleteModule,
@@ -129,10 +128,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MatTreeModule,
     ScrollingModule,
     HttpClientModule,
-    CKEditorModule,
     EventModule
   ],
-  exports: [CKEditorModule],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
