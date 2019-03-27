@@ -1,19 +1,29 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, Inject } from '@angular/core';
 import { FileElement } from '../../models/fileelement';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { Observable } from 'rxjs/Observable';
 import { MatDialog } from '@angular/material/dialog';
 import { NewFolderDialogComponent } from './modals/newFolderDialog/newFolderDialog.component';
 import { RenameDialogComponent } from './modals/renameDialog/renameDialog.component';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'file-explorer',
   templateUrl: './file-explorer.component.html',
   styleUrls: ['./file-explorer.component.css']
 })
-export class FileExplorerComponent {
-  constructor(public dialog: MatDialog) {}
+export class FileExplorerComponent implements OnInit {
+  constructor(public dialog: MatDialog,
+              private dialogRef: MatDialogRef<FileExplorerComponent>,
+              @Inject(MAT_DIALOG_DATA) data) {
 
+                this.fileElements = data.files;
+
+        }
+
+  ngOnInit() {
+    
+  }
   @Input() fileElements: FileElement[];
   @Input() canNavigateUp: string;
   @Input() path: string;

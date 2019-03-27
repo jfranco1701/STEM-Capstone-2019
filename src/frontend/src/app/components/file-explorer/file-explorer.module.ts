@@ -30,6 +30,6 @@ import { FileExplorerComponent } from './file-explorer.component';
   ],
   declarations: [FileExplorerComponent, NewFolderDialogComponent, RenameDialogComponent],
   exports: [FileExplorerComponent],
-  entryComponents: [NewFolderDialogComponent, RenameDialogComponent]
+  entryComponents: [NewFolderDialogComponent, RenameDialogComponent, FileExplorerComponent]
 })
 export class FileExplorerModule {}

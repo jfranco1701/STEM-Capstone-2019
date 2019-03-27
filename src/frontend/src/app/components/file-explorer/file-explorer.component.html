@@ -1,12 +1,14 @@
-<mat-toolbar>
+<div class="container" fxLayout="column">
+<mat-dialog-content class="container" fxLayout="column">
+<mat-toolbar class="container" fxFlex fxLayout="row">
   <mat-icon *ngIf="canNavigateUp" class="pointer" (click)="navigateUp()">arrow_back</mat-icon>
   <span style="margin-left: 8px">{{path || 'Files'}}</span>
   <span class="spacer"></span>
   <mat-icon class="pointer" (click)="openNewFolderDialog()">create_new_folder</mat-icon>
 </mat-toolbar>
 
-<div class="container" fxFlex fxLayout="row" fxLayoutAlign="space-between stretch">
-  <div class="content" fxFlex fxLayout="row">
+<div class="container" fxFlexFill fxLayout="row" fxFill>
+  <div class="content" fxFlex fxLayout="row" >
     <mat-grid-list cols="8" rowHeight="100px" fxFlex>
       <mat-grid-tile *ngFor="let element of fileElements" class=file-or-folder>
         <span [matMenuTriggerFor]="rootMenu" [matMenuTriggerData]="{element: element}" #menuTrigger="matMenuTrigger"></span>
@@ -20,7 +22,7 @@
   </div>
 </div>
 
-<mat-menu #rootMenu="matMenu" [overlapTrigger]="false">
+<mat-menu fxFlex fxLayout="row" #rootMenu="matMenu" [overlapTrigger]="false">
   <ng-template matMenuContent let-element="element">
     <button mat-menu-item [matMenuTriggerFor]="moveToMenu" [matMenuTriggerData]="{self: element}">
       <mat-icon>open_with</mat-icon>
@@ -37,10 +39,16 @@
   </ng-template>
 </mat-menu>
 
-<mat-menu #moveToMenu="matMenu">
+<mat-menu fxFlex fxLayout="row" #moveToMenu="matMenu">
   <ng-template matMenuContent let-self="self">
     <ng-container *ngFor="let element of fileElements">
       <button *ngIf="element.isFolder && element.id !== self.id" mat-menu-item (click)="moveElement(self, element)">{{element.name}}</button>
     </ng-container>
   </ng-template>
 </mat-menu>
+
+</mat-dialog-content>
+<mat-dialog-actions fxFlex align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+</div>

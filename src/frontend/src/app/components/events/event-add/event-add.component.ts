@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 //import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { UploadAdapter } from '../upload-adapter';
+import { FileElement } from '../../../models/fileelement'
+import { FileExplorerComponent} from '../../file-explorer/file-explorer.component'
 
 @Component({
   selector: 'app-event-add',
@@ -17,6 +19,18 @@ export class EventAddComponent implements OnInit {
   eventForm: FormGroup;
   public errors: any = [];
   event_types = ['Community', 'Camp'];
+  public files: FileElement[] =  [
+    { id: '1',
+      isFolder: false,
+      name: 'TEST1',
+      parent: null },
+      { id: '2',
+      isFolder: false,
+      name: 'TEST2',
+      parent: null },
+
+  ]
+  
 
   public Editor;
   public Config = { 
@@ -81,6 +95,23 @@ export class EventAddComponent implements OnInit {
       console.log(btoa(loader.file));
       return new UploadAdapter(loader);
     };
+  }
+
+  openFileExplorer() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '800px';
+    dialogConfig.width = '600px'
+
+    dialogConfig.data = {
+        files : this.files
+    };
+
+    // Open the file manager
+    const dialogRef = this.dialog.open(FileExplorerComponent, dialogConfig);
   }
 }
 
