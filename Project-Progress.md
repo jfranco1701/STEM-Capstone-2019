@@ -20,6 +20,14 @@ Apart from building environments and implementing functionalities, team is very 
 
 # Outcomes
 
+By the time of completion of milestone 2 we accomplished the major tasks that required to start building application functionalities. We have also completed below tickets.
+* Gathering requirements for the application
+* Completed building secured backend and frontend environments.
+* Completed adding the front-page UI with a navigation bar for login/logout and setting up events
+* Completed adding user registration page
+* Completed adding user login page
+* Completed adding page for adding new events
+
 
 # Hinderances
 
