@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 import { EventService } from '../../../services/event-service.service';
+import { Event } from 'src/app/models/event';
 
 @Component({
   selector: 'app-event-add',
@@ -13,10 +15,11 @@ export class EventAddComponent implements OnInit {
   eventForm: FormGroup;
   public errors: any = [];
   event_types = ['Community', 'Camp'];
+  event: Event;
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
-    private eventService: EventService
+    private router: Router, private eventService: EventService
   ) {}
 
   ngOnInit() {
@@ -31,18 +34,14 @@ export class EventAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.create(
+    this.eventService.addEvent(
       this.eventForm.get('eventGroup').get('name').value,
       this.eventForm.get('eventGroup').get('date').value,
-      this.eventForm.get('eventGroup').get('e_type').value
-    );
-  }
-
-  create(name: string, date: string, e_type: string,) {
-    console.log('Create Event: ' + name + ', ' + date + ', ' + e_type);
-
-    // Call event add service here
-    // this.eventService.addEvent(name, date, e_type);
+      this.eventForm.get('eventGroup').get('e_type').value)
+      .subscribe(event => {
+        this.event = event;
+        this.router.navigate(['/home']);
+      })
   }
 
   // Get validation error message
