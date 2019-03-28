@@ -11,6 +11,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private eventService: EventService) { }
   events: Event[];
+  mySlideImages = [1,2,3,4,5,6,7,8,9,10].map((i)=> `https://picsum.photos/640/480?image=${i}`);
+  myCarouselImages =[1,2,3,4,5,6].map((i)=>`https://picsum.photos/640/480?image=${i}`);
+  mySlideOptions={items: 3, dots: true, nav: true};
+  myCarouselOptions={items: 3, dots: false, nav: true};
 
   ngOnInit() {
 

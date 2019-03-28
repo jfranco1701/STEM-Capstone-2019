@@ -25,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { OwlModule } from 'ngx-owl-carousel';
 
 import {
   MatAutocompleteModule,
@@ -134,7 +135,8 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     MatTreeModule,
     ScrollingModule,
     HttpClientModule,
-    EventModule
+    EventModule,
+    OwlModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
