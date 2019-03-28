@@ -9,12 +9,14 @@ import { User } from '../models/user';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
-    private apiUrl: string;
+    private apiLoginUrl: string;
+    private apiRegisterUrl: string;
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.apiUrl = 'http://localhost:8000/api/login/';
+        this.apiLoginUrl = 'http://localhost:8000/api/login/';
+        this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
     }
 
     public get currentUserValue(): User {
@@ -22,9 +24,7 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
-
-        console.log('please log me in');
-        return this.http.post<any>(`${this.apiUrl}`, { email, password })
+         return this.http.post<any>(`${this.apiLoginUrl}`, { email, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
@@ -42,4 +42,12 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    register(username: string, email: string, password: string, first_name: string, last_name: string, date_of_birth: Date) {
+          return this.http.post<any>(`${this.apiRegisterUrl}`, { username, email, password, last_name, first_name, date_of_birth })
+          .pipe(map(user => {
+              console.log(user);
+              this.currentUserSubject.next(user);
+          }));
+      }
 }
