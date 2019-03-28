@@ -20,11 +20,12 @@ export class EventService {
     return this.http.get<Event[]>(this.eventApiUrl);
   }
 
-  addEvent(eventName: string, eventDate: Date, eventType: string): Observable<Event> {
+  addEvent(eventName: string, eventDate: Date, eventType: string, description: string): Observable<Event> {
     const obj = {
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
-      event_type: eventType
+      event_type: eventType,
+      description: description
     };
 
     var user = JSON.parse(localStorage.currentUser);

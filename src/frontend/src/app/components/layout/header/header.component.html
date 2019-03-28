@@ -29,6 +29,7 @@
             <span style="width:200px;">
               <mat-menu #appMenu="matMenu">
                 <button mat-menu-item [routerLink]="['/profile/view']">My Profile</button>
+                <button mat-menu-item (click)="openFileExplorer()">Manage Files</button>
                 <button mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
               <button mat-button [matMenuTriggerFor]="appMenu">

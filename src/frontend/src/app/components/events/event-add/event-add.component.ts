@@ -4,10 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-//import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { UploadAdapter } from '../upload-adapter';
-import { FileElement } from '../../../models/fileelement'
-import { FileExplorerComponent} from '../../file-explorer/file-explorer.component'
 import { Router } from '@angular/router';
 import { EventService } from '../../../services/event-service.service';
 import { Event } from 'src/app/models/event';
@@ -22,26 +19,11 @@ export class EventAddComponent implements OnInit {
   eventForm: FormGroup;
   public errors: any = [];
   event_types = ['Community', 'Camp'];
-  public files: FileElement[] =  [
-    { id: '1',
-      isFolder: false,
-      name: 'TEST1',
-      parent: null },
-      { id: '2',
-      isFolder: false,
-      name: 'TEST2',
-      parent: null },
-
-  ]
-  
-
-  public Editor;
+  public editor;
+  public description: string = '';
   public Config = { 
-    ckfinder: {
-      uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-      },
     toolbar: {
-      items: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "imageUpload", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo", "ckFinder"]
+      items: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "imageUpload", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo"]
     },
     image: {
       toolbar: ["imageStyle:full", "imageStyle:side", "|", "imageTextAlternative"]
@@ -62,7 +44,7 @@ export class EventAddComponent implements OnInit {
     // Define the event creation form
     //console.log(this.Editor.defaultConfig.toolbar.items.push('ckFinder'));
     //console.log(this.Editor.builtinPlugins.map(plugin => plugin.pluginName));
-    this.Editor = ClassicEditor;
+    this.editor = ClassicEditor;
     console.log(ClassicEditor);
     this.eventForm = this.fb.group({
       eventGroup: this.fb.group({
@@ -78,7 +60,8 @@ export class EventAddComponent implements OnInit {
     this.eventService.addEvent(
       this.eventForm.get('eventGroup').get('name').value,
       this.eventForm.get('eventGroup').get('date').value,
-      this.eventForm.get('eventGroup').get('e_type').value)
+      this.eventForm.get('eventGroup').get('e_type').value,
+      this.description)
       .subscribe(event => {
         this.event = event;
         this.router.navigate(['/home']);
@@ -97,22 +80,4 @@ export class EventAddComponent implements OnInit {
       return new UploadAdapter(loader);
     };
   }
-
-  openFileExplorer() {
-
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.height = '800px';
-    dialogConfig.width = '600px'
-
-    dialogConfig.data = {
-        files : this.files
-    };
-
-    // Open the file manager
-    const dialogRef = this.dialog.open(FileExplorerComponent, dialogConfig);
-  }
 }
-

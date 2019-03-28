@@ -1,7 +1,10 @@
 export class Event {
 
   name: string;
-  date: string;
+  start_date: string;
+  end_date: string;
+  venue: string;
+  location: string;
   e_type: string;
   organizer: number;
   attendees: number[];
