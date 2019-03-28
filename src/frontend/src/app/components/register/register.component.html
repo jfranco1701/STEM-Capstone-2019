@@ -1,7 +1,7 @@
 <div class="container" fxLayout="row" fxLayout.lt-md="column">
   <div fxFlex>
     <div class="containerfor">
-      <form [formGroup]="registerForm">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
         <div class="formheader">
           <strong>Omaha STEM Ecosystem Parent Registration</strong>
         </div>
@@ -89,7 +89,7 @@
           <span class="terms" (click)="openTermsDialog()">terms of use policy</span>.
         </div>
         <div style="text-align: center; margin-top:20px; margin-bottom:20px;">
-          <button mat-raised-button>Complete Registration</button>
+          <button type="submit" mat-raised-button>Complete Registration</button>
         </div>
       </form>
     </div>
