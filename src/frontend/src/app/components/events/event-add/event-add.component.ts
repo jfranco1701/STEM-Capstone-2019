@@ -8,6 +8,9 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { UploadAdapter } from '../upload-adapter';
 import { FileElement } from '../../../models/fileelement'
 import { FileExplorerComponent} from '../../file-explorer/file-explorer.component'
+import { Router } from '@angular/router';
+import { EventService } from '../../../services/event-service.service';
+import { Event } from 'src/app/models/event';
 
 @Component({
   selector: 'app-event-add',
@@ -48,9 +51,11 @@ export class EventAddComponent implements OnInit {
     },
     language: "en"
 }
+  event: Event;
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
+    private router: Router, private eventService: EventService
   ) {}
 
   ngOnInit() {
@@ -70,18 +75,14 @@ export class EventAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.create(
+    this.eventService.addEvent(
       this.eventForm.get('eventGroup').get('name').value,
       this.eventForm.get('eventGroup').get('date').value,
-      this.eventForm.get('eventGroup').get('e_type').value,
-      this.eventForm.get('eventGroup').get('description').value
-    );
-  }
-
-  create(name: string, date: string, e_type: string, description: string) {
-    console.log('Create Event: ' + name + ', ' + date + ', ' + e_type + ', ' + description);
-
-    // Call event add service here
+      this.eventForm.get('eventGroup').get('e_type').value)
+      .subscribe(event => {
+        this.event = event;
+        this.router.navigate(['/home']);
+      })
   }
 
   // Get validation error message

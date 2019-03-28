@@ -1,0 +1,95 @@
+<div class="container">
+  <form [formGroup]="addForm" fxLayout="column">
+    <div fxFlex fxLayout="column" formGroupName="userGroup">
+      <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input matInput placeholder="First Name" formControlName="firstName" />
+          <mat-error *ngIf="addForm.get('userGroup').get('firstName').invalid">
+            {{ getErrorMessage('userGroup', 'firstName') }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input matInput placeholder="Last Name" formControlName="lastName" />
+          <mat-error *ngIf="addForm.get('userGroup').get('lastName').invalid">
+            {{ getErrorMessage('userGroup', 'lastName') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input matInput placeholder="Date of Birth" formControlName="dob" />
+        </mat-form-field>
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input matInput placeholder="Phone Number" formControlName="phone" />
+        </mat-form-field>
+      </div>
+      <div fxFlex fxLayout="row">
+        <mat-form-field fxFlex="75" fxFlex.lt-md="90">
+          <input matInput placeholder="Email Address" formControlName="email" />
+          <mat-error *ngIf="addForm.get('userGroup').get('email').invalid">
+            {{ getErrorMessage('userGroup', 'email') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxFlex fxLayout="column" formGroupName="addressGroup">
+      <div fxFlex fxLayout="row">
+        <mat-form-field fxFlex="75" fxFlex.lt-md="90">
+          <input matInput placeholder="Address" />
+        </mat-form-field>
+      </div>
+
+      <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="58" fxFlex.lt-md="90">
+          <input matInput placeholder="City" />
+        </mat-form-field>
+        <mat-form-field fxFlex="18" fxFlex.lt-md="90">
+          <input matInput placeholder="State" />
+        </mat-form-field>
+        <mat-form-field fxFlex="18" fxFlex.lt-md="90">
+          <input matInput placeholder="Zip Code" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxFlex fxLayout="column" formGroupName="loginGroup">
+      <div fxFlex fxLayout="row">
+        <mat-form-field fxFlex="75" fxFlex.lt-md="90">
+          <input matInput placeholder="Username" formControlName="username" />
+          <mat-error *ngIf="addForm.get('loginGroup').get('username').invalid">
+            {{ getErrorMessage('loginGroup', 'username') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between">
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input matInput type="password" placeholder="Password" formControlName="password" />
+          <mat-error *ngIf="addForm.get('loginGroup').get('password').invalid">
+            {{ getErrorMessage('loginGroup', 'password') }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="48" fxFlex.lt-md="90">
+          <input
+            matInput
+            type="password"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+          />
+          <mat-error *ngIf="addForm.get('loginGroup').get('confirmPassword').invalid">
+            {{ getErrorMessage('loginGroup', 'confirmPassword') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxFlex style="text-align: center; font-size: smaller; margin-top:20px;">
+      By clicking the <b>complete registration</b> button, you are accepting our
+      <span class="terms" (click)="openTermsDialog()">terms of use policy</span>.
+    </div>
+
+    <div fxFlex style="text-align: center; margin-top:20px; margin-bottom:20px;">
+      <button mat-raised-button (click)="onSubmit()">Complete Registration</button>
+    </div>
+  </form>
+</div>

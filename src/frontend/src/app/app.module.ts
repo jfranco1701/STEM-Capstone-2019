@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared.module';
 import { NgModule } from '@angular/core';
+import { ProfileModule } from './components/profile/profile.module';
+import { ProfileRoutingModule } from './components/profile/profile-router.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { A11yModule } from '@angular/cdk/a11y';
@@ -20,6 +23,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 import {
   MatAutocompleteModule,
@@ -58,12 +63,10 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { EventModule } from './components/events/event.module';
 import { EventRoutingModule } from './components/events/event-routing.module';
-import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormsModule,
     FlexLayoutModule,
     EventRoutingModule,
+    ProfileRoutingModule,
+    SharedModule,
+    ProfileModule,
     AppRoutingModule,
     A11yModule,
     CdkStepperModule,
@@ -130,11 +136,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     EventModule
   ],
-  exports: [],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     RegistertermsComponent,
   ],
 })
+
 export class AppModule {}

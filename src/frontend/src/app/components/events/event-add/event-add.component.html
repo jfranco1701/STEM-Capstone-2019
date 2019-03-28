@@ -16,7 +16,9 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
-            <input matInput placeholder="Event Date" formControlName="date" />
+            <input matInput [matDatepicker]="myDatepicker" placeholder="Event Date" formControlName="date" />
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
             <mat-error *ngIf="eventForm.get('eventGroup').get('date').invalid">
               {{ getErrorMessage('eventGroup', 'date') }}
             </mat-error>

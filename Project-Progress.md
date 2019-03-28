@@ -20,7 +20,36 @@ Apart from building environments and implementing functionalities, team is very 
 
 # Outcomes
 
+By the time of completion of milestone 2 we accomplished the major tasks that required to start building application functionalities. We have also completed below tickets.
+* Gathering requirements for the application
+* Completed building secured backend and frontend environments.
+* Completed adding the front-page UI with a navigation bar for login/logout and setting up events
+* Completed adding user registration page
+* Completed adding user login page
+* Completed adding page for adding new events
+
 
 # Hinderances
 
 # Ongoing Risks
+
+
+# Diagrams
+
+### System Context Diagram
+![System Context Diagram](pics/System_Context_Diagram.png "")
+
+### Container Diagram
+![System Context Diagram](pics/Container_Diagram.png "")
+
+### Component Diagram
+![Component Diagram](pics/Component_Level.jpg "")
+
+
+### UML Activity Diagram
+![UML Activity Diagram](pics/UML_Activity_Diagram.png "")
+![UML Activity Diagram Login](pics/UAD_Login.png "")
+![UML Activity Diagram Registration](pics/UAD_Registration.png "")
+![UML Activity Diagram Profile](pics/UAD_Profile1.png "")
+![UML Activity Diagram Profile](pics/UAD_Profile2.png "")
+![UML Activity Diagram Events](pics/UAD_Event.png "")
