@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <a routerLink="/home"><i mat-icon class="material-icons">arrow_back</i></a>
+                <h4>&nbsp;Search Results - &nbsp;{{ currentSearchTerm }}</h4>
+              </div>
+            </ng-template>
+  
+            <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
+            <!-- <app-report-grid [dataSource]="reports" [singleChildRowDetail]="singleChildRowDetail" (rowClick)="openReport($event)">
+            </app-report-grid> -->
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+  
