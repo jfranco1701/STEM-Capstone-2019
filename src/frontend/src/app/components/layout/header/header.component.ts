@@ -1,9 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
 import { Router } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { UserLogin } from '../../../models/UserLogin';
+import { User } from '../../../models/user';
+import { Subject } from 'rxjs';
+import { debounceTime, tap, takeUntil } from 'rxjs/operators';
+import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
 
 
 @Component({
@@ -16,15 +22,50 @@ export class HeaderComponent implements OnInit {
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
 
+  private unsubscribe = new Subject<void>();
+  eventSearchTerm: Subject<string> = new Subject<string>();
+
+  private readonly debounceDelayTime = 500;
+  public searchOpen : boolean = false;
+
+  @ViewChild('searchField') searchField: ElementRef;
+
 
   constructor(private router: Router, private authenticationService: AuthenticationService,
-              private dialog: MatDialog, private snackBar: MatSnackBar) {
-    this.authenticationService.currentUser.subscribe(x => {
-      this.currentUser = x;
-    } );
+              private dialog: MatDialog, private snackBar: MatSnackBar,
+              private searchTermChangeService: SearchTermChangeService) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
+    this.eventSearchTerm.pipe(
+      debounceTime(this.debounceDelayTime),
+      tap((searchTerm: string) => {
+        if (searchTerm) {
+          this.navigateToSearch(searchTerm);
+        }
+      }),
+      takeUntil(this.unsubscribe)
+    ).subscribe((searchTerm) => {
+      this.searchTermChangeService.notifySearchTerm(searchTerm);
+    });
+
+    this.searchTermChangeService.clear
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(() => {
+        this.searchField.nativeElement.value = '';
+      });
+
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+  }
+
+  private navigateToSearch(searchTerm: string): void {
+    this.router.navigate(['/events/search', searchTerm]);
   }
 
   logout() {

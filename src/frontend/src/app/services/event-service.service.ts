@@ -20,6 +20,10 @@ export class EventService {
     return this.http.get<Event[]>(this.eventApiUrl);
   }
 
+  search(searchTerm: string): Observable<Event[]> {
+    return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
+  } 
+
   addEvent(eventName: string, eventDate: Date, eventType: string): Observable<Event> {
     const obj = {
       name: eventName,

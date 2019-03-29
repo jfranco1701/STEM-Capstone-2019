@@ -16,7 +16,7 @@
         <a href="https://omahastem.com/partners/" mat-button>Partners</a>
 
         <a href="https://omahastem.com/announcements/" mat-button>Resources</a>
-        
+
         <a href="https://omahastem.com/get-involved/" mat-button>Get Involved</a>
 
         <a href="https://omahastem.com/calendar/" mat-button>Calendar</a>
@@ -24,27 +24,33 @@
 
       </div>
       <div fxFlex fxLayout="row" fxLayoutAlign="end">
-        <ng-container fxFlex *ngIf="currentUser; then loggedIn; else loggedOut"> </ng-container>
+        <ng-container fxFlex *ngIf="currentUser; then loggedIn; else loggedOut"></ng-container>
         <ng-template #loggedIn>
           <div>
-            <span>
+            <span style="width:300px;">
+              <mat-form-field *ngIf="searchOpen" autofocus>
+                <input matInput #searchField placeholder="Event Name" formControlName="name" />
+              </mat-form-field>
+
+              <button mat-icon-button (click)="toggleSearch()">
+                <mat-icon>search</mat-icon>
+              </button>
               <mat-menu #addMenu="matMenu">
-                  <button mat-menu-item [routerLink]="['/events/add']">Add Event</button>
+                <button mat-menu-item [routerLink]="['/events/add']">Add Event</button>
               </mat-menu>
-              <button mat-button [matMenuTriggerFor]="addMenu">
+
+              <button mat-icon-button [matMenuTriggerFor]="addMenu">
                 <mat-icon>add</mat-icon>
               </button>
 
-            </span>
-            <span style="width:200px;">
               <mat-menu #appMenu="matMenu">
                 <button mat-menu-item [routerLink]="['/profile/view']">My Profile</button>
                 <button mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
               <button mat-mini-fab class="profileMenu" [matMenuTriggerFor]="appMenu">
                 <span class="initials">
-                {{ currentUser.firstName | slice:0:1 }}{{ currentUser.lastName | slice:0:1 }}
-              </span>
+                  {{ currentUser.firstName | slice:0:1 }}{{ currentUser.lastName | slice:0:1 }}
+                </span>
               </button>
             </span>
           </div>

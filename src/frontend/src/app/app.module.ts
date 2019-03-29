@@ -25,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { SearchTermChangeService } from './services/search-term-change.service';
 
 import {
   MatAutocompleteModule,
@@ -139,6 +140,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    SearchTermChangeService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
