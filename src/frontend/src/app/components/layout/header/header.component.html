@@ -28,16 +28,23 @@
         <ng-template #loggedIn>
           <div>
             <span>
-              <a [routerLink]="['/events/add']" mat-button>Add Event</a>
+              <mat-menu #addMenu="matMenu">
+                  <button mat-menu-item [routerLink]="['/events/add']">Add Event</button>
+              </mat-menu>
+              <button mat-button [matMenuTriggerFor]="addMenu">
+                <mat-icon>add</mat-icon>
+              </button>
+
             </span>
             <span style="width:200px;">
               <mat-menu #appMenu="matMenu">
                 <button mat-menu-item [routerLink]="['/profile/view']">My Profile</button>
                 <button mat-menu-item (click)="logout()">Logout</button>
               </mat-menu>
-              <button mat-button [matMenuTriggerFor]="appMenu">
-                {{ currentUser.firstName }} {{ currentUser.lastName }}
-                <mat-icon>keyboard_arrow_down</mat-icon>
+              <button mat-mini-fab class="profileMenu" [matMenuTriggerFor]="appMenu">
+                <span class="initials">
+                {{ currentUser.firstName | slice:0:1 }}{{ currentUser.lastName | slice:0:1 }}
+              </span>
               </button>
             </span>
           </div>
