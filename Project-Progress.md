@@ -36,8 +36,14 @@ In reaching milestone 2,  we accomplished these major tasks that were equired to
 
 # Hinderances
 
+* Learning Django and Angular design patterns has pushed work items past their expected sprint completion date.
+* Integrating old AngularJS and other javascript libraries into Typescript/Angular 5+. 
+
 # Ongoing Risks
 
+* Focusing too heavily on minor details over the critical functionality of the application itself.  
+* Incorrectly designing the database objects, relationships and schema. Tightly coupling the schema into the workflows and frontend.
+* Over implementing, implementing UI behavior that is annoying an/or not needed. 
 
 # Diagrams
 
