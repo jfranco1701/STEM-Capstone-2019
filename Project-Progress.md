@@ -2,9 +2,9 @@
 
 # Project Realization - Overview
 
-Initially in Milestone 1, we planned on gathering the requirements that helps in building the appropriate backend and frontend environments. Based on the meeting with Omaha STEM Ecosystem as a team we decided to follow agile methodology. Each week we complete set of tickets on sprint basis.
+Initially in Milestone 1, we planned on gathering the requirements to build the appropriate backend and frontend environments. Based on the meeting with Omaha STEM Ecosystem, we decided to follow an Agile methodology. Tickets are added to sprints each week and individual group members took on a set of tasks.
 
-As a team of 4 members, we divided work and has been working on two different portions of the project.
+As a team of 4 members, we divided work and have been working on two different portions of the project.
 
 The major portion of the project (**Part 1**): Two team members worked on the ground work to build the environment for the frontend and backend based on the requirements we gathered from Omaha STEM Ecosystem.
 
@@ -12,22 +12,22 @@ The second portion of the project (**Part 2**): Started to work on the functiona
 
 # Progress:
 
-The team has almost finished the major chunk (Part 1) of the project. Over the earlier weeks, they worked on completing every part to build frontend based angular framework and backend is based on Django REST framework and docker is used to run and deploy our web application using docker container. The ultimate major reason of choosing these environments is to build a secure web application.
+The team has almost finished the major chunk (Part 1) of the project. Over the earlier weeks, we worked on completing the intial build of the frontend framework (based in Angular) and backend (based in Django REST framework). Docker was also used to run and deploy our web application using Docker containers with the help of Docker Compose. The major reason of choosing these environments is to solidify the groundwork of the application in providen security practices which apply directly to our framework set. For example, we incorporated a Django library for JWT management (JSON Web Token) which is one of the ways we integrated a tool for the purpose of security.
 
-Since we finished building secure environments for backend and frontend, we currently very focused on implementing the major application functionalities and requirements that are discussed in the meeting with Omaha STEM Ecosystem. 
+Since we finished building secure environments for backend and frontend, we are currently very focused on implementing the major application functionalities and requirements that are discussed in the meeting with Omaha STEM Ecosystem. 
 
-Apart from building environments and implementing functionalities, team is very concerned about security and consistency in building web application which we are implementing in our work by following proper coding standards, naming conventions and removing unnecessary objects or line in the code. Since we have many coding standards we decided to be on same page and so we review the code consistency to maintain same standard before merged into the master branch.
+Apart from building environments, implementing application functionalities and security best practices, the team is very concerned about consistency throughout the codebase and following proper coding standards, naming conventions, and removing unnecessary objects. Since we have many coding standards, we decided to be on same page by reviewing code consistency and functionality before merging into the master branch.
 
 # Outcomes
 
-By the time of completion of milestone 2 we accomplished the major tasks that required to start building application functionalities. We have also completed below tickets.
-* Gathering requirements for the application
-* Completed building secured backend and frontend environments.
-* Completed adding the front-page UI with a navigation bar for login/logout and setting up events
-* Completed adding user registration page
-* Completed adding user login page
-* Completed adding page for adding new events
+In reaching milestone 2, we accomplished the following major tasks that required to start building application functionalities:
 
+* Gathered requirements for the application
+* Built secured backend and frontend environments (with the help of JSON web tokens)
+* Added the front-page UI with a navigation bar for login/logout and profile settings
+* Added a user registration page which will link to the backend API
+* Added a user login page which links to the backend API for authentication
+* Added a page for adding new events which links to the backend API for saving to the production database
 
 # Hinderances
 
