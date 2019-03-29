@@ -31,8 +31,23 @@ In reaching milestone 2, we accomplished the following major tasks that required
 
 ### Hinderances
 
+* Learning Django and Angular design patterns has pushed work items past their expected sprint completion date.
+* Focusing on functionality outside of the planned sprint.
+* Group communication can be hit or miss with various schedule differences and conflicts.
+* Over implementing, implementing UI behavior that is annoying an/or not needed.
+* JSONAPI implementation in Angular did not go as well as we had hoped.
+
+_Special note regarding JSONAPI_: Since this was recommended by Dr. Hale, we figured it be smart to include our experiences with this one. Unfortunatley, it was difficult to find an Angular library that was mature and well supported. The library we did chose was not well documented and made it difficult to work with the data returned from the API. We attempted to find another library, but nothing worked any better than the original one we selected. After a few weeks, we became concerned that this would would overly complicate the hand off of the application to a third-party. The library was therefore removed.
 
 ### Ongoing Risks
+
+| Risk Name (value) | Impact | Likelihood | Comments |
+| ------------------|--------|------------|----------|
+| Misunderstanding the project requirements (75) | 5 | 5 | After meeting with the stakeholders of this project, we've been able to better understand the vision for this semester and the desired state at hand off. |
+| Technical Debt (50) | 3 | 3 | We've done a great job in code reviews to make sure we limit our technical debt impacts for the long-term of the project. We stick to active projects and libraries to add to ensure the stability of the project past this semester. |
+| Inaccurate estimations (25) | 7 | 4 | Although we've done a much better job of limiting work on a per-week basis, it can still be tricky to split stories that are a bit too large. |
+| Team member availability (20) | 8 | 7 | We all have life things happening (as is everybody in the class) which can cause sprint work to be delayed. We've been working on improving sprint planning to avoid deadlock issues with multiple stories relying on each other in a single sprint. |
+| Limiting project scope (30) | 5 | 3 | We've been able to severely limit our scope after meeting with the stakeholders of the project. We still have some occurrences that appear, but overall, we've been able to keep a decent hold on things. |
 
 # Diagrams
 
