@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { RegisterUser } from '../models/RegisterUser';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -12,7 +13,7 @@ export class AuthenticationService {
     private apiLoginUrl: string;
     private apiRegisterUrl: string;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
         this.apiLoginUrl = 'http://localhost:8000/api/login/';
@@ -43,11 +44,28 @@ export class AuthenticationService {
         this.currentUserSubject.next(null);
     }
 
-    register(username: string, email: string, password: string, first_name: string, last_name: string, date_of_birth: Date) {
-          return this.http.post<any>(`${this.apiRegisterUrl}`, { username, email, password, last_name, first_name, date_of_birth })
+    register(username: string, emailAddress: string, password: string, firstName: string, lastName: string,
+             dob: string, addressRes: string, cityRes: string, stateRes: string, zipCode: string, phoneNumber: string) {
+
+          const registerUser: RegisterUser = new RegisterUser();
+
+          registerUser.username = emailAddress;
+          registerUser.email = emailAddress;
+          registerUser.first_name = firstName;
+          registerUser.last_name = lastName;
+          registerUser.password = password;
+          if (dob) {
+            registerUser.date_of_birth = dob;
+          }
+          registerUser.address = addressRes;
+          registerUser.city = cityRes;
+          registerUser.state = stateRes;
+          registerUser.zip_code = zipCode;
+          registerUser.phone = phoneNumber;
+
+          return this.http.post<any>(`${this.apiRegisterUrl}`, registerUser)
           .pipe(map(user => {
-              console.log(user);
-              this.currentUserSubject.next(user);
+            return user;
           }));
       }
 }
