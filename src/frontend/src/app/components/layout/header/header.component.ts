@@ -22,19 +22,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         style({ transform: 'translateY(-50%)', opacity: "0"}),
         animate('200ms ease')
       ]),
-      //transition(':leave', [
-      //  animate(200, style({ transform: 'translateY(50%)', opacity: "0" }))
-      //])
     ]),
-
     trigger('flyRightAndRotate', [
       transition(':enter', [
         style({ transform: 'translateX(-25px)', opacity: "0"}),
         animate('250ms ease')
-      ])//,
-      //transition(':leave', [
-      //  animate(100, style({ transform: 'translateX(-50%)', opacity: "0" }))
-      //])
+      ])
     ])
   ]
 })
@@ -46,7 +39,7 @@ export class HeaderComponent implements OnInit {
   private unsubscribe = new Subject<void>();
   eventSearchTerm: Subject<string> = new Subject<string>();
 
-  private readonly debounceDelayTime = 500;
+  private readonly debounceDelayTime = 300;
   public searchOpen : boolean = false;
 
   @ViewChild('searchField') searchField: ElementRef;

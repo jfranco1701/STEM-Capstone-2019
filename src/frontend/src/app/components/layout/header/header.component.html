@@ -2,7 +2,7 @@
   <ng-container fxFlex *ngIf="searchOpen; then searchHeader; else mainHeader"></ng-container>
   <ng-template #searchHeader>
     <div [@flyUp] fxFlex fxLayout="row" fxLayoutAlign="start">
-      <input #searchField class="searchInput" type="text" placeholder="Search">
+      <input #searchField class="searchInput" type="text" placeholder="Search" (input)="eventSearchTerm.next($event.target.value)">
     </div>
     <div [@flyRightAndRotate] fxFlex fxLayout="row" fxLayoutAlign="end">
       <button mat-icon-button (click)="toggleSearch()">
