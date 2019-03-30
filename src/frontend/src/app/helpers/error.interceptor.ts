@@ -14,17 +14,25 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError(err => {
         let customMessage = '';
 
+        console.log(JSON.stringify(err));
+
         if (err.status === 401) {
           // auto logout if 401 response returned from api
           this.authenticationService.logout();
           location.reload(true);
         }
 
-        // custom error message
-        if (err.status === 400 && err.error.non_field_errors.length > 0) {
+        // custom error message for invalid login
+        if (err.status === 400 && err.error.non_field_errors && err.error.non_field_errors.length > 0) {
           if (err.error.non_field_errors[0] === 'Unable to log in with provided credentials.') {
             customMessage = 'Invalid email address or password entered!';
           }
+        }
+
+        // custom error message for duplicate email
+        if (err.status === 400 && err.error && err.error.email && err.error.email[0] === 'user with this email already exists.') {
+          customMessage = 'The entered email address already exists.  ' +
+          'Please register with a different address.';
         }
 
         const error = customMessage || err.error.message || err.error.non_field_errors || err.statusText;
