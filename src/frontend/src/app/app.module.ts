@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/layout/notfound/notfound.component';
-import { LayoutComponent } from './components/layout/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
@@ -75,7 +74,6 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     HomeComponent,
     RegisterComponent,
     NotfoundComponent,
-    LayoutComponent,
     HeaderComponent,
     LoginComponent,
     NotauthorizedComponent,

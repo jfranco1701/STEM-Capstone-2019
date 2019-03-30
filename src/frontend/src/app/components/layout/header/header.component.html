@@ -5,7 +5,7 @@
       <input #searchField class="searchInput" type="text" placeholder="Search" (input)="eventSearchTerm.next($event.target.value)">
     </div>
     <div [@flyRightAndRotate] fxFlex fxLayout="row" fxLayoutAlign="end">
-      <button mat-icon-button (click)="toggleSearch()">
+      <button mat-icon-button [routerLink]="['/home']">
         <mat-icon>close</mat-icon>
       </button>
     </div>
@@ -40,7 +40,7 @@
           <ng-template #loggedIn>
             <div>
               <span style="width:200px;">
-                <button mat-icon-button (click)="toggleSearch()">
+                <button mat-icon-button [routerLink]="['events/search']">
                   <mat-icon>search</mat-icon>
                 </button>
                 <mat-menu #addMenu="matMenu">

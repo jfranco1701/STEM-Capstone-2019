@@ -1,0 +1,44 @@
+<mat-table *ngIf="dataSource" [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="favorite">
+    <mat-header-cell mat-header-cell *matHeaderCellDef>
+      Favorite
+    </mat-header-cell>
+    <mat-cell *matCellDef="let reportDef">
+      <favorite-star *ngIf="reportDef" [favorite]="reportDef.favorite" [reportId]="reportDef.reportDef_Id"></favorite-star>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="reportType_Id">
+    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+    <mat-cell *matCellDef="let reportDef">
+      <app-report-type-icon *ngIf="reportDef" [reportType_Id]="reportDef.reportType_Id">
+      </app-report-type-icon>
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="reportDef_Descript">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let reportDef">
+      <app-report-description
+        [description]="reportDef.reportDef_Descript"
+        [isNew]="reportDef.reportDef_IsNew"
+      >
+      </app-report-description>
+
+      
+    </mat-cell>
+  </ng-container>
+ 
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row
+    *matRowDef="let row; columns: columnsToDisplay"
+    class="element-row">
+  </mat-row>
+</mat-table>
+<ng-template #tpl let-reportDef>
+  <ng-container matColumnDef="expandedDetail">
+    <mat-cell class="expanded-detail-container" [@detailExpand]>
+      <app-report-grid-expanded-row-detail
+        [reportDefinition]="reportDef"
+      ></app-report-grid-expanded-row-detail>
+    </mat-cell>
+  </ng-container>
+</ng-template>
