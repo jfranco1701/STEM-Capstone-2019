@@ -14,3 +14,29 @@
 .initials {
   padding: 9px 0px;
 }
+
+.searchInput {
+
+  color: #202124;
+  font-weight: 400;
+  line-height: 1.2;
+  font-family: Roboto,sans-serif;
+  height: 72px;
+  padding: 0 72px 0 40px;
+  position: relative;
+  flex: 1;
+  cursor: text;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  font-size: 24px;
+  background: 0 0;
+  border: 0;
+  outline: 0;
+  text-rendering: auto;
+
+}

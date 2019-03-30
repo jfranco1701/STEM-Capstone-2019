@@ -10,12 +10,33 @@ import { User } from '../../../models/user';
 import { Subject } from 'rxjs';
 import { debounceTime, tap, takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
-
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger('flyUp', [
+      transition(':enter', [
+        style({ transform: 'translateY(-50%)', opacity: "0"}),
+        animate('200ms ease')
+      ]),
+      //transition(':leave', [
+      //  animate(200, style({ transform: 'translateY(50%)', opacity: "0" }))
+      //])
+    ]),
+
+    trigger('flyRightAndRotate', [
+      transition(':enter', [
+        style({ transform: 'translateX(-25px)', opacity: "0"}),
+        animate('250ms ease')
+      ])//,
+      //transition(':leave', [
+      //  animate(100, style({ transform: 'translateX(-50%)', opacity: "0" }))
+      //])
+    ])
+  ]
 })
 export class HeaderComponent implements OnInit {
   currentUser: UserLogin;
