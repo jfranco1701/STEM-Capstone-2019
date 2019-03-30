@@ -6,7 +6,7 @@ import { first, takeUntil } from 'rxjs/operators';
 
 import { SearchTermChangeService } from '../../../services/search-term-change.service';
 import { Event } from '../../../models/event';
-import { CacheableEventService } from '../../../services/cacheable-event.service';
+import { EventService } from '../../../services/event-service.service';
 
 /* import { CacheableFavoritesService } from '../core/favorites/cacheable-favorites.service';
 import { Favorite } from '../models/favorite';
@@ -30,7 +30,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private searchTermChangeService: SearchTermChangeService,
-    private eventService: CacheableEventService) {
+    private eventService: EventService) {
   }
 
   ngOnInit(): void {
@@ -93,7 +93,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
   private pullAndIndexReports(): void {
     this.loading = true;
 
-    this.eventService.get()
+    this.eventService.getEvents()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((events) => {
         this.events = events;

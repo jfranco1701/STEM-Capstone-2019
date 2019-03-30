@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, retry } from 'rxjs/operators';
 import { Event } from '../models/event';
+import { Cacheable } from 'ngx-cacheable';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class EventService {
     return this.http.get<Event[]>(this.eventApiUrl);
   }
 
+  @Cacheable()
   search(searchTerm: string): Observable<Event[]> {
     return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
   } 
