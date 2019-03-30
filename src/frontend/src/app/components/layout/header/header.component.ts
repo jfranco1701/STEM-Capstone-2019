@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { UserLogin } from '../../../models/UserLogin';
@@ -49,6 +49,17 @@ export class HeaderComponent implements OnInit {
               private dialog: MatDialog, private snackBar: MatSnackBar,
               private searchTermChangeService: SearchTermChangeService) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes('/events/search')) {
+          console.log(event.url);
+          this.searchOpen = true;
+          setTimeout(() => this.searchField.nativeElement.focus());
+        }  else {
+          this.searchOpen = false;
+        }
+      }
+    });
   }
 
   ngOnInit(): void {

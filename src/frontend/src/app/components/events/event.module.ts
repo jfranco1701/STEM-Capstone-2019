@@ -43,6 +43,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { EventGridComponent } from './event-search/event-grid/event-grid.component';
 
 @NgModule({
   imports: [
@@ -86,6 +87,6 @@ import {
     MatTreeModule
   ],
   exports: [EventListComponent, EventAddComponent, EventSearchComponent],
-  declarations: [EventListComponent, EventAddComponent, EventSearchComponent],
+  declarations: [EventListComponent, EventAddComponent, EventSearchComponent, EventGridComponent],
 })
 export class EventModule { }
