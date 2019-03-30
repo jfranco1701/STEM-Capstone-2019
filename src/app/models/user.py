@@ -16,6 +16,11 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField(blank=True, null=True)
+    address = models.CharField(max_length=200, blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True)
+    state = models.CharField(max_length=2, blank=True, null=True)
+    zip_code = models.CharField(max_length=10, blank=True, null=True)
+    phone = models.CharField(max_length=12, blank=True, null=True)
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
@@ -23,7 +28,7 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
-    
+
     def __str__(self):
         if self.first_name and self.last_name:
             return "{} {} ({})".format(

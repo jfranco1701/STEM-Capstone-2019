@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { RegistertermsComponent } from './registerterms/registerterms.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
@@ -16,42 +16,44 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   public errors: any = [];
   user: User;
+  topPosition: MatSnackBarVerticalPosition = 'top';
+  rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private snackBar: MatSnackBar
   ) {}
+  phonePattern = '^[0-9]{3}-[0-9]{3}-[0-9]{4}?$';
+  zipPattern = '^[0-9]{5}(?:-[0-9]{4})?$';
 
-  // Define the register form
   ngOnInit() {
     this.registerForm = this.fb.group({
       userGroup: this.fb.group({
         firstName: ['', [Validators.required, Validators.maxLength(50)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
-        email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
         dob: [''],
-        phone: [''],
+        phone: ['', [Validators.pattern(this.phonePattern)]],
       }),
       addressGroup: this.fb.group({
         address: [''],
         city: [''],
         state: [''],
-        zip: [''],
+        zip: ['', [Validators.pattern(this.zipPattern)]],
       }),
       loginGroup: this.fb.group(
         {
-          username: ['', [Validators.required, Validators.maxLength(100)]],
+          email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
           password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
           confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
         },
         {
           validator: this.checkPasswords('password', 'confirmPassword'),
         }
-      ),
-      acceptTerms: ['', [Validators.requiredTrue]],
+      )
     });
   }
 
@@ -70,27 +72,29 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submit');
-
-    this.register(
-      this.registerForm.get('loginGroup').get('username').value,
-      this.registerForm.get('userGroup').get('email').value,
-      this.registerForm.get('loginGroup').get('password').value,
-      this.registerForm.get('userGroup').get('firstName').value,
-      this.registerForm.get('userGroup').get('lastName').value
-    );
-  }
-
-  register(username: string, emailAddress: string, password: string, firstName: string, lastName: string) {
-    console.log('Register: ' + emailAddress + ', ' + password + ', ' + firstName + ' ' + lastName);
-
     // Call registration service here
     this.authenticationService
-      .register(username, emailAddress, password, firstName, lastName, new Date('01/01/2019'))
+      .register(this.registerForm.get('loginGroup').get('email').value,
+      this.registerForm.get('loginGroup').get('email').value,
+      this.registerForm.get('loginGroup').get('password').value,
+      this.registerForm.get('userGroup').get('firstName').value,
+      this.registerForm.get('userGroup').get('lastName').value,
+      this.registerForm.get('userGroup').get('dob').value,
+      this.registerForm.get('addressGroup').get('address').value,
+      this.registerForm.get('addressGroup').get('city').value,
+      this.registerForm.get('addressGroup').get('state').value,
+      this.registerForm.get('addressGroup').get('zip').value,
+      this.registerForm.get('userGroup').get('phone').value)
       .pipe(first())
       .subscribe(
         user => {
-          this.router.navigate(['/home']);
+          this.snackBar.open('Registration Successful', 'X', {
+            duration: 4000,
+            verticalPosition: this.topPosition,
+            horizontalPosition: this.rightPosition
+          });
+
+          this.router.navigate(['/login']);
         },
         error => {
           this.error = error;

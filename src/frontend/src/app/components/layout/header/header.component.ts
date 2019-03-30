@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { Router } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
@@ -14,6 +14,7 @@ import { User } from '../../../models/user';
 export class HeaderComponent implements OnInit {
   currentUser: User;
   topPosition: MatSnackBarVerticalPosition = 'top';
+  rightPosition: MatSnackBarHorizontalPosition = 'right';
 
 
   constructor(private router: Router, private authenticationService: AuthenticationService,
@@ -33,9 +34,10 @@ export class HeaderComponent implements OnInit {
       if (result) {
         this.authenticationService.logout();
 
-        this.snackBar.open('Logoff Successful', '', {
-          duration: 2000,
-          verticalPosition: this.topPosition
+        this.snackBar.open('Logoff Successful', 'X', {
+          duration: 4000,
+          verticalPosition: this.topPosition,
+          horizontalPosition: this.rightPosition
         });
 
         this.router.navigate(['/home']);
