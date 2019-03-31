@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { UserLogin } from '../../../models/UserLogin';
@@ -19,7 +19,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
   animations: [
     trigger('flyUp', [
       transition(':enter', [
-        style({ transform: 'translateY(-50%)', opacity: "0"}),
+        style({ transform: 'translateY(50%)', opacity: '0'}),
         animate('200ms ease')
       ]),
     ]),
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   private unsubscribe = new Subject<void>();
   eventSearchTerm: Subject<string> = new Subject<string>();
 
-  private readonly debounceDelayTime = 300;
+  //private readonly debounceDelayTime = 300;
   public searchOpen : boolean = false;
 
   @ViewChild('searchField') searchField: ElementRef;
@@ -69,12 +69,6 @@ export class HeaderComponent implements OnInit {
     ).subscribe((searchTerm) => {
       this.searchTermChangeService.notifySearchTerm(searchTerm);
     });
-
-    this.searchTermChangeService.clear
-      .pipe(takeUntil(this.unsubscribe))
-      .subscribe(() => {
-        this.searchField.nativeElement.value = '';
-      });
 
   }
 
