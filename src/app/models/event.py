@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator
 from app.models.user import User
 from app.models.tag import Tag
+from app.managers.event_manager import EventManager
 
 EVENT_TYPE_CHOICES = (
     (1, "community"),
@@ -17,6 +18,8 @@ class Event(models.Model):
     lower_age_range = models.PositiveSmallIntegerField(null=True, validators=[MaxValueValidator(125),])
     higher_age_range = models.PositiveSmallIntegerField(null=True, validators=[MaxValueValidator(125),])
     tags = models.ManyToManyField(Tag, related_name="tags", blank=True)
+
+    objects = EventManager()
 
     class Meta:
         ordering = ["date"]
