@@ -17,6 +17,7 @@ export class EventService {
     this.user;
   }
 
+  @Cacheable()
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.eventApiUrl);
   }

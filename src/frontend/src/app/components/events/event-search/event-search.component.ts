@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
@@ -7,10 +7,6 @@ import { first, takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from '../../../services/search-term-change.service';
 import { Event } from '../../../models/event';
 import { EventService } from '../../../services/event-service.service';
-
-/* import { CacheableFavoritesService } from '../core/favorites/cacheable-favorites.service';
-import { Favorite } from '../models/favorite';
-import { AlertService } from '../core/alert/alert.service'; */
 
 
 @Component({
@@ -28,6 +24,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
   public loading = false;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private searchTermChangeService: SearchTermChangeService,
     private eventService: EventService) {
@@ -64,6 +61,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
     this.searchTermChangeService.searchTerm
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((searchTerm) => {
+        this.navigateToSearchTerm(searchTerm);
         this.currentSearchTerm = searchTerm;
         this.searchCachedEventsByTerm(this.currentSearchTerm);
       });
@@ -117,5 +115,9 @@ export class EventSearchComponent implements OnInit, OnDestroy {
       this.eventMap.set(eventHash, event);
     });
     this.loading = false;
+  }
+
+  private navigateToSearchTerm(searchTerm: string): void {
+    this.router.navigate(['events/search', searchTerm]);
   }
 }
