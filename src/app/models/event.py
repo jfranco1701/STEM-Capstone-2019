@@ -18,6 +18,9 @@ class Event(models.Model):
     higher_age_range = models.PositiveSmallIntegerField(null=True, validators=[MaxValueValidator(125),])
     tags = models.ManyToManyField(Tag, related_name="tags", blank=True)
 
+    class Meta:
+        ordering = ["date"]
+
     def __str__(self):
         return self.name
 
