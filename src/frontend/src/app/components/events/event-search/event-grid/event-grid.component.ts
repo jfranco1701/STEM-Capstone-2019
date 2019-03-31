@@ -12,6 +12,8 @@ export class EventGridComponent implements OnInit {
   public dataSource: MatTableDataSource<Event>;
   public events: Event[] = [];
   public differ: any;
+  public columnsToDisplay: String[] = ['name', 'date', 'event_type'];
+
 
   @Input('dataSource')
   set eventDataSource(value: Event[]) {

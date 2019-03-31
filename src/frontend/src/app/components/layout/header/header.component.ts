@@ -8,9 +8,9 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { UserLogin } from '../../../models/UserLogin';
 import { User } from '../../../models/user';
 import { Subject } from 'rxjs';
-import { debounceTime, tap, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +25,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ]),
     trigger('flyRightAndRotate', [
       transition(':enter', [
-        style({ transform: 'translateX(-25px)', opacity: "0"}),
+        style({transform: 'translateX(-25px) rotate(90deg)', opacity: '0'}),
         animate('250ms ease')
       ])
     ])
@@ -65,12 +65,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
 
     this.eventSearchTerm.pipe(
-      debounceTime(this.debounceDelayTime),
-      tap((searchTerm: string) => {
-        if (searchTerm) {
-          this.navigateToSearch(searchTerm);
-        }
-      }),
       takeUntil(this.unsubscribe)
     ).subscribe((searchTerm) => {
       this.searchTermChangeService.notifySearchTerm(searchTerm);
@@ -87,10 +81,6 @@ export class HeaderComponent implements OnInit {
   ngOnDestroy(): void {
     this.unsubscribe.next();
     this.unsubscribe.complete();
-  }
-
-  private navigateToSearch(searchTerm: string): void {
-    this.router.navigate(['/events/search', searchTerm]);
   }
 
   logout() {
