@@ -1,16 +1,15 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div>
         <mat-tab-group>
           <mat-tab>
             <ng-template mat-tab-label>
-              <div fxLayout="row" fxLayoutAlign="start center">
-                <h4>&nbsp;Search Results - &nbsp;{{ currentSearchTerm }}</h4>
+              <div fxLayout="row">
+                <h4>Results - {{ currentSearchTerm }}</h4>
               </div>
             </ng-template>
-  
-            <mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>
-            <app-event-grid [dataSource]="reports">
+            <!--<mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>-->
+            <app-event-grid [dataSource]="events">
             </app-event-grid>
           </mat-tab>
         </mat-tab-group>

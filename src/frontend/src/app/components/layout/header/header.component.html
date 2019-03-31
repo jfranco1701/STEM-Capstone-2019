@@ -1,14 +1,12 @@
 <div fxLayout="row" fxLayoutAlign="start center" class="header">
   <ng-container fxFlex *ngIf="searchOpen; then searchHeader; else mainHeader"></ng-container>
   <ng-template #searchHeader>
-    <div [@flyUp] fxFlex fxLayout="row" fxLayoutAlign="start">
+    <div [@flyUp] fxFlex fxLayoutAlign="start">
       <input #searchField class="searchInput" type="text" placeholder="Search" (input)="eventSearchTerm.next($event.target.value)">
     </div>
-    <div [@flyRightAndRotate] fxFlex fxLayout="row" fxLayoutAlign="end">
-      <button mat-icon-button [routerLink]="['/home']">
+      <button [@flyRightAndRotate] fxLayoutAlign="end" mat-icon-button [routerLink]="['/home']" class="closeButton">
         <mat-icon>close</mat-icon>
       </button>
-    </div>
   </ng-template>
   <ng-template #mainHeader>
     <span fxFlex="110px">

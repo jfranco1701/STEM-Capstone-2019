@@ -36,20 +36,20 @@ export class EventSearchComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     // listen to searchTermChangeService observable
-    // to re-sort the viewable reports to match user search
-    // from the `event-search` component (in nav-bar)
+    // to re-sort the viewable events to match user search
+    // from the header component
     this.listenForSearchTermChanges();
 
-    // pull all reports from CacheableEventService
-    // mash together the name, date, and other fields
-    this.pullAndIndexReports();
+    // pull all events and mash together 
+    // the name, date, and other fields
+    this.pullAndIndexEvents();
 
     this.route.paramMap
       .pipe(first(), takeUntil(this.unsubscribe))
       .subscribe((paramMap) => {
         if (paramMap.has('term')) {
           this.currentSearchTerm = paramMap.get('term');
-          this.searchCachedReportsByTerm(this.currentSearchTerm);
+          this.searchCachedEventsByTerm(this.currentSearchTerm);
         }
       });
   }
@@ -65,21 +65,17 @@ export class EventSearchComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((searchTerm) => {
         this.currentSearchTerm = searchTerm;
-        this.searchCachedReportsByTerm(this.currentSearchTerm);
+        this.searchCachedEventsByTerm(this.currentSearchTerm);
       });
   }
 
-  private searchCachedReportsByTerm(searchTerm: string): void {
-    if (!searchTerm) {
-      console.log('Search term invalid, skipping query');
-      return;
-    }
+  private searchCachedEventsByTerm(searchTerm: string): void {
 
     this.loading = true;
 
     searchTerm = searchTerm.toLowerCase();
-
-    // clear out matching reports
+    console.log(searchTerm);
+    // clear out matching events
     this.events = [];
     this.eventMap.forEach((event, hash) => {
       if (hash.indexOf(searchTerm) > -1) {
@@ -90,16 +86,16 @@ export class EventSearchComponent implements OnInit, OnDestroy {
     this.loading = false;
   }
 
-  private pullAndIndexReports(): void {
+  private pullAndIndexEvents(): void {
     this.loading = true;
 
     this.eventService.getEvents()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((events) => {
         this.events = events;
-        this.indexReports(this.events);
+        this.indexEvents(this.events);
         if (this.currentSearchTerm) {
-          this.searchCachedReportsByTerm(this.currentSearchTerm);
+          this.searchCachedEventsByTerm(this.currentSearchTerm);
         }
         this.loading = false;
       }, (err) => {
@@ -108,7 +104,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
       });
   }
 
-  private indexReports(events: Event[]): void {
+  private indexEvents(events: Event[]): void {
     this.loading = true;
     const separator = '|';
     this.eventMap = new Map<string, Event>();
@@ -116,10 +112,8 @@ export class EventSearchComponent implements OnInit, OnDestroy {
       const eventHash = [
         event.name,
         event.date,
-        event.organizer,
-        event.e_type,
-        event.attendees.map((attendee) => attendee.toString()).join(separator)
-      ].join(separator).toLowerCase();
+        event.e_type
+    ].join(separator).toLowerCase();
       this.eventMap.set(eventHash, event);
     });
     this.loading = false;
