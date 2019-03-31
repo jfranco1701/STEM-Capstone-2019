@@ -9,6 +9,3 @@ WORKDIR /app
 # Install dependencies
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
-
-# Copy app code for caching benefits
-COPY . /app/

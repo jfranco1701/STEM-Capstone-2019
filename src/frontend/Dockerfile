@@ -14,6 +14,3 @@ RUN npm -g config set user root
 RUN npm install -g @angular/cli@7.3.1
 RUN npm install -g node-sass
 RUN npm install
-
-# Copy app code for caching benefits
-COPY . /app/
