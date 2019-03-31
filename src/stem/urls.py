@@ -21,6 +21,7 @@ from rest_framework import routers
 from app.controllers.event_controller import EventViewSet
 from app.controllers.user_controller import UserViewSet
 from app.controllers.organization_controller import OrganizationViewSet
+from app.controllers.tag_controller import TagViewSet
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
 
@@ -29,6 +30,7 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'events', EventViewSet)
 router.register(r'organizations', OrganizationViewSet)
+router.register(r'tags', TagViewSet)
 
 urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),

@@ -2,6 +2,8 @@ from app.models.user import User
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    interests = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = User
         fields = (
@@ -12,5 +14,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "date_of_birth",
             "organization",
             "user_type",
+            "interests",
             "url",
         )

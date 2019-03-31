@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from app.models.user import User
+from app.models.tag import Tag
 
 EVENT_TYPE_CHOICES = (
     (1, "community"),
@@ -15,6 +16,7 @@ class Event(models.Model):
     attendees = models.ManyToManyField(User, related_name="events", blank=True)
     lower_age_range = models.PositiveSmallIntegerField(null=True, validators=[MaxValueValidator(125),])
     higher_age_range = models.PositiveSmallIntegerField(null=True, validators=[MaxValueValidator(125),])
+    tags = models.ManyToManyField(Tag, related_name="tags", blank=True)
 
     def __str__(self):
         return self.name
