@@ -12,6 +12,7 @@ import { User } from '../../../models/user';
 export class ProfileUpdateComponent implements OnInit {
   updateForm: FormGroup;
   user: User;
+  error = '';
 
   constructor(
     private fb: FormBuilder,
@@ -35,13 +36,43 @@ export class ProfileUpdateComponent implements OnInit {
       });
   }
 
-  save() {
+  onSubmit() {
+
+
+
+
+
     this.dialogRef.close(this.updateForm.value);
   }
 
   close() {
     this.dialogRef.close();
   }
+
+    // Get validation error message
+    getErrorMessage(controlName: string) {
+      return this.updateForm
+        .get(controlName)
+        .hasError('required')
+        ? 'You must enter a value'
+        : this.updateForm
+            .get(controlName)
+            .hasError('email')
+        ? 'Not a valid email'
+        : this.updateForm
+            .get(controlName)
+            .hasError('notEqual')
+        ? 'Passwords do not match'
+        : this.updateForm
+            .get(controlName)
+            .hasError('minlength')
+        ? 'Too short'
+        : this.updateForm
+            .get(controlName)
+            .hasError('maxlength')
+        ? 'Too long'
+        : '';
+    }
 
 }
 
