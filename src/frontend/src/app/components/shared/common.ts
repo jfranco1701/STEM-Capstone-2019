@@ -1,4 +1,4 @@
-import { UserLogin } from '../../models/userLogin';
+import { UserLogin } from '../../models/UserLogin';
 
 export class Common {
   userLogin: UserLogin;
