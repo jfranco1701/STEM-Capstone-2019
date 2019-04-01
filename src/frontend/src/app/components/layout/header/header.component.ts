@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, M
 import { Router } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { UserLogin } from '../../../models/userlogin';
+import { UserLogin } from '../../../models/UserLogin';
 
 
 @Component({
