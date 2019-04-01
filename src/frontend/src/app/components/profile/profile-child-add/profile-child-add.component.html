@@ -1,19 +1,85 @@
-<div class="container" fxLayout="row" fxLayout.lt-md="column">
-  <div fxFlex>
+<div fxLayout="row" fxLayout.lt-md="column">
+  <div fxFlex="25" fxFlex.lt-lg="5"></div>
+  <div fxFlex style="margin-left:15px;margin-right:15px;">
     <div fxLayout="column">
       <div fxFlex class="header">
-        Register Child User
+        <span>Register Child User</span>
+        <mat-divider></mat-divider>
       </div>
-
-      <mat-divider fxFlex></mat-divider>
-
       <div fxFlex>
-        <app-form-user-add></app-form-user-add>
+        <div *ngIf="error" class="errormessage">{{error}}</div>
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <mat-dialog-content>
+          <div fxLayout="column">
+            <div fxFlex fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0px">
+              <mat-form-field fxFlex fxFlex="48" fxFlex.lt-sm="90">
+                <input matInput placeholder="First Name*" formControlName="firstName" />
+                <mat-error *ngIf="addForm.get('firstName').invalid">
+                  {{ getErrorMessage('firstName') }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field fxFlex fxFlex="48" fxFlex.lt-sm="90">
+                <input matInput placeholder="Last Name*" formControlName="lastName" />
+                <mat-error *ngIf="addForm.get('lastName').invalid">
+                  {{ getErrorMessage('lastName') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="row">
+              <mat-form-field fxFlex="48" fxFlex.lt-sm="100">
+                <input matInput placeholder="Date of Birth" formControlName="dob" type="date" />
+                <mat-error *ngIf="addForm.get('dob').invalid">
+                  {{ getErrorMessage('dob') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="row">
+              <mat-form-field fxFlex="98" fxFlex.lt-sm="100">
+                <input matInput placeholder="Email*" formControlName="email" />
+                <mat-error *ngIf="addForm.get('email').invalid">
+                  {{ getErrorMessage('email') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxFlex fxLayout="row" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0px">
+              <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
+                <input matInput placeholder="Password*" formControlName="password" type="password"/>
+                <mat-error *ngIf="addForm.get('password').invalid">
+                  {{ getErrorMessage('password') }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
+                <input matInput placeholder="Password*" formControlName="confirmPassword" type="password"/>
+                <mat-error *ngIf="addForm.get('confirmPassword').invalid">
+                  {{ getErrorMessage('confirmPassword') }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-dialog-content>
+        <div class="requireddiv">
+          *Indicates Required
+        </div>
+        <div class="termsdiv">
+            By clicking the <b>create user</b> button, you are accepting our
+            <span class="terms">terms of use policy</span>.
+        </div>
+        <mat-dialog-actions>
+          <div class="buttondiv">
+            <button mat-raised-button (click)="close()" style="margin-right:50px;">
+              Cancel
+            </button>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!addForm.valid">
+              Create User
+            </button>
+          </div>
+        </mat-dialog-actions>
+        </form>
       </div>
     </div>
   </div>
-
-  <div fxFlex="30">
+  <div fxFlex="25">
     <app-contactus></app-contactus>
   </div>
 </div>

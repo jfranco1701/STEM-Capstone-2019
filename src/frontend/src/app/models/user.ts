@@ -1,8 +1,15 @@
 export class User {
-  id: number;
+  parent_id: number;
   username: string;
   password: string;
-  firstName: string;
-  lastName: string;
-  token?: string;
+  first_name: string;
+  last_name: string;
+  address: string;
+  city: string;
+  state: string;
+  zip_code: string;
+  date_of_birth: Date;
+  email: string;
+  phone: string;
+  children: User[];
 }

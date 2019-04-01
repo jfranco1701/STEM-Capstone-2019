@@ -110,7 +110,7 @@ export class FormUserAddComponent implements OnInit {
     console.log('Register: ' + emailAddress + ', ' + password + ', ' + firstName + ' ' + lastName);
 
     // Call registration service here
-    this.userService.addUser(username, emailAddress, firstName, lastName, new Date('2019-01-01'), null, 1, false);
+
   }
 
 

@@ -1,6 +1,6 @@
-import { Userold } from './userold';
+import { User } from './user';
 
-export const USERS: Userold[] = [
+export const USERS: any = [
   {
     username: 'root',
     email: 'stem-ecosystem-root@unomaha.edu',

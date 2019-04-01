@@ -3,24 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { User } from '../models/user';
+import { UserLogin } from '../models/userlogin';
 import { RegisterUser } from '../models/RegisterUser';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>;
+    private currentUserSubject: BehaviorSubject<UserLogin>;
+    public currentUser: Observable<UserLogin>;
     private apiLoginUrl: string;
     private apiRegisterUrl: string;
 
     constructor(private http: HttpClient, private router: Router) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+        this.currentUserSubject = new BehaviorSubject<UserLogin>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
         this.apiLoginUrl = 'http://localhost:8000/api/login/';
         this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
     }
 
-    public get currentUserValue(): User {
+    public get currentUserValue(): UserLogin {
         return this.currentUserSubject.value;
     }
 
@@ -45,11 +45,15 @@ export class AuthenticationService {
     }
 
     register(username: string, emailAddress: string, password: string, firstName: string, lastName: string,
-             dob: string, addressRes: string, cityRes: string, stateRes: string, zipCode: string, phoneNumber: string) {
+             dob: string, addressRes: string, cityRes: string, stateRes: string, zipCode: string, phoneNumber: string,
+             parentId?: string) {
 
           const registerUser: RegisterUser = new RegisterUser();
+          if (parentId) {
+            registerUser.parent_id = parentId;
+          }
 
-          registerUser.username = emailAddress;
+          registerUser.username = username;
           registerUser.email = emailAddress;
           registerUser.first_name = firstName;
           registerUser.last_name = lastName;
@@ -63,8 +67,11 @@ export class AuthenticationService {
           registerUser.zip_code = zipCode;
           registerUser.phone = phoneNumber;
 
+          console.log(registerUser);
+
           return this.http.post<any>(`${this.apiRegisterUrl}`, registerUser)
           .pipe(map(user => {
+            console.log(user);
             return user;
           }));
       }

@@ -16,27 +16,27 @@
               <table>
                   <tr>
                     <th>Name:</th>
-                    <td>John Doe</td>
+                    <td>{{profileUser.first_name}} {{profileUser.last_name}}</td>
                   </tr>
                   <tr>
                     <th>Date of Birth:</th>
-                    <td>1/1/1980</td>
+                    <td>{{profileUser.date_of_birth | date: 'MM/dd/yyyy' }}</td>
                   </tr>
                   <tr>
                     <th>Phone:</th>
-                    <td>(402) 123-4567</td>
+                    <td>{{profileUser.phone}}</td>
                   </tr>
                   <tr>
                     <th>
                       Email:
                     </th>
                     <td>
-                      email@email.com
+                      {{profileUser.email}}
                     </td>
                   </tr>
                   <tr>
                     <th>Address:</th>
-                    <td>sdfasdfasdfasdfs</td>
+                    <td>{{profileUser.address}}<br>{{profileUser.city}}, {{profileUser.state}} {{profileUser.zip_code}}</td>
                   </tr>
                 </table>
           </div>
@@ -60,12 +60,12 @@
         </div>
 
         <div fxFlex fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start center">
-          <mat-card fxFlex="150px" matTooltip="Update child profile" class="card" [routerLink]="['/profile']">
+          <mat-card *ngFor="let child of profileUser.children" fxFlex="150px" matTooltip="Update child profile" class="card" [routerLink]="['/profile']">
             <mat-card-content style="text-align:center;">
               <img style="height:100px;" src="../../../assets/images/persongeneric.png" />
             </mat-card-content>
             <mat-card-footer style="text-align:center;margin-bottom:2px;">
-              NAME HERE
+              {{child.first_name}}
             </mat-card-footer>
           </mat-card>
 
