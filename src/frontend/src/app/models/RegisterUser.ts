@@ -10,4 +10,5 @@ export class RegisterUser {
   state: string;
   zip_code: string;
   phone: string;
+  parent_id?: string;
 }

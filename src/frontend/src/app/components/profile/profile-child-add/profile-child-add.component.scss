@@ -1,9 +1,37 @@
-.container {
-  margin-left:50px;
+.header {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.header {
-  margin-top:25px;
-  font-size:24px;
-  font-weight: bold;
+.terms {
+  text-decoration: underline;
+  color: blue;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.errormessage {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.buttondiv {
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.termsdiv {
+  text-align: center;
+  font-size: smaller;
+  margin-top: 20px;
+}
+.requireddiv {
+  text-align: center;
+  font-size: smaller;
+  margin-top: 20px;
 }

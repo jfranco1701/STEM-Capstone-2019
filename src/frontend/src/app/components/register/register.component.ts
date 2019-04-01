@@ -73,8 +73,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     // Call registration service here
-    this.authenticationService
-      .register(this.registerForm.get('loginGroup').get('email').value,
+    this.authenticationService.register(
+      this.registerForm.get('loginGroup').get('email').value,
       this.registerForm.get('loginGroup').get('email').value,
       this.registerForm.get('loginGroup').get('password').value,
       this.registerForm.get('userGroup').get('firstName').value,
@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
       this.registerForm.get('addressGroup').get('city').value,
       this.registerForm.get('addressGroup').get('state').value,
       this.registerForm.get('addressGroup').get('zip').value,
-      this.registerForm.get('userGroup').get('phone').value)
+      this.registerForm.get('userGroup').get('phone').value, '')
       .pipe(first())
       .subscribe(
         user => {

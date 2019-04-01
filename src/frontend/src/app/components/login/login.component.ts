@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { UserLogin } from 'src/app/models/userlogin';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   public errors: any = [];
-  user: User;
+  user: UserLogin;
   error = '';
 
   constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,

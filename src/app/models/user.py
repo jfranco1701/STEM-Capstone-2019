@@ -11,6 +11,7 @@ USER_TYPE_CHOICES = (
 )
 
 class User(AbstractUser):
+    parent_id = models.ForeignKey("self", related_name="children", on_delete=models.CASCADE, null=True)
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(max_length=200, unique=True)
     first_name = models.CharField(max_length=50)
