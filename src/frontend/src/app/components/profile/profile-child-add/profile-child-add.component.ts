@@ -5,7 +5,7 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
 import { Common } from '../../shared/common';
-import { UserLogin } from '../../../models/userLogin';
+import { UserLogin } from '../../../models/UserLogin';
 
 @Component({
   selector: 'app-profile-child-add',
