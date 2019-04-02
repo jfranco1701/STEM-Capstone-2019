@@ -9,7 +9,7 @@
 /.vs
 
 # Node static files
-/src/static
+/static
 
 # compiled output
 /dist

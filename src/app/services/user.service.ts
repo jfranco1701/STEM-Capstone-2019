@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError, tap, retry } from 'rxjs/operators';
 import { IUser } from '../interfaces/IUser';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UserService {
   private urlDetail: string;
 
   constructor(private http: HttpClient, private locationService: Location) {
-    this.urlDetail = 'http://localhost:8000/api/v1/users/';
+    this.urlDetail = environment.apiHostAndPort + '/api/v1/users/';
   }
 
   getUsers(): Observable<IUser[]> {

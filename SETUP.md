@@ -157,10 +157,10 @@ Download and install [VS Code](https://code.visualstudio.com/) or another code e
 
 #### Building the application
 
-Change into the app directory STEM-Capstone-2019\src\frontend and run the following:
+Change into the root repository directory and run the following:
 
     npm install
-    ng build --watch --outputPath=../static/
+    ng build --watch --outputPath=./static/
 
 This will install all application dependences and build the application.  The application will be placed in the Django static files folder.  The --watch parameter will send updated files to the static files folder as changes to the application are saved.  This will continue to run in a terminal window until CTRL-C is used to terminate it.
 

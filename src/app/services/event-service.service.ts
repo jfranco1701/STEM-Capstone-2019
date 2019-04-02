@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, retry } from 'rxjs/operators';
 import { Event } from '../models/event';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class EventService {
   private user: any;
 
   constructor(private http: HttpClient) {
-    this.eventApiUrl = 'http://localhost:8000/api/v1/events/';
+    this.eventApiUrl = environment.apiHostAndPort + '/api/v1/events/';
     this.user;
   }
 
