@@ -11,13 +11,13 @@ services:
 
   django:
     build: 
-      context: ./src
-      dockerfile: ./Dockerfile
+      context: ./
+      dockerfile: ./Backend.Dockerfile
     restart: always
     working_dir: /app
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata initial_data && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./src:/app
+      - ./:/app
     ports:
       - "8000:8000"
     depends_on:
@@ -29,13 +29,13 @@ services:
 
   angular:
     build:
-      context: ./src/frontend
-      dockerfile: ./Dockerfile
+      context: ./
+      dockerfile: ./Frontend.Dockerfile
     restart: always
     working_dir: /app/frontend
     command: bash -c "ng serve --poll=2000 --host 0.0.0.0"
     volumes:
-      - ./src:/app
+      - ./:/app
       - /app/frontend/node_modules
       - /home/node/.npm-global
     ports:
