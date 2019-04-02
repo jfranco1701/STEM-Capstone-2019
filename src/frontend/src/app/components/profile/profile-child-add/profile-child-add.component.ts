@@ -24,6 +24,8 @@ export class ProfileChildAddComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
               private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
 
+
+
   ngOnInit() {
     this.common = new Common();
     this.userId = this.common.getUserId();

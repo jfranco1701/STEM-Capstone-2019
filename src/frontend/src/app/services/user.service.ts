@@ -22,4 +22,13 @@ export class UserService {
       })
     );
   }
+
+  updateUser(userId: number, userObject: any): Observable<User> {
+    return this.http.patch<any>(`${this.apiLoginUrl + userId + '/'}`, userObject)
+      .pipe(
+      map(user => {
+        return user;
+      })
+    );
+  }
 }
