@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/UserLogin';
 import { RegisterUser } from '../models/RegisterUser';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -16,8 +17,8 @@ export class AuthenticationService {
     constructor(private http: HttpClient, private router: Router) {
         this.currentUserSubject = new BehaviorSubject<UserLogin>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.apiLoginUrl = 'http://localhost:8000/api/login/';
-        this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
+        this.apiLoginUrl = environment.apiHostAndPort + '/api/login/';
+        this.apiRegisterUrl = environment.apiHostAndPort + '/api/v1/users/';
     }
 
     public get currentUserValue(): UserLogin {

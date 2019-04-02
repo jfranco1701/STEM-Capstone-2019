@@ -5,7 +5,7 @@
   "projects": {
     "stem-portal": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "frontend",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -18,17 +18,17 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/stem-portal",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "frontend/index.html",
+            "main": "frontend/main.ts",
+            "polyfills": "frontend/polyfills.ts",
+            "tsConfig": "frontend/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "frontend/favicon.ico",
+              "frontend/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "frontend/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -37,8 +37,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "frontend/environments/environment.ts",
+                  "with": "frontend/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -57,7 +57,15 @@
                   "maximumError": "5mb"
                 }
               ]
-            }
+            },
+			"qa": {
+              "fileReplacements": [
+                {
+                  "replace": "frontend/environments/environment.ts",
+                  "with": "frontend/environments/environment.qa.ts"
+                }
+			  ]
+			}
           }
         },
         "serve": {
@@ -80,18 +88,18 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "frontend/test.ts",
+            "polyfills": "frontend/polyfills.ts",
+            "tsConfig": "frontend/tsconfig.spec.json",
+            "karmaConfig": "frontend/karma.conf.js",
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "frontend/styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "frontend/favicon.ico",
+              "frontend/assets"
             ]
           }
         },
@@ -99,8 +107,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "frontend/tsconfig.app.json",
+              "frontend/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

@@ -5,7 +5,7 @@ import { RegistertermsComponent } from './registerterms/registerterms.component'
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { User } from 'frontend/app/models/user';
 
 @Component({
   selector: 'app-register',

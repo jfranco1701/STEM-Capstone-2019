@@ -29,8 +29,8 @@ services:
 
   angular:
     build:
-      context: ./src/frontend
-      dockerfile: ./Dockerfile
+      context: ./src
+      dockerfile: ./Dockerfile.Web
     restart: always
     working_dir: /app/frontend
     command: bash -c "ng serve --poll=2000 --host 0.0.0.0"

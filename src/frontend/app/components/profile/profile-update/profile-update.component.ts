@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { User } from '../../../models/user';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'frontend/app/services/user.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
 import { Common } from '../../shared/common';

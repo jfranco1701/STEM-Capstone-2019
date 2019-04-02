@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { EventService } from '../../../services/event-service.service';
-import { Event } from 'src/app/models/event';
+import { Event } from 'frontend/app/models/event';
 
 @Component({
   selector: 'app-event-add',
