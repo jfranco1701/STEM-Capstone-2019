@@ -52,6 +52,12 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field fxFlex="18" fxFlex.lt-sm="90">
+            <input matInput placeholder="State" [matAutocomplete]="auto" formControlName="state" />
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                {{state.name}}
+              </mat-option>
+            </mat-autocomplete>
             <input matInput placeholder="State" formControlName="state"/>
             <mat-error *ngIf="registerForm.get('addressGroup').get('state').invalid">
               {{ getErrorMessage('addressGroup', 'state') }}
