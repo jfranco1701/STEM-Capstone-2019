@@ -1,6 +1,13 @@
 <div class="container"
-     fxLayout="row wrap" fxLayoutAlign="center center">
-  <div fxFlex class="event" *ngFor="let event of events">
-    <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.e_type"></app-event-list>
-  </div>
+     fxLayout="row wrap" fxLayoutAlign="left">
+    <div fxFlex class="cat" fx style="color: #000;" *ngFor="let cat of categories">
+      <br>
+      <div >
+     <div fxFlex="20" class="tag"><h5>{{cat}}</h5><br>
+     </div>
+        <div  fxFlex *ngFor="let event of getEveByCat(cat)" >
+          <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.e_type"></app-event-list>
+        </div>
+      </div>
+    </div>
 </div>
