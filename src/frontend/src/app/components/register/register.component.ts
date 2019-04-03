@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   public errors: any = [];
   public states: State[] = STATES;
-  public filteredStates: Observable<State[]>; 
+  public filteredStates: Observable<State[]>;
+  user: User; 
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
