@@ -1,3 +1,5 @@
+import { Tag } from './tag';
+
 export class Event {
 
   name: string;
@@ -5,4 +7,5 @@ export class Event {
   e_type: string;
   organizer: number;
   attendees: number[];
+  tags: Tag[];
 }
