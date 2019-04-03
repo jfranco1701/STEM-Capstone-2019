@@ -58,7 +58,6 @@
                 {{state.name}}
               </mat-option>
             </mat-autocomplete>
-            <input matInput placeholder="State" formControlName="state"/>
             <mat-error *ngIf="registerForm.get('addressGroup').get('state').invalid">
               {{ getErrorMessage('addressGroup', 'state') }}
             </mat-error>

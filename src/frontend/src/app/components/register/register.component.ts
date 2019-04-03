@@ -18,7 +18,7 @@ import { STATES, State } from '../../models/states';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   public errors: any = [];
-  public states: State[];
+  public states: State[] = STATES;
   public filteredStates: Observable<State[]>;
 
   constructor(
