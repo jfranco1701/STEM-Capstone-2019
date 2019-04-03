@@ -1,12 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { UserLogin } from '../../../models/UserLogin';
-import { User } from '../../../models/user';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
