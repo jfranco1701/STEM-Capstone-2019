@@ -19,7 +19,10 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   public errors: any = [];
   public states: State[] = STATES;
-  public filteredStates: Observable<State[]>;
+  public filteredStates: Observable<State[]>; 
+  topPosition: MatSnackBarVerticalPosition = 'top';
+  rightPosition: MatSnackBarHorizontalPosition = 'right';
+  error = '';
 
   constructor(
     private router: Router,
