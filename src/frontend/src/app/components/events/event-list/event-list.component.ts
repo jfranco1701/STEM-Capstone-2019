@@ -14,9 +14,21 @@ export class EventListComponent implements OnInit {
   @Input()
   event_type: string;
 
+  imageSource: string;
+
+
   constructor() { }
 
   ngOnInit() {
+
+    if (this.event_type == "Community")
+    {
+        this.imageSource = "../../assets/images/building_construction.png";
+    }
+    else 
+    {
+      this.imageSource = "../../assets/images/camp_tent.jpg";
+    }
   }
 
 }
