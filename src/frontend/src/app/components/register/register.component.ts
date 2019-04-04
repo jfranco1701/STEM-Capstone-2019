@@ -6,6 +6,9 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { Observable } from 'rxjs'
+import { map, startWith} from 'rxjs/operators';
+import { STATES, State } from '../../models/states';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +18,9 @@ import { User } from 'src/app/models/user';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   public errors: any = [];
-  user: User;
+  public states: State[] = STATES;
+  public filteredStates: Observable<State[]>;
+  user: User; 
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
@@ -55,6 +60,12 @@ export class RegisterComponent implements OnInit {
         }
       )
     });
+
+    this.filteredStates = this.registerForm.get('addressGroup').get('state').valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+    );
   }
 
   // Validate the password and confirm password fields
@@ -135,5 +146,11 @@ export class RegisterComponent implements OnInit {
   openTermsDialog() {
     // Open the dialog that contants the terms of use policy
     const dialogRef = this.dialog.open(RegistertermsComponent);
+  }
+
+  private _filter(value: string): State[] {
+    const filterValue = value.toLowerCase();
+
+    return this.states.filter(state => state.name.toLowerCase().includes(filterValue));
   }
 }

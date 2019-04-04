@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventAddComponent } from './event-add/event-add.component';
+import { EventSearchComponent } from './event-search/event-search.component';
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -41,6 +43,7 @@ import {
   MatTooltipModule,
   MatTreeModule,
 } from '@angular/material';
+import { EventGridComponent } from './event-search/event-grid/event-grid.component';
 
 @NgModule({
   imports: [
@@ -83,7 +86,7 @@ import {
     MatTooltipModule,
     MatTreeModule
   ],
-  exports: [EventListComponent, EventAddComponent],
-  declarations: [EventListComponent, EventAddComponent],
+  exports: [EventListComponent, EventAddComponent, EventSearchComponent],
+  declarations: [EventListComponent, EventAddComponent, EventSearchComponent, EventGridComponent],
 })
 export class EventModule { }

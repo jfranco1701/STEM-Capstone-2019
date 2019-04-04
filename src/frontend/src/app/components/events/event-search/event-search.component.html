@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+      <div>
+        <mat-tab-group>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <div fxLayout="row">
+                <h4>Results - {{ currentSearchTerm }}</h4>
+              </div>
+            </ng-template>
+            <!--<mat-progress-bar mode="query" *ngIf="loading"></mat-progress-bar>-->
+            <app-event-grid [dataSource]="events">
+            </app-event-grid>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+  

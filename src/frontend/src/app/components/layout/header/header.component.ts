@@ -1,30 +1,77 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { UserLogin } from '../../../models/UserLogin';
-
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger('flyUp', [
+      transition(':enter', [
+        style({ transform: 'translateY(50%)', opacity: '0'}),
+        animate('200ms ease')
+      ]),
+    ]),
+    trigger('flyRightAndRotate', [
+      transition(':enter', [
+        style({transform: 'translateX(-25px) rotate(90deg)', opacity: '0'}),
+        animate('250ms ease')
+      ])
+    ])
+  ]
 })
 export class HeaderComponent implements OnInit {
   currentUser: UserLogin;
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
 
+  private unsubscribe = new Subject<void>();
+  eventSearchTerm: Subject<string> = new Subject<string>();
+
+  //private readonly debounceDelayTime = 300;
+  public searchOpen : boolean = false;
+
+  @ViewChild('searchField') searchField: ElementRef;
+
 
   constructor(private router: Router, private authenticationService: AuthenticationService,
-              private dialog: MatDialog, private snackBar: MatSnackBar) {
-    this.authenticationService.currentUser.subscribe(x => {
-      this.currentUser = x;
-    } );
+              private dialog: MatDialog, private snackBar: MatSnackBar,
+              private searchTermChangeService: SearchTermChangeService) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes('/events/search')) {
+          console.log(event.url);
+          this.searchOpen = true;
+          setTimeout(() => this.searchField.nativeElement.focus());
+        }  else {
+          this.searchOpen = false;
+        }
+      }
+    });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
+    this.eventSearchTerm.pipe(
+      takeUntil(this.unsubscribe)
+    ).subscribe((searchTerm) => {
+      this.searchTermChangeService.notifySearchTerm(searchTerm);
+    });
+
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   logout() {

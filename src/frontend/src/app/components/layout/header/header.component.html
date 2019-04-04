@@ -1,55 +1,79 @@
 <div fxLayout="row" fxLayoutAlign="start center" class="header">
-  <span fxFlex="110px">
-    <a [routerLink]="['/home']" routerLinkActive="router-link-active">
-      <img height="50px" src="assets/stemlogo.jpg" />
-    </a>
-  </span>
-  <div fxFlex>
-    <div fxLayout="row" fxLayoutAlign="start center">
-      <div fxFlex="60">
-        <a mat-button>Home</a>
+  <ng-container fxFlex *ngIf="searchOpen; then searchHeader; else mainHeader"></ng-container>
+  <ng-template #searchHeader>
+    <div [@flyUp] fxFlex fxLayoutAlign="start">
+      <input #searchField class="searchInput" type="text" placeholder="Search" (input)="eventSearchTerm.next($event.target.value)">
+    </div>
+      <button [@flyRightAndRotate] fxLayoutAlign="end" mat-icon-button [routerLink]="['/home']" class="closeButton">
+        <mat-icon>close</mat-icon>
+      </button>
+  </ng-template>
+  <ng-template #mainHeader>
+    <span fxFlex="110px">
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+        <img height="50px" src="assets/stemlogo.jpg" />
+      </a>
+    </span>
+    <div fxFlex>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="60">
+          <a mat-button>Home</a>
 
-        <a mat-button>About Us</a>
+          <a href="https://omahastem.com/about-us/" mat-button>About Us</a>
 
-        <a mat-button>Partners</a>
+          <a href="https://omahastem.com/our-work/" mat-button>Our Work</a>
 
-        <a mat-button>Calendar</a>
+          <a href="https://omahastem.com/partners/" mat-button>Partners</a>
 
-        <a mat-button>Get Involved</a>
+          <a href="https://omahastem.com/announcements/" mat-button>Resources</a>
 
-        <a mat-button>Etc</a>
-      </div>
-      <div fxFlex fxLayout="row" fxLayoutAlign="end">
-        <ng-container fxFlex *ngIf="currentUser; then loggedIn; else loggedOut"> </ng-container>
-        <ng-template #loggedIn>
-          <div>
-            <span>
-              <a [routerLink]="['/events/add']" mat-button>Add Event</a>
-            </span>
-            <span style="width:200px;">
-              <mat-menu #appMenu="matMenu">
-                <button mat-menu-item [routerLink]="['/profile/view']">My Profile</button>
-                <button mat-menu-item (click)="logout()">Logout</button>
-              </mat-menu>
-              <button mat-button [matMenuTriggerFor]="appMenu">
-                {{ currentUser.firstName }} {{ currentUser.lastName }}
-                <mat-icon>keyboard_arrow_down</mat-icon>
-              </button>
-            </span>
-          </div>
-        </ng-template>
-        <ng-template #loggedOut>
-          <div>
-            <span></span>
-            <span>
-              <a [routerLink]="['/register']" mat-button>Register</a>
-            </span>
-            <span>
-              <a [routerLink]="['/login']" mat-button>Logon</a>
-            </span>
-          </div>
-        </ng-template>
+          <a href="https://omahastem.com/get-involved/" mat-button>Get Involved</a>
+
+          <a href="https://omahastem.com/calendar/" mat-button>Calendar</a>
+
+
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="end">
+          <ng-container fxFlex *ngIf="currentUser; then loggedIn; else loggedOut"></ng-container>
+          <ng-template #loggedIn>
+            <div>
+              <span style="width:200px;">
+                <button mat-icon-button [routerLink]="['events/search']">
+                  <mat-icon>search</mat-icon>
+                </button>
+                <mat-menu #addMenu="matMenu">
+                  <button mat-menu-item [routerLink]="['/events/add']">Add Event</button>
+                </mat-menu>
+
+                <button mat-icon-button [matMenuTriggerFor]="addMenu">
+                  <mat-icon>add</mat-icon>
+                </button>
+
+                <mat-menu #appMenu="matMenu">
+                  <button mat-menu-item [routerLink]="['/profile/view']">My Profile</button>
+                  <button mat-menu-item (click)="logout()">Logout</button>
+                </mat-menu>
+                <button mat-mini-fab class="profileMenu" [matMenuTriggerFor]="appMenu">
+                  <span class="initials">
+                    {{ currentUser.firstName | slice:0:1 }}{{ currentUser.lastName | slice:0:1 }}
+                  </span>
+                </button>
+              </span>
+            </div>
+          </ng-template>
+          <ng-template #loggedOut>
+            <div>
+              <span></span>
+              <span>
+                <a [routerLink]="['/register']" mat-button>Register</a>
+              </span>
+              <span>
+                <a [routerLink]="['/login']" mat-button>Logon</a>
+              </span>
+            </div>
+          </ng-template>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>

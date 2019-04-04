@@ -17,7 +17,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotfoundComponent } from './components/layout/notfound/notfound.component';
-import { LayoutComponent } from './components/layout/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotauthorizedComponent } from './components/layout/notauthorized/notauthorized.component';
@@ -25,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistertermsComponent } from './components/register/registerterms/registerterms.component';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { SearchTermChangeService } from './services/search-term-change.service';
 
 import {
   MatAutocompleteModule,
@@ -74,7 +74,6 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     HomeComponent,
     RegisterComponent,
     NotfoundComponent,
-    LayoutComponent,
     HeaderComponent,
     LoginComponent,
     NotauthorizedComponent,
@@ -139,6 +138,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    SearchTermChangeService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
