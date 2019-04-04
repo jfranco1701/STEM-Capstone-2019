@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   categories: Tag[];
 
   tevents: Event[];
+  mySlideOptions={items: 3, dots: false, nav: true, autoWidth: true, autoHeight: true};
 
   ngOnInit() {
 
@@ -37,9 +38,9 @@ export class HomeComponent implements OnInit {
       this.events = events;
       this.events.forEach(event => {
         event.tags.forEach( tag => {
-          if(!this.categories.includes(tag)) { this.categories.push(tag) }; 
+          if(!this.categories.includes(tag)) { this.categories.push(tag) };
         });
-      
+
       });
 
     });
