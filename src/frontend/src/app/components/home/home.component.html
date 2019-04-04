@@ -1,6 +1,11 @@
-<div class="container"
-     fxLayout="row wrap" fxLayoutAlign="center center">
-  <div fxFlex class="event" *ngFor="let event of events">
-    <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.e_type"></app-event-list>
+<div class="container">
+  <div *ngFor="let carousel of carousels">
+    <p><strong>{{ carousel.name }}</strong></p>
+    <owl-carousel class="container" fxLayout="column" [options]="mySlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+      <div class="item event" *ngFor="let event of carousel.events">
+        <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type"></app-event-list>
+      </div>
+    </owl-carousel>
+    <mat-divider></mat-divider>
   </div>
-</div>
+</div> 
