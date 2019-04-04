@@ -1,16 +1,14 @@
-<div class="container"
-     fxLayout="row wrap" fxLayoutAlign="left">
-    <div fxFlex="1 0%"  class="cat" fxstyle="" *ngFor="let cat of categories">
-        <table>
-          <tr>
-     <div class="tag"><h5>{{cat}}</h5><br>
-     </div>
-     </tr>
-     <tr>     
-        <div  fxFlex *ngFor="let event of getEveByCat(cat)" >
-          <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.e_type"></app-event-list>
-        </div>
-     </tr>
-    </table>    
+<div class="container">
+  <div *ngFor="let cat of categories">
+    <div class="tag">
+      <h5>{{cat}}</h5><br>
+    </div>
+
+    <owl-carousel [options]="mySlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
+      <div *ngFor="let event of getEveByCat(cat)">
+        <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type"></app-event-list>
+      </div>
+    </owl-carousel>
+    <mat-divider></mat-divider>
   </div>
 </div>

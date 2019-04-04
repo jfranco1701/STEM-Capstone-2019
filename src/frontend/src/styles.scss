@@ -3,3 +3,29 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container {
+    margin: 10px;
+}
+
+.owl-carousel {
+	.owl-stage {
+        display: flex;
+	}
+	.owl-item {
+		display: flex;
+		flex: 1 0 auto;
+	}
+	.caption {
+		display: flex;
+		flex: 1 0 auto;
+		flex-direction: column;
+	}
+	.flex-text {
+		flex-grow: 1
+	}
+	.thumbnail {
+		display: flex;
+		flex-direction: column;
+		margin: 0 15px;
+	}
+}
