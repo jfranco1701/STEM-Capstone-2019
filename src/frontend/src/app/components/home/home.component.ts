@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   categories: Tag[];
 
   tevents: Event[];
+  mySlideOptions={dots: false, nav: true};
 
   ngOnInit() {
 

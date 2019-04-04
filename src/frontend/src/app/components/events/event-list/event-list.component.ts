@@ -14,9 +14,17 @@ export class EventListComponent implements OnInit {
   @Input()
   event_type: string;
 
+  imageSource: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.imageSource = EventPhotoMap[this.event_type];
   }
 
+}
+
+const EventPhotoMap: any = {
+  'Community' : '../../assets/images/building_construction.png',
+  'Camp' : '../../assets/images/camp_tent.jpg'
 }
