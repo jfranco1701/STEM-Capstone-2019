@@ -31,7 +31,8 @@ export class EventService {
     const obj = {
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
-      event_type: eventType
+      event_type: eventType,
+      tags: []
     };
 
     var user = JSON.parse(localStorage.currentUser);
