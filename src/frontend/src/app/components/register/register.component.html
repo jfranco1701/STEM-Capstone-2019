@@ -53,8 +53,8 @@
           </mat-form-field>
           <mat-form-field fxFlex="18" fxFlex.lt-sm="90">
             <input matInput placeholder="State" [matAutocomplete]="auto" formControlName="state" />
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+            <mat-autocomplete autoActiveFirstOption [panelWidth]="150" #auto="matAutocomplete">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state.abbreviation">
                 {{state.name}}
               </mat-option>
             </mat-autocomplete>
