@@ -8,6 +8,9 @@ ENV PATH=$PATH:/home/node/.npm-global/bin
 
 COPY package.json /app/frontend/
 
+RUN if [ -d /app/frontend/node_modules ]; then rm -rf /app/frontend/node_modules; fi
+RUN if [ -f /app/frontend/package-lock.json ]; then rm /app/frontend/package-lock.json; fi
+
 # Install dependencies
 ## Globally install angular/cli and node-sass
 RUN npm -g config set user root
