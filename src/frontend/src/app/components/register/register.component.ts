@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatAutocompleteTrigger } from '@angular/material';
 import { RegistertermsComponent } from './registerterms/registerterms.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
 
+  @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
       addressGroup: this.fb.group({
         address: [''],
         city: [''],
-        state: [''],
+        state: ['', [Validators.maxLength(2)]],
         zip: ['', [Validators.pattern(this.zipPattern)]],
       }),
       loginGroup: this.fb.group(
@@ -66,6 +68,7 @@ export class RegisterComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
     );
+
   }
 
   // Validate the password and confirm password fields
@@ -151,6 +154,6 @@ export class RegisterComponent implements OnInit {
   private _filter(value: string): State[] {
     const filterValue = value.toLowerCase();
 
-    return this.states.filter(state => state.name.toLowerCase().includes(filterValue));
+    return this.states.filter(state => state.name.toLowerCase().startsWith(filterValue));
   }
 }

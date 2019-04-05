@@ -13,10 +13,6 @@ export const STATES: State[] = [
         "abbreviation": "AK"
     },
     {
-        "name": "American Samoa",
-        "abbreviation": "AS"
-    },
-    {
         "name": "Arizona",
         "abbreviation": "AZ"
     },
@@ -45,20 +41,12 @@ export const STATES: State[] = [
         "abbreviation": "DC"
     },
     {
-        "name": "Federated States Of Micronesia",
-        "abbreviation": "FM"
-    },
-    {
         "name": "Florida",
         "abbreviation": "FL"
     },
     {
         "name": "Georgia",
         "abbreviation": "GA"
-    },
-    {
-        "name": "Guam Gu",
-        "abbreviation": "GU"
     },
     {
         "name": "Hawaii",
@@ -95,10 +83,6 @@ export const STATES: State[] = [
     {
         "name": "Maine",
         "abbreviation": "ME"
-    },
-    {
-        "name": "Marshall Islands",
-        "abbreviation": "MH"
     },
     {
         "name": "Maryland",
@@ -161,10 +145,6 @@ export const STATES: State[] = [
         "abbreviation": "ND"
     },
     {
-        "name": "Northern Mariana Islands",
-        "abbreviation": "MP"
-    },
-    {
         "name": "Ohio",
         "abbreviation": "OH"
     },
@@ -175,10 +155,6 @@ export const STATES: State[] = [
     {
         "name": "Oregon",
         "abbreviation": "OR"
-    },
-    {
-        "name": "Palau",
-        "abbreviation": "PW"
     },
     {
         "name": "Pennsylvania",
@@ -215,10 +191,6 @@ export const STATES: State[] = [
     {
         "name": "Vermont",
         "abbreviation": "VT"
-    },
-    {
-        "name": "Virgin Islands",
-        "abbreviation": "VI"
     },
     {
         "name": "Virginia",
