@@ -66,6 +66,7 @@ export class AuthenticationService {
           registerUser.state = stateRes;
           registerUser.zip_code = zipCode;
           registerUser.phone = phoneNumber;
+          registerUser.interests = [];
 
           console.log(registerUser);
 

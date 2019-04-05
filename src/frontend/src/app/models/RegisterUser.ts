@@ -11,4 +11,5 @@ export class RegisterUser {
   zip_code: string;
   phone: string;
   parent_id?: string;
+  interests: string[];
 }
