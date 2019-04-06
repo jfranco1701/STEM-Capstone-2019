@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
+    dialogConfig.autoFocus = false;
 
     dialogConfig.data = {};
 

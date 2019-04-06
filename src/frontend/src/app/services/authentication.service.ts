@@ -54,6 +54,15 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
+  // Change password
+  changePassword(userId: number, password: string, newPassword: string) {
+    return this.http.post<any>(`${this.apiRegisterUrl + userId + '/change-password/'}`,
+      { new_password : newPassword, old_password: password })
+    .pipe(map(user => {
+      return user;
+    }));
+  }
+
   // Register the user and return.
   register(username: string, emailAddress: string, password: string, firstName: string, lastName: string,
            dob: string, addressRes: string, cityRes: string, stateRes: string, zipCode: string, phoneNumber: string,

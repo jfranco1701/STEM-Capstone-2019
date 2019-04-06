@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
@@ -20,7 +20,7 @@ export class ProfileChildAddComponent implements OnInit {
   userLogin: UserLogin;
 
   constructor(private fb: FormBuilder, private router: Router,
-              private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
+    private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.userId = this.authenticationService.userId;
@@ -33,9 +33,9 @@ export class ProfileChildAddComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
     },
-    {
-      validator: this.checkPasswords('password', 'confirmPassword'),
-    });
+      {
+        validator: this.checkPasswords('password', 'confirmPassword'),
+      });
   }
 
   // Validate the password and confirm password fields
@@ -86,28 +86,28 @@ export class ProfileChildAddComponent implements OnInit {
       );
   }
 
-    // Get validation error message
-    getErrorMessage(controlName: string) {
-      return this.addForm
+  // Get validation error message
+  getErrorMessage(controlName: string) {
+    return this.addForm
+      .get(controlName)
+      .hasError('required')
+      ? 'You must enter a value'
+      : this.addForm
         .get(controlName)
-        .hasError('required')
-        ? 'You must enter a value'
-        : this.addForm
-            .get(controlName)
-            .hasError('email')
+        .hasError('email')
         ? 'Not a valid email'
         : this.addForm
-            .get(controlName)
-            .hasError('notEqual')
-        ? 'Passwords do not match'
-        : this.addForm
+          .get(controlName)
+          .hasError('notEqual')
+          ? 'Passwords do not match'
+          : this.addForm
             .get(controlName)
             .hasError('minlength')
-        ? 'Too short'
-        : this.addForm
-            .get(controlName)
-            .hasError('maxlength')
-        ? 'Too long'
-        : '';
-    }
+            ? 'Too short'
+            : this.addForm
+              .get(controlName)
+              .hasError('maxlength')
+              ? 'Too long'
+              : '';
+  }
 }

@@ -178,8 +178,4 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     return this.states.filter(state => state.name.toLowerCase().includes(filterValue));
   }
-
-  onTypeChange() {
-    console.log('made it');
-  }
 }

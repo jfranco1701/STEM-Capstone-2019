@@ -29,6 +29,13 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
         }
 
+        // custom error message for invalid old password on change
+        if (err.status === 400 && err.error.old_password) {
+          if (err.error.old_password[0] === 'Wrong password.') {
+            customMessage = 'Incorrect current password entered.';
+          }
+        }
+
         // custom error message for duplicate email
         if (err.status === 400 && err.error && err.error.email && err.error.email[0] === 'user with this email already exists.') {
           customMessage = 'The entered email address already exists.  ' +
