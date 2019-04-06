@@ -85,15 +85,16 @@ export class AuthenticationService {
     registerUser.state = stateRes;
     registerUser.zip_code = zipCode;
     registerUser.phone = phoneNumber;
-    console.log(organization);
     registerUser.organization = organization;
+
     if (organization !== '') {
       registerUser.user_type = 3;
+    } else if (parentId){
+      registerUser.user_type = 1;
     } else {
       registerUser.user_type = 2;
     }
 
-    console.log(registerUser);
     return this.http.post<any>(`${this.apiRegisterUrl}`, registerUser)
       .pipe(map(user => {
         return user;

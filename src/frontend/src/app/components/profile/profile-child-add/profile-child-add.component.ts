@@ -68,7 +68,7 @@ export class ProfileChildAddComponent implements OnInit {
         this.addForm.get('firstName').value,
         this.addForm.get('lastName').value,
         this.addForm.get('dob').value,
-        '', '', '', '', '', 'http://localhost:8000/api/v1/users/' + this.userId + '/')
+        '', '', '', '', '', '', 'http://localhost:8000/api/v1/users/' + this.userId + '/')
       .pipe(first())
       .subscribe(
         user => {
