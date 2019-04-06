@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
-import { Common } from '../../shared/common';
-import { UserLogin } from '../../../models/UserLogin';
+import { UserLogin } from '../../../models/userlogin';
 
 @Component({
   selector: 'app-profile-child-add',
@@ -17,18 +16,14 @@ export class ProfileChildAddComponent implements OnInit {
   error = '';
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
-  common: Common;
   userId: number;
   userLogin: UserLogin;
 
   constructor(private fb: FormBuilder, private router: Router,
               private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
 
-
-
   ngOnInit() {
-    this.common = new Common();
-    this.userId = this.common.getUserId();
+    this.userId = this.authenticationService.userId;
 
     this.addForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50)]],

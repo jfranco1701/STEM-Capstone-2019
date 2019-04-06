@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-# Check to see if this was setup with Docker. If not, we'll want to use 
+# Check to see if this was setup with Docker. If not, we'll want to use
 # localhost address for the database host
 if 'DOCKER_SETUP_FLAG' in os.environ:
     db_host = 'db'
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',	
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -159,6 +159,7 @@ JWT_AUTH = {
 	'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 	'JWT_AUTH_COOKIE': None,
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'app.controllers.user_controller.jwt_response_payload_handler',
+    'JWT_PAYLOAD_HANDLER': 'app.controllers.user_controller.jwt_payload_handler',
 }
 
 CORS_ORIGIN_WHITELIST = (

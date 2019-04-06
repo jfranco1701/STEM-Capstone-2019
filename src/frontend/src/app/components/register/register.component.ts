@@ -6,7 +6,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 import { map, startWith} from 'rxjs/operators';
 import { STATES, State } from '../../models/states';
 
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   public errors: any = [];
   public states: State[] = STATES;
   public filteredStates: Observable<State[]>;
-  user: User; 
+  user: User;
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';

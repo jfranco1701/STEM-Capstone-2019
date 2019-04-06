@@ -1,44 +1,38 @@
-<div class="container" fxLayout fxLayoutAlign="center center">
-  <div fxFlex="500px">
-    <div>
-      <h3>Please enter your email and password to continue</h3><br>
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="700px" fxFlex.lt-md="550px" fxLayout="column">
+    <div class="header">
+      Omaha STEM Ecosystem
+      <mat-divider></mat-divider>
     </div>
-
-    <div *ngIf="error" class="loginerror">{{error}}</div>
-
-    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-
-      <div
-          formGroupName="userGroup"
-          novalidate
-          fxLayout="column"
-          fxLayoutAlign="center stretch"
-          fxLayoutGap="10px"
-        >
+    <div fxFlex>
+        <img src="../../../assets/images/Stem2.png" class="headerimage">
+    </div>
+    <div fxFlex class="toptext">
+      <h4>Please enter your email address and password to continue</h4>
+    </div>
+    <div fxFlex *ngIf="error" class="loginerror">
+      {{error}}
+    </div>
+    <div fxFlex class="formcontainer">
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="loginForm" fxLayout="column">
         <mat-form-field>
-        <input matInput placeholder="Email Address" formControlName="email" />
-        <mat-error *ngIf="loginForm.get('userGroup').get('email').invalid">
-          {{ getErrorMessage('userGroup', 'email') }}
-        </mat-error>
-        </mat-form-field>
-      </div>
-        <div
-        formGroupName="passwordGroup"
-        novalidate
-        fxLayout="column"
-        fxLayoutAlign="center stretch"
-        fxLayoutGap="10px"
-      >
-        <mat-form-field>
-          <input matInput type="password" placeholder="Password" formControlName="password" />
-          <mat-error *ngIf="loginForm.get('passwordGroup').get('password').invalid">
-            {{ getErrorMessage('passwordGroup', 'password') }}
+          <input matInput placeholder="Email Address" formControlName="email" />
+          <mat-error *ngIf="loginForm.get('email').invalid">
+            {{ getErrorMessage('email') }}
           </mat-error>
         </mat-form-field>
-        </div>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" />
+          <mat-error *ngIf="loginForm.get('password').invalid">
+            {{ getErrorMessage('password') }}
+          </mat-error>
+        </mat-form-field>
+
         <div class="login">
-          <button type="login" mat-button >Login</button>
-      </div>
+          <button type="login" mat-raised-button [disabled]="!loginForm.valid" class="loginbutton">Login</button>
+        </div>
       </form>
-      </div>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,38 @@
 .loginerror {
   color: red;
   font-weight: bold;
-  margin-bottom:20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.headerimage {
+  width: 100%;
+}
+
+.header {
+  margin-top: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formcontainer {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.toptext {
+  margin-top:15px;
+  text-align: center;
+}
+
+.loginbutton {
+  width:200px;
 }

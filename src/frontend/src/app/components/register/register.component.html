@@ -4,8 +4,8 @@
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="formheader">
           <strong>Omaha STEM Ecosystem Parent Registration</strong>
+          <mat-divider></mat-divider>
         </div>
-        <mat-divider></mat-divider>
         <div class="errormessage" *ngIf="error">{{error}}</div>
         <div fxLayout="row wrap" fxLayoutAlign="space-between" formGroupName="userGroup">
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">

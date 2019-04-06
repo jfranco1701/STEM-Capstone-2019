@@ -45,22 +45,22 @@
                 <button mat-button color="primary" (click)="updateProfile()" >Update Personal Info</button>
             </div>
             <div style="margin-top:10px;text-align:right">
-                <button mat-button color="primary" (click)="updatePassword()">Change Password</button>
+                <button mat-button color="primary" (click)="changePassword()">Change Password</button>
             </div>
           </div>
 
         </div>
       </div>
 
-      <mat-divider fxFlex></mat-divider>
+      <mat-divider fxFlex *ngIf="userType === 2"></mat-divider>
 
-      <div fxFlex fxLayout="row" class="authchild">
+      <div fxFlex fxLayout="row" class="authchild" *ngIf="userType === 2">
         <div fxFlex="25">
           <b>Authorized Children</b>
         </div>
 
         <div fxFlex fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="start center">
-          <mat-card *ngFor="let child of profileUser.children" fxFlex="150px" matTooltip="Update child profile" class="card" [routerLink]="['/profile']">
+          <mat-card *ngFor="let child of profileUser.children" fxFlex="150px" matTooltip="Update child profile" class="card" (click)="updateChildProfile()">
             <mat-card-content style="text-align:center;">
               <img style="height:100px;" src="../../../assets/images/persongeneric.png" />
             </mat-card-content>
