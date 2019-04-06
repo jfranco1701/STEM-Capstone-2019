@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UserLogin } from '../models/userlogin';
-import { RegisterUser } from '../models/RegisterUser';
+import { RegisterUser } from '../models/registeruser';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -66,13 +66,12 @@ export class AuthenticationService {
   // Register the user and return.
   register(username: string, emailAddress: string, password: string, firstName: string, lastName: string,
            dob: string, addressRes: string, cityRes: string, stateRes: string, zipCode: string, phoneNumber: string,
-           parentId?: string) {
+           organization: string, parentId?: string) {
 
     const registerUser: RegisterUser = new RegisterUser();
     if (parentId) {
       registerUser.parent_id = parentId;
     }
-
     registerUser.username = username;
     registerUser.email = emailAddress;
     registerUser.first_name = firstName;
@@ -86,7 +85,15 @@ export class AuthenticationService {
     registerUser.state = stateRes;
     registerUser.zip_code = zipCode;
     registerUser.phone = phoneNumber;
+    console.log(organization);
+    registerUser.organization = organization;
+    if (organization !== '') {
+      registerUser.user_type = 3;
+    } else {
+      registerUser.user_type = 2;
+    }
 
+    console.log(registerUser);
     return this.http.post<any>(`${this.apiRegisterUrl}`, registerUser)
       .pipe(map(user => {
         return user;

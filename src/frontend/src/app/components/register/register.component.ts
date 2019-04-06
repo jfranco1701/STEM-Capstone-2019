@@ -66,6 +66,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       )
     });
 
+    this.disableOrganization();
+
     this.filteredStates = this.registerForm.get('addressGroup').get('state').valueChanges
       .pipe(
         startWith(''),
@@ -77,11 +79,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.regTypeSubscription = this.regType.subscribe(
       value => {
         if (value === 'p') {
-          this.registerForm.get('userGroup').get('organizationName').setValue('');
-          this.registerForm.get('userGroup').get('organizationName').markAsPristine();
-          this.registerForm.get('userGroup').get('organizationName').markAsUntouched();
-          this.registerForm.get('userGroup').get('organizationName').updateValueAndValidity();
-          this.registerForm.get('userGroup').get('organizationName').disable();
+          this.disableOrganization();
         } else {
           this.registerForm.get('userGroup').get('organizationName').enable();
         }
@@ -91,6 +89,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.regTypeSubscription.unsubscribe();
+  }
+
+  disableOrganization() {
+    this.registerForm.get('userGroup').get('organizationName').setValue('');
+    this.registerForm.get('userGroup').get('organizationName').markAsPristine();
+    this.registerForm.get('userGroup').get('organizationName').markAsUntouched();
+    this.registerForm.get('userGroup').get('organizationName').updateValueAndValidity();
+    this.registerForm.get('userGroup').get('organizationName').disable();
   }
 
   // Validate the password and confirm password fields
@@ -120,7 +126,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       this.registerForm.get('addressGroup').get('city').value,
       this.registerForm.get('addressGroup').get('state').value,
       this.registerForm.get('addressGroup').get('zip').value,
-      this.registerForm.get('userGroup').get('phone').value, '')
+      this.registerForm.get('userGroup').get('phone').value,
+      this.registerForm.get('userGroup').get('organizationName').value, '')
       .pipe(first())
       .subscribe(
         user => {

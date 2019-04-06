@@ -13,6 +13,9 @@ from app.serializers.password_serializer import PasswordSerializer
 from rest_framework_jwt.compat import get_username, get_username_field
 from rest_framework_jwt.settings import api_settings
 from rest_framework.decorators import list_route, detail_route
+from app.serializers.organization_serializer import OrganizationSerializer
+from rest_framework.request import Request
+from rest_framework.test import APIRequestFactory
 
 User = get_user_model()
 
@@ -26,6 +29,32 @@ class UserViewSet(viewsets.ModelViewSet):
         if self.request.method == 'PATCH':
             self.permission_classes = [IsAuthenticated,]
         return super(UserViewSet, self).get_permissions()
+
+
+    def create(self, request):
+        serializer = UserSerializer(data=request.data, context={'request': request})
+
+        factory = APIRequestFactory()
+        request = factory.get('/')
+        serializer_context = {
+            'request': Request(request),
+        }
+
+
+
+        if serializer.initial_data['organization']:
+            orgserializer = OrganizationSerializer(data={'name': serializer.initial_data['organization'] }, context=serializer_context)
+            if orgserializer.is_valid():
+                org = orgserializer.save()
+                serializer.initial_data['organization'] = orgserializer.data['url']
+
+        if serializer.is_valid():
+            user = serializer.save()
+            if user:
+                print(serializer.data)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
     @detail_route(methods=['post'], permission_classes=[IsAuthenticated], url_path='change-password')
     def set_password(self, request, pk=None):
