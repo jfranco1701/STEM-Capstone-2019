@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { RegistertermsComponent } from './registerterms/registerterms.component';
@@ -6,16 +6,17 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, startWith} from 'rxjs/operators';
 import { STATES, State } from '../../models/states';
+import { MatRadioButton, MatRadioChange, MatRadioGroup} from '@angular/material/radio';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;
   public errors: any = [];
   public states: State[] = STATES;
@@ -24,6 +25,8 @@ export class RegisterComponent implements OnInit {
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
+  regType: Observable<string>;
+  regTypeSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -37,7 +40,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
+      regType: ['p'],
       userGroup: this.fb.group({
+        organizationName: ['', [Validators.required, Validators.maxLength(50)]],
         firstName: ['', [Validators.required, Validators.maxLength(50)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
         dob: [''],
@@ -66,6 +71,26 @@ export class RegisterComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
     );
+
+    this.regType = this.registerForm.get('regType').valueChanges;
+
+    this.regTypeSubscription = this.regType.subscribe(
+      value => {
+        if (value === 'p') {
+          this.registerForm.get('userGroup').get('organizationName').setValue('');
+          this.registerForm.get('userGroup').get('organizationName').markAsPristine();
+          this.registerForm.get('userGroup').get('organizationName').markAsUntouched();
+          this.registerForm.get('userGroup').get('organizationName').updateValueAndValidity();
+          this.registerForm.get('userGroup').get('organizationName').disable();
+        } else {
+          this.registerForm.get('userGroup').get('organizationName').enable();
+        }
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.regTypeSubscription.unsubscribe();
   }
 
   // Validate the password and confirm password fields
@@ -152,5 +177,9 @@ export class RegisterComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.states.filter(state => state.name.toLowerCase().includes(filterValue));
+  }
+
+  onTypeChange() {
+    console.log('made it');
   }
 }

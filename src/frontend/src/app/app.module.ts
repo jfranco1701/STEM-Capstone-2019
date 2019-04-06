@@ -25,6 +25,7 @@ import { RegistertermsComponent } from './components/register/registerterms/regi
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { SearchTermChangeService } from './services/search-term-change.service';
+import { FormsModule } from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -86,6 +87,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    FormsModule,
     EventRoutingModule,
     ProfileRoutingModule,
     SharedModule,
