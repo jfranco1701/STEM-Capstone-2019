@@ -1,5 +1,6 @@
 from app.models.user import User
 from rest_framework import serializers
+import bleach
 
 class ChildrenListingField(serializers.RelatedField):
     def to_representation(self, value):
@@ -39,3 +40,21 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+    def validate_username(self, value):
+        return bleach.clean(value)
+
+    def validate_email(self, value):
+        return bleach.clean(value)
+
+    def validate_first_name(self, value):
+        return bleach.clean(value)
+
+    def validate_last_name(self, value):
+        return bleach.clean(value)
+
+    def validate_address(self, value):
+        return bleach.clean(value)
+
+    def validate_city(self, value):
+        return bleach.clean(value)
