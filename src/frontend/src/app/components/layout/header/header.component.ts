@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, M
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { UserLogin } from '../../../models/userlogin';
+import { UserLogin } from '../../../models/userlogijn';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
