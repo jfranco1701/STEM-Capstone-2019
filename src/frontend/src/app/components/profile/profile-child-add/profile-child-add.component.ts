@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
-import { UserLogin } from '../../../models/userlogijn';
+import { UserLogin } from '../../../models/userlogin';
 
 @Component({
   selector: 'app-profile-child-add',
