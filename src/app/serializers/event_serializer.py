@@ -1,6 +1,7 @@
 from app.models.user import User
 from app.models.event import Event
 from rest_framework import serializers
+import bleach
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     organizer = serializers.HyperlinkedRelatedField(view_name='user-detail', queryset=User.objects.all(), default=serializers.CurrentUserDefault())
@@ -22,3 +23,6 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
     def get_validation_exclusions(self):
         exclusions = super(EventSerializer, self).get_validation_exclusions()
         return exclusions + ['organizer']
+
+    def validate_name(self, value):
+        return bleach.clean(value)
