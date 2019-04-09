@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatAutocompleteTrigger } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition,
+  MatAutocompleteTrigger } from '@angular/material';
 import { RegistertermsComponent } from './registerterms/registerterms.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public filteredStates: Observable<State[]>;
   user: User;
   topPosition: MatSnackBarVerticalPosition = 'top';
-  rightPosition: MatSnackBarHorizontalPosition = 'right';
+  centerPosition: MatSnackBarHorizontalPosition = 'center';
   error = '';
   regType: Observable<string>;
   regTypeSubscription: Subscription;
@@ -136,7 +137,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           this.snackBar.open('Registration Successful', 'X', {
             duration: 4000,
             verticalPosition: this.topPosition,
-            horizontalPosition: this.rightPosition
+            horizontalPosition: this.centerPosition
           });
 
           this.router.navigate(['/login']);
