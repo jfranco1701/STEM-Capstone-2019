@@ -15,7 +15,7 @@ export class ProfileChildAddComponent implements OnInit {
   addForm: FormGroup;
   error = '';
   topPosition: MatSnackBarVerticalPosition = 'top';
-  rightPosition: MatSnackBarHorizontalPosition = 'right';
+  centerPosition: MatSnackBarHorizontalPosition = 'center';
   userId: number;
   userLogin: UserLogin;
 
@@ -75,7 +75,7 @@ export class ProfileChildAddComponent implements OnInit {
           this.snackBar.open('Registration Successful', 'X', {
             duration: 4000,
             verticalPosition: this.topPosition,
-            horizontalPosition: this.rightPosition
+            horizontalPosition: this.centerPosition
           });
 
           this.router.navigate(['/profile']);
