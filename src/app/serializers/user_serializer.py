@@ -9,7 +9,7 @@ class ChildrenListingField(serializers.RelatedField):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    interests = serializers.StringRelatedField(many=True)
+    interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
     children = ChildrenListingField(many=True, read_only=True)
 
@@ -26,7 +26,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "city",
             "state",
             "zip_code",
-            "phone", 
+            "phone",
             "date_of_birth",
             "organization",
             "user_type",
@@ -34,10 +34,11 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "children",
             "url",
         )
-    
+
     def create(self, validated_data):
         user = super(UserSerializer, self).create(validated_data)
         user.set_password(validated_data['password'])
+
         user.save()
         return user
 

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
-import { Common } from '../../shared/common';
-import { UserLogin } from '../../../models/UserLogin';
+import { UserLogin } from '../../../models/userlogin';
 
 @Component({
   selector: 'app-profile-child-add',
@@ -17,18 +16,14 @@ export class ProfileChildAddComponent implements OnInit {
   error = '';
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
-  common: Common;
   userId: number;
   userLogin: UserLogin;
 
   constructor(private fb: FormBuilder, private router: Router,
-              private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
-
-
+    private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.common = new Common();
-    this.userId = this.common.getUserId();
+    this.userId = this.authenticationService.userId;
 
     this.addForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50)]],
@@ -38,9 +33,9 @@ export class ProfileChildAddComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
     },
-    {
-      validator: this.checkPasswords('password', 'confirmPassword'),
-    });
+      {
+        validator: this.checkPasswords('password', 'confirmPassword'),
+      });
   }
 
   // Validate the password and confirm password fields
@@ -73,7 +68,7 @@ export class ProfileChildAddComponent implements OnInit {
         this.addForm.get('firstName').value,
         this.addForm.get('lastName').value,
         this.addForm.get('dob').value,
-        '', '', '', '', '', 'http://localhost:8000/api/v1/users/' + this.userId + '/')
+        '', '', '', '', '', '', 'http://localhost:8000/api/v1/users/' + this.userId + '/')
       .pipe(first())
       .subscribe(
         user => {
@@ -91,28 +86,28 @@ export class ProfileChildAddComponent implements OnInit {
       );
   }
 
-    // Get validation error message
-    getErrorMessage(controlName: string) {
-      return this.addForm
+  // Get validation error message
+  getErrorMessage(controlName: string) {
+    return this.addForm
+      .get(controlName)
+      .hasError('required')
+      ? 'You must enter a value'
+      : this.addForm
         .get(controlName)
-        .hasError('required')
-        ? 'You must enter a value'
-        : this.addForm
-            .get(controlName)
-            .hasError('email')
+        .hasError('email')
         ? 'Not a valid email'
         : this.addForm
-            .get(controlName)
-            .hasError('notEqual')
-        ? 'Passwords do not match'
-        : this.addForm
+          .get(controlName)
+          .hasError('notEqual')
+          ? 'Passwords do not match'
+          : this.addForm
             .get(controlName)
             .hasError('minlength')
-        ? 'Too short'
-        : this.addForm
-            .get(controlName)
-            .hasError('maxlength')
-        ? 'Too long'
-        : '';
-    }
+            ? 'Too short'
+            : this.addForm
+              .get(controlName)
+              .hasError('maxlength')
+              ? 'Too long'
+              : '';
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatAutocompleteTrigger } from '@angular/material';
 import { RegistertermsComponent } from './registerterms/registerterms.component';
@@ -6,24 +6,27 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs';
 import { map, startWith} from 'rxjs/operators';
 import { STATES, State } from '../../models/states';
+import { MatRadioButton, MatRadioChange, MatRadioGroup} from '@angular/material/radio';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;
   public errors: any = [];
   public states: State[] = STATES;
   public filteredStates: Observable<State[]>;
-  user: User; 
+  user: User;
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';
   error = '';
+  regType: Observable<string>;
+  regTypeSubscription: Subscription;
 
   @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
 
@@ -39,7 +42,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
+      regType: ['p'],
       userGroup: this.fb.group({
+        organizationName: ['', [Validators.required, Validators.maxLength(50)]],
         firstName: ['', [Validators.required, Validators.maxLength(50)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
         dob: [''],
@@ -63,12 +68,37 @@ export class RegisterComponent implements OnInit {
       )
     });
 
+    this.disableOrganization();
+
     this.filteredStates = this.registerForm.get('addressGroup').get('state').valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
     );
 
+    this.regType = this.registerForm.get('regType').valueChanges;
+
+    this.regTypeSubscription = this.regType.subscribe(
+      value => {
+        if (value === 'p') {
+          this.disableOrganization();
+        } else {
+          this.registerForm.get('userGroup').get('organizationName').enable();
+        }
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.regTypeSubscription.unsubscribe();
+  }
+
+  disableOrganization() {
+    this.registerForm.get('userGroup').get('organizationName').setValue('');
+    this.registerForm.get('userGroup').get('organizationName').markAsPristine();
+    this.registerForm.get('userGroup').get('organizationName').markAsUntouched();
+    this.registerForm.get('userGroup').get('organizationName').updateValueAndValidity();
+    this.registerForm.get('userGroup').get('organizationName').disable();
   }
 
   // Validate the password and confirm password fields
@@ -98,7 +128,8 @@ export class RegisterComponent implements OnInit {
       this.registerForm.get('addressGroup').get('city').value,
       this.registerForm.get('addressGroup').get('state').value,
       this.registerForm.get('addressGroup').get('zip').value,
-      this.registerForm.get('userGroup').get('phone').value, '')
+      this.registerForm.get('userGroup').get('phone').value,
+      this.registerForm.get('userGroup').get('organizationName').value, '')
       .pipe(first())
       .subscribe(
         user => {

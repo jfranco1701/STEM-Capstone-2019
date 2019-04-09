@@ -3,7 +3,7 @@ import { MatDialog, MatDialogConfig, MatSnackBar, MatSnackBarVerticalPosition, M
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { UserLogin } from '../../../models/UserLogin';
+import { UserLogin } from '../../../models/userlogin';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SearchTermChangeService } from 'src/app/services/search-term-change.service';
@@ -28,7 +28,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ])
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   currentUser: UserLogin;
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right';

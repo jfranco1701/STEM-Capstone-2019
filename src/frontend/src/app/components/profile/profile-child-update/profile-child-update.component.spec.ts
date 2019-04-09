@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormUserAddComponent } from './form-user-add.component';
+import { ProfileChildUpdateComponent } from './profile-child-update.component';
 
-describe('FormUserAddComponent', () => {
-  let component: FormUserAddComponent;
-  let fixture: ComponentFixture<FormUserAddComponent>;
+describe('ProfileChildUpdateComponent', () => {
+  let component: ProfileChildUpdateComponent;
+  let fixture: ComponentFixture<ProfileChildUpdateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormUserAddComponent ]
+      declarations: [ ProfileChildUpdateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormUserAddComponent);
+    fixture = TestBed.createComponent(ProfileChildUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

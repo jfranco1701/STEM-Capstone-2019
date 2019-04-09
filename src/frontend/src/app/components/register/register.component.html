@@ -1,13 +1,30 @@
 <div class="container" fxLayout="row" fxLayout.lt-md="column">
   <div fxFlex>
-    <div class="containerfor">
+    <div class="formcontainer">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="formheader">
-          <strong>Omaha STEM Ecosystem Parent Registration</strong>
+          <strong>Omaha STEM Ecosystem Registration</strong>
+          <mat-divider></mat-divider>
         </div>
-        <mat-divider></mat-divider>
         <div class="errormessage" *ngIf="error">{{error}}</div>
+
+        <div class="registrationsection">
+          Registration Type:
+          <mat-radio-group formControlName="regType">
+            <mat-radio-button class="registrationbutton" value="p" [disableRipple]="true" checked>Parent
+            </mat-radio-button>
+            <mat-radio-button class="registrationbutton" value="o" [disableRipple]="true">Organization
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
         <div fxLayout="row wrap" fxLayoutAlign="space-between" formGroupName="userGroup">
+          <mat-form-field fxFlex="100" fxFlex.lt-sm="90" *ngIf="registerForm.get('regType').value === 'o'">
+            <input matInput placeholder="Organization Name*" formControlName="organizationName" *ngIf="registerForm.get('regType').value === 'o'"/>
+            <mat-error *ngIf="registerForm.get('userGroup').get('organizationName').invalid">
+              {{ getErrorMessage('userGroup', 'organizationName') }}
+            </mat-error>
+          </mat-form-field>
+
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
             <input matInput placeholder="First Name*" formControlName="firstName" />
             <mat-error *ngIf="registerForm.get('userGroup').get('firstName').invalid">
@@ -33,14 +50,14 @@
             <input matInput placeholder="Phone Number" formControlName="phone" />
             <mat-hint align="start">Format: ###-###-####</mat-hint>
             <mat-error *ngIf="registerForm.get('userGroup').get('phone').invalid">
-              Invalid phone number.  Format: ###-###-####
+              Invalid phone number. Format: ###-###-####
             </mat-error>
           </mat-form-field>
         </div>
 
         <div fxLayout="row wrap" fxLayoutAlign="space-between" formGroupName="addressGroup">
           <mat-form-field fxFlex="100" fxFlex.lt-sm="90">
-            <input matInput placeholder="Address" formControlName="address"/>
+            <input matInput placeholder="Address" formControlName="address" />
             <mat-error *ngIf="registerForm.get('addressGroup').get('address').invalid">
               {{ getErrorMessage('addressGroup', 'address') }}
             </mat-error>
@@ -91,12 +108,12 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div style="margin-top:5px;font-size:smaller;text-align: center;">*Indicates Required</div>
-        <div style="text-align: center; font-size: smaller; margin-top:20px;">
+        <div class="reqmessage">*Indicates Required</div>
+        <div class="termsmessage">
           By clicking the <b>complete registration</b> button, you are accepting our
           <span class="terms" (click)="openTermsDialog()">terms of use policy</span>.
         </div>
-        <div style="text-align: center; margin-top:20px; margin-bottom:20px;">
+        <div class="submitsection">
           <button type="submit" mat-raised-button [disabled]="!registerForm.valid">Complete Registration</button>
         </div>
       </form>

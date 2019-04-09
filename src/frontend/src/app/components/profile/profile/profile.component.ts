@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ProfileUpdateComponent } from '../profile-update/profile-update.component';
+import { ProfileChildUpdateComponent } from '../profile-child-update/profile-child-update.component';
 import { PasswordUpdateComponent } from '../password-update/password-update.component';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
-import { Common } from '../../shared/common';
 import { first } from 'rxjs/operators';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,14 +16,15 @@ import { first } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
   profileUser: User;
   error: string;
-  common: Common;
   userId: number;
+  userType: number;
 
-  constructor(private dialog: MatDialog, private userService: UserService) {}
+  constructor(private dialog: MatDialog, private userService: UserService,
+              private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
-    this.common = new Common();
-    this.userId = this.common.getUserId();
+    this.userId = this.authenticationService.userId;
+    this.userType = this.authenticationService.userType;
     this.profileUser = new User();
     this.getUserInfo();
   }
@@ -47,14 +49,37 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProfileUpdateComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(val => console.log('Dialog output:', val));
+    dialogRef.afterClosed().subscribe(val => {
+        if (val) {
+          this.profileUser = val;
+        }
+      }
+    );
   }
 
-  updatePassword() {
+  updateChildProfile() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {user: this.profileUser};
+
+    const dialogRef = this.dialog.open(ProfileChildUpdateComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(val => {
+        if (val) {
+          this.profileUser = val;
+        }
+      }
+    );
+  }
+
+  changePassword() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = false;
 
     dialogConfig.data = {};
 

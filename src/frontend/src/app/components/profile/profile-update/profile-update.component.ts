@@ -5,8 +5,8 @@ import { User } from '../../../models/user';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
 import { first } from 'rxjs/operators';
-import { Common } from '../../shared/common';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-profile-update',
@@ -21,6 +21,7 @@ export class ProfileUpdateComponent implements OnInit {
   centerPosition: MatSnackBarHorizontalPosition = 'center';
 
   constructor(
+    private authenticationService: AuthenticationService,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ProfileUpdateComponent>,
     @Inject(MAT_DIALOG_DATA) data,
@@ -49,19 +50,17 @@ export class ProfileUpdateComponent implements OnInit {
   }
 
   onSubmit() {
-    const common = new Common();
-
-    const userId = common.getUserId();
+    const userId = this.authenticationService.userId;
     const userObject = {
       first_name: this.updateForm.get('firstName').value,
       last_name: this.updateForm.get('lastName').value,
       email: this.updateForm.get('email').value,
-      dob: this.updateForm.get('dob').value,
+      date_of_birth: this.updateForm.get('dob').value,
       phone: this.updateForm.get('phone').value,
       address: this.updateForm.get('address').value,
       city: this.updateForm.get('city').value,
       state: this.updateForm.get('state').value,
-      zip: this.updateForm.get('zip').value
+      zip_code: this.updateForm.get('zip').value
     };
 
     this.userService.updateUser(userId, userObject)
@@ -74,7 +73,7 @@ export class ProfileUpdateComponent implements OnInit {
           horizontalPosition: this.centerPosition
         });
 
-        this.dialogRef.close(this.updateForm.value);
+        this.dialogRef.close(user);
       },
       error => {
         this.error = error;

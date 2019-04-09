@@ -87,6 +87,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    FormsModule,
     EventRoutingModule,
     ProfileRoutingModule,
     SharedModule,

@@ -52,12 +52,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileUpdateComponent } from './profile-update/profile-update.component';
 import { PasswordUpdateComponent } from './password-update/password-update.component';
 import { ProfileChildAddComponent } from './profile-child-add/profile-child-add.component';
+import { ProfileChildUpdateComponent } from './profile-child-update/profile-child-update.component';
 
 @NgModule({
   declarations: [ProfileComponent,
     ProfileUpdateComponent,
     PasswordUpdateComponent,
     ProfileChildAddComponent,
+    ProfileChildUpdateComponent,
   ],
   imports: [
     CommonModule,
@@ -110,6 +112,7 @@ import { ProfileChildAddComponent } from './profile-child-add/profile-child-add.
   entryComponents: [
     ProfileUpdateComponent,
     PasswordUpdateComponent,
+    ProfileChildUpdateComponent,
   ],
 })
 export class ProfileModule { }

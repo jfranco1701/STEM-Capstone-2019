@@ -40,14 +40,12 @@ import {
 } from '@angular/material';
 
 import { ContactusComponent } from './components/layout/contactus/contactus.component';
-import { FormUserAddComponent } from './components/shared/form-user-add/form-user-add.component';
 import { TermsComponent } from './components/shared/terms/terms.component';
 import { ConfirmationComponent } from './components/shared/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
     ContactusComponent,
-    FormUserAddComponent,
     TermsComponent,
     ConfirmationComponent,
   ],
@@ -92,7 +90,6 @@ import { ConfirmationComponent } from './components/shared/confirmation/confirma
   ],
   exports: [
     ContactusComponent,
-    FormUserAddComponent,
     TermsComponent,
     ConfirmationComponent,
 

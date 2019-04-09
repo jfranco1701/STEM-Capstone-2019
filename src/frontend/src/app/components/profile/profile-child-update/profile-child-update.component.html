@@ -1,0 +1,75 @@
+<div style="width:500px">
+  <h2 mat-dialog-title>Update Child Profile</h2>
+
+  <div fxFlexLayout="column">
+
+    <form fxFlex [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+      <mat-dialog-content>
+        <div fxLayout="column">
+          <div fxFlex *ngIf="error" class="errormessage">{{ error }}</div>
+          <div fxFlex fxLayout="row wrap" fxLayoutGap="20px" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0px">
+            <mat-form-field fxFlex>
+              <input matInput placeholder="First Name*" formControlName="firstName" />
+              <mat-error *ngIf="updateForm.get('firstName').invalid">
+                <!-- {{ getErrorMessage('firstName') }} -->
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex>
+              <input matInput placeholder="Last Name*" formControlName="lastName" />
+              <mat-error *ngIf="updateForm.get('lastName').invalid">
+                <!-- {{ getErrorMessage('lastName') }} -->
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="48" fxFlex.lt-sm="100">
+              <input matInput placeholder="Date of Birth" formControlName="dob" type="date" />
+              <mat-error *ngIf="updateForm.get('dob').invalid">
+                <!-- {{ getErrorMessage('dob') }} -->
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="98" fxFlex.lt-sm="100">
+              <input matInput placeholder="Email*" formControlName="email" />
+              <mat-error *ngIf="updateForm.get('email').invalid">
+                <!-- {{ getErrorMessage('email') }} -->
+              </mat-error>
+            </mat-form-field>
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+      </mat-dialog-content>
+      <div style="margin-top:5px;margin-bottom:10px;font-size:smaller;text-align: center;">*Indicates Required</div>
+      <mat-dialog-actions>
+        <div flexLayout="row" style="width:100%">
+          <div fxFlex>
+            <button class="mat-raised-button" (click)="close()" type="button"><i class="fas fa-window-close fa-lg"
+                style="margin-right:12px;"></i>
+              Cancel
+            </button>
+          </div>
+          <div fxFlex>
+            <button mat-raised-button color="warn"><i class="fas fa-trash fa-lg"
+                style="margin-right:12px;"></i>Delete</button>
+          </div>
+          <div fxFlexAlign="end">
+            <button class="mat-raised-button mat-primary" type="submit" [disabled]="!updateForm.valid">
+              <i class="fas fa-save fa-lg" style="margin-right:12px;"></i>Save
+            </button>
+          </div>
+        </div>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

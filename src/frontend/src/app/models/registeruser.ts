@@ -10,6 +10,8 @@ export class RegisterUser {
   state: string;
   zip_code: string;
   phone: string;
+  user_type: number;
   parent_id?: string;
+  organization : string;
   interests: string[];
 }
