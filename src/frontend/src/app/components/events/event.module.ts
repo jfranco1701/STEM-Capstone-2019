@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { EventListComponent } from './event-list/event-list.component';
@@ -44,10 +45,12 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { EventGridComponent } from './event-search/event-grid/event-grid.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MatAutocompleteModule,
@@ -87,6 +90,6 @@ import { EventGridComponent } from './event-search/event-grid/event-grid.compone
     MatTreeModule
   ],
   exports: [EventListComponent, EventAddComponent, EventSearchComponent],
-  declarations: [EventListComponent, EventAddComponent, EventSearchComponent, EventGridComponent],
+  declarations: [EventListComponent, EventAddComponent, EventSearchComponent, EventGridComponent, EventEditComponent],
 })
 export class EventModule { }

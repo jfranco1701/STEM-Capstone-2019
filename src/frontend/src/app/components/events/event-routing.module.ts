@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventAddComponent } from './event-add/event-add.component';
-import { EventListComponent } from './event-list/event-list.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
 import { EventSearchComponent} from './event-search/event-search.component';
 
 const eventRoutes: Routes = [
@@ -9,6 +9,7 @@ const eventRoutes: Routes = [
   { path: 'events',
     children: [
       { path: 'add', component: EventAddComponent },
+      { path: 'edit/:id', component: EventEditComponent },
       { path: 'search', component: EventSearchComponent},
       { path: 'search/:term', component: EventSearchComponent}
     ]

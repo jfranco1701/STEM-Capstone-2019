@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, retry } from 'rxjs/operators';
 import { Event } from '../models/event';
+import { Tag } from '../models/tag';
 import { Cacheable } from 'ngx-cacheable';
 import { environment } from '../../environments/environment';
 
@@ -20,6 +21,11 @@ export class EventService {
   @Cacheable()
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(this.eventApiUrl);
+  }
+
+  getEvent(id: number): Observable<Event> {
+    var getEventUrl = this.eventApiUrl + id.toString();
+    return this.http.get<Event>(getEventUrl);
   }
 
   @Cacheable()
@@ -46,6 +52,32 @@ export class EventService {
     return this.http.post<any>(this.eventApiUrl, obj, httpOptions).pipe(
       retry(3),
       tap(_ => console.log('add event')),
+      catchError(this.handleError)
+    )
+  }
+
+  updateEvent(id: number, eventName: string, eventDate: Date, eventType: string, tags: Tag[]): Observable<Event> {
+    const obj = {
+      name: eventName,
+      date: eventDate.toLocaleDateString('en-US'),
+      event_type: eventType,
+      tags: tags
+    };
+
+    var user = JSON.parse(localStorage.currentUser);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + user.token
+      })
+    };
+
+    // Note the trailing slash, Django setting
+    var updateEventUrl = this.eventApiUrl + id.toString() + "/";
+    console.log(updateEventUrl);
+    return this.http.put<any>(updateEventUrl, obj, httpOptions).pipe(
+      retry(3),
+      tap(_ => console.log('update event')),
       catchError(this.handleError)
     )
   }

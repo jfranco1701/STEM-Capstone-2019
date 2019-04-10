@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event-service.service';
 import { Event } from '../../models/event';
-import { Tag } from '../../models/tag';
+import { Tag } from 'src/app/models/tag';
 
 @Component({
   selector: 'app-home',
@@ -9,39 +9,46 @@ import { Tag } from '../../models/tag';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  events: Event[];
-  categories: Tag[];
-  tevents: Event[];
-  imageSource: string;
-  mySlideOptions = { dots: false, nav: true };
 
   constructor(private eventService: EventService) { }
+  events: Event[];
+  categories: String[];
+
+  mySlideOptions={dots: false, nav: true};
 
   ngOnInit() {
+
     this.getEvents();
+
   }
 
-  getEveByCat(cat: Tag): Event[] {
-    this.tevents = [];
-    this.events.forEach(event => {
-      if (event.tags.includes(cat)) { this.tevents.push(event); }
-    });
+  getEveByCat(cat: String): Event[]
+  {
+    
+    //var tevents = this.events.filter(event => event.tags.filter(tag => tag.name == "Math").length > 0);
+    var tevents : Event[] = [];
+    this.events.forEach(event => { if(event.tags.filter(tag =>tag.name == cat).length > 0) tevents.push(event)  });
+    console.log(this.categories);
 
-    return this.tevents;
+    return tevents;
+
   }
 
   getEvents(): void {
     this.eventService
-      .getEvents()
-      .subscribe(events => {
-        this.categories = [];
-        this.events = events;
-        this.events.forEach(event => {
-          event.tags.forEach(tag => {
-            if (!this.categories.includes(tag)) { this.categories.push(tag); }
-          });
+    .getEvents()
+    .subscribe(events => {
+      this.categories=[];
+      this.events = events;
+      this.events.forEach(event => {
+        event.tags.forEach( tag => {
+          if(!this.categories.includes(tag.name)) { this.categories.push(tag.name) }; 
+          console.log(this.categories);
         });
+      
       });
+
+    });
   }
 
 }

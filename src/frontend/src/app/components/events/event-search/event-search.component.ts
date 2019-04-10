@@ -110,7 +110,7 @@ export class EventSearchComponent implements OnInit, OnDestroy {
       const eventHash = [
         event.name,
         event.date,
-        event.e_type
+        event.event_type
     ].join(separator).toLowerCase();
       this.eventMap.set(eventHash, event);
     });

@@ -2,7 +2,7 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let event">
-        <p>{{ event.name }}</p>
+      <p>{{ event.name }}</p>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="date">
@@ -17,9 +17,15 @@
       <p>{{ event.event_type }}</p>
     </mat-cell>
   </ng-container>
+  <ng-container matColumnDef="event_edit">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let event" [routerLink]="['/events/edit', event.id]">
+      <button mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
   <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-  <mat-row
-    *matRowDef="let row; columns: columnsToDisplay"
-    class="element-row">
+  <mat-row *matRowDef="let row; columns: columnsToDisplay" class="element-row">
   </mat-row>
 </mat-table>
