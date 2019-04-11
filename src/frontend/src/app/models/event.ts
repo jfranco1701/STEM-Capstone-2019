@@ -5,6 +5,7 @@ export class Event {
   name: string;
   date: string;
   e_type: string;
+  address: string;
   organizer: number;
   attendees: number[];
   tags: Tag[];

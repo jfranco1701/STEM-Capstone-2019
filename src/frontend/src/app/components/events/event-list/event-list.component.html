@@ -1,9 +1,10 @@
 <mat-card class="container" class="eventCard">
   <p class="event-title">{{ name }} </p>
   <p class="date">{{ date | date:'longDate' }}</p>
+  <p class="date">{{ event_address }}</p>
   <img src="{{imageSource}}">
   <mat-chip-list class="container">
     <mat-chip *ngFor="let tag of tags">{{ tag.toString() | lowercase }}</mat-chip>
   </mat-chip-list>
-  <!--<button mat-button>LIKE</button>-->
+  <button mat-button>SIGNUP</button>
 </mat-card>

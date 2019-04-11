@@ -6,7 +6,7 @@
 
     <owl-carousel [options]="mySlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
       <div *ngFor="let event of getEveByCat(cat)">
-        <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [tags]="event.tags">
+        <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
         </app-event-list>
       </div>
     </owl-carousel>

@@ -16,6 +16,8 @@ export class EventListComponent implements OnInit {
   event_type: string;
   @Input()
   tags: Tag[]
+  @Input()
+  event_address: string
 
   imageSource: string;
 
