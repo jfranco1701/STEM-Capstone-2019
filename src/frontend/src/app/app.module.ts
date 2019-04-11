@@ -25,6 +25,7 @@ import { RegistertermsComponent } from './components/register/registerterms/regi
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { SearchTermChangeService } from './services/search-term-change.service';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 import {
@@ -81,6 +82,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     AdminComponent,
     RegistertermsComponent,
     UsersComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -135,6 +137,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     ScrollingModule,
     HttpClientModule,
     EventModule,
+    OwlModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
