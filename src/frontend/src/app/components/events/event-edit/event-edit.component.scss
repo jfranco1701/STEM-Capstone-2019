@@ -1,0 +1,38 @@
+.container {
+    margin-top:25px;
+  }
+  
+  .containerfor {
+    display: table;
+    margin: 0 auto;
+  
+    width: 100%;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top: 25px;
+    max-width: 500px;
+    min-width: 250px;
+  }
+  
+  .containerstem {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .submit {
+    text-align: right;
+    margin-top:20px;
+  }
+  
+  .item {
+    margin-right: 50px;
+  }
+  
+  .formheader {
+    text-align: center;
+  }
+  
+  .mat-divider {
+    margin-top:10px;
+    margin-bottom:20px;
+  }

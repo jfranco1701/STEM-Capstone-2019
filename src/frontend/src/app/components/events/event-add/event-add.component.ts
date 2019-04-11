@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { EventService } from '../../../services/event-service.service';
+import { TagService } from '../../../services/tag-service.service';
 import { Event } from 'src/app/models/event';
+import { Tag } from 'src/app/models/tag';
 
 @Component({
   selector: 'app-event-add',
@@ -16,11 +18,14 @@ export class EventAddComponent implements OnInit {
   public errors: any = [];
   event_types = ['Community', 'Camp'];
   event: Event;
+  tags: Tag[];
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
     private router: Router, private eventService: EventService
   ) { }
+    private router: Router, private eventService: EventService, public tagService: TagService
+  ) {}
 
   ngOnInit() {
     // Define the event creation form
@@ -29,15 +34,20 @@ export class EventAddComponent implements OnInit {
         name: ['', [Validators.required]],
         date: ['', [Validators.required]],
         e_type: ['', [Validators.required]],
+        tags: [[]]
       })
-    });
+    })
+
+    this.tagService.getTags().subscribe(tags => (this.tags = tags));
+
   }
 
   onSubmit() {
     this.eventService.addEvent(
       this.eventForm.get('eventGroup').get('name').value,
       this.eventForm.get('eventGroup').get('date').value,
-      this.eventForm.get('eventGroup').get('e_type').value)
+      this.eventForm.get('eventGroup').get('e_type').value,
+      this.eventForm.get('eventGroup').get('tags').value)
       .subscribe(event => {
         this.event = event;
         this.router.navigate(['/home']);
@@ -48,6 +58,11 @@ export class EventAddComponent implements OnInit {
   getErrorMessage(groupName: string, controlName: string) {
     return this.eventForm.get(groupName).get(controlName).hasError('required') ? 'You must enter a value' :
       '';
+  }
+
+  comparer(o1: Tag, o2: Tag): boolean {
+    // if possible compare by object's name property - and not by reference.
+    return o1 && o2 ? o1.name === o2.name : o2 === o2;
   }
 }
 

@@ -24,7 +24,7 @@ export class EventService {
   }
 
   getEvent(id: number): Observable<Event> {
-    var getEventUrl = this.eventApiUrl + id.toString();
+    var getEventUrl = this.eventApiUrl + id.toString() + "/";
     return this.http.get<Event>(getEventUrl);
   }
 
@@ -33,12 +33,12 @@ export class EventService {
     return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
   }
 
-  addEvent(eventName: string, eventDate: Date, eventType: string): Observable<Event> {
+  addEvent(eventName: string, eventDate: Date, eventType: string, tags: Tag[]): Observable<Event> {
     const obj = {
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
-      tags: []
+      tags: tags
     };
 
     var user = JSON.parse(localStorage.currentUser);
@@ -73,9 +73,8 @@ export class EventService {
     };
 
     // Note the trailing slash, Django setting
-    var updateEventUrl = this.eventApiUrl + id.toString() + "/";
-    console.log(updateEventUrl);
-    return this.http.put<any>(updateEventUrl, obj, httpOptions).pipe(
+    var eventUpdateUrl = this.eventApiUrl + id.toString() + "/";
+    return this.http.put<any>(eventUpdateUrl, obj, httpOptions).pipe(
       retry(3),
       tap(_ => console.log('update event')),
       catchError(this.handleError)

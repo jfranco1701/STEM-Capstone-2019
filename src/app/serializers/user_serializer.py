@@ -8,7 +8,7 @@ class ChildrenListingField(serializers.RelatedField):
         'email': value.email, 'date_of_birth': value.date_of_birth}
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
     account_locked = serializers.ReadOnlyField()
@@ -18,6 +18,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = (
+            "id",
             "parent_id",
             "username",
             "email",
@@ -36,7 +37,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "user_type",
             "interests",
             "children",
-            "url",
         )
 
     def create(self, validated_data):

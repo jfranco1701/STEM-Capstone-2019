@@ -5,10 +5,10 @@ from app.serializers.tag_serializer import TagSerializer
 from rest_framework import serializers
 import bleach
 
-class EventSerializer(serializers.HyperlinkedModelSerializer):
-    organizer = serializers.HyperlinkedRelatedField(view_name='user-detail', queryset=User.objects.all(), default=serializers.CurrentUserDefault())
+class EventSerializer(serializers.ModelSerializer):
+    organizer = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), default=serializers.CurrentUserDefault())
     date = serializers.DateField(format="%m/%d/%Y", input_formats=['%m/%d/%Y', 'iso-8601'])
-    tags = TagSerializer()
+    tags = TagSerializer(many=True)
 
     class Meta:
         model = Event
@@ -21,8 +21,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "address",
             "organizer",
             "attendees",
-            "tags",
-            "url",
+            "tags"
         )
 
     def get_validation_exclusions(self):
@@ -31,3 +30,15 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 
     def validate_name(self, value):
         return bleach.clean(value)
+
+
+    def create(self, validated_data):
+
+        tags = validated_data.pop('tags')
+        print(tags)
+        for tag in tags:
+            print(tag)
+        instance = Event.objects.create(**validated_data)
+
+
+        return instance

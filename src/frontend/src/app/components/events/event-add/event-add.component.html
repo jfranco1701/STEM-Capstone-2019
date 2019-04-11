@@ -25,8 +25,15 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
-            <mat-select matSelect placeholder = "Event Type" formControlName="e_type">
+            <mat-select matSelect placeholder="Event Type" formControlName="e_type">
               <mat-option *ngFor="let type of event_types" [value]="type">{{type}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Tags</mat-label>
+            <mat-select matSelect placeholder="Tags" formControlName="tags" multiple [compareWith]="comparer">
+              <mat-option *ngFor="let tag of tags" [value]="tag">{{tag.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
