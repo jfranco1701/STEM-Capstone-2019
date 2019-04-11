@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event-service.service';
 import { Event } from '../../models/event';
 import { Tag } from 'src/app/models/tag';
+import { EventCarousel } from '../../models/event-carousel';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,9 @@ export class HomeComponent implements OnInit {
   constructor(private eventService: EventService) { }
   events: Event[];
   categories: String[];
+  eventCarousels: EventCarousel[] = [];
 
-  mySlideOptions={dots: false, nav: true};
+  mySlideOptions = { dots: false, nav: true };
 
   ngOnInit() {
 
@@ -22,33 +24,26 @@ export class HomeComponent implements OnInit {
 
   }
 
-  getEveByCat(cat: String): Event[]
-  {
-    
-    //var tevents = this.events.filter(event => event.tags.filter(tag => tag.name == "Math").length > 0);
-    var tevents : Event[] = [];
-    this.events.forEach(event => { if(event.tags.filter(tag =>tag.name == cat).length > 0) tevents.push(event)  });
-    console.log(this.categories);
-
-    return tevents;
-
-  }
-
   getEvents(): void {
     this.eventService
-    .getEvents()
-    .subscribe(events => {
-      this.categories=[];
-      this.events = events;
-      this.events.forEach(event => {
-        event.tags.forEach( tag => {
-          if(!this.categories.includes(tag.name)) { this.categories.push(tag.name) }; 
-          console.log(this.categories);
+      .getEvents()
+      .subscribe(events => {
+        this.categories = [];
+        this.events = events;
+        this.events.forEach(event => {
+          event.tags.forEach(tag => {
+            var newCarousels = this.eventCarousels.map(carousel => carousel.name);
+            if (!newCarousels.includes(tag.name)) {
+              var newCarousel = new EventCarousel();
+              newCarousel.name = tag.name;
+              this.eventCarousels.push(newCarousel);
+            };
+          });
         });
-      
+
+        this.eventCarousels.forEach(carousel => {
+          carousel.events = this.events.filter(event => event.tags.filter(tag => tag.name == carousel.name).length > 0);
+        });
       });
-
-    });
   }
-
 }
