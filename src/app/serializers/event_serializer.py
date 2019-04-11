@@ -8,7 +8,7 @@ import bleach
 class EventSerializer(serializers.ModelSerializer):
     organizer = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), default=serializers.CurrentUserDefault())
     date = serializers.DateField(format="%m/%d/%Y", input_formats=['%m/%d/%Y', 'iso-8601'])
-    tags = TagSerializer(many=True)
+    tags = TagSerializer()
 
     class Meta:
         model = Event
