@@ -14,6 +14,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "name",
             "date",
             "event_type",
+            "address",
             "organizer",
             "attendees",
             "tags",
