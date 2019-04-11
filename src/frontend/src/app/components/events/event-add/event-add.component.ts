@@ -22,8 +22,6 @@ export class EventAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
-    private router: Router, private eventService: EventService
-  ) { }
     private router: Router, private eventService: EventService, public tagService: TagService
   ) {}
 
