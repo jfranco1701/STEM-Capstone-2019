@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=stem_ecosystem
+      - POSTGRES_USER=stem_admin
+      - POSTGRES_PASSWORD=${STEM_PSQL_PASSWORD}
+    volumes:
+      - postgres-config:/etc/postgresql
+      - postgres-data:/var/lib/postgresql/data
+      - postgres-logs:/var/log/postgresql
+
+  django:
+    build: 
+      context: ./src
+      dockerfile: ./Dockerfile
+    restart: always
+    working_dir: /app
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --no-input && gunicorn stem.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - ./src:/app
+      - django-static:/app/static
+    expose:
+      - 8000
+    depends_on:
+      - db
+    environment:
+      - STEM_SECRET_KEY=${STEM_SECRET_KEY}
+      - STEM_PSQL_PASSWORD=${STEM_PSQL_PASSWORD}
+      - DOCKER_SETUP_FLAG=TRUE
+
+  nginx:
+    build:
+      context: ./prod/nginx
+      dockerfile: ./Dockerfile
+    restart: always
+    volumes:
+      - django-static:/app/static
+    ports:
+      - "8080:80"
+    depends_on:
+      - django
+
+  # nginx:
+  #   image: nginx:1.14.2
+  #   restart: always
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./prod/stem-portal:/var/www/stem-portal
+  #     - ./prod/nginx:/etc/nginx/conf.d
+  #     - ./prod/logs:/var/logs/nginx
+  #   depends_on:
+  #     - django
+
+volumes:
+  postgres-config:
+  postgres-data:
+  postgres-logs:
+  django-static:
