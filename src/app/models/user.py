@@ -25,7 +25,7 @@ class User(AbstractUser):
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
-    interests = models.ManyToManyField(Tag, related_name="interests", blank=True)
+    interests = models.ManyToManyField(Tag, related_name="users", blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
