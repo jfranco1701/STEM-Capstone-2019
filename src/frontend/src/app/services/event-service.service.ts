@@ -33,11 +33,12 @@ export class EventService {
     return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
   }
 
-  addEvent(eventName: string, eventDate: Date, eventType: string, tags: Tag[]): Observable<Event> {
+  addEvent(eventName: string, eventDate: Date, eventType: string, location: string, tags: Tag[]): Observable<Event> {
     const obj = {
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
+      address: location,
       tags: tags
     };
 
@@ -56,11 +57,13 @@ export class EventService {
     )
   }
 
-  updateEvent(id: number, eventName: string, eventDate: Date, eventType: string, tags: Tag[]): Observable<Event> {
+  updateEvent(id: number, eventName: string, eventDate: Date, eventType: string, location: string, tags: Tag[]): Observable<Event> {
     const obj = {
+      id: id,
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
+      address: location,
       tags: tags
     };
 

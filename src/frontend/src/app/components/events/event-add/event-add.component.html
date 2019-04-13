@@ -25,6 +25,13 @@
           </mat-form-field>
 
           <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
+            <input matInput placeholder="Location" formControlName="location" />
+            <mat-error *ngIf="eventForm.get('eventGroup').get('location').invalid">
+              {{ getErrorMessage('eventGroup', 'location') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
             <mat-select matSelect placeholder="Event Type" formControlName="e_type">
               <mat-option *ngFor="let type of event_types" [value]="type">{{type}}</mat-option>
             </mat-select>

@@ -38,6 +38,7 @@ export class EventEditComponent implements OnInit {
         name: ['', [Validators.required]],
         date: ['', [Validators.required]],
         e_type: ['', [Validators.required]],
+        location: ['', [Validators.required]],
         tags: [this.tags]
       })
     })
@@ -65,6 +66,7 @@ export class EventEditComponent implements OnInit {
       this.eventForm.get('eventGroup').get('name').value,
       this.eventForm.get('eventGroup').get('date').value,
       this.eventForm.get('eventGroup').get('e_type').value,
+      this.eventForm.get('eventGroup').get('location').value,
       this.eventForm.get('eventGroup').get('tags').value)
       .subscribe(event => {
         this.event = event;
@@ -88,6 +90,7 @@ export class EventEditComponent implements OnInit {
           name: this.event.name,
           date: new Date(this.event.date),
           e_type: this.event.event_type,
+          location: this.event.address,
           tags: this.event.tags
         });
 

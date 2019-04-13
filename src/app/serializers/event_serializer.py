@@ -31,14 +31,34 @@ class EventSerializer(serializers.ModelSerializer):
     def validate_name(self, value):
         return bleach.clean(value)
 
-
+    # https://www.django-rest-framework.org/api-guide/relations/#writable-nested-serializers
     def create(self, validated_data):
+        tags_data = validated_data.pop('tags')
+        flattened_tags = []
+        for tag in tags_data:
+            flattened_tags.append(tag.pop('name'))
 
-        tags = validated_data.pop('tags')
-        print(tags)
-        for tag in tags:
-            print(tag)
-        instance = Event.objects.create(**validated_data)
+        tags = Tag.objects.filter(name__in=flattened_tags)
+        event = Event.objects.create(**validated_data)
+        event.tags.set(tags)
 
+        return event
 
-        return instance
+    def update(self, instance, validated_data):
+        print(validated_data)
+        tags_data = validated_data.pop('tags')
+        flattened_tags = []
+        for tag in tags_data:
+            flattened_tags.append(tag.pop('name'))
+
+        tags = Tag.objects.filter(name__in=flattened_tags)
+        instance.tags.set(tags)
+
+        instance.name = validated_data.pop('name')
+        instance.date = validated_data.pop('date')
+        #instance.event_type = instance.validated_data.pop('event_type')
+        instance.address = validated_data.pop('address')
+
+        instance.save()
+
+        return instance    

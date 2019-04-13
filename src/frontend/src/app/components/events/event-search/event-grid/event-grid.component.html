@@ -19,8 +19,8 @@
   </ng-container>
   <ng-container matColumnDef="event_edit">
     <mat-header-cell *matHeaderCellDef></mat-header-cell>
-    <mat-cell *matCellDef="let event" [routerLink]="['/events/edit', event.id]">
-      <button mat-icon-button>
+    <mat-cell *matCellDef="let event">
+      <button *ngIf="currentUser" mat-icon-button [routerLink]="['/events/edit', event.id]">
         <mat-icon>edit</mat-icon>
       </button>
     </mat-cell>

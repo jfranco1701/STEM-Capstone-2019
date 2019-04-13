@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tag } from '../../../models/tag';
+import { Tag } from 'src/app/models/tag';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserLogin } from 'src/app/models/userlogin';
 
 @Component({
   selector: 'app-event-list',
@@ -12,6 +14,10 @@ export class EventListComponent implements OnInit {
     'Camp': '../../../../assets/images/camp_tent.jpg'
   };
 
+  currentUser: UserLogin;
+
+  @Input()
+  id: number;
   @Input()
   name: string;
   @Input()
@@ -23,7 +29,7 @@ export class EventListComponent implements OnInit {
   @Input()
   event_address: string;
 
-  constructor() { }
+  constructor(private authenticationService : AuthenticationService) { }
 
   ngOnInit() {
   }

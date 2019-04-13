@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, IterableDiffers } from '@angular/core';
 import { Event } from '../../../../models/event';
 import { MatTableDataSource } from '@angular/material';
+import { UserLogin } from 'src/app/models/userlogin';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-event-grid',
@@ -9,6 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class EventGridComponent implements OnInit {
 
+  currentUser: UserLogin
   public dataSource: MatTableDataSource<Event>;
   public events: Event[] = [];
   public differ: any;
@@ -20,12 +23,13 @@ export class EventGridComponent implements OnInit {
     this.events = value;
     this.dataSource = new MatTableDataSource(this.events);
   }
-  constructor(private differs: IterableDiffers)
+  constructor(private differs: IterableDiffers, private authenticationService: AuthenticationService)
   {
     this.differ = differs.find([]).create(null);
   }
 
   ngOnInit() {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngDoCheck() {
