@@ -27,7 +27,7 @@ class User(AbstractUser):
     is_student = models.BooleanField(default=False)
     interests = models.ManyToManyField(Tag, related_name="users", blank=True)
 
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 
     def __str__(self):

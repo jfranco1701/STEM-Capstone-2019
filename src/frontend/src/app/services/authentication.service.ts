@@ -16,7 +16,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<UserLogin>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.apiLoginUrl = 'http://localhost:8000/api/login/';
+    this.apiLoginUrl = 'http://localhost:8000/login/';
     this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
   }
 
@@ -35,7 +35,7 @@ export class AuthenticationService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<any>(`${this.apiLoginUrl}`, { email, password })
+    return this.http.post<any>(`${this.apiLoginUrl}`, { username: email, password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.token) {
@@ -89,7 +89,7 @@ export class AuthenticationService {
 
     if (organization !== '') {
       registerUser.user_type = 3;
-    } else if (parentId){
+    } else if (parentId) {
       registerUser.user_type = 1;
     } else {
       registerUser.user_type = 2;
