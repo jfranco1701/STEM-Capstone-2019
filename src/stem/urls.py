@@ -23,7 +23,7 @@ from app.controllers.user_controller import UserViewSet
 from app.controllers.organization_controller import OrganizationViewSet
 from app.controllers.tag_controller import TagViewSet
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
-
+from app.controllers.login_controller import ObtainJWTView
 
 # Rest framework router
 router = routers.DefaultRouter()
@@ -36,5 +36,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-	path('api/login/', obtain_jwt_token),
+    path('login/', view=ObtainJWTView.as_view(), name='login'),
 ]
