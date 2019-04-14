@@ -13,6 +13,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "name",
             "date",
+            "e_type",
             "event_type",
             "address",
             "organizer",
