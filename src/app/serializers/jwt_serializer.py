@@ -1,6 +1,9 @@
 from django.contrib.auth import authenticate, user_logged_in
 from rest_framework import serializers
 from rest_framework_jwt.serializers import JSONWebTokenSerializer, jwt_payload_handler, jwt_encode_handler
+from app.models.userloginactivity import UserLoginActivity
+import datetime
+from django.conf import settings
 
 class JWTSerializer(JSONWebTokenSerializer):
     def validate(self, attrs):
@@ -10,6 +13,14 @@ class JWTSerializer(JSONWebTokenSerializer):
         }
 
         if all(credentials.values()):
+
+            if settings.LOCKOUT_ON_FAILURE:
+                failedattempts = UserLoginActivity.objects.filter(login_username=attrs.get(self.username_field), status='F',
+                    login_datetime__gte=datetime.datetime.now() - datetime.timedelta(seconds=settings.LOCKOUT_TIME)).count()
+                if failedattempts >= settings.LOCKOUT_MAX_ATTEMPTS -1:
+                    msg = 'Too many failed logon attempts.  Account has been locked.'
+                    raise serializers.ValidationError(msg)
+
             user = authenticate(request=self.context['request'], **credentials)
 
             if user:

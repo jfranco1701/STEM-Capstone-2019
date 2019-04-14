@@ -11,6 +11,7 @@ import { UserLogin } from '../../../models/userlogin';
   templateUrl: './profile-child-add.component.html',
   styleUrls: ['./profile-child-add.component.scss']
 })
+
 export class ProfileChildAddComponent implements OnInit {
   addForm: FormGroup;
   error = '';
@@ -22,6 +23,8 @@ export class ProfileChildAddComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router,
     private authenticationService: AuthenticationService, private snackBar: MatSnackBar) { }
 
+  passwordPattern = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{8,20}';
+
   ngOnInit() {
     this.userId = this.authenticationService.userId;
 
@@ -30,8 +33,8 @@ export class ProfileChildAddComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
       dob: [''],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
+      password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+      confirmPassword: [''],
     },
       {
         validator: this.checkPasswords('password', 'confirmPassword'),

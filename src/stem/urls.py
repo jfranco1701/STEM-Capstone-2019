@@ -36,5 +36,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='api/v1/')),
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('login/', view=ObtainJWTView.as_view(), name='login'),
+    path('api/login/', view=ObtainJWTView.as_view(), name='login'),
 ]

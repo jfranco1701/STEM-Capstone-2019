@@ -16,7 +16,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<UserLogin>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.apiLoginUrl = 'http://localhost:8000/login/';
+    this.apiLoginUrl = 'http://localhost:8000/api/login/';
     this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
   }
 
