@@ -22,11 +22,13 @@ export class PasswordUpdateComponent implements OnInit {
               private snackBar: MatSnackBar,
               ) { }
 
+  passwordPattern = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{8,20}';
+
   ngOnInit() {
     this.updateForm = this.fb.group({
       currentPassword: ['', [Validators.required, Validators.maxLength(20)]],
-      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
-      confirmNewPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+      newPassword: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+      confirmNewPassword: [''],
     },
       {
         validator: this.checkPasswords('newPassword', 'confirmNewPassword'),

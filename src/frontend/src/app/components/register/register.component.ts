@@ -6,7 +6,7 @@ import { RegistertermsComponent } from './registerterms/registerterms.component'
 import { AuthenticationService } from '../../services/authentication.service';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
 import { Observable, Subscription } from 'rxjs';
 import { map, startWith} from 'rxjs/operators';
 import { STATES, State } from '../../models/states';
@@ -17,7 +17,10 @@ import { MatRadioButton, MatRadioChange, MatRadioGroup} from '@angular/material/
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
+
 export class RegisterComponent implements OnInit, OnDestroy {
+  @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
+
   registerForm: FormGroup;
   public errors: any = [];
   public states: State[] = STATES;
@@ -29,8 +32,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   regType: Observable<string>;
   regTypeSubscription: Subscription;
 
-  @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -38,8 +39,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private authenticationService: AuthenticationService,
     private snackBar: MatSnackBar
   ) {}
+
   phonePattern = '^[0-9]{3}-[0-9]{3}-[0-9]{4}?$';
   zipPattern = '^[0-9]{5}(?:-[0-9]{4})?$';
+  passwordPattern = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{8,20}';
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -60,8 +63,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       loginGroup: this.fb.group(
         {
           email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
-          password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
-          confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
+          password: ['', [Validators.required, Validators.pattern(this.passwordPattern)]],
+          confirmPassword: [''],
         },
         {
           validator: this.checkPasswords('password', 'confirmPassword'),
@@ -147,6 +150,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
         }
       );
   }
+
+
 
   // Get validation error message
   getErrorMessage(groupName: string, controlName: string) {
