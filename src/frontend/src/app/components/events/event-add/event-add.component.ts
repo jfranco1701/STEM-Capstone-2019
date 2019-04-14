@@ -20,7 +20,7 @@ export class EventAddComponent implements OnInit {
   constructor(
     private fb: FormBuilder, public dialog: MatDialog,
     private router: Router, private eventService: EventService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Define the event creation form
@@ -30,7 +30,7 @@ export class EventAddComponent implements OnInit {
         date: ['', [Validators.required]],
         e_type: ['', [Validators.required]],
       })
-    })
+    });
   }
 
   onSubmit() {
@@ -47,7 +47,7 @@ export class EventAddComponent implements OnInit {
   // Get validation error message
   getErrorMessage(groupName: string, controlName: string) {
     return this.eventForm.get(groupName).get(controlName).hasError('required') ? 'You must enter a value' :
-           '';
+      '';
   }
 }
 

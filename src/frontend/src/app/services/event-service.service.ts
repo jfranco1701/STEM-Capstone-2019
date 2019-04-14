@@ -14,7 +14,6 @@ export class EventService {
 
   constructor(private http: HttpClient) {
     this.eventApiUrl = 'http://localhost:8000/api/v1/events/';
-    this.user;
   }
 
   @Cacheable()
@@ -25,7 +24,7 @@ export class EventService {
   @Cacheable()
   search(searchTerm: string): Observable<Event[]> {
     return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
-  } 
+  }
 
   addEvent(eventName: string, eventDate: Date, eventType: string): Observable<Event> {
     const obj = {

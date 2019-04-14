@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tag } from 'src/app/models/tag';
+import { Tag } from '../../../models/tag';
 
 @Component({
   selector: 'app-event-list',
@@ -7,6 +7,10 @@ import { Tag } from 'src/app/models/tag';
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent implements OnInit {
+  EventPhotoMap: any = {
+    'Community': '../../../../assets/images/building_construction.png',
+    'Camp': '../../../../assets/images/camp_tent.jpg'
+  };
 
   @Input()
   name: string;
@@ -15,21 +19,16 @@ export class EventListComponent implements OnInit {
   @Input()
   event_type: string;
   @Input()
-  tags: Tag[]
+  tags: Tag[];
   @Input()
-  event_address: string
-
-  imageSource: string;
+  event_address: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.imageSource = EventPhotoMap[this.event_type];
   }
 
-}
-
-const EventPhotoMap: any = {
-  'Community': '../../assets/images/building_construction.png',
-  'Camp': '../../assets/images/camp_tent.jpg'
+  public getImageSource() {
+    return this.EventPhotoMap[this.event_type];
+  }
 }
