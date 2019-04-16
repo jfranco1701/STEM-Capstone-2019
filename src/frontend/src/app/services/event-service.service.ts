@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, retry } from 'rxjs/operators';
 import { Event } from '../models/event';
 import { Cacheable } from 'ngx-cacheable';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EventService {
   private user: any;
 
   constructor(private http: HttpClient) {
-    this.eventApiUrl = 'http://localhost:8000/api/v1/events/';
+    this.eventApiUrl = environment.eventsApiUrl;
   }
 
   @Cacheable()

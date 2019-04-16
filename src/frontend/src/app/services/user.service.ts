@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError, tap, retry } from 'rxjs/operators';
 import { User } from '../models/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class UserService {
   private apiLoginUrl: string;
 
   constructor(private http: HttpClient, private locationService: Location) {
-    this.apiLoginUrl = 'http://localhost:8000/api/v1/users/';
+    this.apiLoginUrl = environment.usersApiUrl;
   }
 
   getUser(userId: number): Observable<User> {
