@@ -3,13 +3,14 @@ from rest_framework import serializers
 import bleach
 
 class OrganizationSerializer(serializers.HyperlinkedModelSerializer):
-    is_approved = serializers.BooleanField(read_only=True, default=False)
+    approved = serializers.BooleanField(read_only=True, default=False)
 
     class Meta:
         model = Organization
         fields = (
             "name",
-            "is_approved",
+            "approved",
+            "reviewed",
             "url"
         )
 
