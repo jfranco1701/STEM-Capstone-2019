@@ -23,7 +23,7 @@ class User(AbstractUser):
     state = models.CharField(max_length=2, blank=True, null=True)
     zip_code = models.CharField(max_length=10, blank=True, null=True)
     phone = models.CharField(max_length=12, blank=True, null=True)
-    organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
     account_locked = models.BooleanField(default=False)
