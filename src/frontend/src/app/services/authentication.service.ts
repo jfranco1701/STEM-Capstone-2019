@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 import { UserLogin } from '../models/userlogin';
 import { RegisterUser } from '../models/registeruser';
 
@@ -16,8 +17,8 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<UserLogin>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.apiLoginUrl = 'http://localhost:8000/api/login/';
-    this.apiRegisterUrl = 'http://localhost:8000/api/v1/users/';
+    this.apiLoginUrl = environment.loginApiUrl;
+    this.apiRegisterUrl = environment.usersApiUrl;
   }
 
   public get currentUserValue(): UserLogin {
