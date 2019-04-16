@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
 from app.models.organization import Organization
 from app.models.tag import Tag
 
@@ -25,17 +26,44 @@ class User(AbstractUser):
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
+    account_locked = models.BooleanField(default=False)
+    account_locked_updated_at = models.DateTimeField(auto_now_add=True)
     interests = models.ManyToManyField(Tag, related_name="users", blank=True)
 
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 
     def __str__(self):
+        user_string = ""
         if self.first_name and self.last_name:
-            return "{} {} ({})".format(
+            user_string += "{} {} ({})".format(
                 self.first_name, self.last_name, self.username
             )
-        return self.username
+        else:
+            user_string += self.username
+        if self.account_locked:
+            user_string = "{} [LOCKED]".format(user_string)
+        return user_string
 
     def role(self):
         return self.get_user_type_display().capitalize()
+
+    def unlock_account(self):
+        if not self.account_locked:
+            return None
+
+        self.toggle_account_lock(lock_status=False)
+    
+    def lock_account(self):
+        if self.account_locked:
+            return None
+        
+        self.toggle_account_lock(lock_status=True)
+
+    def toggle_account_lock(self, lock_status=None, lock_toggle_time=timezone.now()):
+        if not self.lock_status:
+            return None
+
+        self.account_locked = lock_status
+        self.account_locked_updated_at = lock_toggle_time
+        self.save()
