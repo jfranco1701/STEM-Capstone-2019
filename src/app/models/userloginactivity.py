@@ -17,3 +17,6 @@ class UserLoginActivity(models.Model):
     class Meta:
         verbose_name = 'user_login_activity'
         verbose_name_plural = 'user_login_activities'
+
+    def __str__(self):
+        return '{} - {} - {}'.format(self.login_username, self.login_IP, self.get_status_display())
