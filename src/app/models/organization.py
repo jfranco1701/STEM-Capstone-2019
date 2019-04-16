@@ -2,7 +2,19 @@ from django.db import models
 
 class Organization(models.Model):
     name = models.CharField(max_length=200)
-    is_approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=False)
+    reviewed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['reviewed', '-approved', 'name']
 
     def __str__(self):
-        return self.name
+        name = self.name
+        if not self.reviewed:
+            name += " [Not Reviewed]"
+        else:
+            if self.approved:
+                name += " [Approved]"
+            else:
+                name += " [Declined]"
+        return name
