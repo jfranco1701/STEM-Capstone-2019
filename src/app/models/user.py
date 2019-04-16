@@ -61,7 +61,7 @@ class User(AbstractUser):
         self.toggle_account_lock(lock_status=True)
 
     def toggle_account_lock(self, lock_status=None, lock_toggle_time=timezone.now()):
-        if not self.lock_status:
+        if lock_status is None:
             return None
 
         self.account_locked = lock_status
