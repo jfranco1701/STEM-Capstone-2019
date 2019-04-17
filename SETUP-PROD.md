@@ -4,11 +4,11 @@ This guide will discuss setting up a production environment for this application
 
 ## Install NodeJS
 
-Download and install NodeJS from their [website](https://nodejs.org/en/). I recommend grabbing the closes version to the frontend Dockerfile.
+Download and install NodeJS from their [website](https://nodejs.org/en/). I recommend grabbing the closest version to the [frontend Dockerfile](./src/frontend/Dockerfile).
 
 ## Globally install some packages
 
-There are a couple packages we'll need to install for Angular to play nice. These are available in the frontend Dockerfile as well but you'll need to run the following:
+There are a couple packages we'll need to install for Angular to play nice. These are available in the [frontend Dockerfile](./src/frontend/Dockerfile) as well but you'll need to run the following:
 
 ```
 npm install -g @angular/cli@7.3.1
