@@ -9,10 +9,6 @@
     <p class="date">{{ date | date:'longDate' }}</p>
     <p class="date">{{ event_address }}</p>
   </div>
-  <img src="{{imageSource}}">
-  <p class="event-title">{{ name }} </p>
-  <p class="date">{{ date | date:'longDate' }}</p>
-  <p class="date">{{ event_address }}</p>
   <img [src]="getImageSource()">
   <mat-chip-list class="container">
     <mat-chip *ngFor="let tag of tags">{{ tag | lowercase }}</mat-chip>

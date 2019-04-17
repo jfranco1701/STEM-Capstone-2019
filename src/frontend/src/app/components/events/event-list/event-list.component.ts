@@ -32,6 +32,7 @@ export class EventListComponent implements OnInit {
   constructor(private authenticationService : AuthenticationService) { }
 
   ngOnInit() {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   public getImageSource() {
