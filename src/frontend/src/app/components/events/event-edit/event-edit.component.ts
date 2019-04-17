@@ -31,7 +31,18 @@ export class EventEditComponent implements OnInit {
 
   ngOnInit() {
     // Define the event creation form
-    this.tagService.getTags().subscribe(tags => (this.tags = tags));
+    this.tagService.getTags().subscribe(tags => {
+      this.tags = tags
+      this.route.paramMap
+      .pipe(first(), takeUntil(this.unsubscribe))
+      .subscribe((paramMap) => {
+        if (paramMap.has('id')) {
+          var id = parseInt(paramMap.get('id'));
+          this.getEvent(id);
+        }
+      });
+    
+    });
 
     this.eventForm = this.fb.group({
       eventGroup: this.fb.group({
@@ -43,16 +54,6 @@ export class EventEditComponent implements OnInit {
       })
     })
 
-
-
-    this.route.paramMap
-      .pipe(first(), takeUntil(this.unsubscribe))
-      .subscribe((paramMap) => {
-        if (paramMap.has('id')) {
-          var id = parseInt(paramMap.get('id'));
-          this.getEvent(id);
-        }
-      });
   }
 
   ngOnDestroy(): void {
@@ -91,17 +92,12 @@ export class EventEditComponent implements OnInit {
           date: new Date(this.event.date),
           e_type: this.event.event_type,
           location: this.event.address,
-          tags: this.event.tags
+          tags: this.tags.filter(tag => this.event.tags.includes(tag.name))
         });
 
       }, (err) => {
         console.error(err);
       });
-  }
-
-  comparer(o1: Tag, o2: Tag): boolean {
-    // if possible compare by object's name property - and not by reference.
-    return o1 && o2 ? o1.name === o2.name : o2 === o2;
-  }
+    }
 }
 

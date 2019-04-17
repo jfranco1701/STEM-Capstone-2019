@@ -25,7 +25,7 @@ export class EventListComponent implements OnInit {
   @Input()
   event_type: string;
   @Input()
-  tags: Tag[];
+  tags: string[]
   @Input()
   event_address: string;
 

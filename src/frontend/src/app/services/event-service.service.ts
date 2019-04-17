@@ -39,7 +39,7 @@ export class EventService {
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
       address: location,
-      tags: tags
+      tags: tags.map(tag => tag.id)
     };
 
     var user = JSON.parse(localStorage.currentUser);
@@ -64,7 +64,7 @@ export class EventService {
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
       address: location,
-      tags: tags
+      tags: tags.map(tag => tag.id)
     };
 
     var user = JSON.parse(localStorage.currentUser);

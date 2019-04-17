@@ -5,10 +5,14 @@ from app.serializers.tag_serializer import TagSerializer
 from rest_framework import serializers
 import bleach
 
+class TagField(serializers.StringRelatedField):
+    def to_internal_value(self, data):
+        return data
+
 class EventSerializer(serializers.ModelSerializer):
     organizer = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), default=serializers.CurrentUserDefault())
     date = serializers.DateField(format="%m/%d/%Y", input_formats=['%m/%d/%Y', 'iso-8601'])
-    tags = TagSerializer(many=True)
+    tags =  TagField(many=True)
 
     class Meta:
         model = Event
@@ -30,35 +34,4 @@ class EventSerializer(serializers.ModelSerializer):
 
     def validate_name(self, value):
         return bleach.clean(value)
-
-    # https://www.django-rest-framework.org/api-guide/relations/#writable-nested-serializers
-    def create(self, validated_data):
-        tags_data = validated_data.pop('tags')
-        flattened_tags = []
-        for tag in tags_data:
-            flattened_tags.append(tag.pop('name'))
-
-        tags = Tag.objects.filter(name__in=flattened_tags)
-        event = Event.objects.create(**validated_data)
-        event.tags.set(tags)
-
-        return event
-
-    def update(self, instance, validated_data):
-        print(validated_data)
-        tags_data = validated_data.pop('tags')
-        flattened_tags = []
-        for tag in tags_data:
-            flattened_tags.append(tag.pop('name'))
-
-        tags = Tag.objects.filter(name__in=flattened_tags)
-        instance.tags.set(tags)
-
-        instance.name = validated_data.pop('name')
-        instance.date = validated_data.pop('date')
-        #instance.event_type = instance.validated_data.pop('event_type')
-        instance.address = validated_data.pop('address')
-
-        instance.save()
-
-        return instance    
+ 

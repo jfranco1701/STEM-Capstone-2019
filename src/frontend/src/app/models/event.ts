@@ -9,5 +9,5 @@ export class Event {
   address: string;
   organizer: number;
   attendees: number[];
-  tags: Tag[];
+  tags: string[];
 }

@@ -33,16 +33,16 @@ export class HomeComponent implements OnInit {
         this.events.forEach(event => {
           event.tags.forEach(tag => {
             var newCarousels = this.eventCarousels.map(carousel => carousel.name);
-            if (!newCarousels.includes(tag.name)) {
+            if (!newCarousels.includes(tag)) {
               var newCarousel = new EventCarousel();
-              newCarousel.name = tag.name;
+              newCarousel.name = tag;
               this.eventCarousels.push(newCarousel);
             };
           });
         });
 
         this.eventCarousels.forEach(carousel => {
-          carousel.events = this.events.filter(event => event.tags.filter(tag => tag.name == carousel.name).length > 0);
+          carousel.events = this.events.filter(event => event.tags.filter(tag => tag == carousel.name).length > 0);
         });
       });
   }
