@@ -42,15 +42,7 @@ export class EventService {
       tags: tags.map(tag => tag.id)
     };
 
-    var user = JSON.parse(localStorage.currentUser);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + user.token
-      })
-    };
-
-    return this.http.post<any>(this.eventApiUrl, obj, httpOptions).pipe(
+    return this.http.post<any>(this.eventApiUrl, obj).pipe(
       retry(3),
       tap(_ => console.log('add event')),
       catchError(this.handleError)
@@ -67,17 +59,9 @@ export class EventService {
       tags: tags.map(tag => tag.id)
     };
 
-    var user = JSON.parse(localStorage.currentUser);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + user.token
-      })
-    };
-
     // Note the trailing slash, Django setting
     var eventUpdateUrl = this.eventApiUrl + id.toString() + "/";
-    return this.http.put<any>(eventUpdateUrl, obj, httpOptions).pipe(
+    return this.http.put<any>(eventUpdateUrl, obj).pipe(
       retry(3),
       tap(_ => console.log('update event')),
       catchError(this.handleError)
