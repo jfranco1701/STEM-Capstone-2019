@@ -23,6 +23,16 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+        user_role = user.role().lower()
+        if user_role == 'admin':
+            queryset = User.objects.all()
+        else:
+            queryset = User.objects.filter(pk=user.pk)
+            queryset |= User.objects.filter(parent_id=user.pk)
+        return queryset
+
     def get_permissions(self):
         if self.request.method == 'POST':
             self.permission_classes = [AllowAny,]
