@@ -30,6 +30,7 @@ services:
     environment:
       - STEM_SECRET_KEY=${STEM_SECRET_KEY}
       - STEM_PSQL_PASSWORD=${STEM_PSQL_PASSWORD}
+      - DOCKER_PROD_FLAG=TRUE
       - DOCKER_SETUP_FLAG=TRUE
 
   nginx:
