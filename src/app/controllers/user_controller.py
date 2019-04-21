@@ -105,6 +105,7 @@ def jwt_payload_handler(user):
         'email': user.email,
         'username': username,
         'user_type': user.user_type,
+        'approved_to_post_events': user.approved_to_post_events,
         'exp': datetime.utcnow() + api_settings.JWT_EXPIRATION_DELTA
     }
 
