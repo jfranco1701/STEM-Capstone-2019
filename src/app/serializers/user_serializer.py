@@ -12,7 +12,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     parent_id = serializers.ReadOnlyField()
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
-    user_type = serializers.ReadOnlyField()
     approved_to_post_events = serializers.SerializerMethodField()
     account_locked = serializers.ReadOnlyField()
     account_locked_updated_at = serializers.ReadOnlyField()
@@ -73,3 +72,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     def validate_city(self, value):
         return bleach.clean(value)
+
+class LockedDownUserSerializer(UserSerializer):
+    organization = serializers.StringRelatedField(read_only=True)
+    user_type = serializers.ReadOnlyField()
