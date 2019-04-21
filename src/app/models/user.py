@@ -26,6 +26,7 @@ class User(AbstractUser):
     organization = models.ForeignKey(Organization, on_delete=models.SET_NULL, null=True, blank=True)
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=2)
     is_student = models.BooleanField(default=False)
+    approved_to_post_events = models.BooleanField(default=False)
     account_locked = models.BooleanField(default=False)
     account_locked_updated_at = models.DateTimeField(auto_now_add=True)
     interests = models.ManyToManyField(Tag, related_name="users", blank=True)

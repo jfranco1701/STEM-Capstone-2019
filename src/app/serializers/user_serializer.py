@@ -13,6 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
     user_type = serializers.ReadOnlyField()
+    approved_to_post_events = serializers.SerializerMethodField()
     account_locked = serializers.ReadOnlyField()
     account_locked_updated_at = serializers.ReadOnlyField()
     children = ChildrenListingField(many=True, read_only=True)
@@ -26,6 +27,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "password",
             "first_name",
             "last_name",
+            "approved_to_post_events",
             "account_locked",
             "account_locked_updated_at",
             "address",
@@ -47,6 +49,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
         user.save()
         return user
+
+    def get_approved_to_post_events(self, user):
+        if user.organization:
+            if user.organization.approved and user.approved_to_post_events:
+                return True
+        return False
 
     def validate_username(self, value):
         return bleach.clean(value)
