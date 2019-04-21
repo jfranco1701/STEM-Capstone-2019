@@ -44,6 +44,14 @@ class User(AbstractUser):
             user_string += self.username
         if self.account_locked:
             user_string = "{} [LOCKED]".format(user_string)
+
+        role = self.role()
+        user_string = "{} -> {}".format(user_string, role)
+        if role == "Educator":
+            if self.approved_to_post_events:
+                user_string = "{} [APPROVED TO POST EVENTS]".format(user_string)
+            else:
+                user_string = "{} [NOT APPROVED TO POST EVENTS]".format(user_string)
         return user_string
 
     def role(self):
