@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   topPosition: MatSnackBarVerticalPosition = 'top';
   rightPosition: MatSnackBarHorizontalPosition = 'right'; 
   userType: number;
+  approvedToPostEvents: boolean;
 
   private unsubscribe = new Subject<void>();
   eventSearchTerm: Subject<string> = new Subject<string>();
@@ -62,6 +63,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userType = this.authenticationService.userType;
+    this.approvedToPostEvents = this.authenticationService.approvedToPostEvents;
     this.eventSearchTerm.pipe(
       takeUntil(this.unsubscribe)
     ).subscribe((searchTerm) => {

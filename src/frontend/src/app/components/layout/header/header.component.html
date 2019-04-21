@@ -45,7 +45,7 @@
                   <button mat-menu-item [routerLink]="['/events/add']">Add Event</button>
                 </mat-menu>
 
-                <button *ngIf="userType === 3" mat-icon-button [matMenuTriggerFor]="addMenu">
+                <button *ngIf="userType === 3 && approvedToPostEvents === true" mat-icon-button [matMenuTriggerFor]="addMenu">
                   <mat-icon>add</mat-icon>
                 </button>
 

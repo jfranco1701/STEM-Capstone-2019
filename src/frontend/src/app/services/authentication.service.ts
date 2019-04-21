@@ -34,6 +34,11 @@ export class AuthenticationService {
     const tokenDecoded = JSON.parse(window.atob(this.currentUserSubject.value.token.split(/\./)[1]));
     return tokenDecoded.user_type;
   }
+  
+  public get approvedToPostEvents(): boolean {
+    const tokenDecoded = JSON.parse(window.atob(this.currentUserSubject.value.token.split(/\./)[1]));
+    return tokenDecoded.approved_to_post_events;
+  }
 
   login(email: string, password: string) {
     return this.http.post<any>(`${this.apiLoginUrl}`, { email: email, password })
