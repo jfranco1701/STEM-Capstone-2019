@@ -14,5 +14,9 @@ class OrganizationSerializer(serializers.HyperlinkedModelSerializer):
             "url"
         )
 
+    def create(self, validated_data):
+        organization, created = Organization.objects.get_or_create(**validated_data)
+        return organization
+
     def validate_name(self, value):
         return bleach.clean(value)
