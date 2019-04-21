@@ -11,6 +11,7 @@ class ChildrenListingField(serializers.RelatedField):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
+    user_type = serializers.ReadOnlyField()
     account_locked = serializers.ReadOnlyField()
     account_locked_updated_at = serializers.ReadOnlyField()
     children = ChildrenListingField(many=True, read_only=True)
