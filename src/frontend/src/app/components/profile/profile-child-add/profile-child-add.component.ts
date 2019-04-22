@@ -20,11 +20,11 @@ export class ProfileChildAddComponent implements OnInit {
   centerPosition: MatSnackBarHorizontalPosition = 'center';
   userId: number;
   userLogin: UserLogin;
-  private eventsApiUrl: string;
+  private usersApiUrl: string;
 
   constructor(private fb: FormBuilder, private router: Router,
     private authenticationService: AuthenticationService, private snackBar: MatSnackBar) {
-      this.eventsApiUrl = environment.eventsApiUrl;
+      this.usersApiUrl = environment.usersApiUrl;
     }
 
   passwordPattern = '(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^0-9]*[0-9]).{8,20}';
@@ -75,7 +75,7 @@ export class ProfileChildAddComponent implements OnInit {
         this.addForm.get('firstName').value,
         this.addForm.get('lastName').value,
         this.addForm.get('dob').value,
-        '', '', '', '', '', '', this.eventsApiUrl + this.userId + '/')
+        '', '', '', '', '', '', this.usersApiUrl + this.userId + '/')
       .pipe(first())
       .subscribe(
         user => {

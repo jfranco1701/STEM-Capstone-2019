@@ -8,9 +8,11 @@ class ChildrenListingField(serializers.RelatedField):
         'email': value.email, 'date_of_birth': value.date_of_birth}
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    parent_id = serializers.ReadOnlyField()
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
+    approved_to_post_events = serializers.SerializerMethodField()
     account_locked = serializers.ReadOnlyField()
     account_locked_updated_at = serializers.ReadOnlyField()
     children = ChildrenListingField(many=True, read_only=True)
@@ -25,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
             "password",
             "first_name",
             "last_name",
+            "approved_to_post_events",
             "account_locked",
             "account_locked_updated_at",
             "address",
@@ -46,6 +49,12 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
+    def get_approved_to_post_events(self, user):
+        if user.organization:
+            if user.organization.approved and user.approved_to_post_events:
+                return True
+        return False
+
     def validate_username(self, value):
         return bleach.clean(value)
 
@@ -63,3 +72,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def validate_city(self, value):
         return bleach.clean(value)
+
+class LockedDownUserSerializer(UserSerializer):
+    organization = serializers.StringRelatedField(read_only=True)
+    user_type = serializers.ReadOnlyField()

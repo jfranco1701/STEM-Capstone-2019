@@ -11,6 +11,18 @@ class OrganizationViewSet(viewsets.ModelViewSet):
 
     permission_classes = [IsAuthenticated,]
 
+    def get_queryset(self):
+        user = self.request.user
+        user_role = user.role().lower()
+        if user_role == 'admin':
+            queryset = Organization.objects.all()
+        else:
+            if user.organization:
+                queryset = Organization.objects.filter(pk=user.organization.pk)
+            else:
+                queryset = Organization.objects.none() 
+        return queryset
+
     def get_permissions(self):
         if self.request.method == 'POST':
             self.permission_classes = [AllowAny,]

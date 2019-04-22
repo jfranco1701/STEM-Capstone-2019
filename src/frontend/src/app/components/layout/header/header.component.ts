@@ -31,7 +31,9 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUser: UserLogin;
   topPosition: MatSnackBarVerticalPosition = 'top';
-  rightPosition: MatSnackBarHorizontalPosition = 'right';
+  rightPosition: MatSnackBarHorizontalPosition = 'right'; 
+  userType: number;
+  approvedToPostEvents: boolean;
 
   private unsubscribe = new Subject<void>();
   eventSearchTerm: Subject<string> = new Subject<string>();
@@ -60,7 +62,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
+    this.userType = this.authenticationService.userType;
+    this.approvedToPostEvents = this.authenticationService.approvedToPostEvents;
     this.eventSearchTerm.pipe(
       takeUntil(this.unsubscribe)
     ).subscribe((searchTerm) => {
@@ -90,6 +93,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         });
 
         this.router.navigate(['/home']);
+        location.reload();
       }
     });
   }

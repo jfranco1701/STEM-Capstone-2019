@@ -8,7 +8,7 @@ from rest_framework import status
 from app.models.user import User
 from datetime import datetime
 from calendar import timegm
-from app.serializers.user_serializer import UserSerializer
+from app.serializers.user_serializer import UserSerializer, LockedDownUserSerializer
 from app.serializers.password_serializer import PasswordSerializer
 from rest_framework_jwt.compat import get_username, get_username_field
 from rest_framework_jwt.settings import api_settings
@@ -21,7 +21,16 @@ User = get_user_model()
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        user_role = user.role().lower()
+        if user_role == 'admin':
+            queryset = User.objects.all()
+        else:
+            queryset = User.objects.filter(pk=user.pk)
+            queryset |= User.objects.filter(parent_id=user.pk)
+        return queryset
 
     def get_permissions(self):
         if self.request.method == 'POST':
@@ -30,6 +39,13 @@ class UserViewSet(viewsets.ModelViewSet):
             self.permission_classes = [IsAuthenticated,]
         return super(UserViewSet, self).get_permissions()
 
+    def get_serializer_class(self):
+        locked_down_methods = ['GET', 'PUT', 'PATCH']
+        if self.request.method in locked_down_methods:
+            serializer_class = LockedDownUserSerializer
+        else:
+            serializer_class = UserSerializer
+        return serializer_class
 
     def create(self, request):
         serializer = UserSerializer(data=request.data, context={'request': request})
@@ -89,6 +105,7 @@ def jwt_payload_handler(user):
         'email': user.email,
         'username': username,
         'user_type': user.user_type,
+        'approved_to_post_events': user.approved_to_post_events,
         'exp': datetime.utcnow() + api_settings.JWT_EXPIRATION_DELTA
     }
 
