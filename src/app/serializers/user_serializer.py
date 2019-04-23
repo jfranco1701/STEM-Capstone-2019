@@ -74,6 +74,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return bleach.clean(value)
 
 class LockedDownUserSerializer(UserSerializer):
-    parent_id = serializers.ReadOnlyField()
+    parent_id = serializers.HyperlinkedRelatedField(view_name="user-detail", read_only=True)
     organization = serializers.StringRelatedField(read_only=True)
     user_type = serializers.ReadOnlyField()
