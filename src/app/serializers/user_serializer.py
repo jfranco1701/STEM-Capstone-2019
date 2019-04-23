@@ -9,7 +9,6 @@ class ChildrenListingField(serializers.RelatedField):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    parent_id = serializers.ReadOnlyField()
     interests = serializers.StringRelatedField(many=True, required=False)
     password = serializers.CharField(write_only=True)
     approved_to_post_events = serializers.SerializerMethodField()
@@ -20,6 +19,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = (
+            "id",
             "parent_id",
             "username",
             "email",
@@ -74,5 +74,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return bleach.clean(value)
 
 class LockedDownUserSerializer(UserSerializer):
+    parent_id = serializers.ReadOnlyField()
     organization = serializers.StringRelatedField(read_only=True)
     user_type = serializers.ReadOnlyField()

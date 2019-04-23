@@ -32,4 +32,11 @@ export class UserService {
       })
     );
   }
+
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiLoginUrl + userId + '/'}`)
+      .pipe(
+        tap(_ => console.log('deleted user'))
+      );
+  }
 }

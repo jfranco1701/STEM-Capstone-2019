@@ -11,28 +11,28 @@
             <mat-form-field fxFlex>
               <input matInput placeholder="First Name*" formControlName="firstName" />
               <mat-error *ngIf="updateForm.get('firstName').invalid">
-                <!-- {{ getErrorMessage('firstName') }} -->
+                {{ getErrorMessage('firstName') }}
               </mat-error>
             </mat-form-field>
 
             <mat-form-field fxFlex>
               <input matInput placeholder="Last Name*" formControlName="lastName" />
               <mat-error *ngIf="updateForm.get('lastName').invalid">
-                <!-- {{ getErrorMessage('lastName') }} -->
+                {{ getErrorMessage('lastName') }}
               </mat-error>
             </mat-form-field>
 
             <mat-form-field fxFlex="48" fxFlex.lt-sm="100">
               <input matInput placeholder="Date of Birth" formControlName="dob" type="date" />
               <mat-error *ngIf="updateForm.get('dob').invalid">
-                <!-- {{ getErrorMessage('dob') }} -->
+                {{ getErrorMessage('dob') }}
               </mat-error>
             </mat-form-field>
 
             <mat-form-field fxFlex="98" fxFlex.lt-sm="100">
               <input matInput placeholder="Email*" formControlName="email" />
               <mat-error *ngIf="updateForm.get('email').invalid">
-                <!-- {{ getErrorMessage('email') }} -->
+                {{ getErrorMessage('email') }}
               </mat-error>
             </mat-form-field>
 
@@ -60,7 +60,7 @@
             </button>
           </div>
           <div fxFlex>
-            <button mat-raised-button color="warn"><i class="fas fa-trash fa-lg"
+            <button mat-raised-button color="warn" type="button" (click)="delete()"><i class="fas fa-trash fa-lg"
                 style="margin-right:12px;"></i>Delete</button>
           </div>
           <div fxFlexAlign="end">
