@@ -40,6 +40,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             "user_type",
             "interests",
             "children",
+            "url"
         )
 
     def create(self, validated_data):

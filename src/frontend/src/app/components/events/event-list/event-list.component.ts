@@ -1,20 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Tag } from 'src/app/models/tag';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { UserLogin } from 'src/app/models/userlogin';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss']
 })
-export class EventListComponent implements OnInit {
+export class EventListComponent {
   EventPhotoMap: any = {
     'Community': '../../../../assets/images/building_construction.png',
     'Camp': '../../../../assets/images/camp_tent.jpg'
   };
-
-  currentUser: UserLogin;
 
   @Input()
   id: number;
@@ -28,12 +23,10 @@ export class EventListComponent implements OnInit {
   tags: string[]
   @Input()
   event_address: string;
+  @Input()
+  can_edit: boolean;
 
-  constructor(private authenticationService : AuthenticationService) { }
-
-  ngOnInit() {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-  }
+  constructor() { }
 
   public getImageSource() {
     return this.EventPhotoMap[this.event_type];

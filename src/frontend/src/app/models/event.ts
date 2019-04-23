@@ -10,4 +10,5 @@ export class Event {
   organizer: number;
   attendees: number[];
   tags: string[];
+  url: string;
 }

@@ -9,10 +9,10 @@ class TagField(serializers.StringRelatedField):
     def to_internal_value(self, data):
         return data
 
-class EventSerializer(serializers.ModelSerializer):
-    organizer = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), default=serializers.CurrentUserDefault())
+class EventSerializer(serializers.HyperlinkedModelSerializer):
+    organizer = serializers.HyperlinkedRelatedField(view_name='user-detail', queryset=User.objects.all(), default=serializers.CurrentUserDefault())
     date = serializers.DateField(format="%m/%d/%Y", input_formats=['%m/%d/%Y', 'iso-8601'])
-    tags =  TagField(many=True)
+    tags = TagField(many=True)
 
     class Meta:
         model = Event
@@ -25,7 +25,8 @@ class EventSerializer(serializers.ModelSerializer):
             "address",
             "organizer",
             "attendees",
-            "tags"
+            "tags",
+            "url"
         )
 
     def get_validation_exclusions(self):

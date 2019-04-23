@@ -2,7 +2,7 @@
   <div fxLayout="column">
     <div fxLayout="row">
       <p class="event-title">{{ name }} </p>
-      <button *ngIf="currentUser" class="editButton" mat-icon-button [routerLink]="['/events/edit', id]">
+      <button *ngIf="can_edit" class="editButton" mat-icon-button [routerLink]="['/events/edit', id]">
         <mat-icon>edit</mat-icon>
       </button>
     </div>

@@ -3,6 +3,8 @@ import { EventService } from '../../services/event-service.service';
 import { Event } from '../../models/event';
 import { Tag } from 'src/app/models/tag';
 import { EventCarousel } from '../../models/event-carousel';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserLogin } from 'src/app/models/userlogin';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +13,25 @@ import { EventCarousel } from '../../models/event-carousel';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private authenticationService: AuthenticationService) { }
   events: Event[];
   categories: String[];
   eventCarousels: EventCarousel[] = [];
 
   mySlideOptions = { dots: false, nav: true };
 
+  currentUser: UserLogin;
+  userType: number;
+  approvedToPostEvents: boolean;
+
   ngOnInit() {
 
     this.getEvents();
 
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+
+    this.userType = this.authenticationService.userType;
+    this.approvedToPostEvents = this.authenticationService.approvedToPostEvents;
   }
 
   getEvents(): void {
