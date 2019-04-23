@@ -1,4 +1,5 @@
 export class User {
+  id: number;
   parent_id: number;
   username: string;
   password: string;

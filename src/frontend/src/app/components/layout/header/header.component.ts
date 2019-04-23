@@ -31,7 +31,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class HeaderComponent implements OnInit, OnDestroy {
   currentUser: UserLogin;
   topPosition: MatSnackBarVerticalPosition = 'top';
-  rightPosition: MatSnackBarHorizontalPosition = 'right'; 
+  rightPosition: MatSnackBarHorizontalPosition = 'right';
   userType: number;
   approvedToPostEvents: boolean;
 
@@ -93,7 +93,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         });
 
         this.router.navigate(['/home']);
-        location.reload();
       }
     });
   }

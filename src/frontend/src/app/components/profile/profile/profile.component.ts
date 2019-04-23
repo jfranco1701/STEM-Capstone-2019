@@ -57,20 +57,18 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  updateChildProfile() {
+  updateChildProfile(childUser: User) {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
-    dialogConfig.data = {user: this.profileUser};
+    dialogConfig.data = {user: childUser};
 
     const dialogRef = this.dialog.open(ProfileChildUpdateComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(val => {
-        if (val) {
-          this.profileUser = val;
-        }
+        this.getUserInfo();
       }
     );
   }
@@ -85,7 +83,7 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(PasswordUpdateComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(val => console.log('Dialog output:', val));
+    dialogRef.afterClosed().subscribe(val => {});
   }
 
 }
