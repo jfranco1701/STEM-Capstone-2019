@@ -34,6 +34,7 @@ export class ProfileUpdateComponent implements OnInit {
 
    phonePattern = '^[0-9]{3}-[0-9]{3}-[0-9]{4}?$';
    zipPattern = '^[0-9]{5}(?:-[0-9]{4})?$';
+   interests: string[] = ['Science', 'Technology', 'Engineering', 'Math'];
 
   ngOnInit() {
     this.updateForm = this.fb.group({
@@ -46,6 +47,7 @@ export class ProfileUpdateComponent implements OnInit {
         city: [this.user.city],
         state: [this.user.state],
         zip: [this.user.zip_code, [Validators.pattern(this.zipPattern)]],
+        interests: [this.user.interests]
       });
   }
 
@@ -60,7 +62,8 @@ export class ProfileUpdateComponent implements OnInit {
       address: this.updateForm.get('address').value,
       city: this.updateForm.get('city').value,
       state: this.updateForm.get('state').value,
-      zip_code: this.updateForm.get('zip').value
+      zip_code: this.updateForm.get('zip').value,
+      interests: this.updateForm.get('interests').value
     };
 
     this.userService.updateUser(userId, userObject)

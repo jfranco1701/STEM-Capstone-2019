@@ -1,4 +1,5 @@
 from app.models.user import User
+from app.models.tag import Tag
 from rest_framework import serializers
 import bleach
 
@@ -9,7 +10,7 @@ class ChildrenListingField(serializers.RelatedField):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    interests = serializers.StringRelatedField(many=True, required=False)
+    interests = serializers.SlugRelatedField(queryset=Tag.objects.all(), many=True, required=False, slug_field='name')
     password = serializers.CharField(write_only=True)
     approved_to_post_events = serializers.SerializerMethodField()
     account_locked = serializers.ReadOnlyField()

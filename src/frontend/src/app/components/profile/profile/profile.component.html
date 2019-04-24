@@ -38,6 +38,10 @@
                     <th>Address:</th>
                     <td>{{profileUser.address}}<br>{{profileUser.city}}, {{profileUser.state}} {{profileUser.zip_code}}</td>
                   </tr>
+                  <tr>
+                    <th>Interests:</th>
+                    <td>{{profileUser.interests.length === 0 ? "None" : profileUser.interests.join(', ')}}</td>
+                  </tr>
                 </table>
           </div>
           <div fxFlex="150px">
