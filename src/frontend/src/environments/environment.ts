@@ -7,7 +7,8 @@ export const environment = {
   baseApiUrl: 'http://localhost:8000/api/v1/',
   loginApiUrl: 'http://localhost:8000/api/login/',
   usersApiUrl: 'http://localhost:8000/api/v1/users/',
-  eventsApiUrl: 'http://localhost:8000/api/v1/events/'
+  eventsApiUrl: 'http://localhost:8000/api/v1/events/',
+  refreshApiUrl: 'http://localhost:8000/api/login/',
 };
 
 /*
