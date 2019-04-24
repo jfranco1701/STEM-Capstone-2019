@@ -1,10 +1,15 @@
-<mat-card class="container" class="eventCard">
-  <p class="event-title">{{ name }} </p>
-  <p class="date">{{ date | date:'longDate' }}</p>
-  <p class="date">{{ event_address }}</p>
-  <img [src]="getImageSource()">
-  <mat-chip-list class="container">
-    <mat-chip *ngFor="let tag of tags">{{ tag | lowercase }}</mat-chip>
-  </mat-chip-list>
-  <button mat-button>SIGNUP</button>
+<mat-card class="eventCard">
+  <div class="cardheader">
+    <p class="event-title">{{ name }}</p>
+    <p class="date">{{ date | date:'longDate' }}</p>
+    <p class="date">{{ event_address }}</p>
+  </div>
+  <div class="cardimage">
+    <img height="150px" [src]="getImageSource()">
+  </div>
+  <div class="cardfooter">
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of tags">{{ tag | lowercase }}</mat-chip>
+    </mat-chip-list>
+  </div>
 </mat-card>

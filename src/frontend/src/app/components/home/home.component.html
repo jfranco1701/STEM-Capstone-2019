@@ -1,15 +1,22 @@
 <div class="container">
   <div *ngFor="let cat of categories">
-    <div class="tag">
-      <h5>{{cat}}</h5><br>
+    <div>
+      <h3>{{cat}}</h3><br>
     </div>
 
-    <owl-carousel [options]="mySlideOptions" [carouselClasses]="['owl-theme', 'sliding']">
-      <div *ngFor="let event of getEveByCat(cat)">
-        <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
-        </app-event-list>
+    <swiper [config]="config">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let event of getEveByCat(cat)">
+              <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
+              </app-event-list>
+            </div>
       </div>
-    </owl-carousel>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper>
     <mat-divider></mat-divider>
   </div>
 </div>
