@@ -8,7 +8,8 @@ export const environment = {
   loginApiUrl: 'http://localhost:8000/api/login/',
   usersApiUrl: 'http://localhost:8000/api/v1/users/',
   eventsApiUrl: 'http://localhost:8000/api/v1/events/',
-  refreshApiUrl: 'http://localhost:8000/api/login/',
+  tagsApiUrl: 'http://localhost:8000/api/v1/tags/',
+  refreshApiUrl: 'http://localhost:8000/api/login/'
 };
 
 /*
