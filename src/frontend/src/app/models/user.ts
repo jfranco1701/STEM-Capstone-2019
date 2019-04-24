@@ -13,4 +13,5 @@ export class User {
   email: string;
   phone: string;
   children: User[];
+  interests: string[];
 }
