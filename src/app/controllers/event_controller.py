@@ -11,6 +11,13 @@ class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
+    def get_queryset(self):
+        if self.request.user:
+            queryset = Event.objects.user_interests(user=self.request.user)
+        else:
+            queryset = Event.objects.all()
+        return queryset
+
     def get_permissions(self):
         if self.request.method == 'GET':
             self.permission_classes = [AllowAny,]
