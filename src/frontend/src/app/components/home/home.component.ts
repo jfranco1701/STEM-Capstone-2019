@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event-service.service';
+import { UserService } from '../../services/user.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { Event } from '../../models/event';
 import { Tag } from '../../models/tag';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +12,12 @@ import { Tag } from '../../models/tag';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  profileUser: User;
+  userId: number;
   events: Event[];
   categories: Tag[];
   tevents: Event[];
+  error: string;
   imageSource: string;
   mySlideOptions = { dots: false, nav: true};
 
@@ -26,10 +32,29 @@ export class HomeComponent implements OnInit {
     spaceBetween: 10 // Space between each Item
   };
 
-  constructor(private eventService: EventService) { }
+  constructor(private userService: UserService, private eventService: EventService,
+              private authenticationService: AuthenticationService) {
+                this.categories = [];
+              }
 
   ngOnInit() {
+    if (localStorage.getItem('currentUser')) {
+      this.userId = this.authenticationService.userId;
+      this.profileUser = new User();
+      this.getUserInfo();
+    }
     this.getEvents();
+  }
+  
+  getUserInfo() {
+    this.userService.getUser(this.userId)
+    .subscribe(user => {
+      this.profileUser = user;
+      this.categories = this.categories.concat(this.profileUser.interests);
+    },
+    error => {
+      this.error = error;
+    });
   }
 
   getEveByCat(cat: Tag): Event[] {
@@ -45,7 +70,6 @@ export class HomeComponent implements OnInit {
     this.eventService
       .getEvents()
       .subscribe(events => {
-        this.categories = [];
         this.events = events;
         this.events.forEach(event => {
           event.tags.forEach(tag => {
