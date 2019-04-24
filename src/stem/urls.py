@@ -37,4 +37,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api/login/', view=ObtainJWTView.as_view(), name='login'),
+    path('api/refresh/', refresh_jwt_token),
 ]
