@@ -1,3 +1,5 @@
+import { Tag } from '../models/tag';
+
 export class User {
   id: number;
   parent_id: number;
@@ -13,5 +15,5 @@ export class User {
   email: string;
   phone: string;
   children: User[];
-  interests: string[];
+  interests: Tag[];
 }
