@@ -69,6 +69,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { EventModule } from './components/events/event.module';
 import { EventRoutingModule } from './components/events/event-routing.module';
+import { SwiperModule } from 'angular2-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     AdminComponent,
     RegistertermsComponent,
     UsersComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -138,6 +139,7 @@ import { EventRoutingModule } from './components/events/event-routing.module';
     HttpClientModule,
     EventModule,
     OwlModule,
+    SwiperModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

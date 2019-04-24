@@ -2,7 +2,14 @@
     margin: 10px;
 }
 
-.owl-carousel .owl-item{
-    height:500px;
-    width:100%;
+swiper{
+    height: 500px;
+    width: 80%;
+    min-width: 800px;
+    margin: auto;
+}
+
+.swiper-wrapper {
+  padding-top:10px;
+  padding-left:50px;
 }
