@@ -4,5 +4,5 @@ export const environment = {
   loginApiUrl: '/api/login/',
   usersApiUrl: '/api/v1/users/',
   eventsApiUrl: '/api/v1/events/',
-  refreshApiUrl: '/api/refresh'
+  refreshApiUrl: '/api/refresh/'
 };
