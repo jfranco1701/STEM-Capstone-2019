@@ -29,6 +29,12 @@
               <mat-option *ngFor="let type of event_types" [value]="type">{{type}}</mat-option>
             </mat-select>
           </mat-form-field>
+
+          <mat-form-field fxFlex="48" fxFlex.lt-sm="90">
+            <mat-select placeholder="Event Tags" formControlName="tags" multiple>
+              <mat-option *ngFor="let tag of tags" [value]="tag.name">{{ tag.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div style="text-align: center; margin-top:20px; margin-bottom:20px;">
           <button type="submit" mat-raised-button>Create Event</button>

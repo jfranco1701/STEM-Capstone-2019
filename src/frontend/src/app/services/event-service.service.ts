@@ -27,12 +27,12 @@ export class EventService {
     return this.http.get<Event[]>(`/api/v1/events/search/${searchTerm}`);
   }
 
-  addEvent(eventName: string, eventDate: Date, eventType: string): Observable<Event> {
+  addEvent(eventName: string, eventDate: Date, eventType: string, eventTags: string[]): Observable<Event> {
     const obj = {
       name: eventName,
       date: eventDate.toLocaleDateString('en-US'),
       event_type: eventType,
-      tags: []
+      tags: eventTags
     };
 
     var user = JSON.parse(localStorage.currentUser);
