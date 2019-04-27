@@ -32,7 +32,6 @@ class EventViewSet(viewsets.ModelViewSet):
         return super(EventViewSet, self).get_permissions()
 
     def perform_create(self, serializer):
-        print(self.request.user)
         serializer.save(organizer=self.request.user)
 
     @action(detail=False, methods=['get'])
