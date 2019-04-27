@@ -12,6 +12,16 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.authenticationService.currentUserValue;
+        
+        // check if the user is trying to create an event
+        if (state.url === "/events/add") {
+            if (currentUser) {
+                if (this.authenticationService.approvedToPostEvents) { return true; };
+            }
+            this.router.navigate(['/home']);
+            return false;
+        }
+
         if (currentUser) {
             // logged in so return true
             return true;
