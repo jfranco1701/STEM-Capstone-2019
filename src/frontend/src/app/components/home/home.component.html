@@ -19,4 +19,25 @@
     </swiper>
     <mat-divider></mat-divider>
   </div>
+
+  <div *ngFor="let event of otherEvents">
+    <div>
+      <h3>Other Events</h3><br>
+    </div>
+
+    <swiper [config]="config">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
+              </app-event-list>
+            </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper>
+    <mat-divider></mat-divider>
+  </div>
 </div>

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   events: Event[];
   categories: Tag[];
   tevents: Event[];
+  otherEvents: Event[];
   error: string;
   imageSource: string;
   mySlideOptions = { dots: false, nav: true};
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private eventService: EventService,
               private authenticationService: AuthenticationService) {
                 this.categories = [];
+                this.otherEvents = [];
               }
 
   ngOnInit() {
@@ -72,9 +74,15 @@ export class HomeComponent implements OnInit {
       .subscribe(events => {
         this.events = events;
         this.events.forEach(event => {
-          event.tags.forEach(tag => {
-            if (!this.categories.includes(tag)) { this.categories.push(tag); }
-          });
+          // check if the event has tags
+          if (event.tags.length > 0) {
+            event.tags.forEach(tag => {
+              if (!this.categories.includes(tag)) { this.categories.push(tag); }
+            });
+          } else {
+            // add the event to a list of "other" events if there are no tags
+            this.otherEvents.push(event);
+          }
         });
       });
   }
