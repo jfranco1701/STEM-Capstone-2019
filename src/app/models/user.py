@@ -57,6 +57,12 @@ class User(AbstractUser):
     def role(self):
         return self.get_user_type_display().capitalize()
 
+    def get_approved_to_post_events(self):
+        if self.organization:
+            if self.organization.approved and self.approved_to_post_events:
+                return True
+        return False
+
     def unlock_account(self):
         if not self.account_locked:
             return None
