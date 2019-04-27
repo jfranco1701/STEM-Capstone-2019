@@ -51,10 +51,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return user
 
     def get_approved_to_post_events(self, user):
-        if user.organization:
-            if user.organization.approved and user.approved_to_post_events:
-                return True
-        return False
+        return user.get_approved_to_post_events()
 
     def validate_username(self, value):
         return bleach.clean(value)
