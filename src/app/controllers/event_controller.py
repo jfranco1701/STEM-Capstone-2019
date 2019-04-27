@@ -1,11 +1,17 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated, BasePermission
 from datetime import date
 
 from app.models.event import Event
 from app.serializers.event_serializer import EventSerializer
+
+class EventCreation(BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_authenticated:
+            return request.user.get_approved_to_post_events()
+        return False
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
@@ -21,6 +27,8 @@ class EventViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.request.method == 'GET':
             self.permission_classes = [AllowAny,]
+        elif self.request.method == 'POST':
+            self.permission_classes = [EventCreation,]
         return super(EventViewSet, self).get_permissions()
 
     def perform_create(self, serializer):
