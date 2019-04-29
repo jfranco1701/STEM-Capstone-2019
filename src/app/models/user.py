@@ -32,7 +32,7 @@ class User(AbstractUser):
     interests = models.ManyToManyField(Tag, related_name="users", blank=True)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
         user_string = ""
