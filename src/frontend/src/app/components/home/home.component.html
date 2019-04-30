@@ -20,17 +20,17 @@
     <mat-divider></mat-divider>
   </div>
 
-  <div *ngFor="let event of otherEvents">
+  <div *ngIf="otherEvents.length > 0">
     <div>
       <h3>Other Events</h3><br>
     </div>
-
+  
     <swiper [config]="config">
       <div class="swiper-wrapper">
-          <div class="swiper-slide">
-              <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
-              </app-event-list>
-            </div>
+        <div class="swiper-slide" *ngFor="let event of otherEvents">
+          <app-event-list [name]="event.name" [date]="event.date" [event_type]="event.event_type" [event_address]="event.address" [tags]="event.tags">
+          </app-event-list>
+        </div>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
