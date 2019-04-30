@@ -6,7 +6,17 @@
 (high level project goals, reuse from milestone 1, update if scope changed)
 
 ## Project Methodology
-(specific methodology followed in the project, reuse from milestone 1/2, update if scope changed)
+* Cheap
+  * Deployment/hosting/scaling
+  * Develop/Maintain
+* Predictable
+  * ORM (Object-Relational Mapping)
+  * Role-management
+  * Framework adherence
+* Secure
+  * HTTPS
+  * Permission checking
+  * Input sanitization
 
 ## Results / Findings
 (brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
