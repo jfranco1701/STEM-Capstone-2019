@@ -24,11 +24,14 @@ We believe this is an opportunity to build an experience for the next generation
   * Input sanitization
 
 ## Results / Findings
-(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings)
+(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings
 
-(bulleted lists can also be helpful to structure your results discussion)
-* outcome 1
-* outcome 2
+Gathered requirements for the application
+Built secured backend and frontend environments (with the help of JSON web tokens)
+Added the front-page UI with a navigation bar for login/logout and profile settings
+Added a user registration page which will link to the backend API
+Added a user login page which links to the backend API for authentication
+Added a page for adding new events which links to the backend API for saving to the production database
 
 ## Install Instructions (if applicable)
 ### Requirements
