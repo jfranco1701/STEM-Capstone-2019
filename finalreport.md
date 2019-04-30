@@ -24,14 +24,25 @@ We believe this is an opportunity to build an experience for the next generation
   * Input sanitization
 
 ## Results / Findings
-(brief overview of outcomes - what did you achieve?, list milestone 1/2/3 outcomes, make an effort to logically collect and organize the findings
 
-Gathered requirements for the application
-Built secured backend and frontend environments (with the help of JSON web tokens)
-Added the front-page UI with a navigation bar for login/logout and profile settings
-Added a user registration page which will link to the backend API
-Added a user login page which links to the backend API for authentication
-Added a page for adding new events which links to the backend API for saving to the production database
+We finally achieved our end goal of creating a secure web application that allows users (students, parents, educators, and counselors) to access the STEM events that are categorized and listed in their respective tagged technology. Using one of the secure Django REST and Angular framework, we were able to develop a decent web application that help parents, teachers, counselors and students connect to grow interest and march students with relevant STEM camps and programs in the Omaha community. This application will help the STEM Ecosystem organization in collecting the user interest data through which they can help the users by recommending events in their interested area. With the available fully functional features, we believe Omaha STEM Ecosystem organization can take up this project to next level with the continuation of work.
+
+In reaching end of the course work, we accomplished the following major functionalities.
+* Built secured backend and frontend environments (with the help of JSON web tokens)
+* Added the front-page UI with a navigation bar for login/logout and profile settings
+* Added a user registration page which will link to the backend API
+* Added a user login page which links to the backend API for authentication
+* Added a page for adding new events which links to the backend API for saving to the production database
+* Events are listed in their own respective tagged technology
+* Search functionality has been implemented
+* For the User Registration we are validating each input given by the user on frontend and backend.
+* For the Login functionality we are handling the sessions and token management.
+* Since the application has different users, users are constrained to activities to perform on the page based on their role such as
+  * Students cannot create child account and cannot see the parent profile
+  * Only approved educators can add new events
+  * Parents can create child accounts
+  * Only Admin can unlock the locked user account, can approve new user account.
+  * To prevent the brute force attack, implemented the password lockout feature after 3 unsuccessful login attempts.
 
 ## Install Instructions (if applicable)
 ### Requirements
