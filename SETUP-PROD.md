@@ -41,6 +41,46 @@ ng build --prod
 
 That build command will package everything up for you based on the settings we have set in the production environment file. Once that wraps up, we can start the containers!
 
+## Add environment variables
+
+In this project, we used a couple environment variables to setup the Django secret key and the Postgres admin password. Create these couple variables before starting `docker-compose`:
+
+### Django secret key
+
+Unix Systems (MacOS/Linux)
+
+    # bash
+    echo 'export STEM_SECRET_KEY="SECRET KEY HERE"' >> ~/.bashrc
+    source ~/.bashrc
+
+    # zsh
+    echo 'export STEM_SECRET_KEY="SECRET KEY HERE"' >> ~/.zshrc
+    source ~/.zshrc
+
+Windows Systems
+
+    setx STEM_SECRET_KEY "SECRET KEY HERE"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
+
+### Postgres admin password
+
+Unix Systems (MacOS/Linux)
+
+    # bash
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.bashrc
+    source ~/.bashrc
+
+    # zsh
+    echo 'export STEM_PSQL_PASSWORD="stemecosystem"' >> ~/.zshrc
+    source ~/.zshrc
+
+Windows Systems
+
+    setx STEM_PSQL_PASSWORD "stemecosystem"
+
+_Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
+
 ## Start docker-compose
 
 If you're still sitting in the `src/frontend` directory, you'll want to go back to the root directory of the project with `../../`.  Once there, you can run the following to get the Docker containers up and running:
