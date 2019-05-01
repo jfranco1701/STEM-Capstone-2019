@@ -33,7 +33,7 @@ export class EventAddComponent implements OnInit {
         name: ['', [Validators.required]],
         date: ['', [Validators.required]],
         e_type: ['', [Validators.required]],
-        tags: ['', ]
+        tags: [[], ]
       })
     });
     this.getTags();
