@@ -39,3 +39,7 @@ In reaching end of the course work, we accomplished the following major function
 ### Hinderances:
 
 * Group communication can be hit or miss with various schedule differences and conflicts.
+* Focusing on functionality outside of the planned sprint.
+* Group communication can be hit or miss with various schedule differences and conflicts.
+* Over implementing, implementing UI behavior that is annoying an/or not needed.
+* JSONAPI implementation in Angular did not go as well as we had hoped.
