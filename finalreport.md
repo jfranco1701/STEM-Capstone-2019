@@ -59,21 +59,21 @@ In reaching end of the course work, we accomplished the following major function
 The application allows orgranizations to create accounts from the registration page. New organization users will be able to login to the application, but will not be able to create events until they are approved by an administrator.
 1. With no one logged in, click the __Register__ link at the top of the page 
 2. Change the registration type from __Parent__ to __Organization__ 
-
-IMAGE HERE
-
+<img src="pics/Register.png" width="60%">
 3. Enter the form information and click __Complete Registration__
 
 ### How to Approve/Decline Organization Accounts
 An administrator must approve an organization before the user can create events.  This is accomplished from the Django Administration site.
 1. Open the Django Administration site and login as an admin user
 2. Click on __Organizations__ on the left side of the page
-IMAGE HERE
-3. A list of the organization and their status will be shown
-4. Click the checkbox at the left of the organization to review
-IMAGE HERE
+
+3. A list of the organizations and their status will be shown
+<img src="pics/Organization.png" width="60%">
+4. Click the checkbox infront of the organization to review
+<img src="pics/Org_Click.png" width="60%">
 5. Click the drop-down box at the top of the page
 6. Select either __approved__ or __declined__ and then click the __Go__ button
+<img src="pics/Org_drop-down.png" width="40%">
 
 ### How Child Accounts Get Created From Parent Accounts
 The application does not allow children to create their own accounts.  A parent must register for the site and then create accounts that be used by their children.  Each of these child accounts will be linked back to the parent and the parent can delete them at any time.
