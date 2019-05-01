@@ -36,4 +36,6 @@ In reaching end of the course work, we accomplished the following major function
  > Only Admin can unlock the locked user account, can approve new user account.
 * To prevent the brute force attack, implemented the password lockout feature after 3 unsuccessful login attempts.
 
+### Hinderances:
 
+* Group communication can be hit or miss with various schedule differences and conflicts.
