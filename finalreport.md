@@ -51,8 +51,6 @@ In reaching end of the course work, we accomplished the following major function
   * To prevent the brute force attack, implemented the password lockout feature after 3 unsuccessful login attempts.
 
 ## Setting up the Development Environment
-## Setting up your development environment
-
 _Note_: If you're using `docker-compose`, you can skip to [this section](#docker-compose-setup).
 
 ### Python virtual environment (virtualenv)
@@ -320,11 +318,11 @@ docker-compose down
 
 This guide will discuss setting up a production environment for this application.
 
-## Install NodeJS
+### Install NodeJS
 
 Download and install NodeJS from their [website](https://nodejs.org/en/). I recommend grabbing the closest version to the [frontend Dockerfile](./src/frontend/Dockerfile).
 
-## Globally install some packages
+### Globally install some packages
 
 There are a couple packages we'll need to install for Angular to play nice. These are available in the [frontend Dockerfile](./src/frontend/Dockerfile) as well but you'll need to run the following:
 
@@ -337,7 +335,7 @@ _Note_: The VM I was working with had a previous install that used `root` so I a
 
 Now that we have those pieces installed, you should be able to run `ng --version` and get some output. If you do, then Angular is installed and we can move forward!
 
-## Install application packages
+### Install application packages
 
 Next, we'll want to install all packages required for the app. To that, we'll let `npm` do its thing.
 
@@ -348,7 +346,7 @@ npm install
 
 That install might take some time but everything should install without too many issues.
 
-## Build production static files
+### Build production static files
 
 After all dependencies are installed, we can actually build the app! To do that, we can run:
 
@@ -359,11 +357,11 @@ ng build --prod
 
 That build command will package everything up for you based on the settings we have set in the production environment file. Once that wraps up, we can start the containers!
 
-## Add environment variables
+### Add environment variables
 
 In this project, we used a couple environment variables to setup the Django secret key and the Postgres admin password. Create these couple variables before starting `docker-compose`:
 
-### Django secret key
+#### Django secret key
 
 Unix Systems (MacOS/Linux)
 
@@ -381,7 +379,7 @@ Windows Systems
 
 _Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
 
-### Postgres admin password
+#### Postgres admin password
 
 Unix Systems (MacOS/Linux)
 
@@ -399,7 +397,7 @@ Windows Systems
 
 _Note_: With Windows systems, you'll have to restart your shell but you can run `set` to get a list of available environment variables and it should be listed there.
 
-## Start docker-compose
+### Start docker-compose
 
 If you're still sitting in the `src/frontend` directory, you'll want to go back to the root directory of the project with `../../`.  Once there, you can run the following to get the Docker containers up and running:
 
@@ -413,12 +411,9 @@ That command will gather everything you need for the application and spin up the
 docker-compose logs -f
 ```
 
-## Navigate to the application
+### Navigate to the application
 
 Now that our containers are up and running, we can navigate to the server URL to see our working app! Congratulations
-
-
-
 
 ## Documentation
 ### How to Create Organization Accounts
