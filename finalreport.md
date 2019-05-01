@@ -459,6 +459,6 @@ The application does not allow children to create their own accounts.  A parent 
 All attempts to login to the system, whether successful or not, will be logged by the system.  This log can be viewed from the Django Administration site.
 
 #### Viewing the Log
-1. Open the Django Administration site and login as an admin user.
-2. Click on User_login_activites on the left side of the page.
-
+1. Open the Django Administration site and login as an admin user
+2. Click on User_login_activites on the left side of the page
+3. A list of all the login attempts and the result will be displayed 
